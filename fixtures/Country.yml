@@ -1,0 +1,5 @@
+Paho\Vinuva\Models\Country:
+  canada:
+    __construct: ['CAN','Canada','@region*']
+  countries{0..50}:
+    __construct: [ '<asciify("***")>', '<name()>', '@region*']

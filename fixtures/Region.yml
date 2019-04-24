@@ -1,0 +1,18 @@
+Paho\Vinuva\Models\Region:
+  region0:
+    __construct: ['Andean']
+  region1:
+    __construct: ['Brazil']
+  region2:
+    __construct: ['Central America']
+  region3:
+    __construct: ['Non-Latin Caribbean']
+  region4:
+    __construct: ['Mexico']
+  region5:
+    __construct: ['North America']
+  region6:
+    __construct: ['Southern Cone']
+  region7:
+    __construct: ['World']
+

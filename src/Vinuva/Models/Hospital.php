@@ -1,6 +1,8 @@
 <?php
+declare(strict_types=1);
 
 namespace Paho\Vinuva\Models;
+
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -33,6 +35,11 @@ class Hospital
     {
         $this->name    = $name;
         $this->country = $country;
+    }
+
+    public function __toString()
+    {
+        return $this->name;
     }
 
     public function getId(): ?int

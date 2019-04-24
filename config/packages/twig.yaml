@@ -4,3 +4,4 @@ twig:
     strict_variables: '%kernel.debug%'
     paths:
         '%kernel.project_dir%/vendor/ns/color-admin-bundle/src/Resources/views': ColorAdmin
+        '%kernel.project_dir%/templates': App

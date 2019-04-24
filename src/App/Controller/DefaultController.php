@@ -2,20 +2,14 @@
 
 namespace App\Controller;
 
+use App\Controller\Traits\TwigRenderingTrait;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Twig\Environment;
 
 class DefaultController
 {
-    /** @var Environment */
-    private $twig;
-
-    public function __construct(Environment $twig)
-    {
-        $this->twig = $twig;
-    }
+    use TwigRenderingTrait;
 
     /**
      * @Route("/", name="homepage")
@@ -25,7 +19,6 @@ class DefaultController
      */
     public function indexAction(Request $request): Response
     {
-        $html = $this->twig->render('base.html.twig');
-        return new Response($html);
+        return $this->render('base.html.twig');
     }
 }

@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <div class="panel panel-inverse">
+        <div class="panel-heading">
+            {#<div class="panel-heading-btn">#}
+            {#<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>#}
+            {#<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>#}
+            {#<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>#}
+            {#<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>#}
+            {#</div>#}
+            <h4 class="panel-title">Enter Details</h4>
+        </div>
+
+        <div class="panel-body">
+{#            {{ form.vars.value.country }}<br/>#}
+            {{ form.vars.value.hospital }}<br/>
+            {{ form.vars.value.year }}<br/>
+            {{ form.vars.value.month }}<br/>
+
+            {{ form_start(form) }}
+            {{ form_rest(form) }}
+            <fieldset>
+                {#<legend class="m-b-15">Legend</legend>#}
+                <button type="submit" class="btn btn-sm btn-primary m-r-5 pull-right">Create</button>
+                <button type="submit" class="btn btn-sm btn-default pull-right">Cancel</button>
+            </fieldset>
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}

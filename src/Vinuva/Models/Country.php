@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Paho\Vinuva\Models;
 
@@ -47,6 +48,11 @@ class Country
         $this->id     = $id;
         $this->name   = $name;
         $this->region = $region;
+    }
+
+    public function __toString()
+    {
+        return $this->name;
     }
 
     public function getId(): string

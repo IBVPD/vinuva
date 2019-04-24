@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Paho\Vinuva\Models;
 
@@ -37,6 +38,9 @@ class User implements UserInterface
      */
     private $password;
 
+    /** @var string|null */
+    private $plainPassword;
+
     /**
      * @var string
      * @ORM\Column(name="salt",type="string")
@@ -61,7 +65,7 @@ class User implements UserInterface
         $this->name    = $name;
         $this->email   = $email;
         $this->country = $country;
-        $this->salt    = sha256(sprintf('{%s}(%s)-%s',$name,$email,uniqid('vinuva-user', true)));
+        $this->salt    = hash('sha256', sprintf('{%s}(%s)-%s',$name,$email,uniqid('vinuva-user', true)));
     }
 
     public function getId(): ?int
@@ -87,6 +91,16 @@ class User implements UserInterface
     public function setEmail(string $email): void
     {
         $this->email = $email;
+    }
+
+    public function getPlainPassword(): ?string
+    {
+        return $this->plainPassword;
+    }
+
+    public function setPlainPassword(?string $plainPassword): void
+    {
+        $this->plainPassword = $plainPassword;
     }
 
     public function setPassword(?string $password): void

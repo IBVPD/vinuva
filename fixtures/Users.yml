@@ -1,0 +1,7 @@
+Paho\Vinuva\Models\User:
+  gnat:
+    __construct: ['Nathanael Noblet', 'nathanael@noblet.ca', '@canada']
+    plainPassword: '12345678'
+  users{0..10}:
+    __construct: ['<name()>', '<email()>', '@countries*']
+    plainPassword: '12345678'
