@@ -26,7 +26,7 @@ class RotavirusController
     use GeneralControllerTrait;
 
     /**
-     * @Route("/create",name="rotavirusCreate")
+     * @Route("/create", name="rotavirusCreate")
      * @param RotavirusRepository $repository
      * @param Messages            $flash
      * @param Request             $request

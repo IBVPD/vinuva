@@ -1,7 +1,14 @@
 Paho\Vinuva\Models\User:
   gnat:
-    __construct: ['Nathanael Noblet', 'nathanael@noblet.ca', '@canada']
+    __factory: { 'Paho\Vinuva\Models\User::createAdmin': ['Nathanael Noblet','nathanael@noblet.ca'] }
     plainPassword: '12345678'
-  users{0..10}:
-    __construct: ['<name()>', '<email()>', '@countries*']
+  verifier{0..3}:
+    __factory: { 'Paho\Vinuva\Models\User::createVerifier': ['<name()>', '<email()>', '@countries*'] }
     plainPassword: '12345678'
+  collector{0..3}:
+    __factory: { 'Paho\Vinuva\Models\User::createCollector': ['<name()>', '<email()>', '@countries*'] }
+    plainPassword: '12345678'
+  reader{0..3}:
+    __factory: { 'Paho\Vinuva\Models\User::createReader': ['<name()>', '<email()>', '@countries*' ] }
+    plainPassword: '12345678'
+

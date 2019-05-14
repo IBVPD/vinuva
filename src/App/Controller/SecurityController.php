@@ -17,7 +17,7 @@ class SecurityController
     use TwigRenderingTrait;
 
     /**
-     * @Route("/login",name="login")
+     * @Route("/login", name="login")
      *
      * @param AuthenticationUtils $helper
      *

@@ -1,0 +1,5 @@
+color_admin:
+  use_knp_menu: true
+  templates:
+    theme: material
+    theme_color: blue

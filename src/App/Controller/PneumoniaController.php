@@ -26,7 +26,7 @@ class PneumoniaController
     use GeneralControllerTrait;
 
     /**
-     * @Route("/create",name="pneumoniaCreate")
+     * @Route("/create", name="pneumoniaCreate")
      * @param PneumoniaRepository $repository
      * @param Messages            $flash
      * @param Request             $request

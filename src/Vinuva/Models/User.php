@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace Paho\Vinuva\Models;
 
+use InvalidArgumentException;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -12,6 +13,19 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class User implements UserInterface
 {
+    public const
+        ROLE_ADMIN = 1,
+        ROLE_VERIFIER = 2,
+        ROLE_COLLECTOR = 3,
+        ROLE_READER = 4;
+
+    public static $roles = [
+        self::ROLE_ADMIN => 'ROLE_ADMIN',
+        self::ROLE_VERIFIER => 'ROLE_VERIFIER',
+        self::ROLE_COLLECTOR => 'ROLE_COLLECTOR',
+        self::ROLE_READER => 'ROLE_READER',
+    ];
+
     /**
      * @var int|null
      * @ORM\Column(name="id",type="integer")
@@ -25,6 +39,12 @@ class User implements UserInterface
      * @ORM\Column(name="name",type="string", length=128)
      */
     private $name;
+
+    /**
+     * @var int
+     * @ORM\Column(name="role",type="integer")
+     */
+    private $role;
 
     /**
      * @var string
@@ -60,12 +80,50 @@ class User implements UserInterface
      */
     private $hospital;
 
-    public function __construct(string $name, string $email, Country $country)
+    private function __construct(string $name, string $email, int $role)
     {
-        $this->name    = $name;
-        $this->email   = $email;
-        $this->country = $country;
-        $this->salt    = hash('sha256', sprintf('{%s}(%s)-%s',$name,$email,uniqid('vinuva-user', true)));
+        if (!array_key_exists($role, self::$roles)) {
+            throw new InvalidArgumentException(sprintf('Invalid Role %s not in %s', $role, implode(', ', self::$roles)));
+        }
+
+        $this->name  = $name;
+        $this->email = $email;
+        $this->role  = $role;
+        $this->salt  = hash('sha256', sprintf('{%s}(%s)-%s', $name, $email, uniqid('vinuva-user', true)));
+    }
+
+    public static function createAdmin(string $name, string $email): self
+    {
+        return new self($name, $email, self::ROLE_ADMIN);
+    }
+
+    public static function createVerifier(string $name, string $email, Country $country): self
+    {
+        $obj          = new self($name, $email, self::ROLE_VERIFIER);
+        $obj->country = $country;
+
+        return $obj;
+    }
+
+    public static function createCollector(string $name, string $email, Country $country): self
+    {
+        $obj          = new self($name, $email, self::ROLE_COLLECTOR);
+        $obj->country = $country;
+
+        return $obj;
+    }
+
+    public static function createReader(string $name, string $email, Country $country): self
+    {
+        $obj          = new self($name, $email, self::ROLE_READER);
+        $obj->country = $country;
+
+        return $obj;
+    }
+
+    public function __toString(): string
+    {
+        return $this->name;
     }
 
     public function getId(): ?int
@@ -91,6 +149,20 @@ class User implements UserInterface
     public function setEmail(string $email): void
     {
         $this->email = $email;
+    }
+
+    public function getRole(): int
+    {
+        return $this->role;
+    }
+
+    public function setRole(int $role): void
+    {
+        if (!in_array($role, static::$roles, true)) {
+            throw new InvalidArgumentException('Invalid Role');
+        }
+
+        $this->role = $role;
     }
 
     public function getPlainPassword(): ?string
@@ -130,7 +202,7 @@ class User implements UserInterface
 
     public function getRoles(): array
     {
-        return ['ROLE_USER'];
+        return [self::$roles[$this->role]];
     }
 
     public function getPassword(): ?string

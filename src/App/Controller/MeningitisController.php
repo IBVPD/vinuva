@@ -26,7 +26,7 @@ class MeningitisController
     use GeneralControllerTrait;
 
     /**
-     * @Route("/create",name="meningitisCreate")
+     * @Route("/create", name="meningitisCreate")
      * @param MeningitisRepository $repository
      * @param Messages             $flash
      * @param Request              $request

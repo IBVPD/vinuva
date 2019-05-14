@@ -1,1 +1,25 @@
 {% extends '@ColorAdmin/layout.html.twig' %}
+
+{% block pagetitle %}CENTINELA{% endblock %}
+{% block navbar_logo_title %}New Vaccines Surveillance System - VINUVA{% endblock %}
+{% block navbar_logo %}{% endblock %}
+
+{% block header_search %}{% endblock %}
+{% block header_message_menu_button %}{% endblock %}
+{% block header_message_menu_dropdown %}{% endblock %}
+
+{% block header_user_menu_button %}
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+        <i class="fa fa-user fa-2x"></i>
+        <span class="d-none d-md-inline">{{ app.user }}</span>
+        <b class="caret"></b>
+    </a>
+{% endblock %}
+
+{% block header_user_menu_dropdown %}
+    <div class="dropdown-menu dropdown-menu-right">
+        <a href="{{ path('userProfile') }}" class="dropdown-item">Edit Profile</a>
+        <div class="dropdown-divider"></div>
+        <a href="{{ path('logout') }}" class="dropdown-item">Log Out</a>
+    </div>
+{% endblock %}

@@ -1,5 +1,10 @@
 security:
-    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+    role_hierarchy:
+        ROLE_ADMIN:     ROLE_VERIFIER
+        ROLE_VERIFIER:  ROLE_COLLECTOR
+        ROLE_COLLECTOR: ROLE_READER
+        ROLE_READER:    ROLE_USER
+
     providers:
         users:
             entity: { class: 'Paho\Vinuva\Models\User', property: 'email' }
@@ -14,10 +19,13 @@ security:
         main:
             anonymous: true
             form_login: true
-            # https://symfony.com/doc/current/security/form_login_setup.html
+            logout:
+                path:   /logout
+                target: /
 
-    # Easy way to control access for large sections of your site
-    # Note: Only the *first* access control that matches will be used
     access_control:
         - { path: ^/login$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/meningitis, roles: ROLE_COLLECTOR }
+        - { path: ^/pneumonia, roles: ROLE_COLLECTOR }
+        - { path: ^/rotavirus, roles: ROLE_COLLECTOR }
         - { path: ^/, roles: ROLE_USER }

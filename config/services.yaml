@@ -1,5 +1,6 @@
 parameters:
     locale: 'en'
+    ns.color_admin.menu_builder: App\Menu\MenuBuilder
 
 services:
     _defaults:
