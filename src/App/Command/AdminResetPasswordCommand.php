@@ -10,7 +10,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Security\Core\Encoder\EncoderFactoryInterface;
 
-class CreateAdminCommand extends Command
+class AdminResetPasswordCommand extends Command
 {
     /** @var EntityManagerInterface */
     private $entityManager;
@@ -20,7 +20,7 @@ class CreateAdminCommand extends Command
 
     public function __construct(EntityManagerInterface $entityManager, EncoderFactoryInterface $encoderFactory)
     {
-        parent::__construct('vinuva:admin:create');
+        parent::__construct('vinuva:admin:reset-password');
 
         $this->entityManager  = $entityManager;
         $this->encoderFactory = $encoderFactory;
@@ -29,7 +29,6 @@ class CreateAdminCommand extends Command
     protected function configure(): void
     {
         $this->setDefinition([
-            new InputArgument('name', InputArgument::REQUIRED),
             new InputArgument('email', InputArgument::REQUIRED),
             new InputArgument('password', InputArgument::REQUIRED),
         ]);
@@ -37,12 +36,20 @@ class CreateAdminCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): void
     {
-        $user    = User::createAdmin($input->getArgument('name'), $input->getArgument('email'));
-        $encoder = $this->encoderFactory->getEncoder($user);
-        $user->setPassword($encoder->encodePassword($input->getArgument('password'), $user->getSalt()));
+        $email = $input->getArgument('email');
+        $user  = $this->entityManager->getRepository(User::class)->findOneBy(['email' => $email]);
+
+        if (!$user) {
+            $output->writeln('<error>Unable to retrieve user</error>');
+            return;
+        }
+
+        $encoder  = $this->encoderFactory->getEncoder($user);
+        $password = $input->getArgument('password');
+        $user->setPassword($encoder->encodePassword($password, $user->getSalt()));
 
         $this->entityManager->persist($user);
         $this->entityManager->flush();
-        $output->writeln('Added');
+        $output->writeln(sprintf('Updated user %s with password %s', $email, $password));
     }
 }
