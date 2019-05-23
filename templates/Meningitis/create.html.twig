@@ -1,29 +1,26 @@
-{% extends 'base.html.twig' %}
-{% block page_js %}
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#{{ form.country.vars.id }}').change(function () {
-                console.log($(this).val());
-                $('#{{ form.hospital.vars.id }} option').prop('disabled', true).hide();
-                $('#{{ form.hospital.vars.id }} option[data-country="' + $(this).val() + '"]').prop('disabled', false).show();
-            });
-        });
-    </script>
-{% endblock %}
+{% extends 'base_disease.html.twig' %}
 
 {% block content %}
     <div class="panel panel-inverse">
         <div class="panel-heading">
-            {#<div class="panel-heading-btn">#}
-            {#<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>#}
-            {#<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>#}
-            {#<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>#}
-            {#<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>#}
-            {#</div>#}
+            <div class="panel-heading-btn">
+                <a data-toggle="collapse" href="#filters" class="btn btn-sm btn-icon btn-circle btn-warning" title="Filters"><i class="fa fa-search"></i></a>
+                <a data-toggle="modal" href="#addCountryModal" class="btn btn-sm btn-icon btn-circle btn-primary" title="Add Country"><i class="fa fa-plus"></i></a>
+            </div>
             <h4 class="panel-title">Add Meningitis</h4>
         </div>
 
         <div class="panel-body">
+            {% if filterForm is defined %}
+                <div class="collapse well filters clearfix" id="filters">
+                    {{ form_start(filterForm) }}
+                    {{ form_rest(filterForm) }}
+                    <button type="submit" class="pull-right btn btn-success"><i class="fa fa-search"></i> Search</button>
+                    <button type="submit" class="pull-left btn btn-warning" name="{{ filterForm.vars.name }}[reset]"><i class="fa fa-refresh"></i> Reset</button>
+                    {{ form_end(filterForm) }}
+                </div>
+            {% endif %}
+
             {{ form_start(form) }}
             {{ form_rest(form) }}
             <fieldset>

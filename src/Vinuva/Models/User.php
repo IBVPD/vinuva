@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace Paho\Vinuva\Models;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use InvalidArgumentException;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Doctrine\ORM\Mapping as ORM;
@@ -18,6 +20,13 @@ class User implements UserInterface
         ROLE_VERIFIER = 2,
         ROLE_COLLECTOR = 3,
         ROLE_READER = 4;
+
+    public static $roleLabels = [
+        self::ROLE_ADMIN => 'Administrator',
+        self::ROLE_VERIFIER => 'Verifier',
+        self::ROLE_COLLECTOR => 'Collector',
+        self::ROLE_READER => 'Reader',
+    ];
 
     public static $roles = [
         self::ROLE_ADMIN => 'ROLE_ADMIN',
@@ -54,7 +63,7 @@ class User implements UserInterface
 
     /**
      * @var string|null
-     * @ORM\Column(name="password",type="string")
+     * @ORM\Column(name="password",type="string", nullable=true)
      */
     private $password;
 
@@ -68,17 +77,17 @@ class User implements UserInterface
     private $salt;
 
     /**
-     * @var Country
+     * @var Country|null
      * @ORM\ManyToOne(targetEntity="Country")
      */
     private $country;
 
     /**
-     * @var Hospital|null
-     * @ORM\ManyToOne(targetEntity="Hospital")
+     * @var Collection|Hospital[]
+     * @ORM\ManyToMany(targetEntity="Hospital")
      * @ORM\JoinColumn(nullable=true)
      */
-    private $hospital;
+    private $hospitals;
 
     private function __construct(string $name, string $email, int $role)
     {
@@ -86,10 +95,11 @@ class User implements UserInterface
             throw new InvalidArgumentException(sprintf('Invalid Role %s not in %s', $role, implode(', ', self::$roles)));
         }
 
-        $this->name  = $name;
-        $this->email = $email;
-        $this->role  = $role;
-        $this->salt  = hash('sha256', sprintf('{%s}(%s)-%s', $name, $email, uniqid('vinuva-user', true)));
+        $this->hospitals = new ArrayCollection();
+        $this->name      = $name;
+        $this->email     = $email;
+        $this->role      = $role;
+        $this->salt      = hash('sha256', sprintf('{%s}(%s)-%s', $name, $email, uniqid('vinuva-user', true)));
     }
 
     public static function createAdmin(string $name, string $email): self
@@ -97,26 +107,65 @@ class User implements UserInterface
         return new self($name, $email, self::ROLE_ADMIN);
     }
 
-    public static function createVerifier(string $name, string $email, Country $country): self
+    public static function createVerifier(string $name, string $email, Country $country, ?array $hospitals): self
     {
-        $obj          = new self($name, $email, self::ROLE_VERIFIER);
-        $obj->country = $country;
+        if ($hospitals) {
+            foreach ($hospitals as $hospital) {
+                if (!$hospital instanceof Hospital) {
+                    throw new InvalidArgumentException('Invalid object');
+                }
+
+                if ($hospital->getCountry() !== $country) {
+                    throw new InvalidArgumentException('Hospitals must be from the same country');
+                }
+            }
+        }
+
+        $obj            = new self($name, $email, self::ROLE_VERIFIER);
+        $obj->country   = $country;
+        $obj->hospitals = new ArrayCollection($hospitals ?? []);
 
         return $obj;
     }
 
-    public static function createCollector(string $name, string $email, Country $country): self
+    public static function createCollector(string $name, string $email, Country $country, ?array $hospitals): self
     {
-        $obj          = new self($name, $email, self::ROLE_COLLECTOR);
-        $obj->country = $country;
+        if ($hospitals) {
+            foreach ($hospitals as $hospital) {
+                if (!$hospital instanceof Hospital) {
+                    throw new InvalidArgumentException('Invalid object');
+                }
+
+                if ($hospital->getCountry() !== $country) {
+                    throw new InvalidArgumentException('Hospitals must be from the same country');
+                }
+            }
+        }
+
+        $obj            = new self($name, $email, self::ROLE_COLLECTOR);
+        $obj->country   = $country;
+        $obj->hospitals = new ArrayCollection($hospitals ?? []);
 
         return $obj;
     }
 
-    public static function createReader(string $name, string $email, Country $country): self
+    public static function createReader(string $name, string $email, Country $country, ?array $hospitals): self
     {
-        $obj          = new self($name, $email, self::ROLE_READER);
-        $obj->country = $country;
+        if ($hospitals) {
+            foreach ($hospitals as $hospital) {
+                if (!$hospital instanceof Hospital) {
+                    throw new InvalidArgumentException('Invalid object');
+                }
+
+                if ($hospital->getCountry() !== $country) {
+                    throw new InvalidArgumentException('Hospitals must be from the same country');
+                }
+            }
+        }
+
+        $obj            = new self($name, $email, self::ROLE_READER);
+        $obj->country   = $country;
+        $obj->hospitals = new ArrayCollection($hospitals ?? []);
 
         return $obj;
     }
@@ -156,6 +205,11 @@ class User implements UserInterface
         return $this->role;
     }
 
+    public function getRoleLabel(): string
+    {
+        return self::$roleLabels[$this->role] ?? 'Unknown';
+    }
+
     public function setRole(int $role): void
     {
         if (!in_array($role, static::$roles, true)) {
@@ -180,7 +234,7 @@ class User implements UserInterface
         $this->password = $password;
     }
 
-    public function getCountry(): Country
+    public function getCountry(): ?Country
     {
         return $this->country;
     }
@@ -190,14 +244,14 @@ class User implements UserInterface
         $this->country = $country;
     }
 
-    public function getHospital(): ?Hospital
+    public function getHospitals(): Collection
     {
-        return $this->hospital;
+        return $this->hospitals;
     }
 
-    public function setHospital(?Hospital $hospital): void
+    public function setHospitals(array $hospitals): void
     {
-        $this->hospital = $hospital;
+        $this->hospitals = new ArrayCollection($hospitals);
     }
 
     public function getRoles(): array

@@ -4,6 +4,7 @@ namespace App\Menu;
 
 use Knp\Menu\FactoryInterface;
 use Knp\Menu\ItemInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 
 class MenuBuilder
@@ -14,31 +15,33 @@ class MenuBuilder
     /** @var AuthorizationCheckerInterface */
     protected $authChecker;
 
-    /**
-     * MenuBuilder constructor.
-     *
-     * @param FactoryInterface              $factory
-     * @param AuthorizationCheckerInterface $authChecker
-     */
-    public function __construct(FactoryInterface $factory, AuthorizationCheckerInterface $authChecker)
+    /** @var RequestVoter */
+    private $voter;
+
+    public function __construct(FactoryInterface $factory, AuthorizationCheckerInterface $authChecker, RequestVoter $voter)
     {
         $this->factory     = $factory;
         $this->authChecker = $authChecker;
+        $this->voter       = $voter;
     }
 
-    public function createSidebarMenu(array $options): ItemInterface
+    public function createSidebarMenu(): ItemInterface
     {
         $menu = $this->factory->createItem('root');
         if ($this->authChecker->isGranted('ROLE_ADMIN')) {
             $admin = $menu->addChild('Administration');
-            $maint = $menu->addChild('Maintenance');
+            $admin->addChild('Region', ['route' => 'adminRegionIndex']);
+            $admin->addChild('Country', ['route' => 'adminCountryIndex']);
+            $admin->addChild('Hospital', ['route' => 'adminHospitalIndex']);
+            $admin->addChild('Users', ['route' => 'adminUserIndex']);
+            $menu->addChild('Maintenance');
         }
 
         if ($this->authChecker->isGranted('ROLE_COLLECTOR')) {
-            $surv = $menu->addChild('Surveillance');
-            $surv->addChild('Meningitis', ['route' => 'meningitisCreate']);
-            $surv->addChild('Pneumonia', ['route' => 'pneumoniaCreate']);
-            $surv->addChild('Rotavirus', ['route' => 'rotavirusCreate']);
+            $surveillance = $menu->addChild('Surveillance');
+            $surveillance->addChild('Meningitis', ['route' => 'meningitisIndex']);
+            $surveillance->addChild('Pneumonia', ['route' => 'pneumoniaIndex']);
+            $surveillance->addChild('Rotavirus', ['route' => 'rotavirusIndex']);
         }
 
         $report = $menu->addChild('Reports');
@@ -50,16 +53,31 @@ class MenuBuilder
         $report->addChild('Users by Organization');
         $report->addChild('Users by Role');
 
-        $help   = $menu->addChild('Help');
+        $menu->addChild('Help');
 
         return $menu;
     }
 
-    public function createTopMenu(array $options): ItemInterface
+    public function createTopMenu(): ItemInterface
     {
         $menu = $this->factory->createItem('root');
         $menu->addChild('Profile', ['route' => 'userProfile']);
 
         return $menu;
+    }
+
+    public function getCurrentMenuItem(ItemInterface $menu, Request $request): ?ItemInterface
+    {
+        foreach ($menu as $item) {
+            if ($this->voter->matchItem($item)) {
+                return $item;
+            }
+
+            if ($item->getChildren() && $currentChild = $this->getCurrentMenuItem($item, $request)) {
+                return $currentChild;
+            }
+        }
+
+        return null;
     }
 }

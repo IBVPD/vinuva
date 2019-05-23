@@ -21,8 +21,8 @@ services:
 
     Paho\Vinuva\Repositories\MeningitisRepository:
         arguments:
-            $class: Paho\Vinuva\Models\Pneumonia
+            $class: Paho\Vinuva\Models\Meningitis
 
     Paho\Vinuva\Repositories\RotavirusRepository:
         arguments:
-            $class: Paho\Vinuva\Models\Pneumonia
+            $class: Paho\Vinuva\Models\Rotavirus

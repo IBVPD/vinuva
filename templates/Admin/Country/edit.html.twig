@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <div class="panel panel-inverse">
+        <div class="panel-heading">
+            <h4 class="panel-title">Edit {{ country }}</h4>
+        </div>
+        {{ form_start(form) }}
+        <div class="panel-body">
+            {{ form_rest(form) }}
+        </div>
+        <div class="panel-footer clearfix">
+            <button type="submit" class="btn btn-sm btn-primary m-r-5 pull-right">Edit</button>
+            <a href="{{ path('adminCountryIndex') }}" class="btn btn-sm btn-default">Cancel</a>
+        </div>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

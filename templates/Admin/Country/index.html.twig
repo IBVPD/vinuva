@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <div class="panel panel-inverse">
+        <div class="panel-heading">
+            <div class="panel-heading-btn">
+                <a data-toggle="collapse" href="#filters" class="btn btn-sm btn-icon btn-circle btn-warning" title="Filters"><i class="fa fa-search"></i></a>
+                <a data-toggle="modal" href="#addCountryModal" class="btn btn-sm btn-icon btn-circle btn-primary" title="Add Country"><i class="fa fa-plus"></i></a>
+            </div>
+            <h4 class="panel-title">Countries</h4>
+        </div>
+        <div class="panel-body">
+            <div class="collapse well filters clearfix" id="filters">
+                {{ form_start(filterForm) }}
+                {{ form_rest(filterForm) }}
+                <button type="submit" class="pull-right btn btn-success"><i class="fa fa-search"></i> Search</button>
+                <button type="submit" class="pull-left btn btn-warning" name="{{ filterForm.vars.name }}[reset]"><i class="fa fa-refresh"></i> Reset</button>
+                {{ form_end(filterForm) }}
+            </div>
+
+            <div class="table-responsive">
+                <table class="table m-b-0">
+                    <tr>
+                        <th>{{ knp_pagination_sortable(countries, 'Name', 'u.name') }}</th>
+                        <th>Region</th>
+                        <th>ISO2/FIPS</th>
+                        <th>Hospitals</th>
+                        <th>Actions</th>
+                    </tr>
+                    {% for country in countries %}
+                        <tr>
+                            <td>{{ country.name }}</td>
+                            <td>{{ country.region }}</td>
+                            <td>{{ country.iso2 }} / {{ country.fips }}</td>
+                            <td>
+                                <ul style="list-style: none;">
+                                    {% for hospital in country.hospitals %}
+                                        <li>{{ hospital }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </td>
+                            <td>
+                            <a class="btn btn-sm btn-primary" href="{{ path('adminCountryEdit', { countryId: country.id }) }}">Edit</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+        <div class="panel-footer clearfix">
+            {{ knp_pagination_render(countries) }}
+        </div>
+    </div>
+{% endblock %}
+
+{% block modal %}
+    <div id="addCountryModal" role="dialog" class="modal fade" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-md">
+            <div tabindex="-1" role="document" aria-labelledby="addCountryModalHeader" aria-describedby="addCountryModalBody" class="modal-content">
+                <header id="addCountryModalHeader" class="modal-header"><h5 class="modal-title">Create Country</h5>
+                    <button type="button" aria-label="Close" class="close" data-dismiss="modal">×</button>
+                </header>
+                {{ form_start(createForm, { action: path('adminCountryCreate') }) }}
+                <div id="addCountryModalBody" class="modal-body">
+                    {{ form_rest(createForm) }}
+                </div>
+                <footer id="addCountryModalFooter" class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Create</button>
+                </footer>
+                {{ form_end(createForm) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

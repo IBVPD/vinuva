@@ -1,5 +1,9 @@
 Paho\Vinuva\Models\Country:
   canada:
     __construct: ['CAN','Canada','@region*']
+    iso2: '<lexify("???")>'
+    fips: '<lexify("????")>'
   countries{0..50}:
-    __construct: [ '<asciify("***")>', '<name()>', '@region*']
+    __construct: [ '<lexify("???")>', '<name()>', '@region*']
+    iso2: '<lexify("???")>'
+    fips: '<lexify("????")>'

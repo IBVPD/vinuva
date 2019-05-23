@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block page_js %}
+    {{ parent() }}
+    <script type="text/javascript">
+        $(document).ready(function () {
+            let select = $('#{{ form.country.vars.id }}');
+            $('input[type="checkbox"][data-country]').parent().hide();
+            $('input[type="checkbox"][data-country="'+select.val()+'"]').parent().show();
+
+            select.change(function () {
+                $('input[type="checkbox"][data-country]').prop('checked',false).parent().hide();
+                $('input[type="checkbox"][data-country="'+$(this).val()+'"]').parent().show();
+            });
+        });
+    </script>
+{% endblock %}
+
+{% block content %}
+    <div class="panel panel-inverse">
+        <div class="panel-heading">
+            <h4 class="panel-title">Edit {{ user }}</h4>
+        </div>
+        {{ form_start(form) }}
+        <div class="panel-body">
+            {{ form_rest(form) }}
+        </div>
+        <div class="panel-footer clearfix">
+            <button type="submit" class="pull-right btn btn-success"><i class="fa fa-search"></i> Save</button>
+            <a href="{{ path('adminUserIndex') }}" class="pull-left btn btn-warning"><i class="fa fa-refresh"></i> Cancel</a>
+        </div>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

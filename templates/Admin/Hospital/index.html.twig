@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <div class="panel panel-inverse">
+        <div class="panel-heading">
+            <div class="panel-heading-btn">
+                <a data-toggle="collapse" href="#filters" class="btn btn-sm btn-icon btn-circle btn-warning" title="Filters"><i class="fa fa-search"></i></a>
+                <a data-toggle="modal" href="#addHospitalModal" class="btn btn-sm btn-icon btn-circle btn-primary" title="Add Hospital"><i class="fa fa-plus"></i></a>
+            </div>
+            <h4 class="panel-title">Hospitals</h4>
+        </div>
+        <div class="panel-body">
+            <div class="collapse well filters clearfix" id="filters">
+                {{ form_start(filterForm) }}
+                {{ form_rest(filterForm) }}
+                <button type="submit" class="pull-right btn btn-success"><i class="fa fa-search"></i> Search</button>
+                <button type="submit" class="pull-left btn btn-warning" name="{{ filterForm.vars.name }}[reset]"><i class="fa fa-refresh"></i> Reset</button>
+                {{ form_end(filterForm) }}
+            </div>
+
+            <div class="table-responsive">
+                <table class="table m-b-0">
+                    <tr>
+                        <th>{{ knp_pagination_sortable(hospitals, 'Name', 'u.name') }}</th>
+                        <th>Short / Local</th>
+                        <th>{{ knp_pagination_sortable(hospitals, 'Country', 'c.name') }}</th>
+                        <th>Actions</th>
+                    </tr>
+                    {% for hospital in hospitals %}
+                        <tr>
+                            <td>{{ hospital.name }}</td>
+                            <td>{{ hospital.short }} / {{ hospital.local }}</td>
+                            <td>{{ hospital.country }}</td>
+                            <td>
+                                <a class="btn btn-sm btn-primary" href="{{ path('adminHospitalEdit', { hospitalId: hospital.id }) }}">Edit</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+        <div class="panel-footer clearfix">
+            {{ knp_pagination_render(hospitals) }}
+        </div>
+    </div>
+{% endblock %}
+
+{% block modal %}
+    <div id="addHospitalModal" role="dialog" class="modal fade" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-md">
+            <div tabindex="-1" role="document" aria-labelledby="addHospitalModalHeader" aria-describedby="addHospitalModalBody" class="modal-content">
+                <header id="addHospitalModalHeader" class="modal-header"><h5 class="modal-title">Create Hospital</h5>
+                    <button type="button" aria-label="Close" class="close" data-dismiss="modal">×</button>
+                </header>
+                {{ form_start(createForm, { action: path('adminHospitalCreate') }) }}
+                <div id="addHospitalModalBody" class="modal-body">
+                    {{ form_rest(createForm) }}
+                </div>
+                <footer id="addHospitalModalFooter" class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Create</button>
+                </footer>
+                {{ form_end(createForm) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

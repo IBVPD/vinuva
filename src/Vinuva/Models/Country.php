@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace Paho\Vinuva\Models;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -12,12 +14,18 @@ use Doctrine\ORM\Mapping as ORM;
 class Country
 {
     /**
-     * @var string
-     * @ORM\Column(name="id", type="string", length=64)
+     * @var int|null
+     * @ORM\Column(name="id", type="integer")
      * @ORM\Id()
-     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+
+    /**
+     * @var string
+     * @ORM\Column(name="code", type="string", length=32)
+     */
+    private $code;
 
     /**
      * @var string
@@ -43,26 +51,38 @@ class Country
      */
     private $region;
 
-    public function __construct(string $id, string $name, Region $region)
+    /**
+     * @var Collection|Hospital[]
+     * @ORM\OneToMany(targetEntity="Hospital", mappedBy="country")
+     */
+    private $hospitals;
+
+    public function __construct(string $code, string $name, Region $region)
     {
-        $this->id     = $id;
-        $this->name   = $name;
-        $this->region = $region;
+        $this->code      = $code;
+        $this->name      = $name;
+        $this->region    = $region;
+        $this->hospitals = new ArrayCollection();
     }
 
-    public function __toString()
+    public function __toString(): string
     {
         return $this->name;
     }
 
-    public function getId(): string
+    public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function setId(string $id): void
+    public function getCode(): string
     {
-        $this->id = $id;
+        return $this->code;
+    }
+
+    public function setCode(string $code): void
+    {
+        $this->code = $code;
     }
 
     public function getIso2(): ?string
@@ -103,5 +123,10 @@ class Country
     public function setRegion(Region $region): void
     {
         $this->region = $region;
+    }
+
+    public function getHospitals(): Collection
+    {
+        return $this->hospitals;
     }
 }

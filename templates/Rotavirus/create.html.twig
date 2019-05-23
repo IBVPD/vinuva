@@ -1,14 +1,4 @@
-{% extends 'base.html.twig' %}
-{% block page_js %}
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#{{ form.country.vars.id }}').change(function () {
-                $('#{{ form.hospital.vars.id }} option').prop('disabled', true).hide();
-                $('#{{ form.hospital.vars.id }} option[data-country="' + $(this).val() + '"]').prop('disabled', false).show();
-            });
-        });
-    </script>
-{% endblock %}
+{% extends 'base_disease.html.twig' %}
 
 {% block content %}
     <div class="panel panel-inverse">

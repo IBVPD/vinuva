@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+{% block page_js %}
+    <script type="text/javascript">
+        $(document).ready(function () {
+        {% if filterForm is defined %}
+            let hospital = $('#{{ filterForm.hospital.vars.id }}');
+            $('#{{ filterForm.country.vars.id }}').change(function () {
+                hospital.find('option').prop('disabled', true).hide();
+                hospital.find('option[data-country="' + $(this).val() + '"]').prop('disabled', false).show();
+                if (hospital.find('option:selected').prop('disabled')) {
+                    hospital.val('');
+                }
+            });
+        {% endif %}
+        });
+    </script>
+{% endblock %}

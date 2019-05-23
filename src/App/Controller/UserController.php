@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Controller\Traits\FormFactoryControllerTrait;
 use App\Controller\Traits\GeneralControllerTrait;
 use App\Controller\Traits\TwigRenderingTrait;
+use App\Controller\Traits\UserProviderTrait;
 use App\Form\UserProfileType;
 use NS\FlashBundle\Service\Messages;
 use Paho\Vinuva\Models\User;
@@ -20,27 +21,28 @@ class UserController
     use FormFactoryControllerTrait;
     use GeneralControllerTrait;
     use TwigRenderingTrait;
+    use UserProviderTrait;
 
     /**
      * @Route("/profile", name="userProfile")
-     * @param TokenStorageInterface   $tokenStorage
      * @param EncoderFactoryInterface $encoderFactory
      * @param Messages                $flash
      * @param Request                 $request
      *
      * @return Response
      */
-    public function profileAction(TokenStorageInterface $tokenStorage, EncoderFactoryInterface $encoderFactory, Messages $flash, Request $request): Response
+    public function profileAction(EncoderFactoryInterface $encoderFactory, Messages $flash, Request $request): Response
     {
-        $form = $this->createForm(UserProfileType::class, $tokenStorage->getToken()->getUser());
+        $form = $this->createForm(UserProfileType::class, $this->getUser());
         $form->handleRequest($request);
         if ($form->isSubmitted()) {
             if ($form->isValid()) {
                 /** @var User $user */
                 $user = $form->getData();
-                if ($user->getPlainPassword()) {
+                $plainPassword = $user->getPlainPassword();
+                if ($plainPassword !== null) {
                     $encoder = $encoderFactory->getEncoder($user);
-                    $user->setPassword($encoder->encodePassword($user->getPlainPassword(), $user->getSalt()));
+                    $user->setPassword($encoder->encodePassword($plainPassword, $user->getSalt()));
                 }
 
                 $this->entityManager->persist($user);

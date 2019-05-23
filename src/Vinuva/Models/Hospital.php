@@ -26,8 +26,20 @@ class Hospital
     private $name;
 
     /**
+     * @var string
+     * @ORM\Column(name="short",type="string",length=128)
+     */
+    private $short;
+
+    /**
+     * @var string
+     * @ORM\Column(name="local",type="string",length=128)
+     */
+    private $local;
+
+    /**
      * @var Country
-     * @ORM\ManyToOne(targetEntity="Country")
+     * @ORM\ManyToOne(targetEntity="Country", inversedBy="hospitals")
      */
     private $country;
 
@@ -37,7 +49,7 @@ class Hospital
         $this->country = $country;
     }
 
-    public function __toString()
+    public function __toString(): string
     {
         return $this->name;
     }
@@ -55,6 +67,34 @@ class Hospital
     public function setName(string $name): void
     {
         $this->name = $name;
+    }
+
+    public function getShort(bool $fallback = false): string
+    {
+        if (!$this->short && $fallback) {
+            return $this->name;
+        }
+
+        return $this->short;
+    }
+
+    public function setShort(string $short): void
+    {
+        $this->short = $short;
+    }
+
+    public function getLocal(bool $fallback = false): string
+    {
+        if (!$this->local && $fallback) {
+            return $this->name;
+        }
+
+        return $this->local;
+    }
+
+    public function setLocal(string $local): void
+    {
+        $this->local = $local;
     }
 
     public function getCountry(): Country

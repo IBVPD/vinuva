@@ -1,0 +1,87 @@
+{% extends 'base_disease.html.twig' %}
+
+{% block page_js %}
+    {{ parent() }}
+    <script type="text/javascript">
+        $(document).ready(function () {
+            let hospital = $('#{{ createForm.hospital.vars.id }}');
+            $('#{{ createForm.country.vars.id }}').change(function () {
+                hospital.find('option').prop('disabled', true).hide();
+                hospital.find('option[data-country="' + $(this).val() + '"]').prop('disabled', false).show();
+                if (hospital.find('option:selected').prop('disabled')) {
+                    hospital.val('');
+                }
+            });
+        });
+    </script>
+{% endblock %}
+
+{% block content %}
+    <div class="panel panel-inverse">
+        <div class="panel-heading">
+            <div class="panel-heading-btn">
+                <a href="#panelFilters" data-toggle="collapse" class="btn btn-sm btn-icon btn-circle btn-warning" title="Filter"><i class="fa fa-search"></i></a>
+                <a href="#createDisease" data-toggle="modal" class="btn btn-sm btn-icon btn-circle btn-primary" title="Add Data"><i class="fa fa-plus"></i></a>
+            </div>
+            <h4 class="panel-title">Meningitis</h4>
+        </div>
+
+        <div class="panel-body">
+            <div class="collapse well filters clearfix" id="panelFilters">
+                {{ form_start(filterForm) }}
+                {{ form_row(filterForm.country) }}
+                {{ form_row(filterForm.hospital) }}
+                {{ form_widget(filterForm.date) }}
+                {{ form_rest(filterForm) }}
+                <button class="btn btn-warning" name="{{ filterForm.vars.name }}[reset]"><i class="fa fa-refresh"></i> Reset</button>
+                <button type="submit" class="pull-right btn btn-success"><i class="fa fa-search"></i> Search</button>
+                {{ form_end(filterForm) }}
+            </div>
+
+            <fieldset>
+                <table class="table m-b-0">
+                    <tr>
+                        <th>Region</th>
+                        <th>Country</th>
+                        <th>Hospital</th>
+                        <th>Date</th>
+                        <th>Actions</th>
+                    </tr>
+                {% for result in results %}
+                    <tr>
+                        <td>{{ result.country.region }}</td>
+                        <td>{{ result.country }}</td>
+                        <td>{{ result.hospital }}</td>
+                        <td>{{ result.year}} / {{ result.month }}</td>
+                        <td>
+                            <a class="btn btn-sm btn-primary" href="{{ path('meningitisEdit', { id: result.id }) }}">Edit</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </table>
+                {#<legend class="m-b-15">Legend</legend>#}
+            </fieldset>
+        </div>
+    </div>
+{% endblock %}
+
+{% block modal %}
+    <div id="createDisease" role="dialog" class="modal fade" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-md">
+            <div tabindex="-1" role="document" aria-labelledby="createDiseaseHeader" aria-describedby="createDiseaseBody" class="modal-content">
+                <header id="createDiseaseHeader" class="modal-header"><h5 class="modal-title"><i class="fa fa-plus"></i> Meningitis</h5>
+                    <button type="button" aria-label="Close" class="close" data-dismiss="modal">×</button>
+                </header>
+                {{ form_start(createForm, {action: path('meningitisCreate')}) }}
+                <div id="createDiseaseBody" class="modal-body">
+                    {{ form_rest(createForm) }}
+                </div>
+                <footer id="createDiseaseFooter" class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Create</button>
+                </footer>
+                {{ form_end(createForm) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

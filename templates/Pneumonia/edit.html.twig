@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'base_disease.html.twig' %}
 
 {% block content %}
     <div class="panel panel-inverse">
@@ -22,7 +22,7 @@
             <fieldset>
                 {#<legend class="m-b-15">Legend</legend>#}
                 <button type="submit" class="btn btn-sm btn-primary m-r-5 pull-right">Create</button>
-                <button type="submit" class="btn btn-sm btn-default pull-right">Cancel</button>
+                <a href="{{ path('pneumoniaIndex') }}" class="btn btn-sm btn-default pull-right">Cancel</a>
             </fieldset>
             {{ form_end(form) }}
         </div>

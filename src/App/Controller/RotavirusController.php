@@ -5,10 +5,14 @@ namespace App\Controller;
 use App\Controller\Traits\FormFactoryControllerTrait;
 use App\Controller\Traits\GeneralControllerTrait;
 use App\Controller\Traits\TwigRenderingTrait;
+use App\Controller\Traits\UserProviderTrait;
 use App\Form\BaseDiseaseType;
 use App\Form\Rotavirus\EditType;
+use App\Form\Filters\BaseDiseaseFilterType;
+use NS\FilteredPaginationBundle\FilteredPagination;
 use NS\FlashBundle\Service\Messages;
 use Paho\Vinuva\Models\Rotavirus;
+use Paho\Vinuva\Models\User;
 use Paho\Vinuva\Repositories\RotavirusRepository;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -24,6 +28,41 @@ class RotavirusController
     use TwigRenderingTrait;
     use FormFactoryControllerTrait;
     use GeneralControllerTrait;
+    use UserProviderTrait;
+
+    protected const
+        INDEX = 'rotavirus.index';
+
+    /**
+     * @Route("/", name="rotavirusIndex")
+     *
+     * @param RotavirusRepository $repository
+     * @param FilteredPagination  $pagination
+     * @param Request             $request
+     *
+     * @return Response
+     */
+    public function indexAction(RotavirusRepository $repository, FilteredPagination $pagination, Request $request): Response
+    {
+        $user = $this->getUser();
+        if (!$user instanceof User) {
+            throw new NotFoundHttpException('User not found');
+        }
+
+        $query  = $repository->getQueryBuilder($user);
+        $result = $pagination->process($request, BaseDiseaseFilterType::class, $query, self::INDEX);
+        if ($result->shouldRedirect()) {
+            return new RedirectResponse($this->router->generate('rotavirusIndex'));
+        }
+
+        $form = $this->createForm(BaseDiseaseType::class);
+
+        return $this->render('@App/Rotavirus/index.html.twig', [
+            'filterForm' => $result->getForm()->createView(),
+            'createForm' => $form->createView(),
+            'results' => $result->getPagination(),
+        ]);
+    }
 
     /**
      * @Route("/create", name="rotavirusCreate")

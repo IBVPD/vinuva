@@ -4,13 +4,14 @@ namespace App\Controller\Traits;
 
 use Paho\Vinuva\Models\User;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
+use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 
 trait UserProviderTrait
 {
     /** @var TokenStorageInterface */
     protected $tokenProvider;
 
-    /** @var User */
+    /** @var User|string|null */
     protected $user;
 
     /**
@@ -28,8 +29,9 @@ trait UserProviderTrait
      */
     protected function getUser()
     {
-        if (!$this->user) {
-            $this->user = $this->tokenProvider->getUser();
+        if ($this->user === null) {
+            $token      = $this->tokenProvider->getToken();
+            $this->user = $token instanceof TokenInterface ? $token->getUser() : null;
         }
 
         return $this->user;
