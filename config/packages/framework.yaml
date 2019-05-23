@@ -10,7 +10,7 @@ framework:
         handler_id: ~
         cookie_secure: auto
         cookie_samesite: lax
-        cookie_name: OMSVinuvaAggregatePaho
+        name: OMSVinuvaAggregatePaho
         save_path: /tmp/vinuva
     #esi: true
     #fragments: true
