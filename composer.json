@@ -6,6 +6,7 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "ext-intl": "*",
+        "ext-sodium": "*",
         "knplabs/knp-menu-bundle": "^2.2",
         "ns/color-admin-bundle": "^2.0",
         "ns/filtered-pagination-bundle": "^3.0",
