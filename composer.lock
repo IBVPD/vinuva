@@ -1754,16 +1754,16 @@
         },
         {
             "name": "ns/color-admin-bundle",
-            "version": "2.0.25",
+            "version": "2.0.26",
             "source": {
                 "type": "git",
                 "url": "https://github.com/NobletSolutions/ColorAdminBundle.git",
-                "reference": "94816fff65f485d0f372dc8ff30f4c2a4efff6a5"
+                "reference": "c6131d3f10c65a6d516d8312fdce85a75d1a64ef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NobletSolutions/ColorAdminBundle/zipball/94816fff65f485d0f372dc8ff30f4c2a4efff6a5",
-                "reference": "94816fff65f485d0f372dc8ff30f4c2a4efff6a5",
+                "url": "https://api.github.com/repos/NobletSolutions/ColorAdminBundle/zipball/c6131d3f10c65a6d516d8312fdce85a75d1a64ef",
+                "reference": "c6131d3f10c65a6d516d8312fdce85a75d1a64ef",
                 "shasum": ""
             },
             "require": {
@@ -1804,7 +1804,7 @@
             "keywords": [
                 "template"
             ],
-            "time": "2019-05-22T16:04:36+00:00"
+            "time": "2019-05-24T17:45:50+00:00"
         },
         {
             "name": "ns/filtered-pagination-bundle",
