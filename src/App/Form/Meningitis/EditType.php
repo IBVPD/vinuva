@@ -3,8 +3,8 @@
 namespace App\Form\Meningitis;
 
 use App\Form\Common\ConfirmedType;
-use App\Form\Common\ProbableType;
 use App\Form\Common\DeathCountType;
+use App\Form\Common\ProbableType;
 use NS\ColorAdminBundle\Form\Type\DatepickerType;
 use Paho\Vinuva\Models\Meningitis;
 use Symfony\Component\Form\AbstractType;

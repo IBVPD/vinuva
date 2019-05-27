@@ -4,7 +4,6 @@ declare(strict_types=1);
 namespace App\Form\Admin\User;
 
 use App\Form\Types\CountryType;
-use App\Form\Types\HospitalType;
 use App\Form\Types\RoleType;
 use Paho\Vinuva\Models\User;
 use Symfony\Component\Form\AbstractType;

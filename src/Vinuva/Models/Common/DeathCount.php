@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace Paho\Vinuva\Models\Common;
 
-use \Serializable;
+use Serializable;
 
 class DeathCount implements Serializable
 {

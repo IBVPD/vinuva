@@ -60,7 +60,7 @@ class BaseDisease
 
     /**
      * @var DateTime|null
-     * @ORM\Column(name="verified" type="date" nullable=true)
+     * @ORM\Column(name="verified", type="date", nullable=true)
      */
     private $verificationDate;
 

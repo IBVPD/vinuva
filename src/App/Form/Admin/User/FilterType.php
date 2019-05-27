@@ -21,18 +21,18 @@ class FilterType extends AbstractType
         $builder
             ->add('name', TextFilterType::class, ['condition_pattern' => FilterOperands::STRING_CONTAINS])
             ->add('role', ChoiceFilterType::class, [
-                'placeholder' => 'Please Select',
+                'placeholder' => 'Select...',
                 'choices' => ['Admin' => User::ROLE_ADMIN, 'Verifier' => User::ROLE_VERIFIER, 'Collector' => User::ROLE_COLLECTOR, 'Reader' => User::ROLE_READER],
             ])
             ->add('country', EntityFilterType::class, [
-                'placeholder' => 'Please Select...',
+                'placeholder' => 'Select...',
                 'class' => Country::class,
                 'query_builder' => static function(EntityRepository $repository) {
                     return $repository->createQueryBuilder('c')->orderBy('c.name');
                 }
             ])
             ->add('hospital', EntityFilterType::class, [
-                'placeholder' => 'Please Select...',
+                'placeholder' => 'Select...',
                 'class' => Hospital::class,
                 'query_builder' => static function(EntityRepository $repository) {
                     return $repository->createQueryBuilder('c')->orderBy('c.name');

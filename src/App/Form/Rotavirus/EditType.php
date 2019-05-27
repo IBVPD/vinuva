@@ -2,11 +2,8 @@
 
 namespace App\Form\Rotavirus;
 
-use App\Form\Common\ConfirmedType;
-use App\Form\Common\DeathCountType;
 use App\Form\Common\ProbableType;
 use NS\ColorAdminBundle\Form\Type\DatepickerType;
-use Paho\Vinuva\Models\Meningitis;
 use Paho\Vinuva\Models\Rotavirus;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
