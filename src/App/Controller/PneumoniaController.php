@@ -122,12 +122,13 @@ class PneumoniaController
                 $this->entityManager->flush();
 
                 $this->flash->addSuccess('Success', 'Case saved');
-                return new RedirectResponse($this->router->generate('pneumoniaCreate'));
+                return new RedirectResponse($this->router->generate('pneumoniaIndex'));
             }
             $this->flash->addError('Error', 'Unable to save case');
         }
         return $this->render('@App/Pneumonia/edit.html.twig', [
             'form' => $form->createView(),
+            'case' => $case,
         ]);
 
     }

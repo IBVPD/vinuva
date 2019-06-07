@@ -44,25 +44,31 @@ class BaseDisease
      * @var int|null
      * @ORM\Column(name="under5",type="integer",nullable=true)
      */
-    private $under5;
+    protected $under5;
 
     /**
      * @var string|null
      * @ORM\Column(name="notifierComments", type="text", nullable=true)
      */
-    private $notifierComments;
+    protected $notifierComments;
 
     /**
      * @var string|null
      * @ORM\Column(name="verifierComments", type="text", nullable=true)
      */
-    private $verifierComments;
+    protected $verifierComments;
+
+    /**
+     * @var bool|null
+     * @ORM\Column(name="verified", type="boolean", nullable=true)
+     */
+    protected $verified;
 
     /**
      * @var DateTime|null
-     * @ORM\Column(name="verified", type="date", nullable=true)
+     * @ORM\Column(name="verificationDate", type="date", nullable=true)
      */
-    private $verificationDate;
+    protected $verificationDate;
 
     public function __construct(Hospital $hospital, int $year, int $month)
     {
@@ -148,9 +154,17 @@ class BaseDisease
         $this->verifierComments = $verifierComments;
     }
 
+    public function setVerified(bool $verified): void
+    {
+        $this->verified = $verified;
+        if ($this->verificationDate === null) {
+            $this->verificationDate = new DateTime();
+        }
+    }
+
     public function isVerified(): bool
     {
-        return $this->verificationDate instanceof DateTime;
+        return $this->verified ?? false;
     }
 
     public function getVerificationDate(): ?DateTime

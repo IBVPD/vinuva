@@ -1,5 +1,4 @@
-<?php
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace App\Form\Rotavirus;
 
@@ -16,19 +15,28 @@ class VaccinationType extends AbstractType implements DataMapperInterface
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
+        $defaultOptions = [
+            'required' => false,
+            'wrapper_class' => 'col-md-7',
+            'label_attr' => ['class' => 'col-md-5 col-form-label'],
+            'attr' => ['class' => 'form-control m-b-5 col-12']
+        ];
+
         $builder
-            ->add('vaccinated', IntegerType::class, ['required' => false, 'attr' => ['class' => 'form-control m-b-5 col-4']])
-            ->add('notVaccinated', IntegerType::class, ['required' => false, 'attr' => ['class' => 'form-control m-b-5 col-4']])
-            ->add('noInformation', IntegerType::class, ['required' => false, 'attr' => ['class' => 'form-control m-b-5 col-4']]);
+            ->add('vaccinated', IntegerType::class, $defaultOptions)
+            ->add('notVaccinated', IntegerType::class,$defaultOptions)
+            ->add('noInformation', IntegerType::class, $defaultOptions);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
+            'required' => false,
             'data_class' => Vaccination::class,
             'empty_data' => false,
             'invalid_message' => 'Missing Required Fields',
             'error_bubbling' => false,
+            'label_attr' => ['class' => 'col-form-label'],
         ]);
     }
 

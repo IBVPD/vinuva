@@ -1,0 +1,16 @@
+<div class="note note-primary m-b-15">
+    <div class="note-icon"><i class="fa fa-info"></i></div>
+    <div class="note-content">
+        <h4><b>{{ case.country }} - {{ case.hospital }}</b></h4>
+
+        <p>
+            {{ case.year }} - {{ case.month }}<br/>
+            {{ 'Verified?:'|trans }}
+            {% if case.verified %}
+                <span class="green"><i class="fa fa-check"></i></span>
+            {% else %}
+                <span class="grey"><i class="fa fa-times"></i></span>
+            {% endif %}
+        </p>
+    </div>
+</div>

@@ -1,4 +1,5 @@
 {% extends 'base_disease.html.twig' %}
+{% form_theme form 'General/form_fields.html.twig' %}
 
 {% block content %}
     <div class="panel panel-inverse">
@@ -13,16 +14,42 @@
         </div>
 
         <div class="panel-body">
-{#            {{ form.vars.value.country }}<br/>#}
-            {{ form.vars.value.hospital }}<br/>
-            {{ form.vars.value.year }}<br/>
-            {{ form.vars.value.month }}<br/>
+            {% include 'General/base_disease_header.html.twig' %}
+
             {{ form_start(form) }}
+            {{ form_row(form.under5) }}
+            {{ form_row(form.suspected) }}
+            {{ form_row(form.suspectedWith) }}
+            {{ form_row(form.probable) }}
+
+            <div class="row">
+                <label class="col-md-12 col-form-label">No. of confirmed cases of meningitis</label>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    {{ form_label(form.under12Confirmed) }}
+                    {{ form_widget(form.under12Confirmed) }}
+                </div>
+                <div class="col-md-3">
+                    {{ form_label(form.under23Confirmed) }}
+                    {{ form_widget(form.under23Confirmed) }}
+                </div>
+                <div class="col-md-3">
+                    {{ form_label(form.under59Confirmed) }}
+                    {{ form_widget(form.under59Confirmed) }}
+                </div>
+                <div class="col-md-3">
+                    {{ form_label(form.totalConfirmed) }}
+                    {{ form_widget(form.totalConfirmed) }}
+                </div>
+            </div>
+
+
             {{ form_rest(form) }}
             <fieldset>
                 {#<legend class="m-b-15">Legend</legend>#}
-                <button type="submit" class="btn btn-sm btn-primary m-r-5 pull-right">Create</button>
-                <a href="{{ path('pneumoniaIndex') }}" class="btn btn-sm btn-default pull-right">Cancel</a>
+                <button type="submit" class="btn btn-sm btn-primary m-r-5 pull-right">{{ 'Edit'|trans }}</button>
+                <a href="{{ path('pneumoniaIndex') }}" class="btn btn-sm btn-default pull-right">{{ 'Cancel'|trans }}</a>
             </fieldset>
             {{ form_end(form) }}
         </div>

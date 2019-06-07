@@ -17,10 +17,10 @@ class DeathCountType extends AbstractType implements DataMapperInterface
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('under12', IntegerType::class, ['label' => 'Under 12 months', 'required' => false, 'attr' => ['class' => 'form-control m-b-5 col-4']])
-            ->add('under23', IntegerType::class, ['label' => '12-23 months', 'required' => false, 'attr' => ['class' => 'form-control m-b-5 col-4']])
-            ->add('under59', IntegerType::class, ['label' => '23-59 months', 'required' => false, 'attr' => ['class' => 'form-control m-b-5 col-4']])
-            ->add('total', IntegerType::class, ['label' => 'Total < 5', 'required' => false, 'attr' => ['class' => 'form-control m-b-5 col-4']]);
+            ->add('under12', IntegerType::class, ['label' => 'Under 12 months', 'required' => false, 'label_attr' => ['class' => 'col-form-label']])
+            ->add('under23', IntegerType::class, ['label' => '12-23 months', 'required' => false, 'label_attr' => ['class' => 'col-form-label']])
+            ->add('under59', IntegerType::class, ['label' => '23-59 months', 'required' => false, 'label_attr' => ['class' => 'col-form-label']])
+            ->add('total', IntegerType::class, ['label' => 'Total < 5', 'required' => false, 'label_attr' => ['class' => 'col-form-label']]);
 
         $builder->setDataMapper($this);
     }
@@ -28,6 +28,7 @@ class DeathCountType extends AbstractType implements DataMapperInterface
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
+            'required' => false,
             'data_class' => DeathCount::class,
             'empty_data' => false,
             'invalid_message' => 'All fields are required',

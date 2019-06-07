@@ -1,5 +1,4 @@
-<?php
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace App\Form\Common;
 
@@ -17,13 +16,19 @@ class ConfirmedType extends AbstractType implements DataMapperInterface
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
+        $defaultOptions = [
+            'required' => false,
+            'wrapper_class' => 'col-md-7',
+            'label_attr' => ['class' => 'col-md-5 col-form-label'],
+            'attr' => ['class' => 'form-control m-b-5 col-12']
+        ];
         $builder
-            ->add('hib', IntegerType::class, ['required' => false, 'attr' => ['class' => 'form-control m-b-5 col-4']])
-            ->add('hi', IntegerType::class, ['required' => false, 'attr' => ['class' => 'form-control m-b-5 col-4']])
-            ->add('nm', IntegerType::class, ['required' => false, 'attr' => ['class' => 'form-control m-b-5 col-4']])
-            ->add('spn', IntegerType::class, ['required' => false, 'attr' => ['class' => 'form-control m-b-5 col-4']])
-            ->add('other', IntegerType::class, ['required' => false, 'attr' => ['class' => 'form-control m-b-5 col-4']])
-            ->add('contamination', IntegerType::class, ['required' => false, 'attr' => ['class' => 'form-control m-b-5 col-4']]);
+            ->add('hib', IntegerType::class, $defaultOptions)
+            ->add('hi', IntegerType::class, $defaultOptions)
+            ->add('nm', IntegerType::class, $defaultOptions)
+            ->add('spn', IntegerType::class, $defaultOptions)
+            ->add('other', IntegerType::class, $defaultOptions)
+            ->add('contamination', IntegerType::class, ['required' => false, 'wrapper_class' => 'col-md-6', 'label_attr' => ['class' => 'col-md-6 col-form-label'], 'attr' => ['class' => 'form-control m-b-5 col-12']]);
 
         $builder->setDataMapper($this);
     }
@@ -35,6 +40,7 @@ class ConfirmedType extends AbstractType implements DataMapperInterface
             'empty_data' => false,
             'invalid_message' => 'All fields are required',
             'error_bubbling' => false,
+            'label_attr' => ['class' => 'col-form-label'],
         ]);
     }
 
@@ -44,7 +50,7 @@ class ConfirmedType extends AbstractType implements DataMapperInterface
      *
      * @throws Exception\UnexpectedTypeException if the type of the data parameter is not supported
      */
-    public function mapDataToForms($viewData, $forms)
+    public function mapDataToForms($viewData, $forms): void
     {
         if ($viewData) {
             /** @var FormInterface[] $formArray */
@@ -65,7 +71,7 @@ class ConfirmedType extends AbstractType implements DataMapperInterface
      *
      * @throws Exception\UnexpectedTypeException if the type of the data parameter is not supported
      */
-    public function mapFormsToData($forms, &$viewData)
+    public function mapFormsToData($forms, &$viewData): void
     {
         /** @var FormInterface[] $formData */
         $formData    = iterator_to_array($forms);
@@ -74,7 +80,7 @@ class ConfirmedType extends AbstractType implements DataMapperInterface
         $spn         = $formData['spn']->getData();
         $nm          = $formData['nm']->getData();
         $other       = $formData['other']->getData();
-        $contaminant = $formData['contaminant']->getData();
+        $contaminant = $formData['contamination']->getData();
         $viewData    = new Confirmed($hib, $hi, $nm, $spn, $other, $contaminant);
     }
 }

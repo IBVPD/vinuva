@@ -122,12 +122,13 @@ class RotavirusController
                 $this->entityManager->flush();
 
                 $this->flash->addSuccess('Success', 'Case saved');
-                return new RedirectResponse($this->router->generate('rotavirusCreate'));
+                return new RedirectResponse($this->router->generate('rotavirusIndex'));
             }
             $this->flash->addError('Error', 'Unable to save case');
         }
         return $this->render('@App/Rotavirus/edit.html.twig', [
             'form' => $form->createView(),
+            'case' => $case,
         ]);
 
     }

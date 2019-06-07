@@ -122,12 +122,13 @@ class MeningitisController
                 $this->entityManager->flush();
 
                 $this->flash->addSuccess('Success', 'Case saved');
-                return new RedirectResponse($this->router->generate('meningitisCreate'));
+                return new RedirectResponse($this->router->generate('meningitisIndex'));
             }
             $this->flash->addError('Error', 'Unable to save case');
         }
         return $this->render('@App/Meningitis/edit.html.twig', [
             'form' => $form->createView(),
+            'case' => $case,
         ]);
 
     }
