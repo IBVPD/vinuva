@@ -11,7 +11,7 @@ trait UserProviderTrait
     /** @var TokenStorageInterface */
     protected $tokenProvider;
 
-    /** @var User|string|null */
+    /** @var User|object|string|null */
     protected $user;
 
     /**
@@ -25,7 +25,7 @@ trait UserProviderTrait
     }
 
     /**
-     * @return User|string|null
+     * @return User|object|string|null
      */
     protected function getUser()
     {

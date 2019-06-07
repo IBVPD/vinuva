@@ -34,14 +34,15 @@ class AdminResetPasswordCommand extends Command
         ]);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): void
+    protected function execute(InputInterface $input, OutputInterface $output): ?int
     {
         $email = $input->getArgument('email');
+        /** @var User|null $user */
         $user  = $this->entityManager->getRepository(User::class)->findOneBy(['email' => $email]);
 
         if (!$user) {
             $output->writeln('<error>Unable to retrieve user</error>');
-            return;
+            return null;
         }
 
         $encoder  = $this->encoderFactory->getEncoder($user);

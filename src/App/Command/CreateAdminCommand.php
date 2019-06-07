@@ -35,7 +35,7 @@ class CreateAdminCommand extends Command
         ]);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): void
+    protected function execute(InputInterface $input, OutputInterface $output): ?int
     {
         $user    = User::createAdmin($input->getArgument('name'), $input->getArgument('email'));
         $encoder = $this->encoderFactory->getEncoder($user);
