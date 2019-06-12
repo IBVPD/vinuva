@@ -16,13 +16,21 @@
                     {{ form_widget(form.under59) }}
                 </div>
                 <div class="col-sm-3">
-                    {{ form_label(form.total) }}
-                    {{ form_widget(form.total) }}
+                    <div class="row">
+                        <div class="col-sm-6">
+                            {{ form_label(form.total) }}
+                            {{ form_widget(form.total) }}
+                        </div>
+                        <div class="col-sm-6">
+                            {{ form_row(form.totalOverride) }}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 {% endblock %}
+
 {% block death_count_row %}
     <div class="row">
         {{ form_label(form) }}
@@ -41,10 +49,115 @@
                     {{ form_widget(form.under59) }}
                 </div>
                 <div class="col-sm-3">
-                    {{ form_label(form.total) }}
-                    {{ form_widget(form.total) }}
+                    <div class="row">
+                        <div class="col-sm-6">
+                            {{ form_label(form.total) }}
+                            {{ form_widget(form.total) }}
+                        </div>
+                        <div class="col-sm-6">
+                            {{ form_row(form.totalOverride) }}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
+{% endblock %}
+
+{% block confirmed_row %}
+    {{ form_label(form) }}
+
+    <div class="row form-group m-b-0">
+        {{ form_label(form.hib) }}
+        {{ form_widget(form.hib) }}
+        {% if form.hibOverride is defined %}
+            <div class="col-5">
+                {{ form_row(form.hibOverride) }}
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="row form-group m-b-0">
+        {{ form_label(form.hi) }}
+        {{ form_widget(form.hi) }}
+        {% if form.hiOverride is defined %}
+            <div class="col-5">
+                {{ form_row(form.hiOverride) }}
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="row form-group m-b-0">
+        {{ form_label(form.nm) }}
+        {{ form_widget(form.nm) }}
+        {% if form.nmOverride is defined %}
+            <div class="col-5">
+                {{ form_row(form.nmOverride) }}
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="row form-group m-b-0">
+        {{ form_label(form.spn) }}
+        {{ form_widget(form.spn) }}
+        {% if form.spnOverride is defined %}
+            <div class="col-5">
+                {{ form_row(form.spnOverride) }}
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="row form-group m-b-0">
+        {{ form_label(form.other) }}
+        {{ form_widget(form.other) }}
+        {% if form.otherOverride is defined %}
+            <div class="col-5">
+                {{ form_row(form.otherOverride) }}
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="row form-group m-b-0">
+        {{ form_label(form.contamination) }}
+        {{ form_widget(form.contamination) }}
+        {% if form.contaminationOverride is defined %}
+            <div class="col-5">
+                {{ form_row(form.contaminationOverride) }}
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block vaccination_row %}
+    {{ form_label(form) }}
+
+    <div class="row form-group m-b-0">
+        {{ form_label(form.vaccinated) }}
+        {{ form_widget(form.vaccinated) }}
+        {% if form.vaccinatedOverride is defined %}
+            <div class="col-5">
+                {{ form_row(form.vaccinatedOverride) }}
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="row form-group m-b-0">
+        {{ form_label(form.notVaccinated) }}
+        {{ form_widget(form.notVaccinated) }}
+        {% if form.notVaccinatedOverride is defined %}
+            <div class="col-5">
+                {{ form_row(form.notVaccinatedOverride) }}
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="row form-group m-b-0">
+        {{ form_label(form.noInformation) }}
+        {{ form_widget(form.noInformation) }}
+        {% if form.noInformationOverride is defined %}
+            <div class="col-5">
+                {{ form_row(form.noInformationOverride) }}
+            </div>
+        {% endif %}
     </div>
 {% endblock %}

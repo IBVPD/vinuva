@@ -32,10 +32,10 @@ class EditType extends AbstractType
             ->add('suspected', IntegerType::class, ['label' => 'No. of suspected cases of meningitis'])
             ->add('suspectedWith', IntegerType::class, ['label' => 'No. suspected meningitis with CSF2 and forms'])
             ->add('probable', ProbableType::class, ['label' => 'No. of probable cases of meningitis'])
-            ->add('under12Confirmed', ConfirmedType::class)
-            ->add('under23Confirmed', ConfirmedType::class)
-            ->add('under59Confirmed', ConfirmedType::class)
-            ->add('totalConfirmed', ConfirmedType::class)
+            ->add('under12Confirmed', ConfirmedType::class, ['label' => 'Under 12 months'])
+            ->add('under23Confirmed', ConfirmedType::class, ['label' => '12 - 23 months'])
+            ->add('under59Confirmed', ConfirmedType::class, ['label' => '24 - 59 months'])
+            ->add('totalConfirmed', ConfirmedType::class, ['label' => 'Total < 5', 'include_override' => true])
             ->add('numberOfDeaths', DeathCountType::class)
             ->add('notifierComments', TextareaType::class, ['required' => false]);
 

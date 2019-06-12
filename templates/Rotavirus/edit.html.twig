@@ -2,15 +2,27 @@
 
 {% form_theme form 'General/form_fields.html.twig' %}
 
+{% block page_js %}
+    <script type="text/javascript" src="{{ asset('js/case.js') }}"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            sumInputs(['#{{ form.withFormAndSample.under12.vars.id }}', '#{{ form.withFormAndSample.under23.vars.id }}', '#{{ form.withFormAndSample.under59.vars.id }}'], '#{{ form.withFormAndSample.total.vars.id }}', '#{{ form.withFormAndSample.totalOverride.vars.id }}');
+
+            sumInputs(['#{{ form.positiveUnder12.vaccinated.vars.id }}', '#{{ form.positiveUnder23.vaccinated.vars.id }}', '#{{ form.positiveUnder59.vaccinated.vars.id }}'], '#{{ form.positiveTotal.vaccinated.vars.id }}', '#{{ form.positiveTotal.vaccinatedOverride.vars.id }}');
+            sumInputs(['#{{ form.positiveUnder12.notVaccinated.vars.id }}', '#{{ form.positiveUnder23.notVaccinated.vars.id }}', '#{{ form.positiveUnder59.notVaccinated.vars.id }}'], '#{{ form.positiveTotal.notVaccinated.vars.id }}', '#{{ form.positiveTotal.notVaccinatedOverride.vars.id }}');
+            sumInputs(['#{{ form.positiveUnder12.noInformation.vars.id }}', '#{{ form.positiveUnder23.noInformation.vars.id }}', '#{{ form.positiveUnder59.noInformation.vars.id }}'], '#{{ form.positiveTotal.noInformation.vars.id }}', '#{{ form.positiveTotal.noInformationOverride.vars.id }}');
+
+            sumInputs(['#{{ form.deathsUnder12.vaccinated.vars.id }}', '#{{ form.deathsUnder23.vaccinated.vars.id }}', '#{{ form.deathsUnder59.vaccinated.vars.id }}'], '#{{ form.deathsTotal.vaccinated.vars.id }}', '#{{ form.deathsTotal.vaccinatedOverride.vars.id }}');
+            sumInputs(['#{{ form.deathsUnder12.notVaccinated.vars.id }}', '#{{ form.deathsUnder23.notVaccinated.vars.id }}', '#{{ form.deathsUnder59.notVaccinated.vars.id }}'], '#{{ form.deathsTotal.notVaccinated.vars.id }}', '#{{ form.deathsTotal.notVaccinatedOverride.vars.id }}');
+            sumInputs(['#{{ form.deathsUnder12.noInformation.vars.id }}', '#{{ form.deathsUnder23.noInformation.vars.id }}', '#{{ form.deathsUnder59.noInformation.vars.id }}'], '#{{ form.deathsTotal.noInformation.vars.id }}', '#{{ form.deathsTotal.noInformationOverride.vars.id }}');
+
+        });
+    </script>
+{% endblock %}
+
 {% block content %}
     <div class="panel panel-inverse">
         <div class="panel-heading">
-            {#<div class="panel-heading-btn">#}
-            {#<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>#}
-            {#<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>#}
-            {#<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>#}
-            {#<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>#}
-            {#</div>#}
             <h4 class="panel-title">Enter Details</h4>
         </div>
 
@@ -40,8 +52,7 @@
                     {{ form_widget(form.positiveUnder59) }}
                 </div>
                 <div class="col-md-3">
-                    {{ form_label(form.positiveTotal) }}
-                    {{ form_widget(form.positiveTotal) }}
+                    {{ form_row(form.positiveTotal) }}
                 </div>
             </div>
 
@@ -62,8 +73,7 @@
                     {{ form_widget(form.deathsUnder59) }}
                 </div>
                 <div class="col-md-3">
-                    {{ form_label(form.deathsTotal) }}
-                    {{ form_widget(form.deathsTotal) }}
+                    {{ form_row(form.deathsTotal) }}
                 </div>
             </div>
 

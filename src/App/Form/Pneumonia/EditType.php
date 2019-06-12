@@ -34,10 +34,10 @@ class EditType extends AbstractType
             ->add('probable', ProbableType::class, ['label' => 'No. of probable cases of pneumonia'])
             ->add('probableWithBlood', ProbableType::class, ['label' => 'No. of probable cases with blood specimen'])
             ->add('probableWithPleural', ProbableType::class, ['label' => 'No. of probable cases with pleural fluid'])
-            ->add('under12Confirmed', ConfirmedType::class)
-            ->add('under23Confirmed', ConfirmedType::class)
-            ->add('under59Confirmed', ConfirmedType::class)
-            ->add('totalConfirmed', ConfirmedType::class)
+            ->add('under12Confirmed', ConfirmedType::class, ['label' => 'Under 12 months'])
+            ->add('under23Confirmed', ConfirmedType::class, ['label' => '12 - 23 months'])
+            ->add('under59Confirmed', ConfirmedType::class, ['label' => '24 - 59 months'])
+            ->add('totalConfirmed', ConfirmedType::class, ['label' => 'Total < 5', 'include_override' => true])
             ->add('numberOfDeaths', DeathCountType::class)
             ->add('notifierComments', TextareaType::class, ['required' => false]);
 

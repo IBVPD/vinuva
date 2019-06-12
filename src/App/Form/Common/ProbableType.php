@@ -6,6 +6,7 @@ namespace App\Form\Common;
 use Paho\Vinuva\Models\Common\Probable;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\DataMapperInterface;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
@@ -18,9 +19,11 @@ class ProbableType extends AbstractType implements DataMapperInterface
     {
         $builder
             ->add('under12', IntegerType::class, ['label' => 'Under 12 months', 'required' => false, 'label_attr' => ['class' => 'col-form-label']])
-            ->add('under23', IntegerType::class, ['label' => '12-23 months', 'required' => false, 'label_attr' => ['class' => 'col-form-label']])
-            ->add('under59', IntegerType::class, ['label' => '23-59 months', 'required' => false, 'label_attr' => ['class' => 'col-form-label']])
-            ->add('total', IntegerType::class, ['label' => 'Total < 5', 'required' => false, 'label_attr' => ['class' => 'col-form-label']]);
+            ->add('under23', IntegerType::class, ['label' => '12 - 23 months', 'required' => false, 'label_attr' => ['class' => 'col-form-label']])
+            ->add('under59', IntegerType::class, ['label' => '24 - 59 months', 'required' => false, 'label_attr' => ['class' => 'col-form-label']])
+            ->add('total', IntegerType::class, ['label' => 'Total < 5', 'required' => false, 'label_attr' => ['class' => 'col-form-label']])
+            ->add('totalOverride', CheckboxType::class, ['label' => 'Override Total', 'required' => false, 'mapped'=>false, 'label_attr' => ['class' => 'col-form-label']])
+        ;
 
         $builder->setDataMapper($this);
     }

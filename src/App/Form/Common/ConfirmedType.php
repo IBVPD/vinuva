@@ -6,6 +6,7 @@ use Paho\Vinuva\Models\Common\Confirmed;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\DataMapperInterface;
 use Symfony\Component\Form\Exception;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
@@ -16,19 +17,43 @@ class ConfirmedType extends AbstractType implements DataMapperInterface
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $defaultOptions = [
+        $defaultOptions = $options['include_override'] ? [
+            'required' => false,
+            'wrapper_class' => 'col-md-4',
+            'label_attr' => ['class' => 'col-md-3 col-form-label'],
+            'attr' => ['class' => 'form-control col-3'],
+        ] : [
             'required' => false,
             'wrapper_class' => 'col-md-7',
             'label_attr' => ['class' => 'col-md-5 col-form-label'],
-            'attr' => ['class' => 'form-control m-b-5 col-12']
+            'attr' => ['class' => 'form-control'],
         ];
+
         $builder
             ->add('hib', IntegerType::class, $defaultOptions)
             ->add('hi', IntegerType::class, $defaultOptions)
             ->add('nm', IntegerType::class, $defaultOptions)
             ->add('spn', IntegerType::class, $defaultOptions)
             ->add('other', IntegerType::class, $defaultOptions)
-            ->add('contamination', IntegerType::class, ['required' => false, 'wrapper_class' => 'col-md-6', 'label_attr' => ['class' => 'col-md-6 col-form-label'], 'attr' => ['class' => 'form-control m-b-5 col-12']]);
+            ->add('contamination', IntegerType::class, $options['include_override'] ? ['required' => false, 'label_attr' => ['class' => 'col-md-4 col-form-label'], 'attr' => ['class' => 'form-control m-b-5 col-3']] : ['required' => false, 'wrapper_class' => 'col-md-6', 'label_attr' => ['class' => 'col-md-6 col-form-label'], 'attr' => ['class' => 'form-control m-b-5 col-12']]);
+
+        if ($options['include_override']) {
+            $defaultOptions = [
+                'required' => false,
+                'label' => 'Override',
+                'mapped' => false,
+                'label_attr' => ['class' => 'col-6 col-form-label'],
+                'wrapper_class' => 'col-md-2',
+            ];
+
+            $builder
+                ->add('hibOverride', CheckboxType::class, $defaultOptions)
+                ->add('hiOverride', CheckboxType::class, $defaultOptions)
+                ->add('nmOverride', CheckboxType::class, $defaultOptions)
+                ->add('spnOverride', CheckboxType::class, $defaultOptions)
+                ->add('otherOverride', CheckboxType::class, $defaultOptions)
+                ->add('contaminationOverride', CheckboxType::class, $defaultOptions);
+        }
 
         $builder->setDataMapper($this);
     }
@@ -41,6 +66,7 @@ class ConfirmedType extends AbstractType implements DataMapperInterface
             'invalid_message' => 'All fields are required',
             'error_bubbling' => false,
             'label_attr' => ['class' => 'col-form-label'],
+            'include_override' => false,
         ]);
     }
 

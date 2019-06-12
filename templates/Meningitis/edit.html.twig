@@ -2,15 +2,25 @@
 
 {% form_theme form 'General/form_fields.html.twig' %}
 
+{% block page_js %}
+    <script type="text/javascript" src="{{ asset('js/case.js') }}"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            sumInputs(['#{{ form.probable.under12.vars.id }}', '#{{ form.probable.under23.vars.id }}', '#{{ form.probable.under59.vars.id }}'], '#{{ form.probable.total.vars.id }}', '#{{ form.probable.totalOverride.vars.id }}');
+            sumInputs(['#{{ form.numberOfDeaths.under12.vars.id }}', '#{{ form.numberOfDeaths.under23.vars.id }}', '#{{ form.numberOfDeaths.under59.vars.id }}'], '#{{ form.numberOfDeaths.total.vars.id }}', '#{{ form.numberOfDeaths.totalOverride.vars.id }}');
+            sumInputs(['#{{ form.under12Confirmed.hib.vars.id }}', '#{{ form.under23Confirmed.hib.vars.id }}', '#{{ form.under59Confirmed.hib.vars.id }}'], '#{{ form.totalConfirmed.hib.vars.id }}', '#{{ form.totalConfirmed.hibOverride.vars.id }}');
+            sumInputs(['#{{ form.under12Confirmed.hi.vars.id }}', '#{{ form.under23Confirmed.hi.vars.id }}', '#{{ form.under59Confirmed.hi.vars.id }}'], '#{{ form.totalConfirmed.hi.vars.id }}', '#{{ form.totalConfirmed.hiOverride.vars.id }}');
+            sumInputs(['#{{ form.under12Confirmed.nm.vars.id }}', '#{{ form.under23Confirmed.nm.vars.id }}', '#{{ form.under59Confirmed.nm.vars.id }}'], '#{{ form.totalConfirmed.nm.vars.id }}', '#{{ form.totalConfirmed.nmOverride.vars.id }}');
+            sumInputs(['#{{ form.under12Confirmed.spn.vars.id }}', '#{{ form.under23Confirmed.spn.vars.id }}', '#{{ form.under59Confirmed.spn.vars.id }}'], '#{{ form.totalConfirmed.spn.vars.id }}', '#{{ form.totalConfirmed.spnOverride.vars.id }}');
+            sumInputs(['#{{ form.under12Confirmed.other.vars.id }}', '#{{ form.under23Confirmed.other.vars.id }}', '#{{ form.under59Confirmed.other.vars.id }}'], '#{{ form.totalConfirmed.other.vars.id }}', '#{{ form.totalConfirmed.otherOverride.vars.id }}');
+            sumInputs(['#{{ form.under12Confirmed.contamination.vars.id }}', '#{{ form.under23Confirmed.contamination.vars.id }}', '#{{ form.under59Confirmed.contamination.vars.id }}'], '#{{ form.totalConfirmed.contamination.vars.id }}', '#{{ form.totalConfirmed.contaminationOverride.vars.id }}');
+        });
+    </script>
+{% endblock %}
+
 {% block content %}
     <div class="panel panel-inverse">
         <div class="panel-heading">
-            {#<div class="panel-heading-btn">#}
-            {#<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>#}
-            {#<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>#}
-            {#<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>#}
-            {#<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>#}
-            {#</div>#}
             <h4 class="panel-title">Enter Details</h4>
         </div>
 
@@ -39,8 +49,7 @@
                     {{ form_widget(form.under59Confirmed) }}
                 </div>
                 <div class="col-md-3">
-                    {{ form_label(form.totalConfirmed) }}
-                    {{ form_widget(form.totalConfirmed) }}
+                    {{ form_row(form.totalConfirmed) }}
                 </div>
             </div>
             {{ form_row(form.numberOfDeaths) }}

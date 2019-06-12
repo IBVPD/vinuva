@@ -32,12 +32,12 @@ class EditType extends AbstractType
             ->add('withFormAndSample', ProbableType::class, ['label' => 'No. of children with forms and stool samples collected'])
             ->add('positiveUnder12', VaccinationType::class, ['label' => 'Under 12 months'])
             ->add('positiveUnder23', VaccinationType::class, ['label' => '12 - 23 months'])
-            ->add('positiveUnder59', VaccinationType::class, ['label' => '24-59 months'])
-            ->add('positiveTotal', VaccinationType::class, ['label' => 'Total < 5'])
+            ->add('positiveUnder59', VaccinationType::class, ['label' => '24 - 59 months'])
+            ->add('positiveTotal', VaccinationType::class, ['label' => 'Total < 5', 'include_override' => true])
             ->add('deathsUnder12', VaccinationType::class, ['label' => 'Under 12 months'])
-            ->add('deathsUnder23', VaccinationType::class, ['label' => '12-23 months'])
-            ->add('deathsUnder59', VaccinationType::class, ['label' => '24-59 months'])
-            ->add('deathsTotal', VaccinationType::class, ['label' => 'Total < 5'])
+            ->add('deathsUnder23', VaccinationType::class, ['label' => '12 - 23 months'])
+            ->add('deathsUnder59', VaccinationType::class, ['label' => '24 - 59 months'])
+            ->add('deathsTotal', VaccinationType::class, ['label' => 'Total < 5', 'include_override' => true])
             ->add('notifierComments', TextareaType::class, ['required' => false]);
 
         if ($this->authChecker->isGranted('ROLE_VERIFIER')) {
