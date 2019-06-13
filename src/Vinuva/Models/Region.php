@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace Paho\Vinuva\Models;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -25,9 +27,16 @@ class Region
      */
     private $name;
 
+    /**
+     * @var Collection|Country[]
+     * @ORM\OneToMany(targetEntity="Country",mappedBy="region")
+     */
+    private $countries;
+
     public function __construct(string $name)
     {
-        $this->name = $name;
+        $this->name      = $name;
+        $this->countries = new ArrayCollection();
     }
 
     public function __toString(): string
@@ -48,5 +57,10 @@ class Region
     public function setName(string $name): void
     {
         $this->name = $name;
+    }
+
+    public function getCountries(): Collection
+    {
+        return $this->countries;
     }
 }

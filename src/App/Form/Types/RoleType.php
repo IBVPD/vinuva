@@ -12,7 +12,7 @@ class RoleType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'choices' => array_flip(User::$roles),
+            'choices' => array_flip(User::$roleLabels),
             'placeholder' => 'Select...'
         ]);
     }

@@ -77,6 +77,12 @@ class User implements UserInterface
     private $salt;
 
     /**
+     * @var bool
+     * @ORM\Column(name="active", type="boolean")
+     */
+    private $active;
+
+    /**
      * @var Country|null
      * @ORM\ManyToOne(targetEntity="Country")
      */
@@ -88,6 +94,18 @@ class User implements UserInterface
      * @ORM\JoinColumn(nullable=true)
      */
     private $hospitals;
+
+    /**
+     * @var string|null
+     * @ORM\Column(name="phone",type="string", length=128, nullable=true)
+     */
+    private $phone;
+
+    /**
+     * @var string|null
+     * @ORM\Column(name="address",type="string", nullable=true)
+     */
+    private $address;
 
     private function __construct(string $name, string $email, int $role)
     {
@@ -200,6 +218,26 @@ class User implements UserInterface
         $this->email = $email;
     }
 
+    public function getPhone(): ?string
+    {
+        return $this->phone;
+    }
+
+    public function setPhone(?string $phone): void
+    {
+        $this->phone = $phone;
+    }
+
+    public function getAddress(): ?string
+    {
+        return $this->address;
+    }
+
+    public function setAddress(?string $address): void
+    {
+        $this->address = $address;
+    }
+
     public function getRole(): int
     {
         return $this->role;
@@ -232,6 +270,16 @@ class User implements UserInterface
     public function setPassword(?string $password): void
     {
         $this->password = $password;
+    }
+
+    public function isActive(): bool
+    {
+        return $this->active;
+    }
+
+    public function setActive(bool $active): void
+    {
+        $this->active = $active;
     }
 
     public function getCountry(): ?Country

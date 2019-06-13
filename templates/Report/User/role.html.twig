@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <div class="panel panel-inverse">
+        <div class="panel-heading">
+            <div class="panel-heading-btn">
+                <a href="#panelFilters" data-toggle="collapse" class="btn btn-sm btn-icon btn-circle btn-warning" title="Filter"><i class="fa fa-search"></i></a>
+{#                <a href="#createDisease" data-toggle="modal" class="btn btn-sm btn-icon btn-circle btn-primary" title="Add Data"><i class="fa fa-plus"></i></a>#}
+            </div>
+            <h4 class="panel-title">User by Role</h4>
+        </div>
+
+        <div class="panel-body">
+            <div class="collapse well filters clearfix" id="panelFilters">
+                {{ form_start(filterForm) }}
+                {{ form_rest(filterForm) }}
+                <button class="btn btn-warning" name="{{ filterForm.vars.name }}[reset]"><i class="fa fa-refresh"></i> Reset</button>
+                <button type="submit" class="pull-right btn btn-success"><i class="fa fa-search"></i> Search</button>
+                {{ form_end(filterForm) }}
+            </div>
+
+            <fieldset>
+{#                <table class="table m-b-0">#}
+{#                    <tr>#}
+{#                        <th>Region</th>#}
+{#                        <th>Country</th>#}
+{#                        <th>Hospital</th>#}
+{#                    </tr>#}
+{#                    {% for region in results %}#}
+{#                        <tr>#}
+{#                            <td>{{ region }}</td>#}
+{#                            <td colspan="4"></td>#}
+{#                        </tr>#}
+{#                        {% for country in region.countries %}#}
+{#                            <tr>#}
+{#                                <td>&nbsp;</td>#}
+{#                                <td>{{ country }}</td>#}
+{#                                <td colspan="3">{{ country.hospitals|length }} Hospitals</td>#}
+{#                            </tr>#}
+{#                            {% for hospital in country.hospitals %}#}
+{#                                <tr>#}
+{#                                    <td colspan="2">&nbsp;</td>#}
+{#                                    <td>{{ hospital }}</td>#}
+{#                                </tr>#}
+{#                            {% endfor %}#}
+{#                        {% endfor %}#}
+{#                    {% endfor %}#}
+{#                </table>#}
+            </fieldset>
+        </div>
+    </div>
+{% endblock %}
+

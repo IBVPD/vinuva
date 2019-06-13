@@ -23,7 +23,9 @@ class CreateType extends AbstractType
             ->add('name', TextType::class)
             ->add('email', EmailType::class)
             ->add('role', RoleType::class, ['constraints' => [new NotBlank()]])
-            ->add('country', CountryType::class, ['required' => false]);
+            ->add('country', CountryType::class, ['required' => false])
+            ->add('phone', TextType::class, ['required' => false])
+            ->add('address', TextType::class, ['required' => false]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

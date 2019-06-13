@@ -47,7 +47,7 @@ class Country
 
     /**
      * @var Region
-     * @ORM\ManyToOne(targetEntity="Region")
+     * @ORM\ManyToOne(targetEntity="Region",inversedBy="countries")
      */
     private $region;
 

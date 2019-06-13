@@ -19,6 +19,7 @@ security:
         main:
             anonymous: true
             form_login: true
+            user_checker: App\Security\UserChecker
             logout:
                 path:   /logout
                 target: /

@@ -5,6 +5,7 @@ namespace App\Form\Admin\User;
 
 use Doctrine\ORM\EntityRepository;
 use Lexik\Bundle\FormFilterBundle\Filter\FilterOperands;
+use Lexik\Bundle\FormFilterBundle\Filter\Form\Type\BooleanFilterType;
 use Lexik\Bundle\FormFilterBundle\Filter\Form\Type\ChoiceFilterType;
 use Lexik\Bundle\FormFilterBundle\Filter\Form\Type\EntityFilterType;
 use Lexik\Bundle\FormFilterBundle\Filter\Form\Type\TextFilterType;
@@ -20,6 +21,7 @@ class FilterType extends AbstractType
     {
         $builder
             ->add('name', TextFilterType::class, ['condition_pattern' => FilterOperands::STRING_CONTAINS])
+            ->add('active', BooleanFilterType::class)
             ->add('role', ChoiceFilterType::class, [
                 'placeholder' => 'Select...',
                 'choices' => ['Admin' => User::ROLE_ADMIN, 'Verifier' => User::ROLE_VERIFIER, 'Collector' => User::ROLE_COLLECTOR, 'Reader' => User::ROLE_READER],

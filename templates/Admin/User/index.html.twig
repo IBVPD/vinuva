@@ -22,6 +22,7 @@
                 <table class="table m-b-0">
                     <tr>
                         <th>{{ knp_pagination_sortable(users, 'Name', 'u.name') }}</th>
+                        <th>Active?</th>
                         <th>Role</th>
                         <th>{{ knp_pagination_sortable(users, 'Country', 'c.name') }}</th>
                         <th>Hospitals</th>
@@ -29,7 +30,17 @@
                     </tr>
                     {% for user in users %}
                         <tr>
-                            <td>{{ user.name }}<br/>{{ user.email }}</td>
+                            <td>{{ user.name }}
+                                <br/>{{ user.email }}
+                                {% if user.phone %}<br/>tel: <a href="tel:{{ user.phone }}">{{ user.phone }}</a>{% endif %}
+                                {% if user.address %}<br/>{{ user.address}}{% endif %}
+                            </td>
+                            <td>{% if user.active %}
+                                    <i class="text-primary fa fa-check"></i>
+                                {% else %}
+                                    <i class="text-warning fa fa-times"></i>
+                                {% endif %}
+                            </td>
                             <td>{{ user.roleLabel }}</td>
                             <td>{{ user.country }}</td>
                             <td>

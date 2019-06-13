@@ -8,6 +8,7 @@ use App\Form\Types\HospitalType;
 use App\Form\Types\RoleType;
 use Paho\Vinuva\Models\User;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
@@ -22,8 +23,11 @@ class EditType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
+            ->add('active', CheckboxType::class, ['required' => false])
             ->add('name', TextType::class)
             ->add('email', EmailType::class)
+            ->add('phone', TextType::class, ['required' => false])
+            ->add('address', TextType::class, ['required' => false])
             ->add('role', RoleType::class, ['required' => true])
             ->add('country', CountryType::class)
             ->add('hospitals', HospitalType::class, ['multiple' => true, 'expanded' => true])
