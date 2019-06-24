@@ -29,31 +29,28 @@ class MenuBuilder
     {
         $menu = $this->factory->createItem('root');
         if ($this->authChecker->isGranted('ROLE_ADMIN')) {
-            $admin = $menu->addChild('Administration');
+            $admin = $menu->addChild('Administration')->setAttribute('icon','user-shield');
             $admin->addChild('Region', ['route' => 'adminRegionIndex']);
             $admin->addChild('Country', ['route' => 'adminCountryIndex']);
             $admin->addChild('Hospital', ['route' => 'adminHospitalIndex']);
             $admin->addChild('Users', ['route' => 'adminUserIndex']);
-            $menu->addChild('Maintenance');
         }
 
         if ($this->authChecker->isGranted('ROLE_COLLECTOR')) {
-            $surveillance = $menu->addChild('Surveillance');
+            $surveillance = $menu->addChild('Surveillance')->setAttribute('icon','project-diagram');
             $surveillance->addChild('Meningitis', ['route' => 'meningitisIndex']);
             $surveillance->addChild('Pneumonia', ['route' => 'pneumoniaIndex']);
             $surveillance->addChild('Rotavirus', ['route' => 'rotavirusIndex']);
         }
 
-        $report = $menu->addChild('Reports');
-        $report->addChild('Monthly Collection');
+        $report = $menu->addChild('Reports', ['label' => 'Reports'])->setAttribute('icon', 'chart-bar');
+        $report->addChild('Monthly Collection', ['route' => 'reportMonthlyCollection']);
         $report->addChild('Country Summary');
         $report->addChild('Hospital Summary');
-        $report->addChild('Monthly Summary');
+        $report->addChild('Monthly Summary', ['route' => 'reportMonthlySummary']);
         $report->addChild('Hospitals', ['route' => 'reportHospitalIndex']);
         $report->addChild('Users by Organization', ['route' => 'reportUserOrganization']);
         $report->addChild('Users by Role', ['route' => 'reportUserRoles']);
-
-        $menu->addChild('Help');
 
         return $menu;
     }
