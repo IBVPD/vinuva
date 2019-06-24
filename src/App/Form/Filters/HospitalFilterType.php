@@ -3,6 +3,7 @@
 namespace App\Form\Filters;
 
 use Doctrine\ORM\EntityRepository;
+use Lexik\Bundle\FormFilterBundle\Filter\Doctrine\ORMQuery;
 use Lexik\Bundle\FormFilterBundle\Filter\Form\Type\EntityFilterType;
 use Paho\Vinuva\Models\Hospital;
 use Paho\Vinuva\Models\User;
@@ -57,11 +58,17 @@ class HospitalFilterType extends AbstractType
 
                 return $repository->createQueryBuilder('h')->orderBy('h.name');
             },
+            'apply_filter' => static function (ORMQuery $filterQuery, $field, $values) {
+                if (!empty($values['value'])) {
+                    $qb = $filterQuery->getQueryBuilder();
+                    $qb->andWhere($values['alias'] . '.hospital = :filterHospital')->setParameter('filterHospital', $values['value']);
+                }
+            },
+
         ]);
 
         if ($hospitals) {
             $resolver->setDefault('data', $hospitals);
-            $resolver->setDefault('placeholder', false);
         }
     }
 

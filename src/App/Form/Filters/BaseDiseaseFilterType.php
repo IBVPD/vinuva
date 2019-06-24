@@ -6,7 +6,6 @@ use Doctrine\ORM\Query\Expr;
 use Doctrine\ORM\QueryBuilder;
 use Lexik\Bundle\FormFilterBundle\Filter\Doctrine\ORMQuery;
 use Lexik\Bundle\FormFilterBundle\Filter\Form\Type\BooleanFilterType;
-use Lexik\Bundle\FormFilterBundle\Filter\Form\Type\DateRangeFilterType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 
@@ -17,10 +16,7 @@ class BaseDiseaseFilterType extends AbstractType
         $builder
             ->add('country', CountryFilterType::class)
             ->add('hospital', HospitalFilterType::class)
-            ->add('date', DateRangeFilterType::class, [
-                'left_date_options' => ['label' => 'From'],
-                'right_date_options' => ['label' => 'To'],
-            ])
+            ->add('date', YearMonthRangeFilterType::class)
             ->add('verified', BooleanFilterType::class, [
                 'apply_filter' => static function (ORMQuery $filterQuery, string $field, array $values) {
                     if (!empty($values['value'])) {
@@ -40,4 +36,5 @@ class BaseDiseaseFilterType extends AbstractType
                 },
             ]);
     }
+
 }

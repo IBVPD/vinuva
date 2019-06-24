@@ -27,7 +27,7 @@ class Rotavirus extends BaseDisease
 
     /**
      * @var Probable|null
-     * @ORM\Embedded(class="Paho\Vinuva\Models\Common\Probable", columnPrefix="with_form_and_sample_")
+     * @ORM\Embedded(class="Paho\Vinuva\Models\Common\Probable", columnPrefix="with_form_and_sample")
      */
     private $withFormAndSample;
 

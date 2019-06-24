@@ -63,6 +63,8 @@ class AbstractRepository
             return $queryBuilder;
         }
 
+        $queryBuilder->andWhere("$alias.country = :country")->setParameter('country', $user->getCountry());
+
         $hospitalCount = count($user->getHospitals());
         if ($hospitalCount > 0) {
             if ($hospitalCount) {

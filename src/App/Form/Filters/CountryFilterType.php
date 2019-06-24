@@ -3,7 +3,9 @@
 namespace App\Form\Filters;
 
 use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\QueryBuilder;
 use Lexik\Bundle\FormFilterBundle\Filter\Form\Type\EntityFilterType;
+use Lexik\Bundle\FormFilterBundle\Filter\Query\QueryInterface;
 use Paho\Vinuva\Models\Country;
 use Paho\Vinuva\Models\User;
 use Symfony\Component\Form\AbstractType;
@@ -37,7 +39,14 @@ class CountryFilterType extends AbstractType
                     return $repository->createQueryBuilder('c')->where('c.id = :cId')->setParameter('cId', $country->getId())->orderBy('c.name');
                 }
 
-                return $repository->createQueryBuilder('c')->orderBy('c.name');
+                return $repository->createQueryBuilder('c')->innerJoin('c.hospitals','h')->orderBy('c.name');
+            },
+            'apply_filter' => static function (QueryInterface $filterQuery, $field, $values) {
+                if (!empty($values['value'])) {
+                    /** @var QueryBuilder $qb */
+                    $qb = $filterQuery->getQueryBuilder();
+                    $qb->andWhere($values['alias'].'.country = :filterCountry')->setParameter('filterCountry',$values['value']);
+                }
             },
         ]);
 

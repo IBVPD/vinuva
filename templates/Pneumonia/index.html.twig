@@ -1,20 +1,6 @@
 {% extends 'base_disease.html.twig' %}
 
-{% block page_js %}
-    {{ parent() }}
-    <script type="text/javascript">
-        $(document).ready(function () {
-            let hospital = $('#{{ createForm.hospital.vars.id }}');
-            $('#{{ createForm.country.vars.id }}').change(function () {
-                hospital.find('option').prop('disabled', true).hide();
-                hospital.find('option[data-country="' + $(this).val() + '"]').prop('disabled', false).show();
-                if (hospital.find('option:selected').prop('disabled')) {
-                    hospital.val('');
-                }
-            });
-        });
-    </script>
-{% endblock %}
+{% form_theme filterForm _self %}
 
 {% block content %}
     <div class="panel panel-inverse">
@@ -28,10 +14,10 @@
 
         <div class="panel-body">
             <div class="collapse well filters clearfix" id="panelFilters">
-                {{ form_start(filterForm) }}
+                {{ form_start(filterForm, {action: path('pneumoniaIndex') }) }}
                 {{ form_row(filterForm.country) }}
                 {{ form_row(filterForm.hospital) }}
-                {{ form_widget(filterForm.date) }}
+                {{ form_row(filterForm.date) }}
                 {{ form_rest(filterForm) }}
                 <button class="btn btn-warning" name="{{ filterForm.vars.name }}[reset]"><i class="fa fa-refresh"></i> Reset</button>
                 <button type="submit" class="pull-right btn btn-success"><i class="fa fa-search"></i> Search</button>
@@ -66,6 +52,7 @@
                         </td>
                     </tr>
                 {% endfor %}
+                    <tr><td colspan="10">{{ knp_pagination_render(results) }}</td> </tr>
                 </table>
                 {#<legend class="m-b-15">Legend</legend>#}
             </fieldset>

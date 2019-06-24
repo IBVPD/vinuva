@@ -28,7 +28,7 @@ class Meningitis extends BaseDisease
 
     /**
      * @var Probable|null
-     * @ORM\Embedded(class="Paho\Vinuva\Models\Common\Probable", columnPrefix="probable_")
+     * @ORM\Embedded(class="Paho\Vinuva\Models\Common\Probable", columnPrefix="probable")
      */
     private $probable;
 
@@ -58,7 +58,7 @@ class Meningitis extends BaseDisease
 
     /**
      * @var DeathCount|null
-     * @ORM\Embedded(class="Paho\Vinuva\Models\Common\DeathCount", columnPrefix="number_of_deaths_")
+     * @ORM\Embedded(class="Paho\Vinuva\Models\Common\DeathCount", columnPrefix="number_of_deaths")
      */
     private $numberOfDeaths;
 
