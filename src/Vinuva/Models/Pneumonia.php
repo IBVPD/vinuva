@@ -5,6 +5,8 @@ namespace Paho\Vinuva\Models;
 
 use Doctrine\ORM\Mapping as ORM;
 use Paho\Vinuva\Models\Common\DeathCount;
+use Paho\Vinuva\Models\Common\Probable;
+use Paho\Vinuva\Models\Common\Confirmed;
 
 /**
  * @ORM\Entity
@@ -25,50 +27,50 @@ class Pneumonia extends BaseDisease
     private $suspectedWith;
 
     /**
-     * @var Common\Probable|null
-     * @ORM\Column(type="object", nullable=true)
+     * @var Probable|null
+     * @ORM\Embedded(class="Paho\Vinuva\Models\Common\Probable", columnPrefix="probable")
      */
     private $probable;
 
     /**
-     * @var Common\Probable|null
-     * @ORM\Column(type="object", nullable=true)
+     * @var Probable|null
+     * @ORM\Embedded(class="Paho\Vinuva\Models\Common\Probable", columnPrefix="probable_with_blood")
      */
     private $probableWithBlood;
 
     /**
-     * @var Common\Probable|null
-     * @ORM\Column(type="object", nullable=true)
+     * @var Probable|null
+     * @ORM\Embedded(class="Paho\Vinuva\Models\Common\Probable", columnPrefix="probable_with_pleural")
      */
     private $probableWithPleural;
 
     /**
-     * @var Common\Confirmed|null
-     * @ORM\Column(type="object", nullable=true)
+     * @var Confirmed|null
+     * @ORM\Embedded(class="Paho\Vinuva\Models\Common\Confirmed", columnPrefix="u12_confirmed_")
      */
     private $under12Confirmed;
 
     /**
-     * @var Common\Confirmed|null
-     * @ORM\Column(type="object", nullable=true)
+     * @var Confirmed|null
+     * @ORM\Embedded(class="Paho\Vinuva\Models\Common\Confirmed", columnPrefix="u23_confirmed_")
      */
     private $under23Confirmed;
 
     /**
-     * @var Common\Confirmed|null
-     * @ORM\Column(type="object", nullable=true)
+     * @var Confirmed|null
+     * @ORM\Embedded(class="Paho\Vinuva\Models\Common\Confirmed", columnPrefix="u59_confirmed_")
      */
     private $under59Confirmed;
 
     /**
-     * @var Common\Confirmed|null
-     * @ORM\Column(type="object", nullable=true)
+     * @var Confirmed|null
+     * @ORM\Embedded(class="Paho\Vinuva\Models\Common\Confirmed", columnPrefix="total_confirmed_")
      */
     private $totalConfirmed;
 
     /**
      * @var Common\DeathCount|null
-     * @ORM\Column(type="object", nullable=true)
+     * @ORM\Embedded(class="Paho\Vinuva\Models\Common\DeathCount", columnPrefix="number_of_deaths")
      */
     private $numberOfDeaths;
 

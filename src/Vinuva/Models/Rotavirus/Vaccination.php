@@ -4,16 +4,29 @@ declare(strict_types=1);
 namespace Paho\Vinuva\Models\Rotavirus;
 
 use Serializable;
+use Doctrine\ORM\Mapping as ORM;
 
+/**
+ * @ORM\Embeddable()
+ */
 class Vaccination implements Serializable
 {
-    /** @var int|null */
+    /**
+     * @var int|null
+     * @ORM\Column(type="integer", nullable=true)
+     */
     private $vaccinated;
 
-    /** @var int|null */
+    /**
+     * @var int|null
+     * @ORM\Column(type="integer", nullable=true)
+     */
     private $notVaccinated;
 
-    /** @var int|null */
+    /**
+     * @var int|null
+     * @ORM\Column(type="integer", nullable=true)
+     */
     private $noInformation;
 
     public function __construct(?int $vaccinated, ?int $notVaccinated, ?int $noInformation)

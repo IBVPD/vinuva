@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace Paho\Vinuva\Models;
 
 use Doctrine\ORM\Mapping as ORM;
+use Paho\Vinuva\Models\Common\Probable;
 use Paho\Vinuva\Models\Rotavirus\Vaccination;
 
 /**
@@ -14,67 +15,67 @@ class Rotavirus extends BaseDisease
 {
     /**
      * @var int|null
-     * @ORM\Column(name="under5With",type="integer",nullable=true)
+     * @ORM\Column(name="under5With", type="integer", nullable=true)
      */
     private $under5With;
 
     /**
      * @var int|null
-     * @ORM\Column(name="suspected",type="integer",nullable=true)
+     * @ORM\Column(name="suspected", type="integer", nullable=true)
      */
     private $suspected;
 
     /**
-     * @var Common\Probable|null
-     * @ORM\Column(type="object", nullable=true)
+     * @var Probable|null
+     * @ORM\Embedded(class="Paho\Vinuva\Models\Common\Probable", columnPrefix="with_form_and_sample_")
      */
     private $withFormAndSample;
 
     /**
-     * @var Rotavirus\Vaccination|null
-     * @ORM\Column(type="object", nullable=true)
+     * @var Vaccination|null
+     * @ORM\Embedded(class="Paho\Vinuva\Models\Rotavirus\Vaccination", columnPrefix="positive_u12_")
      */
     private $positiveUnder12;
 
     /**
-     * @var Rotavirus\Vaccination|null
-     * @ORM\Column(type="object", nullable=true)
+     * @var Vaccination|null
+     * @ORM\Embedded(class="Paho\Vinuva\Models\Rotavirus\Vaccination", columnPrefix="positive_u23_")
      */
     private $positiveUnder23;
 
     /**
-     * @var Rotavirus\Vaccination|null
-     * @ORM\Column(type="object", nullable=true)
+     * @var Vaccination|null
+     * @ORM\Embedded(class="Paho\Vinuva\Models\Rotavirus\Vaccination", columnPrefix="positive_u59_")
      */
     private $positiveUnder59;
 
     /**
-     * @var Rotavirus\Vaccination|null
-     * @ORM\Column(type="object", nullable=true)
+     * @var Vaccination|null
+     * @ORM\Embedded(class="Paho\Vinuva\Models\Rotavirus\Vaccination", columnPrefix="positive_total_")
      */
     private $positiveTotal;
 
     /**
-     * @var Rotavirus\Vaccination|null
-     * @ORM\Column(type="object", nullable=true)
+     * @var Vaccination|null
+     * @ORM\Embedded(class="Paho\Vinuva\Models\Rotavirus\Vaccination", columnPrefix="death_u12_")
      */
     private $deathsUnder12;
 
     /**
-     * @var Rotavirus\Vaccination|null
-     * @ORM\Column(type="object", nullable=true)
+     * @var Vaccination|null
+     * @ORM\Embedded(class="Paho\Vinuva\Models\Rotavirus\Vaccination", columnPrefix="death_u23_")
      */
     private $deathsUnder23;
 
     /**
-     * @var Rotavirus\Vaccination|null
-     * @ORM\Column(type="object", nullable=true)
+     * @var Vaccination|null
+     * @ORM\Embedded(class="Paho\Vinuva\Models\Rotavirus\Vaccination", columnPrefix="death_u59_")
      */
     private $deathsUnder59;
 
     /**
-     * @var Rotavirus\Vaccination|null
-     * @ORM\Column(type="object", nullable=true)
+     * @var Vaccination|null
+     * @ORM\Embedded(class="Paho\Vinuva\Models\Rotavirus\Vaccination", columnPrefix="death_total_")
      */
     private $deathsTotal;
 

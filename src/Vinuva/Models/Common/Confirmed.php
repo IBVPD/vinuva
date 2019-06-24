@@ -3,24 +3,47 @@ declare(strict_types=1);
 
 namespace Paho\Vinuva\Models\Common;
 
-class Confirmed implements \Serializable
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Embeddable()
+ */
+class Confirmed //implements \Serializable
 {
-    /** @var int|null */
+    /**
+     * @var int|null
+     * @ORM\Column(type="integer", nullable=true)
+     */
     private $hib;
 
-    /** @var int|null */
+    /**
+     * @var int|null
+     * @ORM\Column(type="integer", nullable=true)
+     */
     private $hi;
 
-    /** @var int|null */
+    /**
+     * @var int|null
+     * @ORM\Column(type="integer", nullable=true)
+     */
     private $nm;
 
-    /** @var int|null */
+    /**
+     * @var int|null
+     * @ORM\Column(type="integer", nullable=true)
+     */
     private $spn;
 
-    /** @var int|null */
+    /**
+     * @var int|null
+     * @ORM\Column(type="integer", nullable=true)
+     */
     private $other;
 
-    /** @var int|null */
+    /**
+     * @var int|null
+     * @ORM\Column(type="integer", nullable=true)
+     */
     private $contamination;
 
     public function __construct(?int $hib, ?int $hi, ?int $nm, ?int $spn, ?int $other, ?int $contamination)
