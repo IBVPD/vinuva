@@ -114,6 +114,7 @@ class User implements UserInterface
         }
 
         $this->hospitals = new ArrayCollection();
+        $this->active    = true;
         $this->name      = $name;
         $this->email     = $email;
         $this->role      = $role;
