@@ -1,0 +1,439 @@
+{% macro meningitis_summary(class, cases) %}
+    <tr class="info">
+        <th colspan="2">{{ class }}</th>
+        <th>{{ 'Jan'|trans }}</th>
+        <th>{{ 'Feb'|trans }}</th>
+        <th>{{ 'Mar'|trans }}</th>
+        <th>{{ 'Apr'|trans }}</th>
+        <th>{{ 'May'|trans }}</th>
+        <th>{{ 'Jun'|trans }}</th>
+        <th>{{ 'Jul'|trans }}</th>
+        <th>{{ 'Aug'|trans }}</th>
+        <th>{{ 'Sep'|trans }}</th>
+        <th>{{ 'Oct'|trans }}</th>
+        <th>{{ 'Nov'|trans }}</th>
+        <th>{{ 'Dec'|trans }}</th>
+        <th>{{ 'Total'|trans }}</th>
+    </tr>
+    {% set lastCountry = null %}
+    {% set lastYear = null %}
+    {% for case in cases %}
+        {% if lastCountry != case.country %}
+            {% set lastCountry = case.country %}
+            {% set lastYear = case.year %}
+            <tr class="success">
+                <th>{{ case.country }}</th>
+                <th>{{ case.year }}</th>
+                <th colspan="13"></th>
+            </tr>
+        {% endif %}
+
+        {% if lastYear != case.year %}
+            <tr class="success">
+                <th></th>
+                <th>{{ case.year }}</th>
+                <th colspan="13"></th>
+            </tr>
+        {% endif %}
+
+        <tr>
+            <th colspan="2">Hospitalized</th>
+            {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
+                <td>{{ case.under5(month) }}</td>
+            {% endfor %}
+        </tr>
+        <tr>
+            <th colspan="2">Suspected</th>
+            {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
+                <td>{{ case.suspected(month) }}</td>
+            {% endfor %}
+        </tr>
+        <tr>
+            <th colspan="2">Suspected With</th>
+            {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
+                <td>{{ case.suspectedWith(month) }}</td>
+            {% endfor %}
+        </tr>
+        {% for key in [12,23,59,'total'] %}
+            <tr>
+                <th colspan="2">Probable {{ key }}</th>
+                {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
+                    <td>{{ case.probable.get(key, month) }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+        <tr>
+            <th colspan="19">Confirmed Under 12</th>
+        </tr>
+        {% for key in ['hib','hi','nm','spn','other','contaminant','total'] %}
+            <tr>
+                <th></th>
+                <th>{{ key }}</th>
+                {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
+                    <td>{{ case.under12Confirmed.get(key, month) }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+
+        <tr>
+            <th colspan="19">Confirmed Under 23</th>
+        </tr>
+        {% for key in ['hib','hi','nm','spn','other','contaminant','total'] %}
+            <tr>
+                <th></th>
+                <th>{{ key }}</th>
+                {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
+                    <td>{{ case.under23Confirmed.get(key, month) }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+
+        <tr>
+            <th colspan="19">Confirmed 23-59</th>
+        </tr>
+        {% for key in ['hib','hi','nm','spn','other','contaminant','total'] %}
+            <tr>
+                <th></th>
+                <th>{{ key }}</th>
+                {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
+                    <td>{{ case.under59Confirmed.get(key, month) }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+
+        <tr>
+            <th colspan="19">Total Confirmed</th>
+        </tr>
+        {% for key in ['hib','hi','nm','spn','other','contaminant','total'] %}
+            <tr>
+                <th></th>
+                <th>{{ key }}</th>
+                {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
+                    <td>{{ case.totalConfirmed.get(key, month) }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+
+        {% for key in [12,23,59,'total'] %}
+            <tr>
+                <th colspan="2">Number of Deaths {{ key }}</th>
+                {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
+                    <td>{{ case.numberOfDeaths.get(key, month) }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    {% endfor %}
+{% endmacro %}
+
+{% macro pneumonia_summary(class, cases) %}
+    <tr class="info">
+        <th colspan="2">{{ class }}</th>
+        <th>{{ 'Jan'|trans }}</th>
+        <th>{{ 'Feb'|trans }}</th>
+        <th>{{ 'Mar'|trans }}</th>
+        <th>{{ 'Apr'|trans }}</th>
+        <th>{{ 'May'|trans }}</th>
+        <th>{{ 'Jun'|trans }}</th>
+        <th>{{ 'Jul'|trans }}</th>
+        <th>{{ 'Aug'|trans }}</th>
+        <th>{{ 'Sep'|trans }}</th>
+        <th>{{ 'Oct'|trans }}</th>
+        <th>{{ 'Nov'|trans }}</th>
+        <th>{{ 'Dec'|trans }}</th>
+        <th>{{ 'Total'|trans }}</th>
+    </tr>
+    {% set lastCountry = null %}
+    {% set lastYear = null %}
+    {% for case in cases %}
+        {% if lastCountry != case.country %}
+            {% set lastCountry = case.country %}
+            {% set lastYear = case.year %}
+            <tr class="success">
+                <th>{{ case.country }}</th>
+                <th>{{ case.year }}</th>
+                <th colspan="13"></th>
+            </tr>
+        {% endif %}
+
+        {% if lastYear != case.year %}
+            <tr class="success">
+                <th></th>
+                <th>{{ case.year }}</th>
+                <th colspan="13"></th>
+            </tr>
+        {% endif %}
+
+        <tr>
+            <th colspan="2">Hospitalized</th>
+            {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
+                <td>{{ case.under5(month) }}</td>
+            {% endfor %}
+        </tr>
+        <tr>
+            <th colspan="2">Suspected</th>
+            {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
+                <td>{{ case.suspected(month) }}</td>
+            {% endfor %}
+        </tr>
+        <tr>
+            <th colspan="2">Suspected With</th>
+            {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
+                <td>{{ case.suspectedWith(month) }}</td>
+            {% endfor %}
+        </tr>
+        {% for key in [12,23,59,'total'] %}
+            <tr>
+                <th colspan="2">Probable {{ key }}</th>
+                {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
+                    <td>{{ case.probable.get(key, month) }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+
+
+        {% for key in [12,23,59,'total'] %}
+            <tr>
+                <th colspan="2">Probable With Blood {{ key }}</th>
+                {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
+                    <td>{{ case.probableWithBlood.get(key, month) }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+
+        {% for key in [12,23,59,'total'] %}
+            <tr>
+                <th colspan="2">Probable With Pleural {{ key }}</th>
+                {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
+                    <td>{{ case.probableWithPleural.get(key, month) }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+        <tr>
+            <th colspan="19">Confirmed Under 12</th>
+        </tr>
+        {% for key in ['hib','hi','nm','spn','other','contaminant','total'] %}
+            <tr>
+                <th></th>
+                <th>{{ key }}</th>
+                {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
+                    <td>{{ case.under12Confirmed.get(key, month) }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+
+        <tr>
+            <th colspan="19">Confirmed Under 23</th>
+        </tr>
+        {% for key in ['hib','hi','nm','spn','other','contaminant','total'] %}
+            <tr>
+                <th></th>
+                <th>{{ key }}</th>
+                {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
+                    <td>{{ case.under23Confirmed.get(key, month) }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+
+        <tr>
+            <th colspan="19">Confirmed 23-59</th>
+        </tr>
+        {% for key in ['hib','hi','nm','spn','other','contaminant','total'] %}
+            <tr>
+                <th></th>
+                <th>{{ key }}</th>
+                {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
+                    <td>{{ case.under59Confirmed.get(key, month) }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+
+        <tr>
+            <th colspan="19">Total Confirmed</th>
+        </tr>
+        {% for key in ['hib','hi','nm','spn','other','contaminant','total'] %}
+            <tr>
+                <th></th>
+                <th>{{ key }}</th>
+                {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
+                    <td>{{ case.totalConfirmed.get(key, month) }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+
+        {% for key in [12,23,59,'total'] %}
+            <tr>
+                <th colspan="2">Number of Deaths {{ key }}</th>
+                {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
+                    <td>{{ case.numberOfDeaths.get(key, month) }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    {% endfor %}
+{% endmacro %}
+
+{% macro rotavirus_summary(class, cases) %}
+    <tr class="info">
+        <th colspan="2">{{ class }}</th>
+        <th>{{ 'Jan'|trans }}</th>
+        <th>{{ 'Feb'|trans }}</th>
+        <th>{{ 'Mar'|trans }}</th>
+        <th>{{ 'Apr'|trans }}</th>
+        <th>{{ 'May'|trans }}</th>
+        <th>{{ 'Jun'|trans }}</th>
+        <th>{{ 'Jul'|trans }}</th>
+        <th>{{ 'Aug'|trans }}</th>
+        <th>{{ 'Sep'|trans }}</th>
+        <th>{{ 'Oct'|trans }}</th>
+        <th>{{ 'Nov'|trans }}</th>
+        <th>{{ 'Dec'|trans }}</th>
+        <th>{{ 'Total'|trans }}</th>
+    </tr>
+    {% set lastCountry = null %}
+    {% set lastYear = null %}
+    {% for case in cases %}
+        {% if lastCountry != case.country %}
+            {% set lastCountry = case.country %}
+            {% set lastYear = case.year %}
+            <tr class="success">
+                <th>{{ case.country }}</th>
+                <th>{{ case.year }}</th>
+                <th colspan="13"></th>
+            </tr>
+        {% endif %}
+
+        {% if lastYear != case.year %}
+            <tr class="success">
+                <th></th>
+                <th>{{ case.year }}</th>
+                <th colspan="13"></th>
+            </tr>
+        {% endif %}
+
+        <tr>
+            <th colspan="2">Hospitalized</th>
+            {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
+                <td>{{ case.under5(month) }}</td>
+            {% endfor %}
+        </tr>
+        <tr>
+            <th colspan="2">Hospitalized</th>
+            {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
+                <td>{{ case.under5With(month) }}</td>
+            {% endfor %}
+        </tr>
+        <tr>
+            <th colspan="2">Suspected</th>
+            {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
+                <td>{{ case.suspected(month) }}</td>
+            {% endfor %}
+        </tr>
+        {% for key in [12,23,59,'total'] %}
+            <tr>
+                <th colspan="2">Probable {{ key }}</th>
+                {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
+                    <td>{{ case.probable.get(key, month) }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+
+        <tr>
+            <th colspan="19">Positive Under 12</th>
+        </tr>
+        {% for key in ['vaccinated','notVaccinated','noInformation','total'] %}
+            <tr>
+                <th></th>
+                <th>{{ key }}</th>
+                {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
+                    <td>{{ case.positiveUnder12.get(key, month) }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+        <tr>
+            <th colspan="19">Positive Under 23</th>
+        </tr>
+        {% for key in ['vaccinated','notVaccinated','noInformation','total'] %}
+            <tr>
+                <th></th>
+                <th>{{ key }}</th>
+                {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
+                    <td>{{ case.positiveUnder23.get(key, month) }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+        <tr>
+            <th colspan="19">Positive Under 59</th>
+        </tr>
+        {% for key in ['vaccinated','notVaccinated','noInformation','total'] %}
+            <tr>
+                <th></th>
+                <th>{{ key }}</th>
+                {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
+                    <td>{{ case.positiveUnder59.get(key, month) }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+        <tr>
+            <th colspan="19">Positive Total</th>
+        </tr>
+        {% for key in ['vaccinated','notVaccinated','noInformation','total'] %}
+            <tr>
+                <th></th>
+                <th>{{ key }}</th>
+                {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
+                    <td>{{ case.positiveTotal.get(key, month) }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+
+
+        <tr>
+            <th colspan="19">Deaths Under 12</th>
+        </tr>
+        {% for key in ['vaccinated','notVaccinated','noInformation','total'] %}
+            <tr>
+                <th></th>
+                <th>{{ key }}</th>
+                {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
+                    <td>{{ case.deathsUnder12.get(key, month) }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+        <tr>
+            <th colspan="19">Deaths Under 23</th>
+        </tr>
+        {% for key in ['vaccinated','notVaccinated','noInformation','total'] %}
+            <tr>
+                <th></th>
+                <th>{{ key }}</th>
+                {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
+                    <td>{{ case.deathsUnder23.get(key, month) }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+        <tr>
+            <th colspan="19">Deaths Under 59</th>
+        </tr>
+        {% for key in ['vaccinated','notVaccinated','noInformation','total'] %}
+            <tr>
+                <th></th>
+                <th>{{ key }}</th>
+                {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
+                    <td>{{ case.deathsUnder59.get(key, month) }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+        <tr>
+            <th colspan="19">Deaths Total</th>
+        </tr>
+        {% for key in ['vaccinated','notVaccinated','noInformation','total'] %}
+            <tr>
+                <th></th>
+                <th>{{ key }}</th>
+                {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
+                    <td>{{ case.deathsTotal.get(key, month) }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+
+    {% endfor %}
+{% endmacro %}

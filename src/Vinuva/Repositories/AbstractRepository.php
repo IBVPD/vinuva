@@ -6,6 +6,8 @@ namespace Paho\Vinuva\Repositories;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\ORM\UnexpectedResultException;
+use DoctrineExtensions\Query\Mysql\GroupConcat;
+use DoctrineExtensions\Query\Mysql\IfElse;
 use InvalidArgumentException;
 use Paho\Vinuva\Models\BaseDisease;
 use Paho\Vinuva\Models\Country;
@@ -80,5 +82,31 @@ class AbstractRepository
         }
 
         return $queryBuilder;
+    }
+
+    public function getSummaryFilterQuery(): QueryBuilder
+    {
+        return $this->entityManager
+            ->createQueryBuilder()
+            ->from($this->class, 'c')
+            ->select('c')
+            ->innerJoin('c.country','ctr')
+            ->groupBy('ctr.id,c.year,c.month')
+            ->orderBy('c.country,c.year,c.month');
+    }
+
+    public function getCollectionQuery(): QueryBuilder
+    {
+        $this->entityManager->getConfiguration()->addCustomStringFunction('GROUP_CONCAT', GroupConcat::class);
+        $this->entityManager->getConfiguration()->addCustomStringFunction('IF', IfElse::class);
+
+        return $this->entityManager
+            ->createQueryBuilder()
+            ->select('NEW Paho\Vinuva\Report\CaseVerification(ctr.name,h.name,\''.$this->class.'\',c.year,GROUP_CONCAT(IF(c.verified = 1,CONCAT(c.month,\'=V\'),CONCAT(c.month,\'=N\'))))')
+            ->from($this->class, 'c')
+            ->innerJoin('c.country','ctr')
+            ->innerJoin('c.hospital','h')
+            ->groupBy('ctr,h,c.year')
+            ->orderBy('c.country,c.hospital,c.year,c.month');
     }
 }

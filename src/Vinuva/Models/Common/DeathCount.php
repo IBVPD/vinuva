@@ -1,15 +1,13 @@
-<?php
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace Paho\Vinuva\Models\Common;
 
-use Serializable;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Embeddable()
  */
-class DeathCount implements Serializable
+class DeathCount
 {
     /**
      * @var int|null
@@ -62,26 +60,4 @@ class DeathCount implements Serializable
     {
         return $this->total;
     }
-
-    public function serialize(): string
-    {
-        return serialize([
-            $this->_12,
-            $this->_23,
-            $this->_59,
-            $this->total
-        ]);
-    }
-
-    public function unserialize($serialized): void
-    {
-        [
-            $this->_12,
-            $this->_23,
-            $this->_59,
-            $this->total
-        ] = unserialize($serialized, [__CLASS__]);
-    }
-
-
 }

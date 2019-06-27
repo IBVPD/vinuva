@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Embeddable()
  */
-class Confirmed //implements \Serializable
+class Confirmed
 {
     /**
      * @var int|null
@@ -84,29 +84,5 @@ class Confirmed //implements \Serializable
     public function getContamination(): ?int
     {
         return $this->contamination;
-    }
-
-    public function serialize(): string
-    {
-        return serialize([
-            $this->hib,
-            $this->hi,
-            $this->nm,
-            $this->spn,
-            $this->other,
-            $this->contamination
-        ]);
-    }
-
-    public function unserialize($serialized): void
-    {
-        [
-            $this->hib,
-            $this->hi,
-            $this->nm,
-            $this->spn,
-            $this->other,
-            $this->contamination
-        ] = unserialize($serialized, [__CLASS__]);
     }
 }

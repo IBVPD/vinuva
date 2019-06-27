@@ -1,15 +1,13 @@
-<?php
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace Paho\Vinuva\Models\Rotavirus;
 
-use Serializable;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Embeddable()
  */
-class Vaccination implements Serializable
+class Vaccination
 {
     /**
      * @var int|null
@@ -49,15 +47,5 @@ class Vaccination implements Serializable
     public function getNoInformation(): ?int
     {
         return $this->noInformation;
-    }
-
-    public function serialize(): string
-    {
-        return serialize([$this->vaccinated, $this->notVaccinated, $this->noInformation]);
-    }
-
-    public function unserialize($serialized): void
-    {
-        [$this->vaccinated, $this->notVaccinated, $this->noInformation] = unserialize($serialized, [__CLASS__]);
     }
 }
