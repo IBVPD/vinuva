@@ -22,7 +22,7 @@ class YearMonthFilterType extends AbstractType
             null
         );
 
-        $yearRange = range(2000, date('Y'));
+        $yearRange = range(date('Y'),2000);
         $builder
             ->add('month', ChoiceType::class, ['placeholder' => 'Month', 'choices' => $this->formatTimestamps($formatter, '/[M|L]+/', $this->listMonths(range(1, 12)))])
             ->add('year', ChoiceType::class, ['placeholder' => 'Year', 'choices' => array_combine($yearRange, $yearRange)]);
