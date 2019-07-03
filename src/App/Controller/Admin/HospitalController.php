@@ -41,7 +41,11 @@ class HospitalController
     {
         /** @var EntityRepository $repository */
         $repository = $this->entityManager->getRepository(Hospital::class);
-        $query      = $repository->createQueryBuilder('r')->orderBy('r.name');
+        $query      = $repository->createQueryBuilder('r')
+            ->select('r,c')
+            ->join('r.country','c')
+            ->orderBy('r.name');
+
         $result     = $pager->process($request, FilterType::class, $query, self::INDEX);
 
         if ($result->shouldRedirect()) {
