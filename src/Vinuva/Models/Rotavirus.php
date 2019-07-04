@@ -17,67 +17,67 @@ class Rotavirus extends BaseDisease
      * @var int|null
      * @ORM\Column(name="under5With", type="integer", nullable=true)
      */
-    private $under5With;
+    protected $under5With;
 
     /**
      * @var int|null
      * @ORM\Column(name="suspected", type="integer", nullable=true)
      */
-    private $suspected;
+    protected $suspected;
 
     /**
      * @var Probable|null
      * @ORM\Embedded(class="Paho\Vinuva\Models\Common\Probable", columnPrefix="with_form_and_sample")
      */
-    private $withFormAndSample;
+    protected $withFormAndSample;
 
     /**
      * @var Vaccination|null
      * @ORM\Embedded(class="Paho\Vinuva\Models\Rotavirus\Vaccination", columnPrefix="positive_u12_")
      */
-    private $positiveUnder12;
+    protected $positiveUnder12;
 
     /**
      * @var Vaccination|null
      * @ORM\Embedded(class="Paho\Vinuva\Models\Rotavirus\Vaccination", columnPrefix="positive_u23_")
      */
-    private $positiveUnder23;
+    protected $positiveUnder23;
 
     /**
      * @var Vaccination|null
      * @ORM\Embedded(class="Paho\Vinuva\Models\Rotavirus\Vaccination", columnPrefix="positive_u59_")
      */
-    private $positiveUnder59;
+    protected $positiveUnder59;
 
     /**
      * @var Vaccination|null
      * @ORM\Embedded(class="Paho\Vinuva\Models\Rotavirus\Vaccination", columnPrefix="positive_total_")
      */
-    private $positiveTotal;
+    protected $positiveTotal;
 
     /**
      * @var Vaccination|null
      * @ORM\Embedded(class="Paho\Vinuva\Models\Rotavirus\Vaccination", columnPrefix="death_u12_")
      */
-    private $deathsUnder12;
+    protected $deathsUnder12;
 
     /**
      * @var Vaccination|null
      * @ORM\Embedded(class="Paho\Vinuva\Models\Rotavirus\Vaccination", columnPrefix="death_u23_")
      */
-    private $deathsUnder23;
+    protected $deathsUnder23;
 
     /**
      * @var Vaccination|null
      * @ORM\Embedded(class="Paho\Vinuva\Models\Rotavirus\Vaccination", columnPrefix="death_u59_")
      */
-    private $deathsUnder59;
+    protected $deathsUnder59;
 
     /**
      * @var Vaccination|null
      * @ORM\Embedded(class="Paho\Vinuva\Models\Rotavirus\Vaccination", columnPrefix="death_total_")
      */
-    private $deathsTotal;
+    protected $deathsTotal;
 
     public function getUnder5With(): ?int
     {

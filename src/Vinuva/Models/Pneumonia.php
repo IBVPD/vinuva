@@ -18,61 +18,61 @@ class Pneumonia extends BaseDisease
      * @var int|null
      * @ORM\Column(name="suspected",type="integer",nullable=true)
      */
-    private $suspected;
+    protected $suspected;
 
     /**
      * @var int|null
      * @ORM\Column(name="suspectedWith",type="integer",nullable=true)
      */
-    private $suspectedWith;
+    protected $suspectedWith;
 
     /**
      * @var Probable|null
      * @ORM\Embedded(class="Paho\Vinuva\Models\Common\Probable", columnPrefix="probable")
      */
-    private $probable;
+    protected $probable;
 
     /**
      * @var Probable|null
      * @ORM\Embedded(class="Paho\Vinuva\Models\Common\Probable", columnPrefix="probable_with_blood")
      */
-    private $probableWithBlood;
+    protected $probableWithBlood;
 
     /**
      * @var Probable|null
      * @ORM\Embedded(class="Paho\Vinuva\Models\Common\Probable", columnPrefix="probable_with_pleural")
      */
-    private $probableWithPleural;
+    protected $probableWithPleural;
 
     /**
      * @var Confirmed|null
      * @ORM\Embedded(class="Paho\Vinuva\Models\Common\Confirmed", columnPrefix="u12_confirmed_")
      */
-    private $under12Confirmed;
+    protected $under12Confirmed;
 
     /**
      * @var Confirmed|null
      * @ORM\Embedded(class="Paho\Vinuva\Models\Common\Confirmed", columnPrefix="u23_confirmed_")
      */
-    private $under23Confirmed;
+    protected $under23Confirmed;
 
     /**
      * @var Confirmed|null
      * @ORM\Embedded(class="Paho\Vinuva\Models\Common\Confirmed", columnPrefix="u59_confirmed_")
      */
-    private $under59Confirmed;
+    protected $under59Confirmed;
 
     /**
      * @var Confirmed|null
      * @ORM\Embedded(class="Paho\Vinuva\Models\Common\Confirmed", columnPrefix="total_confirmed_")
      */
-    private $totalConfirmed;
+    protected $totalConfirmed;
 
     /**
      * @var Common\DeathCount|null
      * @ORM\Embedded(class="Paho\Vinuva\Models\Common\DeathCount", columnPrefix="number_of_deaths")
      */
-    private $numberOfDeaths;
+    protected $numberOfDeaths;
 
     public function getSuspected(): ?int
     {

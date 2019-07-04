@@ -6,8 +6,14 @@ namespace Paho\Vinuva\Repositories;
 use Doctrine\DBAL\FetchMode;
 use Doctrine\ORM\Query\Parameter;
 use Doctrine\ORM\QueryBuilder;
-use Paho\Vinuva\Report\Common\Probable;
-use Paho\Vinuva\Report\Rotavirus\Vaccination;
+use Paho\Vinuva\Models\Common\Probable;
+use Paho\Vinuva\Models\Hospital;
+use Paho\Vinuva\Models\Rotavirus\Vaccination;
+use Paho\Vinuva\Report\Common\Probable as SummaryProbable;
+use Paho\Vinuva\Report\Hospital\Country;
+use Paho\Vinuva\Report\Hospital\CountryCollector;
+use Paho\Vinuva\Report\Hospital\Rotavirus;
+use Paho\Vinuva\Report\Rotavirus\Vaccination as SummaryVaccination;
 use Paho\Vinuva\Report\RotavirusSummary;
 
 class RotavirusRepository extends AbstractRepository
@@ -53,16 +59,16 @@ class RotavirusRepository extends AbstractRepository
         if ($statement->execute()) {
             $results = [];
             while ($row = $statement->fetch(FetchMode::ASSOCIATIVE)) {
-                $probable  = new Probable($row['p12'], $row['p23'], $row['p59'], $row['ptotal']);
-                $pUnder12  = new Vaccination($row['positiveU12Vaccinated'], $row['positiveU12NotVaccinated'], $row['positiveU12NoInformation']);
-                $pUnder23  = new Vaccination($row['positiveU23Vaccinated'], $row['positiveU23NotVaccinated'], $row['positiveU23NoInformation']);
-                $pUnder59  = new Vaccination($row['positiveU59Vaccinated'], $row['positiveU59NotVaccinated'], $row['positiveU59NoInformation']);
-                $ptotal    = new Vaccination($row['positiveTotalVaccinated'], $row['positiveTotalNotVaccinated'], $row['positiveTotalNoInformation']);
+                $probable = new SummaryProbable($row['p12'], $row['p23'], $row['p59'], $row['ptotal']);
+                $pUnder12 = new SummaryVaccination($row['positiveU12Vaccinated'], $row['positiveU12NotVaccinated'], $row['positiveU12NoInformation']);
+                $pUnder23 = new SummaryVaccination($row['positiveU23Vaccinated'], $row['positiveU23NotVaccinated'], $row['positiveU23NoInformation']);
+                $pUnder59 = new SummaryVaccination($row['positiveU59Vaccinated'], $row['positiveU59NotVaccinated'], $row['positiveU59NoInformation']);
+                $ptotal   = new SummaryVaccination($row['positiveTotalVaccinated'], $row['positiveTotalNotVaccinated'], $row['positiveTotalNoInformation']);
 
-                $dUnder12  = new Vaccination($row['deathU12Vaccinated'], $row['deathU12NotVaccinated'], $row['deathU12NoInformation']);
-                $dUnder23  = new Vaccination($row['deathU23Vaccinated'], $row['deathU23NotVaccinated'], $row['deathU23NoInformation']);
-                $dUnder59  = new Vaccination($row['deathU59Vaccinated'], $row['deathU59NotVaccinated'], $row['deathU59NoInformation']);
-                $dtotal    = new Vaccination($row['deathTotalVaccinated'], $row['deathTotalNotVaccinated'], $row['deathTotalNoInformation']);
+                $dUnder12  = new SummaryVaccination($row['deathU12Vaccinated'], $row['deathU12NotVaccinated'], $row['deathU12NoInformation']);
+                $dUnder23  = new SummaryVaccination($row['deathU23Vaccinated'], $row['deathU23NotVaccinated'], $row['deathU23NoInformation']);
+                $dUnder59  = new SummaryVaccination($row['deathU59Vaccinated'], $row['deathU59NotVaccinated'], $row['deathU59NoInformation']);
+                $dtotal    = new SummaryVaccination($row['deathTotalVaccinated'], $row['deathTotalNotVaccinated'], $row['deathTotalNoInformation']);
                 $results[] = new RotavirusSummary(
                     $row['countryName'],
                     (int)$row['year'],
@@ -85,5 +91,96 @@ class RotavirusRepository extends AbstractRepository
         }
 
         return [];
+    }
+
+    /**
+     * @param QueryBuilder       $queryBuilder
+     * @param CountryCollector[] $results
+     *
+     * @return array
+     */
+    public function getByHospitalSummary(QueryBuilder $queryBuilder, array $results): array
+    {
+        [$sqlSelect, $filteredTerms] = explode('FROM', $queryBuilder->getQuery()->getSQL());
+
+        $sqlSelect = 'SELECT h2_.id as hId, h2_.name as hName, c1_.id cId, c1_.name as cName, 
+        SUM(r0_.under5) u5, SUM(r0_.under5With) u5with, SUM(r0_.suspected) susp, 
+        SUM(r0_.with_form_and_sample_12) p12 ,SUM(r0_.with_form_and_sample_23) p23,SUM(r0_.with_form_and_sample_59) p59, SUM(r0_.with_form_and_sample_total) ptotal, 
+        SUM(r0_.positive_u12_vaccinated) as p12Vac,SUM(r0_.positive_u12_not_vaccinated) as p12NoVac,SUM(r0_.positive_u12_no_information) as p12NoInfo,
+        SUM(r0_.positive_u23_vaccinated) as p23Vac,SUM(r0_.positive_u23_not_vaccinated) as p23NoVac,SUM(r0_.positive_u23_no_information) as p23NoInfo,
+        SUM(r0_.positive_u59_vaccinated) as p59Vac,SUM(r0_.positive_u59_not_vaccinated) as p59NoVac,SUM(r0_.positive_u59_no_information) as p59NoInfo,
+        SUM(r0_.positive_total_vaccinated) as pTotalVac,SUM(r0_.positive_total_not_vaccinated) as pTotalNoVac,SUM(r0_.positive_total_no_information) as pTotalNoInfo,
+        SUM(r0_.death_u12_vaccinated) as d12Vac,SUM(r0_.death_u12_not_vaccinated) as d12NoVac,SUM(r0_.death_u12_no_information) as d12NoInfo,
+        SUM(r0_.death_u23_vaccinated) as d23Vac,SUM(r0_.death_u23_not_vaccinated) as d23NoVac,SUM(r0_.death_u23_no_information) as d23NoInfo,
+        SUM(r0_.death_u59_vaccinated) as d59Vac,SUM(r0_.death_u59_not_vaccinated) as d59NoVac,SUM(r0_.death_u59_no_information) as d59NoInfo,
+        SUM(r0_.death_total_vaccinated) as dTotalVac,SUM(r0_.death_total_not_vaccinated) as dTotalNoVac,SUM(r0_.death_total_no_information) as dTotalNoInfo';
+
+        $sql       = "$sqlSelect FROM $filteredTerms";
+        $statement = $this->entityManager->getConnection()->prepare($sql);
+        /** @var  $parameter Parameter */
+        foreach ($queryBuilder->getParameters() as $position => $parameter) {
+            $statement->bindValue($position + 1, $parameter->getValue());
+        }
+
+        if ($statement->execute()) {
+            while ($row = $statement->fetch(FetchMode::ASSOCIATIVE)) {
+                if (!isset($results[$row['cId']])) {
+                    $results[$row['cId']] = new CountryCollector(new Country((int)$row['cId'], $row['cName']));
+                }
+                $hospital = Hospital::createDTO((int)$row['hId'], $row['hName']);
+                $probable = new Probable($row['p12'] ? (int)$row['p12'] : null, $row['p23'] ? (int)$row['p23'] : null, $row['p59'] ? (int)$row['p59'] : null, $row['ptotal'] ? (int)$row['ptotal'] : null);
+                $p12      = new Vaccination(
+                    $row['p12Vac'] ? (int)$row['p12Vac'] : null,
+                    $row['p12NoVac'] ? (int)$row['p12NoVac'] : null,
+                    $row['p12NoInfo'] ? (int)$row['p12NoInfo'] : null
+                );
+                $p23      = new Vaccination(
+                    $row['p23Vac'] ? (int)$row['p23Vac'] : null,
+                    $row['p23NoVac'] ? (int)$row['p23NoVac'] : null,
+                    $row['p23NoInfo'] ? (int)$row['p23NoInfo'] : null
+                );
+                $p59      = new Vaccination(
+                    $row['p59Vac'] ? (int)$row['p59Vac'] : null,
+                    $row['p59NoVac'] ? (int)$row['p59NoVac'] : null,
+                    $row['p59NoInfo'] ? (int)$row['p59NoInfo'] : null
+                );
+                $pTotal   = new Vaccination(
+                    $row['pTotalVac'] ? (int)$row['pTotalVac'] : null,
+                    $row['pTotalNoVac'] ? (int)$row['pTotalNoVac'] : null,
+                    $row['pTotalNoInfo'] ? (int)$row['pTotalNoInfo'] : null
+                );
+                $d12      = new Vaccination(
+                    $row['d12Vac'] ? (int)$row['d12Vac'] : null,
+                    $row['d12NoVac'] ? (int)$row['d12NoVac'] : null,
+                    $row['d12NoInfo'] ? (int)$row['d12NoInfo'] : null
+                );
+                $d23      = new Vaccination(
+                    $row['d23Vac'] ? (int)$row['d23Vac'] : null,
+                    $row['d23NoVac'] ? (int)$row['d23NoVac'] : null,
+                    $row['d23NoInfo'] ? (int)$row['d23NoInfo'] : null
+                );
+                $d59      = new Vaccination(
+                    $row['d59Vac'] ? (int)$row['d59Vac'] : null,
+                    $row['d59NoVac'] ? (int)$row['d59NoVac'] : null,
+                    $row['d59NoInfo'] ? (int)$row['d59NoInfo'] : null
+                );
+                $dTotal   = new Vaccination(
+                    $row['dTotalVac'] ? (int)$row['dTotalVac'] : null,
+                    $row['dTotalNoVac'] ? (int)$row['dTotalNoVac'] : null,
+                    $row['dTotalNoInfo'] ? (int)$row['dTotalNoInfo'] : null
+                );
+
+                $results[$row['cId']]->addCase(new Rotavirus($hospital,
+                    (int)$row['u5'],
+                    (int)$row['u5with'],
+                    (int)$row['susp'],
+                    $probable,
+                    $p12, $p23, $p59, $pTotal,
+                    $d12, $d23, $d59, $dTotal
+                ));
+            }
+        }
+
+        return $results;
     }
 }

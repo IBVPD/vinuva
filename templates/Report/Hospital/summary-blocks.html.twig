@@ -1,0 +1,922 @@
+{% macro meningitis(collection) %}
+    {% set hLength = 2+collection.meningitisCases|length  %}
+
+    <tr class="warning">
+        <th colspan="{{ hLength }}">Meningitis</th>
+    </tr>
+    <tr>
+        <td style="width:35%;"></td>
+        {% for case in collection.meningitisCases %}
+            <th>{{ case.hospital }}</th>
+        {% endfor %}
+        <th>{{ 'Total'|trans }}</th>
+    </tr>
+
+    <tr>
+        <td>{{ 'No. of child hospitalizations under 5 years'|trans }}</td>
+        {% for case in collection.meningitisCases %}
+            <td>{{ case.under5 }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Meningitis','under5') }}</td>
+    </tr>
+
+    <tr>
+        <td>{{ 'No. of suspected cases of meningitis'|trans }}</td>
+        {% for case in collection.meningitisCases %}
+            <td>{{ case.suspected }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Meningitis','suspected') }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'No. suspected meningitis with CSF2 and forms'|trans }}</td>
+        {% for case in collection.meningitisCases %}
+            <td>{{ case.suspectedWith }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Meningitis','suspectedWith') }}</td>
+    </tr>
+
+    <tr>
+        <td>{{ 'No. of probable cases of meningitis'|trans }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'Under 12 months'|trans }}</td>
+        {% for case in collection.meningitisCases %}
+            <td>{{ case.probable.12 }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Meningitis','probable.12') }}</td>
+    </tr>
+    <tr>
+        <td>{{ '12 - 23 months'|trans }}</td>
+        {% for case in collection.meningitisCases %}
+            <td>{{ case.probable.23 }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Meningitis','probable.23') }}</td>
+    </tr>
+    <tr>
+        <td>{{ '24 - 59 months'|trans }}</td>
+        {% for case in collection.meningitisCases %}
+            <td>{{ case.probable.59 }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Meningitis','probable.59') }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'Total < 5'|trans }}</td>
+        {% for case in collection.meningitisCases %}
+            <td>{{ case.probable.total }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Meningitis','probable.total') }}</td>
+    </tr>
+
+    <tr>
+        <th colspan="{{ hLength }}">{{ 'Confirmed'|trans }}</th>
+    </tr>
+    <tr>
+        <th colspan="{{ hLength }}">{{ 'Under 12 months'|trans }}</th>
+    </tr>
+    <tr>
+        <td>Hib</td>
+        {% for case in collection.meningitisCases %}
+            <td>{{ case.under12Confirmed.hib }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Meningitis','under12Confirmed.hib') }}</td>
+    </tr>
+    <tr>
+        <td>Hi</td>
+        {% for case in collection.meningitisCases %}
+            <td>{{ case.under12Confirmed.hi }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Meningitis','under12Confirmed.hi') }}</td>
+    </tr>
+    <tr>
+        <td>Nm</td>
+        {% for case in collection.meningitisCases %}
+            <td>{{ case.under12Confirmed.nm }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Meningitis','under12Confirmed.nm') }}</td>
+    </tr>
+    <tr>
+        <td>Spn</td>
+        {% for case in collection.meningitisCases %}
+            <td>{{ case.under12Confirmed.spn }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Meningitis','under12Confirmed.spn') }}</td>
+    </tr>
+    <tr>
+        <td>Other</td>
+        {% for case in collection.meningitisCases %}
+            <td>{{ case.under12Confirmed.other }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Meningitis','under12Confirmed.other') }}</td>
+    </tr>
+    <tr>
+        <td>Contaminated</td>
+        {% for case in collection.meningitisCases %}
+            <td>{{ case.under12Confirmed.contamination }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Meningitis','under12Confirmed.contamination') }}</td>
+    </tr>
+
+    <tr>
+        <th colspan="{{ hLength }}">{{ '12-23 months'|trans }}</th>
+    </tr>
+    <tr>
+        <td>Hib</td>
+        {% for case in collection.meningitisCases %}
+            <td>{{ case.under23Confirmed.hib }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Meningitis','under23Confirmed.hib') }}</td>
+    </tr>
+    <tr>
+        <td>Hi</td>
+        {% for case in collection.meningitisCases %}
+            <td>{{ case.under23Confirmed.hi }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Meningitis','under23Confirmed.hi') }}</td>
+    </tr>
+    <tr>
+        <td>Nm</td>
+        {% for case in collection.meningitisCases %}
+            <td>{{ case.under23Confirmed.nm }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Meningitis','under23Confirmed.nm') }}</td>
+    </tr>
+    <tr>
+        <td>Spn</td>
+        {% for case in collection.meningitisCases %}
+            <td>{{ case.under23Confirmed.spn }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Meningitis','under23Confirmed.spn') }}</td>
+    </tr>
+    <tr>
+        <td>Other</td>
+        {% for case in collection.meningitisCases %}
+            <td>{{ case.under23Confirmed.other }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Meningitis','under23Confirmed.other') }}</td>
+    </tr>
+    <tr>
+        <td>Contaminated</td>
+        {% for case in collection.meningitisCases %}
+            <td>{{ case.under23Confirmed.contamination }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Meningitis','under23Confirmed.contamination') }}</td>
+    </tr>
+
+    <tr>
+        <th colspan="{{ hLength }}">{{ '24-59 months'|trans }}</th>
+    </tr>
+    <tr>
+        <td>Hib</td>
+        {% for case in collection.meningitisCases %}
+            <td>{{ case.under59Confirmed.hib }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Meningitis','under59Confirmed.hib') }}</td>
+    </tr>
+    <tr>
+        <td>Hi</td>
+        {% for case in collection.meningitisCases %}
+            <td>{{ case.under59Confirmed.hi }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Meningitis','under59Confirmed.hi') }}</td>
+    </tr>
+    <tr>
+        <td>Nm</td>
+        {% for case in collection.meningitisCases %}
+            <td>{{ case.under59Confirmed.nm }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Meningitis','under59Confirmed.nm') }}</td>
+    </tr>
+    <tr>
+        <td>Spn</td>
+        {% for case in collection.meningitisCases %}
+            <td>{{ case.under59Confirmed.spn }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Meningitis','under59Confirmed.spn') }}</td>
+    </tr>
+    <tr>
+        <td>Other</td>
+        {% for case in collection.meningitisCases %}
+            <td>{{ case.under59Confirmed.other }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Meningitis','under59Confirmed.other') }}</td>
+    </tr>
+    <tr>
+        <td>Contaminated</td>
+        {% for case in collection.meningitisCases %}
+            <td>{{ case.under59Confirmed.contamination }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Meningitis','under59Confirmed.contamination') }}</td>
+    </tr>
+
+    <tr>
+        <th colspan="{{ hLength }}">{{ 'Total < 5'|trans }}</th>
+    </tr>
+    <tr>
+        <td>Hib</td>
+        {% for case in collection.meningitisCases %}
+            <td>{{ case.totalConfirmed.hib }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Meningitis','totalConfirmed.hib') }}</td>
+    </tr>
+    <tr>
+        <td>Hi</td>
+        {% for case in collection.meningitisCases %}
+            <td>{{ case.totalConfirmed.hi }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Meningitis','totalConfirmed.hi') }}</td>
+    </tr>
+    <tr>
+        <td>Nm</td>
+        {% for case in collection.meningitisCases %}
+            <td>{{ case.totalConfirmed.nm }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Meningitis','totalConfirmed.nm') }}</td>
+    </tr>
+    <tr>
+        <td>Spn</td>
+        {% for case in collection.meningitisCases %}
+            <td>{{ case.totalConfirmed.spn }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Meningitis','totalConfirmed.spn') }}</td>
+    </tr>
+    <tr>
+        <td>Other</td>
+        {% for case in collection.meningitisCases %}
+            <td>{{ case.totalConfirmed.other }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Meningitis','totalConfirmed.other') }}</td>
+    </tr>
+    <tr>
+        <td>Contaminated</td>
+        {% for case in collection.meningitisCases %}
+            <td>{{ case.totalConfirmed.contamination }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Meningitis','totalConfirmed.contamination') }}</td>
+    </tr>
+
+
+    <tr>
+        <th colspan="{{ hLength }}">{{ 'No. of deaths'|trans }}</th>
+    </tr>
+    <tr>
+        <td>{{ 'Under 12 months'|trans }}</td>
+        {% for case in collection.meningitisCases %}
+            <td>{{ case.numberOfDeaths.12 }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Meningitis','numberOfDeaths.12') }}</td>
+    </tr>
+    <tr>
+        <td>{{ '12 - 23 months'|trans }}</td>
+        {% for case in collection.meningitisCases %}
+            <td>{{ case.numberOfDeaths.23 }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Meningitis','numberOfDeaths.23') }}</td>
+    </tr>
+    <tr>
+        <td>{{ '24 - 59 months'|trans }}</td>
+        {% for case in collection.meningitisCases %}
+            <td>{{ case.numberOfDeaths.59 }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Meningitis','numberOfDeaths.59') }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'Total < 5'|trans }}</td>
+        {% for case in collection.meningitisCases %}
+            <td>{{ case.numberOfDeaths.total }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Meningitis','numberOfDeaths.total') }}</td>
+    </tr>
+{% endmacro %}
+
+{% macro pneumonia(collection) %}
+    {% set hLength = 2+collection.pneumoniaCases|length  %}
+
+    <tr class="warning">
+        <th colspan="{{ hLength }}">Pneumonia</th>
+    </tr>
+    <tr>
+        <td style="width:35%;"></td>
+        {% for case in collection.pneumoniaCases %}
+            <th>{{ case.hospital }}</th>
+        {% endfor %}
+        <th>{{ 'Total'|trans }}</th>
+    </tr>
+
+    <tr>
+        <td>{{ 'No. of child hospitalizations under 5 years'|trans }}</td>
+        {% for case in collection.pneumoniaCases %}
+            <td>{{ case.under5 }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Pneumonia','under5') }}</td>
+    </tr>
+
+    <tr>
+        <td>{{ 'No. of suspected cases of pneumonia'|trans }}</td>
+        {% for case in collection.pneumoniaCases %}
+            <td>{{ case.suspected }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Pneumonia','suspected') }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'Number of suspected pneumonia cases with x-ray and forms'|trans }}</td>
+        {% for case in collection.pneumoniaCases %}
+            <td>{{ case.suspectedWith }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Pneumonia','suspectedWith') }}</td>
+    </tr>
+
+    <tr>
+        <th colspan="{{ hLength }}">{{ 'No. of probable cases of pneumonia'|trans }}</th>
+    </tr>
+    <tr>
+        <td>{{ 'Under 12 months'|trans }}</td>
+        {% for case in collection.pneumoniaCases %}
+            <td>{{ case.probable.12 }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Pneumonia','probable.12') }}</td>
+    </tr>
+    <tr>
+        <td>{{ '12 - 23 months'|trans }}</td>
+        {% for case in collection.pneumoniaCases %}
+            <td>{{ case.probable.23 }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Pneumonia','probable.23') }}</td>
+    </tr>
+    <tr>
+        <td>{{ '24 - 59 months'|trans }}</td>
+        {% for case in collection.pneumoniaCases %}
+            <td>{{ case.probable.59 }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Pneumonia','probable.59') }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'Total < 5'|trans }}</td>
+        {% for case in collection.pneumoniaCases %}
+            <td>{{ case.probable.total }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Pneumonia','probable.total') }}</td>
+    </tr>
+
+    <tr>
+        <th colspan="{{ hLength }}">{{ 'No. of probable cases with pleural blood specimen'|trans }}</th>
+    </tr>
+    <tr>
+        <td>{{ 'Under 12 months'|trans }}</td>
+        {% for case in collection.pneumoniaCases %}
+            <td>{{ case.probableWithBlood.12 }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Pneumonia','probableWithBlood.12') }}</td>
+    </tr>
+    <tr>
+        <td>{{ '12 - 23 months'|trans }}</td>
+        {% for case in collection.pneumoniaCases %}
+            <td>{{ case.probableWithBlood.23 }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Pneumonia','probableWithBlood.23') }}</td>
+    </tr>
+    <tr>
+        <td>{{ '24 - 59 months'|trans }}</td>
+        {% for case in collection.pneumoniaCases %}
+            <td>{{ case.probableWithBlood.59 }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Pneumonia','probableWithBlood.59') }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'Total < 5'|trans }}</td>
+        {% for case in collection.pneumoniaCases %}
+            <td>{{ case.probableWithBlood.total }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Pneumonia','probableWithBlood.total') }}</td>
+    </tr>
+
+
+    <tr>
+        <th colspan="{{ hLength }}">{{ 'No. of probable cases with pleural fluid'|trans }}</th>
+    </tr>
+    <tr>
+        <td>{{ 'Under 12 months'|trans }}</td>
+        {% for case in collection.pneumoniaCases %}
+            <td>{{ case.probableWithPleural.12 }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Pneumonia','probableWithPleural.12') }}</td>
+    </tr>
+    <tr>
+        <td>{{ '12 - 23 months'|trans }}</td>
+        {% for case in collection.pneumoniaCases %}
+            <td>{{ case.probableWithPleural.23 }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Pneumonia','probableWithPleural.23') }}</td>
+    </tr>
+    <tr>
+        <td>{{ '24 - 59 months'|trans }}</td>
+        {% for case in collection.pneumoniaCases %}
+            <td>{{ case.probableWithPleural.59 }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Pneumonia','probableWithPleural.59') }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'Total < 5'|trans }}</td>
+        {% for case in collection.pneumoniaCases %}
+            <td>{{ case.probableWithPleural.total }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Pneumonia','probableWithPleural.total') }}</td>
+    </tr>
+
+    <tr>
+        <th colspan="{{ hLength }}">{{ 'Confirmed'|trans }}</th>
+    </tr>
+    <tr>
+        <td>{{ 'Under 12 months'|trans }}</td>
+    </tr>
+    <tr>
+        <td>Hib</td>
+        {% for case in collection.pneumoniaCases %}
+            <td>{{ case.under12Confirmed.hib }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Pneumonia','under12Confirmed.hib') }}</td>
+    </tr>
+    <tr>
+        <td>Hi</td>
+        {% for case in collection.pneumoniaCases %}
+            <td>{{ case.under12Confirmed.hi }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Pneumonia','under12Confirmed.hi') }}</td>
+    </tr>
+    <tr>
+        <td>Nm</td>
+        {% for case in collection.pneumoniaCases %}
+            <td>{{ case.under12Confirmed.nm }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Pneumonia','under12Confirmed.nm') }}</td>
+    </tr>
+    <tr>
+        <td>Spn</td>
+        {% for case in collection.pneumoniaCases %}
+            <td>{{ case.under12Confirmed.spn }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Pneumonia','under12Confirmed.spn') }}</td>
+    </tr>
+    <tr>
+        <td>Other</td>
+        {% for case in collection.pneumoniaCases %}
+            <td>{{ case.under12Confirmed.other }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Pneumonia','under12Confirmed.other') }}</td>
+    </tr>
+    <tr>
+        <td>Contaminated</td>
+        {% for case in collection.pneumoniaCases %}
+            <td>{{ case.under12Confirmed.contamination }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Pneumonia','under12Confirmed.contamination') }}</td>
+    </tr>
+
+    <tr>
+        <th>{{ '12-23 months'|trans }}</th>
+    </tr>
+    <tr>
+        <td>Hib</td>
+        {% for case in collection.pneumoniaCases %}
+            <td>{{ case.under23Confirmed.hib }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Pneumonia','under23Confirmed.hib') }}</td>
+    </tr>
+    <tr>
+        <td>Hi</td>
+        {% for case in collection.pneumoniaCases %}
+            <td>{{ case.under23Confirmed.hi }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Pneumonia','under23Confirmed.hi') }}</td>
+    </tr>
+    <tr>
+        <td>Nm</td>
+        {% for case in collection.pneumoniaCases %}
+            <td>{{ case.under23Confirmed.nm }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Pneumonia','under23Confirmed.nm') }}</td>
+    </tr>
+    <tr>
+        <td>Spn</td>
+        {% for case in collection.pneumoniaCases %}
+            <td>{{ case.under23Confirmed.spn }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Pneumonia','under23Confirmed.spn') }}</td>
+    </tr>
+    <tr>
+        <td>Other</td>
+        {% for case in collection.pneumoniaCases %}
+            <td>{{ case.under23Confirmed.other }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Pneumonia','under23Confirmed.other') }}</td>
+    </tr>
+    <tr>
+        <td>Contaminated</td>
+        {% for case in collection.pneumoniaCases %}
+            <td>{{ case.under23Confirmed.contamination }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Pneumonia','under23Confirmed.contamination') }}</td>
+    </tr>
+
+    <tr>
+        <th>{{ '24-59 months'|trans }}</th>
+    </tr>
+    <tr>
+        <td>Hib</td>
+        {% for case in collection.pneumoniaCases %}
+            <td>{{ case.under59Confirmed.hib }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Pneumonia','under59Confirmed.hib') }}</td>
+    </tr>
+    <tr>
+        <td>Hi</td>
+        {% for case in collection.pneumoniaCases %}
+            <td>{{ case.under59Confirmed.hi }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Pneumonia','under59Confirmed.hi') }}</td>
+    </tr>
+    <tr>
+        <td>Nm</td>
+        {% for case in collection.pneumoniaCases %}
+            <td>{{ case.under59Confirmed.nm }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Pneumonia','under59Confirmed.nm') }}</td>
+    </tr>
+    <tr>
+        <td>Spn</td>
+        {% for case in collection.pneumoniaCases %}
+            <td>{{ case.under59Confirmed.spn }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Pneumonia','under59Confirmed.spn') }}</td>
+    </tr>
+    <tr>
+        <td>Other</td>
+        {% for case in collection.pneumoniaCases %}
+            <td>{{ case.under59Confirmed.other }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Pneumonia','under59Confirmed.other') }}</td>
+    </tr>
+    <tr>
+        <td>Contaminated</td>
+        {% for case in collection.pneumoniaCases %}
+            <td>{{ case.under59Confirmed.contamination }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Pneumonia','under59Confirmed.contamination') }}</td>
+    </tr>
+
+    <tr>
+        <td>{{ 'Total < 5'|trans }}</td>
+    </tr>
+    <tr>
+        <td>Hib</td>
+        {% for case in collection.pneumoniaCases %}
+            <td>{{ case.totalConfirmed.hib }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Pneumonia','totalConfirmed.hib') }}</td>
+    </tr>
+    <tr>
+        <td>Hi</td>
+        {% for case in collection.pneumoniaCases %}
+            <td>{{ case.totalConfirmed.hi }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Pneumonia','totalConfirmed.hi') }}</td>
+    </tr>
+    <tr>
+        <td>Nm</td>
+        {% for case in collection.pneumoniaCases %}
+            <td>{{ case.totalConfirmed.nm }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Pneumonia','totalConfirmed.nm') }}</td>
+    </tr>
+    <tr>
+        <td>Spn</td>
+        {% for case in collection.pneumoniaCases %}
+            <td>{{ case.totalConfirmed.spn }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Pneumonia','totalConfirmed.spn') }}</td>
+    </tr>
+    <tr>
+        <td>Other</td>
+        {% for case in collection.pneumoniaCases %}
+            <td>{{ case.totalConfirmed.other }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Pneumonia','totalConfirmed.other') }}</td>
+    </tr>
+    <tr>
+        <td>Contaminated</td>
+        {% for case in collection.pneumoniaCases %}
+            <td>{{ case.totalConfirmed.contamination }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Pneumonia','totalConfirmed.contamination') }}</td>
+    </tr>
+
+    <tr>
+        <th colspan="{{ hLength }}">{{ 'No. of deaths'|trans }}</th>
+    </tr>
+    <tr>
+        <td>{{ 'Under 12 months'|trans }}</td>
+        {% for case in collection.pneumoniaCases %}
+            <td>{{ case.numberOfDeaths.12 }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Pneumonia','numberOfDeaths.12') }}</td>
+    </tr>
+    <tr>
+        <td>{{ '12 - 23 months'|trans }}</td>
+        {% for case in collection.pneumoniaCases %}
+            <td>{{ case.numberOfDeaths.23 }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Pneumonia','numberOfDeaths.23') }}</td>
+    </tr>
+    <tr>
+        <td>{{ '24 - 59 months'|trans }}</td>
+        {% for case in collection.pneumoniaCases %}
+            <td>{{ case.numberOfDeaths.59 }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Pneumonia','numberOfDeaths.59') }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'Total < 5'|trans }}</td>
+        {% for case in collection.pneumoniaCases %}
+            <td>{{ case.numberOfDeaths.total }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Pneumonia','numberOfDeaths.total') }}</td>
+    </tr>
+{% endmacro %}
+
+{% macro rotavirus(collection) %}
+    {% set hLength = 2+collection.rotavirusCases|length  %}
+    <tr class="warning">
+        <th colspan="{{ hLength }}">Rotavirus</th>
+    </tr>
+
+    <tr>
+        <td style="width:35%;"></td>
+        {% for case in collection.rotavirusCases %}
+            <th>{{ case.hospital }}</th>
+        {% endfor %}
+        <th>{{ 'Total'|trans }}</th>
+    </tr>
+
+    <tr>
+        <td>{{ 'No. of child hospitalizations under 5 years'|trans }}</td>
+        {% for case in collection.rotavirusCases %}
+            <td>{{ case.under5 }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Rotavirus','under5') }}</td>
+    </tr>
+
+    <tr>
+        <td>{{ 'No. of hospitalizations with diarrhea in children under 5 years'|trans }}</td>
+        {% for case in collection.rotavirusCases %}
+            <td>{{ case.under5With }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Rotavirus','under5With') }}</td>
+    </tr>
+
+    <tr>
+        <td>{{ 'No. of children under 5 years who meet the criteria of suspect case'|trans }}</td>
+        {% for case in collection.rotavirusCases %}
+            <td>{{ case.suspected }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Rotavirus','suspected') }}</td>
+    </tr>
+
+    <tr>
+        <td>{{ 'No. of children with forms and stool samples collected'|trans }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'Under 12 months'|trans }}</td>
+        {% for case in collection.rotavirusCases %}
+            <td>{{ case.withFormAndSample.12 }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Rotavirus','withFormAndSample.12') }}</td>
+    </tr>
+    <tr>
+        <td>{{ '12 - 23 months'|trans }}</td>
+        {% for case in collection.rotavirusCases %}
+            <td>{{ case.withFormAndSample.23 }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Rotavirus','withFormAndSample.23') }}</td>
+    </tr>
+    <tr>
+        <td>{{ '24 - 59 months'|trans }}</td>
+        {% for case in collection.rotavirusCases %}
+            <td>{{ case.withFormAndSample.59 }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Rotavirus','withFormAndSample.59') }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'Total < 5'|trans }}</td>
+        {% for case in collection.rotavirusCases %}
+            <td>{{ case.withFormAndSample.total }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Rotavirus','withFormAndSample.total') }}</td>
+    </tr>
+
+    <tr>
+        <th colspan="{{ hLength }}">{{ 'No. of stool samples positive for rotavirus with forms'|trans }}</th>
+    </tr>
+    <tr>
+        <th colspan="{{ hLength }}">{{ 'Under 12 months'|trans }}</th>
+    </tr>
+    <tr>
+        <td>{{ 'Vaccinated'|trans }}</td>
+        {% for case in collection.rotavirusCases %}
+            <td>{{ case.positiveUnder12.vaccinated }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Rotavirus','positiveUnder12.vaccinated') }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'Not Vaccinated'|trans }}</td>
+        {% for case in collection.rotavirusCases %}
+            <td>{{ case.positiveUnder12.notVaccinated }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Rotavirus','positiveUnder12.notVaccinated') }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'No Information'|trans }}</td>
+        {% for case in collection.rotavirusCases %}
+            <td>{{ case.positiveUnder12.noInformation }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Rotavirus','positiveUnder12.noInformation') }}</td>
+    </tr>
+
+    
+    <tr>
+        <th colspan="{{ hLength }}">{{ 'Under 23 months'|trans }}</th>
+    </tr>
+    <tr>
+        <td>{{ 'Vaccinated'|trans }}</td>
+        {% for case in collection.rotavirusCases %}
+            <td>{{ case.positiveUnder23.vaccinated }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Rotavirus','positiveUnder23.vaccinated') }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'Not Vaccinated'|trans }}</td>
+        {% for case in collection.rotavirusCases %}
+            <td>{{ case.positiveUnder23.notVaccinated }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Rotavirus','positiveUnder23.notVaccinated') }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'No Information'|trans }}</td>
+        {% for case in collection.rotavirusCases %}
+            <td>{{ case.positiveUnder23.noInformation }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Rotavirus','positiveUnder23.noInformation') }}</td>
+    </tr>
+
+    <tr>
+        <th colspan="{{ hLength }}">{{ 'Under 59 months'|trans }}</th>
+    </tr>
+    <tr>
+        <td>{{ 'Vaccinated'|trans }}</td>
+        {% for case in collection.rotavirusCases %}
+            <td>{{ case.positiveUnder59.vaccinated }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Rotavirus','positiveUnder59.vaccinated') }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'Not Vaccinated'|trans }}</td>
+        {% for case in collection.rotavirusCases %}
+            <td>{{ case.positiveUnder59.notVaccinated }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Rotavirus','positiveUnder59.notVaccinated') }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'No Information'|trans }}</td>
+        {% for case in collection.rotavirusCases %}
+            <td>{{ case.positiveUnder59.noInformation }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Rotavirus','positiveUnder59.noInformation') }}</td>
+    </tr>
+
+    <tr>
+        <th colspan="{{ hLength }}">{{ 'Total < 5'|trans }}</th>
+    </tr>
+    <tr>
+        <td>{{ 'Vaccinated'|trans }}</td>
+        {% for case in collection.rotavirusCases %}
+            <td>{{ case.positiveTotal.vaccinated }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Rotavirus','positiveTotal.vaccinated') }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'Not Vaccinated'|trans }}</td>
+        {% for case in collection.rotavirusCases %}
+            <td>{{ case.positiveTotal.notVaccinated }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Rotavirus','positiveTotal.notVaccinated') }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'No Information'|trans }}</td>
+        {% for case in collection.rotavirusCases %}
+            <td>{{ case.positiveTotal.noInformation }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Rotavirus','positiveTotal.noInformation') }}</td>
+    </tr>
+
+    <tr>
+        <td colspan="{{ hLength }}">{{ 'No. of deaths'|trans }}</td>
+    </tr>
+    <tr>
+        <th colspan="{{ hLength }}">{{ 'Under 12 months'|trans }}</th>
+    </tr>
+    <tr>
+        <td>{{ 'Vaccinated'|trans }}</td>
+        {% for case in collection.rotavirusCases %}
+            <td>{{ case.deathsUnder12.vaccinated }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Rotavirus','deathsUnder12.vaccinated') }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'Not Vaccinated'|trans }}</td>
+        {% for case in collection.rotavirusCases %}
+            <td>{{ case.deathsUnder12.notVaccinated }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Rotavirus','deathsUnder12.notVaccinated') }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'No Information'|trans }}</td>
+        {% for case in collection.rotavirusCases %}
+            <td>{{ case.deathsUnder12.noInformation }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Rotavirus','deathsUnder12.noInformation') }}</td>
+    </tr>
+
+    <tr>
+        <th colspan="{{ hLength }}">{{ 'Under 23 months'|trans }}</th>
+    </tr>
+    <tr>
+        <td>{{ 'Vaccinated'|trans }}</td>
+        {% for case in collection.rotavirusCases %}
+            <td>{{ case.deathsUnder23.vaccinated }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Rotavirus','deathsUnder23.vaccinated') }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'Not Vaccinated'|trans }}</td>
+        {% for case in collection.rotavirusCases %}
+            <td>{{ case.deathsUnder23.notVaccinated }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Rotavirus','deathsUnder23.notVaccinated') }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'No Information'|trans }}</td>
+        {% for case in collection.rotavirusCases %}
+            <td>{{ case.deathsUnder23.noInformation }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Rotavirus','deathsUnder23.noInformation') }}</td>
+    </tr>
+
+    <tr>
+        <th colspan="{{ hLength }}">{{ 'Under 59 months'|trans }}</th>
+    </tr>
+    <tr>
+        <td>{{ 'Vaccinated'|trans }}</td>
+        {% for case in collection.rotavirusCases %}
+            <td>{{ case.deathsUnder59.vaccinated }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Rotavirus','deathsUnder59.vaccinated') }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'Not Vaccinated'|trans }}</td>
+        {% for case in collection.rotavirusCases %}
+            <td>{{ case.deathsUnder59.notVaccinated }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Rotavirus','deathsUnder59.notVaccinated') }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'No Information'|trans }}</td>
+        {% for case in collection.rotavirusCases %}
+            <td>{{ case.deathsUnder59.noInformation }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Rotavirus','deathsUnder59.noInformation') }}</td>
+    </tr>
+
+    <tr>
+        <th colspan="{{ hLength }}">{{ 'Total < 5'|trans }}</th>
+    </tr>
+    <tr>
+        <td>{{ 'Vaccinated'|trans }}</td>
+        {% for case in collection.rotavirusCases %}
+            <td>{{ case.deathsTotal.vaccinated }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Rotavirus','deathsTotal.vaccinated') }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'Not Vaccinated'|trans }}</td>
+        {% for case in collection.rotavirusCases %}
+            <td>{{ case.deathsTotal.notVaccinated }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Rotavirus','deathsTotal.notVaccinated') }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'No Information'|trans }}</td>
+        {% for case in collection.rotavirusCases %}
+            <td>{{ case.deathsTotal.noInformation }}</td>
+        {% endfor %}
+        <td>{{ collection.total('Rotavirus','deathsTotal.noInformation') }}</td>
+    </tr>
+    
+{% endmacro %}

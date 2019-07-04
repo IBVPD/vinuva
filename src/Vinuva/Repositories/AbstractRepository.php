@@ -14,7 +14,7 @@ use Paho\Vinuva\Models\Country;
 use Paho\Vinuva\Models\Hospital;
 use Paho\Vinuva\Models\User;
 
-class AbstractRepository
+abstract class AbstractRepository
 {
     /** @var string */
     protected $class;
@@ -109,4 +109,19 @@ class AbstractRepository
             ->groupBy('ctr,h,c.year')
             ->orderBy('c.country,c.hospital,c.year,c.month');
     }
+
+    public function getByHospitalFilterQuery(): QueryBuilder
+    {
+        return $this->entityManager
+            ->createQueryBuilder()
+            ->select('c,h,ctr')
+            ->from($this->class, 'c')
+            ->innerJoin('c.country','ctr')
+            ->innerJoin('c.hospital','h')
+            ->orderBy('ctr.name,h.name')
+            ->groupBy('h.id,c.year');
+    }
+
+    abstract public function getSummaryQuery(QueryBuilder $queryBuilder): array;
+    abstract public function getByHospitalSummary(QueryBuilder $queryBuilder, array $results): array;
 }
