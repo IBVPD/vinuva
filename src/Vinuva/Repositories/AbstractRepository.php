@@ -122,6 +122,19 @@ abstract class AbstractRepository
             ->groupBy('h.id,c.year');
     }
 
+    public function getByCountryFilterQuery(): QueryBuilder
+    {
+        return $this->entityManager
+            ->createQueryBuilder()
+            ->select('c,h,ctr')
+            ->from($this->class, 'c')
+            ->innerJoin('c.country','ctr')
+            ->innerJoin('c.hospital','h')
+            ->orderBy('ctr.name,h.name')
+            ->groupBy('ctr.id,c.year');
+    }
+
     abstract public function getSummaryQuery(QueryBuilder $queryBuilder): array;
     abstract public function getByHospitalSummary(QueryBuilder $queryBuilder, array $results): array;
+    abstract public function getByCountrySummary(QueryBuilder $queryBuilder, array $results): array;
 }

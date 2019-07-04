@@ -45,7 +45,7 @@ class MenuBuilder
 
         $report = $menu->addChild('Reports', ['label' => 'Reports'])->setAttribute('icon', 'chart-bar');
         $report->addChild('Monthly Collection', ['route' => 'reportMonthlyCollection']);
-        $report->addChild('Country Summary');
+        $report->addChild('Country Summary', ['route' => 'reportCountrySummary']);
         $report->addChild('Hospital Summary', ['route' => 'reportHospitalSummary']);
         $report->addChild('Monthly Summary', ['route' => 'reportMonthlySummary']);
         $report->addChild('Hospitals', ['route' => 'reportHospitalIndex']);

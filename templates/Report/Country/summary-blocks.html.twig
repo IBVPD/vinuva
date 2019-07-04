@@ -1,0 +1,1142 @@
+{% macro meningitis(cases) %}
+    {% set hLength = 2+cases|length %}
+
+    <tr class="info">
+        <th colspan="{{ hLength }}">Meningitis</th>
+    </tr>
+    <tr>
+        <td style="width:35%;"></td>
+        {% for case in cases %}
+            <th>{{ case.country }}</th>
+        {% endfor %}
+        <th>{{ 'Total'|trans }}</th>
+    </tr>
+
+    <tr>
+        <td>{{ 'No. of child hospitalizations under 5 years'|trans }}</td>
+        {% set total = 0 %}
+        {% for cId,case in cases %}
+            {% set total = total+case.under5 %}
+            <td>{{ case.under5 }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+
+    <tr>
+        <td>{{ 'No. of suspected cases of meningitis'|trans }}</td>
+        {% set total = 0 %}
+
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.suspected %}
+            <td>{{ case.suspected }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'No. suspected meningitis with CSF2 and forms'|trans }}</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.suspectedWith %}
+            <td>{{ case.suspectedWith }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+
+    <tr>
+        <td>{{ 'No. of probable cases of meningitis'|trans }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'Under 12 months'|trans }}</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.probable.12 %}
+            <td>{{ case.probable.12 }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>{{ '12 - 23 months'|trans }}</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.probable.23 %}
+            <td>{{ case.probable.23 }}</td>
+        {% endfor %}
+        {#        <td>{{ cases.total('Meningitis','probable.23') }}</td>#}
+    </tr>
+    <tr>
+        <td>{{ '24 - 59 months'|trans }}</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.probable.59 %}
+            <td>{{ case.probable.59 }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'Total < 5'|trans }}</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.probable.total %}
+            <td>{{ case.probable.total }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+
+    <tr>
+        <th colspan="{{ hLength }}">{{ 'Confirmed'|trans }}</th>
+    </tr>
+    <tr>
+        <th colspan="{{ hLength }}">{{ 'Under 12 months'|trans }}</th>
+    </tr>
+    <tr>
+        <td>Hib</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.under12Confirmed.hib %}
+            <td>{{ case.under12Confirmed.hib }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>Hi</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.under12Confirmed.hi %}
+            <td>{{ case.under12Confirmed.hi }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>Nm</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.under12Confirmed.nm %}
+            <td>{{ case.under12Confirmed.nm }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>Spn</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.under12Confirmed.spn %}
+            <td>{{ case.under12Confirmed.spn }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>Other</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.under12Confirmed.other %}
+            <td>{{ case.under12Confirmed.other }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>Contaminated</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.under12Confirmed.contamination %}
+            <td>{{ case.under12Confirmed.contamination }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+
+    <tr>
+        <th colspan="{{ hLength }}">{{ '12-23 months'|trans }}</th>
+    </tr>
+    <tr>
+        <td>Hib</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.under23Confirmed.hib %}
+            <td>{{ case.under23Confirmed.hib }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>Hi</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.under23Confirmed.hi %}
+            <td>{{ case.under23Confirmed.hi }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>Nm</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.under23Confirmed.nm %}
+            <td>{{ case.under23Confirmed.nm }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>Spn</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.under23Confirmed.spn %}
+            <td>{{ case.under23Confirmed.spn }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>Other</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.under23Confirmed.other %}
+            <td>{{ case.under23Confirmed.other }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>Contaminated</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.under23Confirmed.contamination %}
+            <td>{{ case.under23Confirmed.contamination }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+
+    <tr>
+        <th colspan="{{ hLength }}">{{ '24-59 months'|trans }}</th>
+    </tr>
+    <tr>
+        <td>Hib</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.under59Confirmed.hib %}
+            <td>{{ case.under59Confirmed.hib }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>Hi</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.under59Confirmed.hi %}
+            <td>{{ case.under59Confirmed.hi }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>Nm</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.under59Confirmed.nm %}
+            <td>{{ case.under59Confirmed.nm }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>Spn</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.under59Confirmed.spn %}
+            <td>{{ case.under59Confirmed.spn }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>Other</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.under59Confirmed.other %}
+            <td>{{ case.under59Confirmed.other }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>Contaminated</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.under59Confirmed.contamination %}
+            <td>{{ case.under59Confirmed.contamination }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+
+    <tr>
+        <th colspan="{{ hLength }}">{{ 'Total < 5'|trans }}</th>
+    </tr>
+    <tr>
+        <td>Hib</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.totalConfirmed.hib %}
+            <td>{{ case.totalConfirmed.hib }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>Hi</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.totalConfirmed.hi %}
+            <td>{{ case.totalConfirmed.hi }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>Nm</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.totalConfirmed.nm %}
+            <td>{{ case.totalConfirmed.nm }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>Spn</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.totalConfirmed.spn %}
+            <td>{{ case.totalConfirmed.spn }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>Other</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.totalConfirmed.other %}
+            <td>{{ case.totalConfirmed.other }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>Contaminated</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.totalConfirmed.contamination %}
+            <td>{{ case.totalConfirmed.contamination }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+
+    <tr>
+        <th colspan="{{ hLength }}">{{ 'No. of deaths'|trans }}</th>
+    </tr>
+    <tr>
+        <td>{{ 'Under 12 months'|trans }}</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.numberOfDeaths.12 %}
+            <td>{{ case.numberOfDeaths.12 }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>{{ '12 - 23 months'|trans }}</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.numberOfDeaths.23 %}
+            <td>{{ case.numberOfDeaths.23 }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>{{ '24 - 59 months'|trans }}</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.numberOfDeaths.59 %}
+            <td>{{ case.numberOfDeaths.59 }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'Total < 5'|trans }}</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.numberOfDeaths.total %}
+            <td>{{ case.numberOfDeaths.total }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+{% endmacro %}
+
+{% macro pneumonia(cases) %}
+    {% set hLength = 2+cases|length %}
+
+    <tr class="info">
+        <th colspan="{{ hLength }}">Pneumonia</th>
+    </tr>
+    <tr>
+        <td style="width:35%;"></td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            <th>{{ case.country }}</th>
+        {% endfor %}
+        <th>{{ 'Total'|trans }}</th>
+    </tr>
+
+    <tr>
+        <td>{{ 'No. of child hospitalizations under 5 years'|trans }}</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.under5 %}
+            <td>{{ case.under5 }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+
+    <tr>
+        <td>{{ 'No. of suspected cases of pneumonia'|trans }}</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.suspected %}
+            <td>{{ case.suspected }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'Number of suspected pneumonia cases with x-ray and forms'|trans }}</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.suspectedWith %}
+            <td>{{ case.suspectedWith }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+
+    <tr>
+        <th colspan="{{ hLength }}">{{ 'No. of probable cases of pneumonia'|trans }}</th>
+    </tr>
+    <tr>
+        <td>{{ 'Under 12 months'|trans }}</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.probable.12 %}
+            <td>{{ case.probable.12 }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>{{ '12 - 23 months'|trans }}</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.probable.23 %}
+            <td>{{ case.probable.23 }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>{{ '24 - 59 months'|trans }}</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.probable.59 %}
+            <td>{{ case.probable.59 }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'Total < 5'|trans }}</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.probable.total %}
+            <td>{{ case.probable.total }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+
+    <tr>
+        <th colspan="{{ hLength }}">{{ 'No. of probable cases with pleural blood specimen'|trans }}</th>
+    </tr>
+    <tr>
+        <td>{{ 'Under 12 months'|trans }}</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.probableWithBlood.12 %}
+            <td>{{ case.probableWithBlood.12 }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>{{ '12 - 23 months'|trans }}</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.probableWithBlood.23 %}
+            <td>{{ case.probableWithBlood.23 }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>{{ '24 - 59 months'|trans }}</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.probableWithBlood.59 %}
+            <td>{{ case.probableWithBlood.59 }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'Total < 5'|trans }}</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.probableWithBlood.total %}
+            <td>{{ case.probableWithBlood.total }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+
+    <tr>
+        <th colspan="{{ hLength }}">{{ 'No. of probable cases with pleural fluid'|trans }}</th>
+    </tr>
+    <tr>
+        <td>{{ 'Under 12 months'|trans }}</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.probableWithPleural.12 %}
+            <td>{{ case.probableWithPleural.12 }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>{{ '12 - 23 months'|trans }}</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.probableWithPleural.23 %}
+            <td>{{ case.probableWithPleural.23 }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>{{ '24 - 59 months'|trans }}</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.probableWithPleural.59 %}
+            <td>{{ case.probableWithPleural.59 }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'Total < 5'|trans }}</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.probableWithPleural.total %}
+            <td>{{ case.probableWithPleural.total }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+
+    <tr>
+        <th colspan="{{ hLength }}">{{ 'Confirmed'|trans }}</th>
+    </tr>
+    <tr>
+        <td>{{ 'Under 12 months'|trans }}</td>
+    </tr>
+    <tr>
+        <td>Hib</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.under12Confirmed.hib %}
+            <td>{{ case.under12Confirmed.hib }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>Hi</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.under12Confirmed.hi %}
+            <td>{{ case.under12Confirmed.hi }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>Nm</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.under12Confirmed.nm %}
+            <td>{{ case.under12Confirmed.nm }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>Spn</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.under12Confirmed.spn %}
+            <td>{{ case.under12Confirmed.spn }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>Other</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.under12Confirmed.other %}
+            <td>{{ case.under12Confirmed.other }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>Contaminated</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.under12Confirmed.contamination %}
+            <td>{{ case.under12Confirmed.contamination }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+
+    <tr>
+        <th>{{ '12-23 months'|trans }}</th>
+    </tr>
+    <tr>
+        <td>Hib</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.under23Confirmed.hib %}
+            <td>{{ case.under23Confirmed.hib }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>Hi</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.under23Confirmed.hi %}
+            <td>{{ case.under23Confirmed.hi }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>Nm</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.under23Confirmed.nm %}
+            <td>{{ case.under23Confirmed.nm }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>Spn</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.under23Confirmed.spn %}
+            <td>{{ case.under23Confirmed.spn }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>Other</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.under23Confirmed.other %}
+            <td>{{ case.under23Confirmed.other }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>Contaminated</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.under23Confirmed.contamination %}
+            <td>{{ case.under23Confirmed.contamination }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+
+    <tr>
+        <th>{{ '24-59 months'|trans }}</th>
+    </tr>
+    <tr>
+        <td>Hib</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.under59Confirmed.hib %}
+            <td>{{ case.under59Confirmed.hib }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>Hi</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.under59Confirmed.hi %}
+            <td>{{ case.under59Confirmed.hi }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>Nm</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.under59Confirmed.nm %}
+            <td>{{ case.under59Confirmed.nm }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>Spn</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.under59Confirmed.spn %}
+            <td>{{ case.under59Confirmed.spn }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>Other</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.under59Confirmed.other %}
+            <td>{{ case.under59Confirmed.other }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>Contaminated</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.under59Confirmed.contamination %}
+            <td>{{ case.under59Confirmed.contamination }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+
+    <tr>
+        <td>{{ 'Total < 5'|trans }}</td>
+    </tr>
+    <tr>
+        <td>Hib</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.totalConfirmed.hib %}
+            <td>{{ case.totalConfirmed.hib }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>Hi</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.totalConfirmed.hi %}
+            <td>{{ case.totalConfirmed.hi }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>Nm</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.totalConfirmed.nm %}
+            <td>{{ case.totalConfirmed.nm }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>Spn</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.totalConfirmed.spn %}
+            <td>{{ case.totalConfirmed.spn }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>Other</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.totalConfirmed.other %}
+            <td>{{ case.totalConfirmed.other }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>Contaminated</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.totalConfirmed.contamination %}
+            <td>{{ case.totalConfirmed.contamination }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+
+    <tr>
+        <th colspan="{{ hLength }}">{{ 'No. of deaths'|trans }}</th>
+    </tr>
+    <tr>
+        <td>{{ 'Under 12 months'|trans }}</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.numberOfDeaths.12 %}
+            <td>{{ case.numberOfDeaths.12 }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>{{ '12 - 23 months'|trans }}</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.numberOfDeaths.23 %}
+            <td>{{ case.numberOfDeaths.23 }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>{{ '24 - 59 months'|trans }}</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.numberOfDeaths.59 %}
+            <td>{{ case.numberOfDeaths.59 }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'Total < 5'|trans }}</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.numberOfDeaths.total %}
+            <td>{{ case.numberOfDeaths.total }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+{% endmacro %}
+
+{% macro rotavirus(cases) %}
+    {% set hLength = 2+cases|length %}
+    <tr class="info">
+        <th colspan="{{ hLength }}">Rotavirus</th>
+    </tr>
+
+    <tr>
+        <td style="width:35%;"></td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            <th>{{ case.country }}</th>
+        {% endfor %}
+        <th>{{ 'Total'|trans }}</th>
+    </tr>
+
+    <tr>
+        <td>{{ 'No. of child hospitalizations under 5 years'|trans }}</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.under5 %}
+            <td>{{ case.under5 }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+
+    <tr>
+        <td>{{ 'No. of hospitalizations with diarrhea in children under 5 years'|trans }}</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.under5With %}
+            <td>{{ case.under5With }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+
+    <tr>
+        <td>{{ 'No. of children under 5 years who meet the criteria of suspect case'|trans }}</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.suspected %}
+            <td>{{ case.suspected }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+
+    <tr>
+        <td>{{ 'No. of children with forms and stool samples collected'|trans }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'Under 12 months'|trans }}</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.withFormAndSample.12 %}
+            <td>{{ case.withFormAndSample.12 }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>{{ '12 - 23 months'|trans }}</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.withFormAndSample.23 %}
+            <td>{{ case.withFormAndSample.23 }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>{{ '24 - 59 months'|trans }}</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.withFormAndSample.59 %}
+            <td>{{ case.withFormAndSample.59 }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'Total < 5'|trans }}</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.withFormAndSample.total %}
+            <td>{{ case.withFormAndSample.total }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+
+    <tr>
+        <th colspan="{{ hLength }}">{{ 'No. of stool samples positive for rotavirus with forms'|trans }}</th>
+    </tr>
+    <tr>
+        <th colspan="{{ hLength }}">{{ 'Under 12 months'|trans }}</th>
+    </tr>
+    <tr>
+        <td>{{ 'Vaccinated'|trans }}</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.positiveUnder12.vaccinated %}
+            <td>{{ case.positiveUnder12.vaccinated }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'Not Vaccinated'|trans }}</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.positiveUnder12.notVaccinated %}
+            <td>{{ case.positiveUnder12.notVaccinated }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'No Information'|trans }}</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.positiveUnder12.noInformation %}
+            <td>{{ case.positiveUnder12.noInformation }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+
+
+    <tr>
+        <th colspan="{{ hLength }}">{{ 'Under 23 months'|trans }}</th>
+    </tr>
+    <tr>
+        <td>{{ 'Vaccinated'|trans }}</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.positiveUnder23.vaccinated %}
+            <td>{{ case.positiveUnder23.vaccinated }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'Not Vaccinated'|trans }}</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.positiveUnder23.notVaccinated %}
+            <td>{{ case.positiveUnder23.notVaccinated }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'No Information'|trans }}</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.positiveUnder23.noInformation %}
+            <td>{{ case.positiveUnder23.noInformation }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+
+    <tr>
+        <th colspan="{{ hLength }}">{{ 'Under 59 months'|trans }}</th>
+    </tr>
+    <tr>
+        <td>{{ 'Vaccinated'|trans }}</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.positiveUnder59.vaccinated %}
+            <td>{{ case.positiveUnder59.vaccinated }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'Not Vaccinated'|trans }}</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.positiveUnder59.notVaccinated%}
+            <td>{{ case.positiveUnder59.notVaccinated }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'No Information'|trans }}</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.positiveUnder59.noInformation %}
+            <td>{{ case.positiveUnder59.noInformation }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+
+    <tr>
+        <th colspan="{{ hLength }}">{{ 'Total < 5'|trans }}</th>
+    </tr>
+    <tr>
+        <td>{{ 'Vaccinated'|trans }}</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.positiveTotal.vaccinated %}
+            <td>{{ case.positiveTotal.vaccinated }}</td>
+        {% endfor %}
+        v
+    </tr>
+    <tr>
+        <td>{{ 'Not Vaccinated'|trans }}</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.positiveTotal.notVaccinated %}
+            <td>{{ case.positiveTotal.notVaccinated }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'No Information'|trans }}</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.positiveTotal.noInformation %}
+            <td>{{ case.positiveTotal.noInformation }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+
+    <tr>
+        <td colspan="{{ hLength }}">{{ 'No. of deaths'|trans }}</td>
+    </tr>
+    <tr>
+        <th colspan="{{ hLength }}">{{ 'Under 12 months'|trans }}</th>
+    </tr>
+    <tr>
+        <td>{{ 'Vaccinated'|trans }}</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.deathsUnder12.vaccinated %}
+            <td>{{ case.deathsUnder12.vaccinated }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'Not Vaccinated'|trans }}</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.deathsUnder12.notVaccinated %}
+            <td>{{ case.deathsUnder12.notVaccinated }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'No Information'|trans }}</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.deathsUnder12.noInformation %}
+            <td>{{ case.deathsUnder12.noInformation }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+
+    <tr>
+        <th colspan="{{ hLength }}">{{ 'Under 23 months'|trans }}</th>
+    </tr>
+    <tr>
+        <td>{{ 'Vaccinated'|trans }}</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.deathsUnder23.vaccinated %}
+            <td>{{ case.deathsUnder23.vaccinated }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'Not Vaccinated'|trans }}</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.deathsUnder23.notVaccinated %}
+            <td>{{ case.deathsUnder23.notVaccinated }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'No Information'|trans }}</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.deathsUnder23.noInformation %}
+            <td>{{ case.deathsUnder23.noInformation }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+
+    <tr>
+        <th colspan="{{ hLength }}">{{ 'Under 59 months'|trans }}</th>
+    </tr>
+    <tr>
+        <td>{{ 'Vaccinated'|trans }}</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.deathsUnder59.vaccinated %}
+            <td>{{ case.deathsUnder59.vaccinated }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'Not Vaccinated'|trans }}</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.deathsUnder59.notVaccinated %}
+            <td>{{ case.deathsUnder59.notVaccinated }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'No Information'|trans }}</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.deathsUnder59.noInformation %}
+            <td>{{ case.deathsUnder59.noInformation }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+
+    <tr>
+        <th colspan="{{ hLength }}">{{ 'Total < 5'|trans }}</th>
+    </tr>
+    <tr>
+        <td>{{ 'Vaccinated'|trans }}</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.deathsTotal.vaccinated %}
+            <td>{{ case.deathsTotal.vaccinated }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'Not Vaccinated'|trans }}</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total +case.deathsTotal.notVaccinated %}
+            <td>{{ case.deathsTotal.notVaccinated }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'No Information'|trans }}</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.deathsTotal.noInformation %}
+            <td>{{ case.deathsTotal.noInformation }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+
+{% endmacro %}

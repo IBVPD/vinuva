@@ -10,6 +10,7 @@ use Paho\Vinuva\Models\Common\Probable;
 use Paho\Vinuva\Models\Hospital;
 use Paho\Vinuva\Models\Rotavirus\Vaccination;
 use Paho\Vinuva\Report\Common\Probable as SummaryProbable;
+use Paho\Vinuva\Report\Country\RotavirusSummary as CountryRotavirusSummary;
 use Paho\Vinuva\Report\Hospital\Country;
 use Paho\Vinuva\Report\Hospital\CountryCollector;
 use Paho\Vinuva\Report\Hospital\Rotavirus;
@@ -178,6 +179,88 @@ class RotavirusRepository extends AbstractRepository
                     $p12, $p23, $p59, $pTotal,
                     $d12, $d23, $d59, $dTotal
                 ));
+            }
+        }
+
+        return $results;
+    }
+
+    public function getByCountrySummary(QueryBuilder $queryBuilder, array $results): array
+    {
+        [$sqlSelect, $filteredTerms] = explode('FROM', $queryBuilder->getQuery()->getSQL());
+
+        $sqlSelect = 'SELECT h2_.id as hId, h2_.name as hName, c1_.id cId, c1_.name as cName, 
+        SUM(r0_.under5) u5, SUM(r0_.under5With) u5with, SUM(r0_.suspected) susp, 
+        SUM(r0_.with_form_and_sample_12) wfs12 ,SUM(r0_.with_form_and_sample_23) wfs23,SUM(r0_.with_form_and_sample_59) wfs59, SUM(r0_.with_form_and_sample_total) wfstotal, 
+        SUM(r0_.positive_u12_vaccinated) as p12Vac,SUM(r0_.positive_u12_not_vaccinated) as p12NoVac,SUM(r0_.positive_u12_no_information) as p12NoInfo,
+        SUM(r0_.positive_u23_vaccinated) as p23Vac,SUM(r0_.positive_u23_not_vaccinated) as p23NoVac,SUM(r0_.positive_u23_no_information) as p23NoInfo,
+        SUM(r0_.positive_u59_vaccinated) as p59Vac,SUM(r0_.positive_u59_not_vaccinated) as p59NoVac,SUM(r0_.positive_u59_no_information) as p59NoInfo,
+        SUM(r0_.positive_total_vaccinated) as pTotalVac,SUM(r0_.positive_total_not_vaccinated) as pTotalNoVac,SUM(r0_.positive_total_no_information) as pTotalNoInfo,
+        SUM(r0_.death_u12_vaccinated) as d12Vac,SUM(r0_.death_u12_not_vaccinated) as d12NoVac,SUM(r0_.death_u12_no_information) as d12NoInfo,
+        SUM(r0_.death_u23_vaccinated) as d23Vac,SUM(r0_.death_u23_not_vaccinated) as d23NoVac,SUM(r0_.death_u23_no_information) as d23NoInfo,
+        SUM(r0_.death_u59_vaccinated) as d59Vac,SUM(r0_.death_u59_not_vaccinated) as d59NoVac,SUM(r0_.death_u59_no_information) as d59NoInfo,
+        SUM(r0_.death_total_vaccinated) as dTotalVac,SUM(r0_.death_total_not_vaccinated) as dTotalNoVac,SUM(r0_.death_total_no_information) as dTotalNoInfo';
+
+        $sql       = "$sqlSelect FROM $filteredTerms";
+        $statement = $this->entityManager->getConnection()->prepare($sql);
+        /** @var  $parameter Parameter */
+        foreach ($queryBuilder->getParameters() as $position => $parameter) {
+            $statement->bindValue($position + 1, $parameter->getValue());
+        }
+
+        if ($statement->execute()) {
+            $class = substr(strrchr($this->class, '\\'), 1);
+            while ($row = $statement->fetch(FetchMode::ASSOCIATIVE)) {
+                $withForm = new Probable($row['wfs12'] ? (int)$row['wfs12'] : null, $row['wfs23'] ? (int)$row['wfs23'] : null, $row['wfs59'] ? (int)$row['wfs59'] : null, $row['wfstotal'] ? (int)$row['wfstotal'] : null);
+                $p12      = new Vaccination(
+                    $row['p12Vac'] ? (int)$row['p12Vac'] : null,
+                    $row['p12NoVac'] ? (int)$row['p12NoVac'] : null,
+                    $row['p12NoInfo'] ? (int)$row['p12NoInfo'] : null
+                );
+                $p23      = new Vaccination(
+                    $row['p23Vac'] ? (int)$row['p23Vac'] : null,
+                    $row['p23NoVac'] ? (int)$row['p23NoVac'] : null,
+                    $row['p23NoInfo'] ? (int)$row['p23NoInfo'] : null
+                );
+                $p59      = new Vaccination(
+                    $row['p59Vac'] ? (int)$row['p59Vac'] : null,
+                    $row['p59NoVac'] ? (int)$row['p59NoVac'] : null,
+                    $row['p59NoInfo'] ? (int)$row['p59NoInfo'] : null
+                );
+                $pTotal   = new Vaccination(
+                    $row['pTotalVac'] ? (int)$row['pTotalVac'] : null,
+                    $row['pTotalNoVac'] ? (int)$row['pTotalNoVac'] : null,
+                    $row['pTotalNoInfo'] ? (int)$row['pTotalNoInfo'] : null
+                );
+                $d12      = new Vaccination(
+                    $row['d12Vac'] ? (int)$row['d12Vac'] : null,
+                    $row['d12NoVac'] ? (int)$row['d12NoVac'] : null,
+                    $row['d12NoInfo'] ? (int)$row['d12NoInfo'] : null
+                );
+                $d23      = new Vaccination(
+                    $row['d23Vac'] ? (int)$row['d23Vac'] : null,
+                    $row['d23NoVac'] ? (int)$row['d23NoVac'] : null,
+                    $row['d23NoInfo'] ? (int)$row['d23NoInfo'] : null
+                );
+                $d59      = new Vaccination(
+                    $row['d59Vac'] ? (int)$row['d59Vac'] : null,
+                    $row['d59NoVac'] ? (int)$row['d59NoVac'] : null,
+                    $row['d59NoInfo'] ? (int)$row['d59NoInfo'] : null
+                );
+                $dTotal   = new Vaccination(
+                    $row['dTotalVac'] ? (int)$row['dTotalVac'] : null,
+                    $row['dTotalNoVac'] ? (int)$row['dTotalNoVac'] : null,
+                    $row['dTotalNoInfo'] ? (int)$row['dTotalNoInfo'] : null
+                );
+
+                $results[$class][$row['cId']] = new CountryRotavirusSummary((int)$row['cId'],$row['cName'],
+                    (int)$row['u5'],
+                    (int)$row['u5with'],
+                    (int)$row['susp'],
+                    $withForm,
+                    $p12, $p23, $p59, $pTotal,
+                    $d12, $d23, $d59, $dTotal
+                );
             }
         }
 
