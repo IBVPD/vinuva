@@ -78,12 +78,12 @@ class MonthlyController
                 $filterBuilder->addFilterConditions($filterForm, $query);
                 $results[substr(strrchr($diseaseClass, '\\'), 1)] = $repository->getSummaryQuery($query);
             }
-
-            return $this->render('@App/Report/Monthly/summary.html.twig', [
-                'filterForm' => $filterForm->createView(),
-                'results' => $results,
-            ]);
         }
+
+        return $this->render('@App/Report/Monthly/summary.html.twig', [
+            'filterForm' => $filterForm->createView(),
+            'results' => $results,
+        ]);
     }
 
     /**
