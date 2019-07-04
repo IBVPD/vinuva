@@ -45,7 +45,7 @@ class CountryFilterType extends AbstractType
                 if (!empty($values['value'])) {
                     /** @var QueryBuilder $qb */
                     $qb = $filterQuery->getQueryBuilder();
-                    $qb->andWhere($values['alias'].'.country = :filterCountry')->setParameter('filterCountry',$values['value']);
+                    $qb->andWhere("{$values['alias']}.$field = :filterCountry")->setParameter('filterCountry', $values['value']);
                 }
             },
         ]);
