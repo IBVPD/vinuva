@@ -26,3 +26,5 @@ services:
     Paho\Vinuva\Repositories\RotavirusRepository:
         arguments:
             $class: Paho\Vinuva\Models\Rotavirus
+
+    Paho\Vinuva\Validator\ProbableValidator: ~

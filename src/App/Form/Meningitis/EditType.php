@@ -30,7 +30,7 @@ class EditType extends AbstractType
         $builder
             ->add('under5', IntegerType::class, ['label' => 'No. of child hospitalizations under 5 years'])
             ->add('suspected', IntegerType::class, ['label' => 'No. of suspected cases of meningitis'])
-            ->add('suspectedWith', IntegerType::class, ['label' => 'No. suspected meningitis with CSF2 and forms'])
+            ->add('suspectedWith', IntegerType::class, ['label' => 'No. suspected meningitis with CSF and forms'])
             ->add('probable', ProbableType::class, ['label' => 'No. of probable cases of meningitis'])
             ->add('under12Confirmed', ConfirmedType::class, ['label' => 'Under 12 months'])
             ->add('under23Confirmed', ConfirmedType::class, ['label' => '12 - 23 months'])

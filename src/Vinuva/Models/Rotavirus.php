@@ -6,6 +6,8 @@ namespace Paho\Vinuva\Models;
 use Doctrine\ORM\Mapping as ORM;
 use Paho\Vinuva\Models\Common\Probable;
 use Paho\Vinuva\Models\Rotavirus\Vaccination;
+use Symfony\Component\Validator\Constraints as Assert;
+use Paho\Vinuva\Validator as LocalAssert;
 
 /**
  * @ORM\Entity
@@ -16,6 +18,7 @@ class Rotavirus extends BaseDisease
     /**
      * @var int|null
      * @ORM\Column(name="under5With", type="integer", nullable=true)
+     * @Assert\LessThanOrEqual(propertyPath="under5", message="Must be less than or equal to the number of cases under 5")
      */
     protected $under5With;
 
@@ -28,6 +31,7 @@ class Rotavirus extends BaseDisease
     /**
      * @var Probable|null
      * @ORM\Embedded(class="Paho\Vinuva\Models\Common\Probable", columnPrefix="with_form_and_sample")
+     * @LocalAssert\LessThanOrEqualProbable(propertyPath="suspected", message="Must be less than or equal to the number of suspected cases")
      */
     protected $withFormAndSample;
 

@@ -7,6 +7,8 @@ use Doctrine\ORM\Mapping as ORM;
 use Paho\Vinuva\Models\Common\Probable;
 use Paho\Vinuva\Models\Common\Confirmed;
 use Paho\Vinuva\Models\Common\DeathCount;
+use Symfony\Component\Validator\Constraints as Assert;
+use Paho\Vinuva\Validator as LocalAssert;
 
 /**
  * @ORM\Entity
@@ -23,12 +25,14 @@ class Meningitis extends BaseDisease
     /**
      * @var int|null
      * @ORM\Column(name="suspectedWith",type="integer",nullable=true)
+     * @Assert\LessThanOrEqual(propertyPath="suspected", message="Must be less than or equal to the number of suspected cases")
      */
     protected $suspectedWith;
 
     /**
      * @var Probable|null
      * @ORM\Embedded(class="Paho\Vinuva\Models\Common\Probable", columnPrefix="probable")
+     * @LocalAssert\LessThanOrEqualProbable(propertyPath="suspectedWith", message="Must be less than or equal to the number of suspected cases with CSF and forms")
      */
     protected $probable;
 

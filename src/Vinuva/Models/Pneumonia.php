@@ -7,6 +7,8 @@ use Doctrine\ORM\Mapping as ORM;
 use Paho\Vinuva\Models\Common\DeathCount;
 use Paho\Vinuva\Models\Common\Probable;
 use Paho\Vinuva\Models\Common\Confirmed;
+use Symfony\Component\Validator\Constraints as Assert;
+use Paho\Vinuva\Validator as LocalAssert;
 
 /**
  * @ORM\Entity
@@ -17,30 +19,35 @@ class Pneumonia extends BaseDisease
     /**
      * @var int|null
      * @ORM\Column(name="suspected",type="integer",nullable=true)
+     * @Assert\LessThanOrEqual(propertyPath="under5", message="Must be less than number of hospitalizations")
      */
     protected $suspected;
 
     /**
      * @var int|null
      * @ORM\Column(name="suspectedWith",type="integer",nullable=true)
+     * @Assert\LessThanOrEqual(propertyPath="suspected", message="Must be less than or equal to the number of suspected cases")
      */
     protected $suspectedWith;
 
     /**
      * @var Probable|null
      * @ORM\Embedded(class="Paho\Vinuva\Models\Common\Probable", columnPrefix="probable")
+     * @LocalAssert\LessThanOrEqualProbable(propertyPath="suspectedWith", message="Must be less than or equal to the number of suspected cases with x-ray and forms")
      */
     protected $probable;
 
     /**
      * @var Probable|null
      * @ORM\Embedded(class="Paho\Vinuva\Models\Common\Probable", columnPrefix="probable_with_blood")
+     * @LocalAssert\LessThanOrEqualProbable(propertyPath="probable", message="Must be less than the number of probable cases")
      */
     protected $probableWithBlood;
 
     /**
      * @var Probable|null
      * @ORM\Embedded(class="Paho\Vinuva\Models\Common\Probable", columnPrefix="probable_with_pleural")
+     * @LocalAssert\LessThanOrEqualProbable(propertyPath="probable", message="Must be less than the number of probable cases")
      */
     protected $probableWithPleural;
 
