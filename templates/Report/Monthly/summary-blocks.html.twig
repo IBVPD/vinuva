@@ -193,7 +193,7 @@
 
         {% for key in [12,23,59,'total'] %}
             <tr>
-                <th colspan="2">{{'Probable With Blood %category%'|trans('%category%': key)}}</th>
+                <th colspan="2">{{'Probable With Blood %category%'|trans({'%category%': key})}}</th>
                 {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
                     <td>{{ case.probableWithBlood.get(key, month) }}</td>
                 {% endfor %}
@@ -202,7 +202,7 @@
 
         {% for key in [12,23,59,'total'] %}
             <tr>
-                <th colspan="2">{{'Probable With Pleural %category%'|trans('%category%': key)}}</th>
+                <th colspan="2">{{'Probable With Pleural %category%'|trans({'%category%': key})}}</th>
                 {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
                     <td>{{ case.probableWithPleural.get(key, month) }}</td>
                 {% endfor %}
@@ -262,7 +262,7 @@
 
         {% for key in [12,23,59,'total'] %}
             <tr>
-                <th colspan="2">{{'Number of Deaths %category%'|trans('%category%': key)}}</th>
+                <th colspan="2">{{'Number of Deaths %category%'|trans({'%category%': key})}}</th>
                 {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
                     <td>{{ case.numberOfDeaths.get(key, month) }}</td>
                 {% endfor %}
@@ -329,7 +329,7 @@
         </tr>
         {% for key in [12,23,59,'total'] %}
             <tr>
-                <th colspan="2">{{'Probable %category%'|trans('%category%': key)}}</th>
+                <th colspan="2">{{'Probable %category%'|trans({'%category%': key})}}</th>
                 {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
                     <td>{{ case.probable.get(key, month) }}</td>
                 {% endfor %}

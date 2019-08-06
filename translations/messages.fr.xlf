@@ -1,210 +1,533 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2019-08-06T15:55:19Z" source-language="en" target-language="fr" datatype="plaintext" original="not.available">
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="fr" datatype="plaintext" original="file.ext">
     <header>
-      <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
-      <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
+      <tool tool-id="symfony" tool-name="Symfony"/>
     </header>
     <body>
-      <trans-unit id="512d96c97e8b4090e2278ad754ed42199669d657" resname="12 - 23 months">
+      <trans-unit id=".fyNXNF" resname="12 - 23 months">
         <source>12 - 23 months</source>
-        <target state="new">12 - 23 months</target>
-        <jms:reference-file line="22">/Form/Common/DeathCountType.php</jms:reference-file>
-        <jms:reference-file line="22">/Form/Common/ProbableType.php</jms:reference-file>
-        <jms:reference-file line="36">/Form/Meningitis/EditType.php</jms:reference-file>
-        <jms:reference-file line="38">/Form/Pneumonia/EditType.php</jms:reference-file>
-        <jms:reference-file line="34">/Form/Rotavirus/EditType.php</jms:reference-file>
-        <jms:reference-file line="38">/Form/Rotavirus/EditType.php</jms:reference-file>
+        <target>12 - 23 months</target>
       </trans-unit>
-      <trans-unit id="5ad701cf3ba043dac3fff8a88c0d6a9dba8396ac" resname="24 - 59 months">
+      <trans-unit id="LQoxwMZ" resname="24 - 59 months">
         <source>24 - 59 months</source>
-        <target state="new">24 - 59 months</target>
-        <jms:reference-file line="23">/Form/Common/DeathCountType.php</jms:reference-file>
-        <jms:reference-file line="23">/Form/Common/ProbableType.php</jms:reference-file>
-        <jms:reference-file line="37">/Form/Meningitis/EditType.php</jms:reference-file>
-        <jms:reference-file line="39">/Form/Pneumonia/EditType.php</jms:reference-file>
-        <jms:reference-file line="35">/Form/Rotavirus/EditType.php</jms:reference-file>
-        <jms:reference-file line="39">/Form/Rotavirus/EditType.php</jms:reference-file>
+        <target>24 - 59 months</target>
       </trans-unit>
-      <trans-unit id="4e7afebcfbae000b22c7c85e5560f89a2a0280b4" resname="Admin">
+      <trans-unit id="wcIksDz" resname="Admin">
         <source>Admin</source>
-        <target state="new">Admin</target>
-        <jms:reference-file line="27">/Form/Admin/User/FilterType.php</jms:reference-file>
+        <target>Admin</target>
       </trans-unit>
-      <trans-unit id="6a72085653e4c5be8c7640c868ef787cbcf063d1" resname="All">
+      <trans-unit id="pSrOQg8" resname="All">
         <source>All</source>
-        <target state="new">All</target>
-        <jms:reference-file line="21">/Form/Report/Monthly/FilterType.php</jms:reference-file>
+        <target>All</target>
       </trans-unit>
-      <trans-unit id="e3199d24849eb82131394ea88ac9c22db0dbf732" resname="Collector">
+      <trans-unit id="nQCBpPP" resname="Collector">
         <source>Collector</source>
-        <target state="new">Collector</target>
-        <jms:reference-file line="27">/Form/Admin/User/FilterType.php</jms:reference-file>
+        <target>Collector</target>
       </trans-unit>
-      <trans-unit id="84add5b2952787581cb9a8851eef63d1ec75d22b" resname="Email">
+      <trans-unit id="lpzL089" resname="Email">
         <source>Email</source>
-        <target state="new">Email</target>
-        <jms:reference-file line="17">/Form/Types/LoginType.php</jms:reference-file>
+        <target>Email</target>
       </trans-unit>
-      <trans-unit id="f16832de90bb82ee2e0c478d12b7006f7099aef4" resname="Meningitis">
+      <trans-unit id="zJwtNni" resname="Meningitis">
         <source>Meningitis</source>
-        <target state="new">Meningitis</target>
-        <jms:reference-file line="22">/Form/Report/Monthly/FilterType.php</jms:reference-file>
+        <target>Meningitis</target>
       </trans-unit>
-      <trans-unit id="082bc378cd60e17a38d99898b21955299c5b60c8" resname="Month">
+      <trans-unit id="MQylA_8" resname="Month">
         <source>Month</source>
-        <target state="new">Month</target>
-        <jms:reference-file line="27">/Form/Filters/YearMonthFilterType.php</jms:reference-file>
+        <target>Month</target>
       </trans-unit>
-      <trans-unit id="a6247aa6fb921bf5f3c0a2172a2760111b7dc3f0" resname="No. hospitalizations in children under 5 years">
+      <trans-unit id="R7K2LLx" resname="No. hospitalizations in children under 5 years">
         <source>No. hospitalizations in children under 5 years</source>
-        <target state="new">No. hospitalizations in children under 5 years</target>
-        <jms:reference-file line="31">/Form/Pneumonia/EditType.php</jms:reference-file>
-        <jms:reference-file line="29">/Form/Rotavirus/EditType.php</jms:reference-file>
+        <target>No. hospitalizations in children under 5 years</target>
       </trans-unit>
-      <trans-unit id="c3b862f176deb5ce7ae6c12cc04fa2fa5ec7c1c2" resname="No. of child hospitalizations under 5 years">
+      <trans-unit id="RJfXZ0Y" resname="No. of child hospitalizations under 5 years">
         <source>No. of child hospitalizations under 5 years</source>
-        <target state="new">No. of child hospitalizations under 5 years</target>
-        <jms:reference-file line="31">/Form/Meningitis/EditType.php</jms:reference-file>
+        <target>No. of child hospitalizations under 5 years</target>
       </trans-unit>
-      <trans-unit id="678905c88c70e69db9d3ff34dc19dfa07e862310" resname="No. of children under 5 years who meet the criteria of suspect case">
+      <trans-unit id="XFdgJom" resname="No. of children under 5 years who meet the criteria of suspect case">
         <source>No. of children under 5 years who meet the criteria of suspect case</source>
-        <target state="new">No. of children under 5 years who meet the criteria of suspect case</target>
-        <jms:reference-file line="31">/Form/Rotavirus/EditType.php</jms:reference-file>
+        <target>No. of children under 5 years who meet the criteria of suspect case</target>
       </trans-unit>
-      <trans-unit id="e7269fbaf67580f5ef9c9e02e470d9fd946b601f" resname="No. of children with forms and stool samples collected">
+      <trans-unit id=".Jrzhbj" resname="No. of children with forms and stool samples collected">
         <source>No. of children with forms and stool samples collected</source>
-        <target state="new">No. of children with forms and stool samples collected</target>
-        <jms:reference-file line="32">/Form/Rotavirus/EditType.php</jms:reference-file>
+        <target>No. of children with forms and stool samples collected</target>
       </trans-unit>
-      <trans-unit id="28791435c9caa68ee18a09dd5bc7de05d46de2bd" resname="No. of hospitalizations with diarrhea in children under 5 years">
+      <trans-unit id="uQ4w30S" resname="No. of hospitalizations with diarrhea in children under 5 years">
         <source>No. of hospitalizations with diarrhea in children under 5 years</source>
-        <target state="new">No. of hospitalizations with diarrhea in children under 5 years</target>
-        <jms:reference-file line="30">/Form/Rotavirus/EditType.php</jms:reference-file>
+        <target>No. of hospitalizations with diarrhea in children under 5 years</target>
       </trans-unit>
-      <trans-unit id="5b0051d8b2c667928d8ddf68261ea4b4cd2adda7" resname="No. of probable cases of meningitis">
+      <trans-unit id="0BAQSKq" resname="No. of probable cases of meningitis">
         <source>No. of probable cases of meningitis</source>
-        <target state="new">No. of probable cases of meningitis</target>
-        <jms:reference-file line="34">/Form/Meningitis/EditType.php</jms:reference-file>
+        <target>No. of probable cases of meningitis</target>
       </trans-unit>
-      <trans-unit id="4f01eb650898276e4af4382becdad712fb62124f" resname="No. of probable cases of pneumonia">
+      <trans-unit id="UHatQ52" resname="No. of probable cases of pneumonia">
         <source>No. of probable cases of pneumonia</source>
-        <target state="new">No. of probable cases of pneumonia</target>
-        <jms:reference-file line="34">/Form/Pneumonia/EditType.php</jms:reference-file>
+        <target>No. of probable cases of pneumonia</target>
       </trans-unit>
-      <trans-unit id="d63c229b2a4df9f87cc7101b792ee46e40aed5f2" resname="No. of probable cases with blood specimen">
+      <trans-unit id="fiYRb8c" resname="No. of probable cases with blood specimen">
         <source>No. of probable cases with blood specimen</source>
-        <target state="new">No. of probable cases with blood specimen</target>
-        <jms:reference-file line="35">/Form/Pneumonia/EditType.php</jms:reference-file>
+        <target>No. of probable cases with blood specimen</target>
       </trans-unit>
-      <trans-unit id="79df28208affefd18a827982b8b39c159e257a1d" resname="No. of probable cases with pleural fluid">
+      <trans-unit id="ij9oPAA" resname="No. of probable cases with pleural fluid">
         <source>No. of probable cases with pleural fluid</source>
-        <target state="new">No. of probable cases with pleural fluid</target>
-        <jms:reference-file line="36">/Form/Pneumonia/EditType.php</jms:reference-file>
+        <target>No. of probable cases with pleural fluid</target>
       </trans-unit>
-      <trans-unit id="07ca9f6fbecf70fb4fa72bc4eaac8669716e028c" resname="No. of suspected cases of meningitis">
+      <trans-unit id="K7hqiiF" resname="No. of suspected cases of meningitis">
         <source>No. of suspected cases of meningitis</source>
-        <target state="new">No. of suspected cases of meningitis</target>
-        <jms:reference-file line="32">/Form/Meningitis/EditType.php</jms:reference-file>
+        <target>No. of suspected cases of meningitis</target>
       </trans-unit>
-      <trans-unit id="86a9a62a86786171a89248520d53578b09510759" resname="No. suspected meningitis with CSF and forms">
+      <trans-unit id="OVMTtWk" resname="No. suspected meningitis with CSF and forms">
         <source>No. suspected meningitis with CSF and forms</source>
-        <target state="new">No. suspected meningitis with CSF and forms</target>
-        <jms:reference-file line="33">/Form/Meningitis/EditType.php</jms:reference-file>
+        <target>No. suspected meningitis with CSF and forms</target>
       </trans-unit>
-      <trans-unit id="654a43aa84d7810ede26f89d4ed88ce8216f51d9" resname="No. suspected pneumonia">
+      <trans-unit id="Kw3.6rZ" resname="No. suspected pneumonia">
         <source>No. suspected pneumonia</source>
-        <target state="new">No. suspected pneumonia</target>
-        <jms:reference-file line="32">/Form/Pneumonia/EditType.php</jms:reference-file>
+        <target>No. suspected pneumonia</target>
       </trans-unit>
-      <trans-unit id="7dfb158b00780bb919dc7de83bda624f80d2db52" resname="Number of suspected pneumonia cases with x-ray and forms">
+      <trans-unit id="XxJVLmU" resname="Number of suspected pneumonia cases with x-ray and forms">
         <source>Number of suspected pneumonia cases with x-ray and forms</source>
-        <target state="new">Number of suspected pneumonia cases with x-ray and forms</target>
-        <jms:reference-file line="33">/Form/Pneumonia/EditType.php</jms:reference-file>
+        <target>Number of suspected pneumonia cases with x-ray and forms</target>
       </trans-unit>
-      <trans-unit id="84219262228fd04cf972a0330569bfde39825c30" resname="Override">
+      <trans-unit id="Q7wPX8A" resname="Override">
         <source>Override</source>
-        <target state="new">Override</target>
-        <jms:reference-file line="43">/Form/Common/ConfirmedType.php</jms:reference-file>
-        <jms:reference-file line="36">/Form/Rotavirus/VaccinationType.php</jms:reference-file>
+        <target>Override</target>
       </trans-unit>
-      <trans-unit id="e466c3c95f99c443d3f39de9a21d084570f3c500" resname="Override Total">
+      <trans-unit id="HNx1k8o" resname="Override Total">
         <source>Override Total</source>
-        <target state="new">Override Total</target>
-        <jms:reference-file line="25">/Form/Common/DeathCountType.php</jms:reference-file>
-        <jms:reference-file line="25">/Form/Common/ProbableType.php</jms:reference-file>
+        <target>Override Total</target>
       </trans-unit>
-      <trans-unit id="8be3c943b1609fffbfc51aad666d0a04adf83c9d" resname="Password">
+      <trans-unit id="588_9PF" resname="Password">
         <source>Password</source>
-        <target state="new">Password</target>
-        <jms:reference-file line="37">/Form/Admin/User/EditType.php</jms:reference-file>
-        <jms:reference-file line="21">/Form/Types/LoginType.php</jms:reference-file>
+        <target>Password</target>
       </trans-unit>
-      <trans-unit id="619e0e20aa9fcc629b91c73b82c6da3829ec93ed" resname="Pneumonia">
+      <trans-unit id="I6WxJdu" resname="Pneumonia">
         <source>Pneumonia</source>
-        <target state="new">Pneumonia</target>
-        <jms:reference-file line="22">/Form/Report/Monthly/FilterType.php</jms:reference-file>
+        <target>Pneumonia</target>
       </trans-unit>
-      <trans-unit id="c1fcf32f5f9fa0920cb6b37fefb4eda4b63f7f1c" resname="Re-enter Password">
+      <trans-unit id="BSHwwmi" resname="Re-enter Password">
         <source>Re-enter Password</source>
-        <target state="new">Re-enter Password</target>
-        <jms:reference-file line="38">/Form/Admin/User/EditType.php</jms:reference-file>
+        <target>Re-enter Password</target>
       </trans-unit>
-      <trans-unit id="ac5bbe8292ed1b69e0f95e5bdaa035569a295fd7" resname="Reader">
+      <trans-unit id="2FVCU.V" resname="Reader">
         <source>Reader</source>
-        <target state="new">Reader</target>
-        <jms:reference-file line="27">/Form/Admin/User/FilterType.php</jms:reference-file>
+        <target>Reader</target>
       </trans-unit>
-      <trans-unit id="88bc3fe3daddee139809d036f18b985fbe165957" resname="Reports">
+      <trans-unit id="2syjy6P" resname="Reports">
         <source>Reports</source>
-        <target state="new">Reports</target>
-        <jms:reference-file line="46">/Menu/MenuBuilder.php</jms:reference-file>
+        <target>Reports</target>
       </trans-unit>
-      <trans-unit id="38c3c12e41c518ad692ecbfc7a05cbaad9c24fc6" resname="Rotavirus">
+      <trans-unit id="0cmcS2Y" resname="Rotavirus">
         <source>Rotavirus</source>
-        <target state="new">Rotavirus</target>
-        <jms:reference-file line="22">/Form/Report/Monthly/FilterType.php</jms:reference-file>
+        <target>Rotavirus</target>
       </trans-unit>
-      <trans-unit id="b92e64f8b332abb65066132727c8a354601e81a3" resname="Select...">
+      <trans-unit id="Ezm93Cs" resname="Select...">
         <source>Select...</source>
-        <target state="new">Select...</target>
-        <jms:reference-file line="22">/Form/Admin/Country/FilterType.php</jms:reference-file>
-        <jms:reference-file line="23">/Form/Admin/Hospital/FilterType.php</jms:reference-file>
-        <jms:reference-file line="26">/Form/Admin/User/FilterType.php</jms:reference-file>
-        <jms:reference-file line="30">/Form/Admin/User/FilterType.php</jms:reference-file>
-        <jms:reference-file line="37">/Form/Admin/User/FilterType.php</jms:reference-file>
-        <jms:reference-file line="19">/Form/Report/User/FilterType.php</jms:reference-file>
-        <jms:reference-file line="16">/Form/Types/RoleType.php</jms:reference-file>
+        <target>Select...</target>
       </trans-unit>
-      <trans-unit id="ca87bfaa364f93a66c00c2cc6466d2b07926cb5c" resname="Total &lt; 5">
-        <source><![CDATA[Total < 5]]></source>
-        <target state="new"><![CDATA[Total < 5]]></target>
-        <jms:reference-file line="24">/Form/Common/DeathCountType.php</jms:reference-file>
-        <jms:reference-file line="24">/Form/Common/ProbableType.php</jms:reference-file>
-        <jms:reference-file line="38">/Form/Meningitis/EditType.php</jms:reference-file>
-        <jms:reference-file line="40">/Form/Pneumonia/EditType.php</jms:reference-file>
-        <jms:reference-file line="36">/Form/Rotavirus/EditType.php</jms:reference-file>
-        <jms:reference-file line="40">/Form/Rotavirus/EditType.php</jms:reference-file>
+      <trans-unit id="jxrTU2N" resname="Total &lt; 5">
+        <source>Total &lt; 5</source>
+        <target><![CDATA[Total < 5]]></target>
       </trans-unit>
-      <trans-unit id="d8a7587427580bfd86b98c0ca2dfd3161b715848" resname="Under 12 months">
+      <trans-unit id="QZflYY." resname="Under 12 months">
         <source>Under 12 months</source>
-        <target state="new">Under 12 months</target>
-        <jms:reference-file line="21">/Form/Common/DeathCountType.php</jms:reference-file>
-        <jms:reference-file line="21">/Form/Common/ProbableType.php</jms:reference-file>
-        <jms:reference-file line="35">/Form/Meningitis/EditType.php</jms:reference-file>
-        <jms:reference-file line="37">/Form/Pneumonia/EditType.php</jms:reference-file>
-        <jms:reference-file line="33">/Form/Rotavirus/EditType.php</jms:reference-file>
-        <jms:reference-file line="37">/Form/Rotavirus/EditType.php</jms:reference-file>
+        <target>Under 12 months</target>
       </trans-unit>
-      <trans-unit id="e0264861a981368965b78a2880d785047ad400bc" resname="Verifier">
+      <trans-unit id="yNnfpvJ" resname="Verifier">
         <source>Verifier</source>
-        <target state="new">Verifier</target>
-        <jms:reference-file line="27">/Form/Admin/User/FilterType.php</jms:reference-file>
+        <target>Verifier</target>
       </trans-unit>
-      <trans-unit id="879e32326c5217968ac8e3a14e4a8a5214957264" resname="Year">
+      <trans-unit id="ifaDJWD" resname="Year">
         <source>Year</source>
-        <target state="new">Year</target>
-        <jms:reference-file line="28">/Form/Filters/YearMonthFilterType.php</jms:reference-file>
+        <target>Year</target>
+      </trans-unit>
+      <trans-unit id="VG67jrm" resname="Filters">
+        <source>Filters</source>
+        <target>__Filters</target>
+      </trans-unit>
+      <trans-unit id="KKK8pD1" resname="Add Region">
+        <source>Add Region</source>
+        <target>__Add Region</target>
+      </trans-unit>
+      <trans-unit id="YQxl2EU" resname="Regions">
+        <source>Regions</source>
+        <target>__Regions</target>
+      </trans-unit>
+      <trans-unit id="ScJmuqq" resname="Search">
+        <source>Search</source>
+        <target>__Search</target>
+      </trans-unit>
+      <trans-unit id="2u52BrM" resname="Reset">
+        <source>Reset</source>
+        <target>__Reset</target>
+      </trans-unit>
+      <trans-unit id=".4BZ3Gd" resname="Actions">
+        <source>Actions</source>
+        <target>__Actions</target>
+      </trans-unit>
+      <trans-unit id="WV7.Jhr" resname="Create Region">
+        <source>Create Region</source>
+        <target>__Create Region</target>
+      </trans-unit>
+      <trans-unit id="GXZu1sy" resname="Cancel">
+        <source>Cancel</source>
+        <target>__Cancel</target>
+      </trans-unit>
+      <trans-unit id="R1lJisK" resname="Create">
+        <source>Create</source>
+        <target>__Create</target>
+      </trans-unit>
+      <trans-unit id="6X1LSL5" resname="Edit %target_name%">
+        <source>Edit %target_name%</source>
+        <target>__Edit %target_name%</target>
+      </trans-unit>
+      <trans-unit id="WoQqikO" resname="Edit / Save">
+        <source>Edit / Save</source>
+        <target>__Edit / Save</target>
+      </trans-unit>
+      <trans-unit id="2EqRBas" resname="Add Hospital">
+        <source>Add Hospital</source>
+        <target>__Add Hospital</target>
+      </trans-unit>
+      <trans-unit id="wmgjLAo" resname="Hospitals">
+        <source>Hospitals</source>
+        <target>__Hospitals</target>
+      </trans-unit>
+      <trans-unit id="nLsIplt" resname="Short / Local">
+        <source>Short / Local</source>
+        <target>__Short / Local</target>
+      </trans-unit>
+      <trans-unit id="RkxP.QG" resname="Edit">
+        <source>Edit</source>
+        <target>__Edit</target>
+      </trans-unit>
+      <trans-unit id="qSnU_5z" resname="Create Hospital">
+        <source>Create Hospital</source>
+        <target>__Create Hospital</target>
+      </trans-unit>
+      <trans-unit id="9OM13Vc" resname="Add Country">
+        <source>Add Country</source>
+        <target>__Add Country</target>
+      </trans-unit>
+      <trans-unit id="j69_x6s" resname="Countries">
+        <source>Countries</source>
+        <target>__Countries</target>
+      </trans-unit>
+      <trans-unit id="06AI7xM" resname="Region">
+        <source>Region</source>
+        <target>__Region</target>
+      </trans-unit>
+      <trans-unit id="v_6KxfA" resname="ISO2/FIPS">
+        <source>ISO2/FIPS</source>
+        <target>__ISO2/FIPS</target>
+      </trans-unit>
+      <trans-unit id="WLf4Uw3" resname="Create Country">
+        <source>Create Country</source>
+        <target>__Create Country</target>
+      </trans-unit>
+      <trans-unit id="EVomtRz" resname="Add User">
+        <source>Add User</source>
+        <target>__Add User</target>
+      </trans-unit>
+      <trans-unit id="awzJBNC" resname="Users">
+        <source>Users</source>
+        <target>__Users</target>
+      </trans-unit>
+      <trans-unit id="TJ.AIdd" resname="Active?">
+        <source>Active?</source>
+        <target>__Active?</target>
+      </trans-unit>
+      <trans-unit id="FHNqLrn" resname="Role">
+        <source>Role</source>
+        <target>__Role</target>
+      </trans-unit>
+      <trans-unit id="gFMuwLY" resname="Create User">
+        <source>Create User</source>
+        <target>__Create User</target>
+      </trans-unit>
+      <trans-unit id="7lCCdjR" resname="Add Data">
+        <source>Add Data</source>
+        <target>__Add Data</target>
+      </trans-unit>
+      <trans-unit id="cB0CHQj" resname="Country">
+        <source>Country</source>
+        <target>__Country</target>
+      </trans-unit>
+      <trans-unit id="l_liNmH" resname="Hospital">
+        <source>Hospital</source>
+        <target>__Hospital</target>
+      </trans-unit>
+      <trans-unit id="mcQKtAW" resname="Date">
+        <source>Date</source>
+        <target>__Date</target>
+      </trans-unit>
+      <trans-unit id="U8vx5Qg" resname="Verified?">
+        <source>Verified?</source>
+        <target>__Verified?</target>
+      </trans-unit>
+      <trans-unit id="IDdXgY3" resname="Enter Details">
+        <source>Enter Details</source>
+        <target>__Enter Details</target>
+      </trans-unit>
+      <trans-unit id="pnZB_PV" resname="No. of confirmed cases of pneumonia">
+        <source>No. of confirmed cases of pneumonia</source>
+        <target>__No. of confirmed cases of pneumonia</target>
+      </trans-unit>
+      <trans-unit id="RQvLDZE" resname="Add Pneumonia">
+        <source>Add Pneumonia</source>
+        <target>__Add Pneumonia</target>
+      </trans-unit>
+      <trans-unit id="mVBo1oL" resname="No. of confirmed cases of meningitis">
+        <source>No. of confirmed cases of meningitis</source>
+        <target>__No. of confirmed cases of meningitis</target>
+      </trans-unit>
+      <trans-unit id="7hnPFJt" resname="Add Case">
+        <source>Add Case</source>
+        <target>__Add Case</target>
+      </trans-unit>
+      <trans-unit id="qu7pN7w" resname="Add Meningitis">
+        <source>Add Meningitis</source>
+        <target>__Add Meningitis</target>
+      </trans-unit>
+      <trans-unit id="KH.aaUT" resname="Sign me in">
+        <source>Sign me in</source>
+        <target>__Sign me in</target>
+      </trans-unit>
+      <trans-unit id="svSFRDj" resname="Summary by Hospitals">
+        <source>Summary by Hospitals</source>
+        <target>__Summary by Hospitals</target>
+      </trans-unit>
+      <trans-unit id="FPiIfu8" resname="%hospital_count% Hospitals">
+        <source>%hospital_count% Hospitals</source>
+        <target>__%hospital_count% Hospitals</target>
+      </trans-unit>
+      <trans-unit id="ybPDgkf" resname="Total">
+        <source>Total</source>
+        <target>__Total</target>
+      </trans-unit>
+      <trans-unit id="UxcFQnq" resname="No. suspected meningitis with CSF2 and forms">
+        <source>No. suspected meningitis with CSF2 and forms</source>
+        <target>__No. suspected meningitis with CSF2 and forms</target>
+      </trans-unit>
+      <trans-unit id=".gC2e23" resname="Confirmed">
+        <source>Confirmed</source>
+        <target>__Confirmed</target>
+      </trans-unit>
+      <trans-unit id="_X6doOO" resname="Other">
+        <source>Other</source>
+        <target>__Other</target>
+      </trans-unit>
+      <trans-unit id="nnCxVhi" resname="Contaminated">
+        <source>Contaminated</source>
+        <target>__Contaminated</target>
+      </trans-unit>
+      <trans-unit id="UtJEwqX" resname="12-23 months">
+        <source>12-23 months</source>
+        <target>__12-23 months</target>
+      </trans-unit>
+      <trans-unit id="g.PIBGK" resname="24-59 months">
+        <source>24-59 months</source>
+        <target>__24-59 months</target>
+      </trans-unit>
+      <trans-unit id="d5QPb0B" resname="No. of deaths">
+        <source>No. of deaths</source>
+        <target>__No. of deaths</target>
+      </trans-unit>
+      <trans-unit id="CE4709u" resname="No. of suspected cases of pneumonia">
+        <source>No. of suspected cases of pneumonia</source>
+        <target>__No. of suspected cases of pneumonia</target>
+      </trans-unit>
+      <trans-unit id="VSnyr4T" resname="No. of probable cases with pleural blood specimen">
+        <source>No. of probable cases with pleural blood specimen</source>
+        <target>__No. of probable cases with pleural blood specimen</target>
+      </trans-unit>
+      <trans-unit id="HKdewWu" resname="No. of stool samples positive for rotavirus with forms">
+        <source>No. of stool samples positive for rotavirus with forms</source>
+        <target>__No. of stool samples positive for rotavirus with forms</target>
+      </trans-unit>
+      <trans-unit id="URLCSN4" resname="Vaccinated">
+        <source>Vaccinated</source>
+        <target>__Vaccinated</target>
+      </trans-unit>
+      <trans-unit id="q8mm.ZY" resname="Not Vaccinated">
+        <source>Not Vaccinated</source>
+        <target>__Not Vaccinated</target>
+      </trans-unit>
+      <trans-unit id="JHpFw0F" resname="No Information">
+        <source>No Information</source>
+        <target>__No Information</target>
+      </trans-unit>
+      <trans-unit id="b1AOD3G" resname="Under 23 months">
+        <source>Under 23 months</source>
+        <target>__Under 23 months</target>
+      </trans-unit>
+      <trans-unit id="AiOMNEC" resname="Under 59 months">
+        <source>Under 59 months</source>
+        <target>__Under 59 months</target>
+      </trans-unit>
+      <trans-unit id="kQ_a_9O" resname="Summary by Country">
+        <source>Summary by Country</source>
+        <target>__Summary by Country</target>
+      </trans-unit>
+      <trans-unit id="Io5IQOn" resname="Monthly Summary">
+        <source>Monthly Summary</source>
+        <target>__Monthly Summary</target>
+      </trans-unit>
+      <trans-unit id="dm3h91A" resname="Monthly Collection">
+        <source>Monthly Collection</source>
+        <target>__Monthly Collection</target>
+      </trans-unit>
+      <trans-unit id="XF2xIMs" resname="Jan">
+        <source>Jan</source>
+        <target>__Jan</target>
+      </trans-unit>
+      <trans-unit id="yvcbP1g" resname="Feb">
+        <source>Feb</source>
+        <target>__Feb</target>
+      </trans-unit>
+      <trans-unit id="tLfTgY2" resname="Mar">
+        <source>Mar</source>
+        <target>__Mar</target>
+      </trans-unit>
+      <trans-unit id="YXUxtP7" resname="Apr">
+        <source>Apr</source>
+        <target>__Apr</target>
+      </trans-unit>
+      <trans-unit id="jHj_W5k" resname="May">
+        <source>May</source>
+        <target>__May</target>
+      </trans-unit>
+      <trans-unit id="sn.UbtG" resname="Jun">
+        <source>Jun</source>
+        <target>__Jun</target>
+      </trans-unit>
+      <trans-unit id="xD9WuYB" resname="Jul">
+        <source>Jul</source>
+        <target>__Jul</target>
+      </trans-unit>
+      <trans-unit id="QeHYKqm" resname="Aug">
+        <source>Aug</source>
+        <target>__Aug</target>
+      </trans-unit>
+      <trans-unit id="RR4rcZB" resname="Sep">
+        <source>Sep</source>
+        <target>__Sep</target>
+      </trans-unit>
+      <trans-unit id="aHfoSUw" resname="Oct">
+        <source>Oct</source>
+        <target>__Oct</target>
+      </trans-unit>
+      <trans-unit id="PmMNKWS" resname="Nov">
+        <source>Nov</source>
+        <target>__Nov</target>
+      </trans-unit>
+      <trans-unit id="8qDPvPG" resname="Dec">
+        <source>Dec</source>
+        <target>__Dec</target>
+      </trans-unit>
+      <trans-unit id="OLdGVXY" resname="Hospitalized">
+        <source>Hospitalized</source>
+        <target>__Hospitalized</target>
+      </trans-unit>
+      <trans-unit id="fQick27" resname="Suspected">
+        <source>Suspected</source>
+        <target>__Suspected</target>
+      </trans-unit>
+      <trans-unit id="AAe3kvj" resname="Suspected With">
+        <source>Suspected With</source>
+        <target>__Suspected With</target>
+      </trans-unit>
+      <trans-unit id="enX9nq8" resname="Probable %category%">
+        <source>Probable %category%</source>
+        <target>__Probable %category%</target>
+      </trans-unit>
+      <trans-unit id="nVzCM0i" resname="Confirmed Under 12">
+        <source>Confirmed Under 12</source>
+        <target>__Confirmed Under 12</target>
+      </trans-unit>
+      <trans-unit id="mmGrlrQ" resname="Confirmed Under 23">
+        <source>Confirmed Under 23</source>
+        <target>__Confirmed Under 23</target>
+      </trans-unit>
+      <trans-unit id="a9PR_S3" resname="Confirmed 23-59">
+        <source>Confirmed 23-59</source>
+        <target>__Confirmed 23-59</target>
+      </trans-unit>
+      <trans-unit id="lKwcfx_" resname="Total Confirmed">
+        <source>Total Confirmed</source>
+        <target>__Total Confirmed</target>
+      </trans-unit>
+      <trans-unit id="mhTAlDA" resname="Number of Deaths %category%">
+        <source>Number of Deaths %category%</source>
+        <target>__Number of Deaths %category%</target>
+      </trans-unit>
+      <trans-unit id="ad0fmk2" resname="Probable With Blood %category%">
+        <source>Probable With Blood %category%</source>
+        <target>__Probable With Blood %category%</target>
+      </trans-unit>
+      <trans-unit id="1h_2pwy" resname="Probable With Pleural %category%">
+        <source>Probable With Pleural %category%</source>
+        <target>__Probable With Pleural %category%</target>
+      </trans-unit>
+      <trans-unit id="tNma_NB" resname="Positive Under 12">
+        <source>Positive Under 12</source>
+        <target>__Positive Under 12</target>
+      </trans-unit>
+      <trans-unit id="P4DOBzV" resname="Positive Under 23">
+        <source>Positive Under 23</source>
+        <target>__Positive Under 23</target>
+      </trans-unit>
+      <trans-unit id="vQvk8ha" resname="Positive Under 59">
+        <source>Positive Under 59</source>
+        <target>__Positive Under 59</target>
+      </trans-unit>
+      <trans-unit id="aMMTQkR" resname="Positive Total">
+        <source>Positive Total</source>
+        <target>__Positive Total</target>
+      </trans-unit>
+      <trans-unit id="B07bUSa" resname="Deaths Under 12">
+        <source>Deaths Under 12</source>
+        <target>__Deaths Under 12</target>
+      </trans-unit>
+      <trans-unit id="L3JYpdi" resname="Deaths Under 23">
+        <source>Deaths Under 23</source>
+        <target>__Deaths Under 23</target>
+      </trans-unit>
+      <trans-unit id="ijsn.qI" resname="Deaths Under 59">
+        <source>Deaths Under 59</source>
+        <target>__Deaths Under 59</target>
+      </trans-unit>
+      <trans-unit id="ODzUkye" resname="Deaths Total">
+        <source>Deaths Total</source>
+        <target>__Deaths Total</target>
+      </trans-unit>
+      <trans-unit id="HYKj3AF" resname="Add Rotavirus">
+        <source>Add Rotavirus</source>
+        <target>__Add Rotavirus</target>
+      </trans-unit>
+      <trans-unit id="dLF9_Df" resname="CENTINELA">
+        <source>CENTINELA</source>
+        <target>__CENTINELA</target>
+      </trans-unit>
+      <trans-unit id="rhtvJ3c" resname="New Vaccines Surveillance System - VINUVA">
+        <source>New Vaccines Surveillance System - VINUVA</source>
+        <target>__New Vaccines Surveillance System - VINUVA</target>
+      </trans-unit>
+      <trans-unit id=".sKsD0z" resname="Edit Profile">
+        <source>Edit Profile</source>
+        <target>__Edit Profile</target>
+      </trans-unit>
+      <trans-unit id="1X1ItxA" resname="Log Out">
+        <source>Log Out</source>
+        <target>__Log Out</target>
+      </trans-unit>
+      <trans-unit id="ki2mlsl" resname="Verified?:">
+        <source>Verified?:</source>
+        <target>__Verified?:</target>
+      </trans-unit>
+      <trans-unit id="wcEAnT8" resname="Update">
+        <source>Update</source>
+        <target>__Update</target>
       </trans-unit>
     </body>
   </file>
