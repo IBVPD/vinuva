@@ -4,26 +4,26 @@
     <div class="panel panel-inverse">
         <div class="panel-heading">
             <div class="panel-heading-btn">
-                <a href="#panelFilters" data-toggle="collapse" class="btn btn-sm btn-icon btn-circle btn-warning" title="Filter"><i class="fa fa-search"></i></a>
+                <a href="#panelFilters" data-toggle="collapse" class="btn btn-sm btn-icon btn-circle btn-warning" title="{{'Filters'|trans}}"><i class="fa fa-search"></i></a>
             </div>
-            <h4 class="panel-title">Hospitals</h4>
+            <h4 class="panel-title">{{'Hospitals'|trans}}</h4>
         </div>
 
         <div class="panel-body">
             <div class="collapse well filters clearfix" id="panelFilters">
                 {{ form_start(filterForm) }}
                 {{ form_rest(filterForm) }}
-                <button class="btn btn-warning" name="{{ filterForm.vars.name }}[reset]"><i class="fa fa-refresh"></i> Reset</button>
-                <button type="submit" class="pull-right btn btn-success"><i class="fa fa-search"></i> Search</button>
+                <button class="btn btn-warning" name="{{ filterForm.vars.name }}[reset]"><i class="fa fa-refresh"></i> {{'Reset'|trans}}</button>
+                <button type="submit" class="pull-right btn btn-success"><i class="fa fa-search"></i> {{'Search'|trans}}</button>
                 {{ form_end(filterForm) }}
             </div>
 
             <fieldset>
                 <table class="table m-b-0">
                     <tr>
-                        <th>Region</th>
-                        <th>Country</th>
-                        <th>Hospital</th>
+                        <th>{{'Region'|trans}}</th>
+                        <th>{{'Country'|trans}}</th>
+                        <th>{{'Hospital'|trans}}</th>
                     </tr>
                     {% for region in results %}
                         <tr>
@@ -34,7 +34,7 @@
                             <tr>
                                 <td>&nbsp;</td>
                                 <td>{{ country }}</td>
-                                <td colspan="3">{{ country.hospitals|length }} Hospitals</td>
+                                <td colspan="3">{{ '%hospital_count% Hospitals'|trans({'%hospital_count%': country.hospitals|length}) }}</td>
                             </tr>
                             {% for hospital in country.hospitals %}
                                 <tr>

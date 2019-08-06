@@ -4,17 +4,17 @@
     <div class="panel panel-inverse">
         <div class="panel-heading">
             <div class="panel-heading-btn">
-                <a data-toggle="collapse" href="#filters" class="btn btn-sm btn-icon btn-circle btn-warning" title="Filters"><i class="fa fa-search"></i></a>
-                <a data-toggle="modal" href="#addUserModal" class="btn btn-sm btn-icon btn-circle btn-primary" title="Add User"><i class="fa fa-user-plus"></i></a>
+                <a data-toggle="collapse" href="#filters" class="btn btn-sm btn-icon btn-circle btn-warning" title="{{ 'Filters'|trans }}"><i class="fa fa-search"></i></a>
+                <a data-toggle="modal" href="#addUserModal" class="btn btn-sm btn-icon btn-circle btn-primary" title="{{ 'Add User'|trans }}"><i class="fa fa-user-plus"></i></a>
             </div>
-            <h4 class="panel-title">Users</h4>
+            <h4 class="panel-title">{{ 'Users'|trans }}</h4>
         </div>
         <div class="panel-body">
             <div class="collapse well filters clearfix" id="filters">
                 {{ form_start(filterForm) }}
                 {{ form_rest(filterForm) }}
-                <button type="submit" class="pull-right btn btn-success"><i class="fa fa-search"></i> Search</button>
-                <button type="submit" class="pull-left btn btn-warning" name="{{ filterForm.vars.name }}[reset]"><i class="fa fa-refresh"></i> Reset</button>
+                <button type="submit" class="pull-right btn btn-success"><i class="fa fa-search"></i> {{ 'Search'|trans }}</button>
+                <button type="submit" class="pull-left btn btn-warning" name="{{ filterForm.vars.name }}[reset]"><i class="fa fa-refresh"></i> {{ 'Reset'|trans }}</button>
                 {{ form_end(filterForm) }}
             </div>
 
@@ -22,11 +22,11 @@
                 <table class="table m-b-0">
                     <tr>
                         <th>{{ knp_pagination_sortable(users, 'Name', 'u.name') }}</th>
-                        <th>Active?</th>
-                        <th>Role</th>
+                        <th>{{ 'Active?'|trans }}</th>
+                        <th>{{ 'Role'|trans }}</th>
                         <th>{{ knp_pagination_sortable(users, 'Country', 'c.name') }}</th>
-                        <th>Hospitals</th>
-                        <th>Actions</th>
+                        <th>{{ 'Hospitals'|trans }}</th>
+                        <th>{{ 'Actions'|trans }}</th>
                     </tr>
                     {% for user in users %}
                         <tr>
@@ -51,7 +51,7 @@
                                 </ul>
                             </td>
                             <td>
-                                <a class="btn btn-sm btn-primary" href="{{ path('adminUserEdit', { userId: user.id }) }}">Edit</a>
+                                <a class="btn btn-sm btn-primary" href="{{ path('adminUserEdit', { userId: user.id }) }}">{{ 'Edit'|trans }}</a>
                             </td>
                         </tr>
                     {% endfor %}
@@ -68,7 +68,7 @@
     <div id="addUserModal" role="dialog" class="modal fade" style="display: none;" aria-hidden="true">
         <div class="modal-dialog modal-md">
             <div tabindex="-1" role="document" aria-labelledby="addUserModalHeader" aria-describedby="addUserModalBody" class="modal-content">
-                <header id="addUserModalHeader" class="modal-header"><h5 class="modal-title">Create User</h5>
+                <header id="addUserModalHeader" class="modal-header"><h5 class="modal-title">{{ 'Create User'|trans }}</h5>
                     <button type="button" aria-label="Close" class="close" data-dismiss="modal">×</button>
                 </header>
                 {{ form_start(createForm, { action: path('adminUserCreate') }) }}
@@ -76,8 +76,8 @@
                     {{ form_rest(createForm) }}
                 </div>
                 <footer id="addUserModalFooter" class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-primary">Create</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">{{ 'Cancel'|trans }}</button>
+                    <button type="submit" class="btn btn-primary">{{ 'Create'|trans }}</button>
                 </footer>
                 {{ form_end(createForm) }}
             </div>

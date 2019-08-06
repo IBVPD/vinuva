@@ -1,0 +1,5 @@
+jms_translation:
+  configs:
+    app:
+      dirs: ["%kernel.project_dir%/src"]
+      output_dir: "%kernel.project_dir%/translations"

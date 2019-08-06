@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
+  <file date="2019-08-06T15:55:19Z" source-language="en" target-language="fr" datatype="plaintext" original="not.available">
+    <header>
+      <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
+      <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
+    </header>
+    <body>
+      <trans-unit id="512d96c97e8b4090e2278ad754ed42199669d657" resname="12 - 23 months">
+        <source>12 - 23 months</source>
+        <target state="new">12 - 23 months</target>
+        <jms:reference-file line="22">/Form/Common/DeathCountType.php</jms:reference-file>
+        <jms:reference-file line="22">/Form/Common/ProbableType.php</jms:reference-file>
+        <jms:reference-file line="36">/Form/Meningitis/EditType.php</jms:reference-file>
+        <jms:reference-file line="38">/Form/Pneumonia/EditType.php</jms:reference-file>
+        <jms:reference-file line="34">/Form/Rotavirus/EditType.php</jms:reference-file>
+        <jms:reference-file line="38">/Form/Rotavirus/EditType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="5ad701cf3ba043dac3fff8a88c0d6a9dba8396ac" resname="24 - 59 months">
+        <source>24 - 59 months</source>
+        <target state="new">24 - 59 months</target>
+        <jms:reference-file line="23">/Form/Common/DeathCountType.php</jms:reference-file>
+        <jms:reference-file line="23">/Form/Common/ProbableType.php</jms:reference-file>
+        <jms:reference-file line="37">/Form/Meningitis/EditType.php</jms:reference-file>
+        <jms:reference-file line="39">/Form/Pneumonia/EditType.php</jms:reference-file>
+        <jms:reference-file line="35">/Form/Rotavirus/EditType.php</jms:reference-file>
+        <jms:reference-file line="39">/Form/Rotavirus/EditType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="4e7afebcfbae000b22c7c85e5560f89a2a0280b4" resname="Admin">
+        <source>Admin</source>
+        <target state="new">Admin</target>
+        <jms:reference-file line="27">/Form/Admin/User/FilterType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="6a72085653e4c5be8c7640c868ef787cbcf063d1" resname="All">
+        <source>All</source>
+        <target state="new">All</target>
+        <jms:reference-file line="21">/Form/Report/Monthly/FilterType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="e3199d24849eb82131394ea88ac9c22db0dbf732" resname="Collector">
+        <source>Collector</source>
+        <target state="new">Collector</target>
+        <jms:reference-file line="27">/Form/Admin/User/FilterType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="84add5b2952787581cb9a8851eef63d1ec75d22b" resname="Email">
+        <source>Email</source>
+        <target state="new">Email</target>
+        <jms:reference-file line="17">/Form/Types/LoginType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="f16832de90bb82ee2e0c478d12b7006f7099aef4" resname="Meningitis">
+        <source>Meningitis</source>
+        <target state="new">Meningitis</target>
+        <jms:reference-file line="22">/Form/Report/Monthly/FilterType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="082bc378cd60e17a38d99898b21955299c5b60c8" resname="Month">
+        <source>Month</source>
+        <target state="new">Month</target>
+        <jms:reference-file line="27">/Form/Filters/YearMonthFilterType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="a6247aa6fb921bf5f3c0a2172a2760111b7dc3f0" resname="No. hospitalizations in children under 5 years">
+        <source>No. hospitalizations in children under 5 years</source>
+        <target state="new">No. hospitalizations in children under 5 years</target>
+        <jms:reference-file line="31">/Form/Pneumonia/EditType.php</jms:reference-file>
+        <jms:reference-file line="29">/Form/Rotavirus/EditType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="c3b862f176deb5ce7ae6c12cc04fa2fa5ec7c1c2" resname="No. of child hospitalizations under 5 years">
+        <source>No. of child hospitalizations under 5 years</source>
+        <target state="new">No. of child hospitalizations under 5 years</target>
+        <jms:reference-file line="31">/Form/Meningitis/EditType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="678905c88c70e69db9d3ff34dc19dfa07e862310" resname="No. of children under 5 years who meet the criteria of suspect case">
+        <source>No. of children under 5 years who meet the criteria of suspect case</source>
+        <target state="new">No. of children under 5 years who meet the criteria of suspect case</target>
+        <jms:reference-file line="31">/Form/Rotavirus/EditType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="e7269fbaf67580f5ef9c9e02e470d9fd946b601f" resname="No. of children with forms and stool samples collected">
+        <source>No. of children with forms and stool samples collected</source>
+        <target state="new">No. of children with forms and stool samples collected</target>
+        <jms:reference-file line="32">/Form/Rotavirus/EditType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="28791435c9caa68ee18a09dd5bc7de05d46de2bd" resname="No. of hospitalizations with diarrhea in children under 5 years">
+        <source>No. of hospitalizations with diarrhea in children under 5 years</source>
+        <target state="new">No. of hospitalizations with diarrhea in children under 5 years</target>
+        <jms:reference-file line="30">/Form/Rotavirus/EditType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="5b0051d8b2c667928d8ddf68261ea4b4cd2adda7" resname="No. of probable cases of meningitis">
+        <source>No. of probable cases of meningitis</source>
+        <target state="new">No. of probable cases of meningitis</target>
+        <jms:reference-file line="34">/Form/Meningitis/EditType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="4f01eb650898276e4af4382becdad712fb62124f" resname="No. of probable cases of pneumonia">
+        <source>No. of probable cases of pneumonia</source>
+        <target state="new">No. of probable cases of pneumonia</target>
+        <jms:reference-file line="34">/Form/Pneumonia/EditType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="d63c229b2a4df9f87cc7101b792ee46e40aed5f2" resname="No. of probable cases with blood specimen">
+        <source>No. of probable cases with blood specimen</source>
+        <target state="new">No. of probable cases with blood specimen</target>
+        <jms:reference-file line="35">/Form/Pneumonia/EditType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="79df28208affefd18a827982b8b39c159e257a1d" resname="No. of probable cases with pleural fluid">
+        <source>No. of probable cases with pleural fluid</source>
+        <target state="new">No. of probable cases with pleural fluid</target>
+        <jms:reference-file line="36">/Form/Pneumonia/EditType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="07ca9f6fbecf70fb4fa72bc4eaac8669716e028c" resname="No. of suspected cases of meningitis">
+        <source>No. of suspected cases of meningitis</source>
+        <target state="new">No. of suspected cases of meningitis</target>
+        <jms:reference-file line="32">/Form/Meningitis/EditType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="86a9a62a86786171a89248520d53578b09510759" resname="No. suspected meningitis with CSF and forms">
+        <source>No. suspected meningitis with CSF and forms</source>
+        <target state="new">No. suspected meningitis with CSF and forms</target>
+        <jms:reference-file line="33">/Form/Meningitis/EditType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="654a43aa84d7810ede26f89d4ed88ce8216f51d9" resname="No. suspected pneumonia">
+        <source>No. suspected pneumonia</source>
+        <target state="new">No. suspected pneumonia</target>
+        <jms:reference-file line="32">/Form/Pneumonia/EditType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="7dfb158b00780bb919dc7de83bda624f80d2db52" resname="Number of suspected pneumonia cases with x-ray and forms">
+        <source>Number of suspected pneumonia cases with x-ray and forms</source>
+        <target state="new">Number of suspected pneumonia cases with x-ray and forms</target>
+        <jms:reference-file line="33">/Form/Pneumonia/EditType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="84219262228fd04cf972a0330569bfde39825c30" resname="Override">
+        <source>Override</source>
+        <target state="new">Override</target>
+        <jms:reference-file line="43">/Form/Common/ConfirmedType.php</jms:reference-file>
+        <jms:reference-file line="36">/Form/Rotavirus/VaccinationType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="e466c3c95f99c443d3f39de9a21d084570f3c500" resname="Override Total">
+        <source>Override Total</source>
+        <target state="new">Override Total</target>
+        <jms:reference-file line="25">/Form/Common/DeathCountType.php</jms:reference-file>
+        <jms:reference-file line="25">/Form/Common/ProbableType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="8be3c943b1609fffbfc51aad666d0a04adf83c9d" resname="Password">
+        <source>Password</source>
+        <target state="new">Password</target>
+        <jms:reference-file line="37">/Form/Admin/User/EditType.php</jms:reference-file>
+        <jms:reference-file line="21">/Form/Types/LoginType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="619e0e20aa9fcc629b91c73b82c6da3829ec93ed" resname="Pneumonia">
+        <source>Pneumonia</source>
+        <target state="new">Pneumonia</target>
+        <jms:reference-file line="22">/Form/Report/Monthly/FilterType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="c1fcf32f5f9fa0920cb6b37fefb4eda4b63f7f1c" resname="Re-enter Password">
+        <source>Re-enter Password</source>
+        <target state="new">Re-enter Password</target>
+        <jms:reference-file line="38">/Form/Admin/User/EditType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="ac5bbe8292ed1b69e0f95e5bdaa035569a295fd7" resname="Reader">
+        <source>Reader</source>
+        <target state="new">Reader</target>
+        <jms:reference-file line="27">/Form/Admin/User/FilterType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="88bc3fe3daddee139809d036f18b985fbe165957" resname="Reports">
+        <source>Reports</source>
+        <target state="new">Reports</target>
+        <jms:reference-file line="46">/Menu/MenuBuilder.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="38c3c12e41c518ad692ecbfc7a05cbaad9c24fc6" resname="Rotavirus">
+        <source>Rotavirus</source>
+        <target state="new">Rotavirus</target>
+        <jms:reference-file line="22">/Form/Report/Monthly/FilterType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="b92e64f8b332abb65066132727c8a354601e81a3" resname="Select...">
+        <source>Select...</source>
+        <target state="new">Select...</target>
+        <jms:reference-file line="22">/Form/Admin/Country/FilterType.php</jms:reference-file>
+        <jms:reference-file line="23">/Form/Admin/Hospital/FilterType.php</jms:reference-file>
+        <jms:reference-file line="26">/Form/Admin/User/FilterType.php</jms:reference-file>
+        <jms:reference-file line="30">/Form/Admin/User/FilterType.php</jms:reference-file>
+        <jms:reference-file line="37">/Form/Admin/User/FilterType.php</jms:reference-file>
+        <jms:reference-file line="19">/Form/Report/User/FilterType.php</jms:reference-file>
+        <jms:reference-file line="16">/Form/Types/RoleType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="ca87bfaa364f93a66c00c2cc6466d2b07926cb5c" resname="Total &lt; 5">
+        <source><![CDATA[Total < 5]]></source>
+        <target state="new"><![CDATA[Total < 5]]></target>
+        <jms:reference-file line="24">/Form/Common/DeathCountType.php</jms:reference-file>
+        <jms:reference-file line="24">/Form/Common/ProbableType.php</jms:reference-file>
+        <jms:reference-file line="38">/Form/Meningitis/EditType.php</jms:reference-file>
+        <jms:reference-file line="40">/Form/Pneumonia/EditType.php</jms:reference-file>
+        <jms:reference-file line="36">/Form/Rotavirus/EditType.php</jms:reference-file>
+        <jms:reference-file line="40">/Form/Rotavirus/EditType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="d8a7587427580bfd86b98c0ca2dfd3161b715848" resname="Under 12 months">
+        <source>Under 12 months</source>
+        <target state="new">Under 12 months</target>
+        <jms:reference-file line="21">/Form/Common/DeathCountType.php</jms:reference-file>
+        <jms:reference-file line="21">/Form/Common/ProbableType.php</jms:reference-file>
+        <jms:reference-file line="35">/Form/Meningitis/EditType.php</jms:reference-file>
+        <jms:reference-file line="37">/Form/Pneumonia/EditType.php</jms:reference-file>
+        <jms:reference-file line="33">/Form/Rotavirus/EditType.php</jms:reference-file>
+        <jms:reference-file line="37">/Form/Rotavirus/EditType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="e0264861a981368965b78a2880d785047ad400bc" resname="Verifier">
+        <source>Verifier</source>
+        <target state="new">Verifier</target>
+        <jms:reference-file line="27">/Form/Admin/User/FilterType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="879e32326c5217968ac8e3a14e4a8a5214957264" resname="Year">
+        <source>Year</source>
+        <target state="new">Year</target>
+        <jms:reference-file line="28">/Form/Filters/YearMonthFilterType.php</jms:reference-file>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

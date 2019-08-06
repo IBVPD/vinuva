@@ -19,15 +19,15 @@
 {% block content %}
     <div class="panel panel-inverse">
         <div class="panel-heading">
-            <h4 class="panel-title">Edit {{ user }}</h4>
+            <h4 class="panel-title">{{ 'Edit %target_name%'|trans({'%target_name%': user }) }}</h4>
         </div>
         {{ form_start(form) }}
         <div class="panel-body">
             {{ form_rest(form) }}
         </div>
         <div class="panel-footer clearfix">
-            <button type="submit" class="pull-right btn btn-success"><i class="fa fa-search"></i> Save</button>
-            <a href="{{ path('adminUserIndex') }}" class="pull-left btn btn-warning"><i class="fa fa-refresh"></i> Cancel</a>
+            <button type="submit" class="btn btn-sm btn-primary m-r-5 pull-right">{{ 'Edit / Save'|trans }}</button>
+            <a href="{{ path('adminUserIndex') }}" class="pull-left btn btn-warning"><i class="fa fa-refresh"></i> {{ 'Cancel'|trans }}</a>
         </div>
         {{ form_end(form) }}
     </div>

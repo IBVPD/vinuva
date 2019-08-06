@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
+  <file date="2019-08-06T15:55:19Z" source-language="en" target-language="fr" datatype="plaintext" original="not.available">
+    <header>
+      <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
+      <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
+    </header>
+    <body>
+      <trans-unit id="16a9c9e05b8b791fc14acebeded76cae59f11284" resname="All fields are required">
+        <source>All fields are required</source>
+        <target state="new">All fields are required</target>
+        <jms:reference-file line="66">/Form/Common/ConfirmedType.php</jms:reference-file>
+        <jms:reference-file line="37">/Form/Common/DeathCountType.php</jms:reference-file>
+        <jms:reference-file line="36">/Form/Common/ProbableType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="2cabe4715fb4c1373bdc46571a2f548c2257175e" resname="Missing Required Fields">
+        <source>Missing Required Fields</source>
+        <target state="new">Missing Required Fields</target>
+        <jms:reference-file line="50">/Form/Rotavirus/VaccinationType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="0aa16763d5540c865defb6de0b10309d384a6430" resname="Missing required fields">
+        <source>Missing required fields</source>
+        <target state="new">Missing required fields</target>
+        <jms:reference-file line="32">/Form/Admin/Hospital/CreateType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="c47e42b38a7097c9c1006b5198459fef5c4d7e3e" resname="Missing required name field">
+        <source>Missing required name field</source>
+        <target state="new">Missing required name field</target>
+        <jms:reference-file line="31">/Form/Admin/Country/CreateType.php</jms:reference-file>
+        <jms:reference-file line="26">/Form/Admin/Region/CreateType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="bf39ae41e9e4d25b551a74dc4e01c519321b9b76" resname="Must be less than number of hospitalizations">
+        <source>Must be less than number of hospitalizations</source>
+        <target state="new">Must be less than number of hospitalizations</target>
+      </trans-unit>
+      <trans-unit id="8c858ed4865d59c56cec556744e3eb331d2e135b" resname="Must be less than or equal to the number of cases under 5">
+        <source>Must be less than or equal to the number of cases under 5</source>
+        <target state="new">Must be less than or equal to the number of cases under 5</target>
+      </trans-unit>
+      <trans-unit id="2d22fea217a70a7cc84e4b8cb00454705b517562" resname="Must be less than or equal to the number of suspected cases">
+        <source>Must be less than or equal to the number of suspected cases</source>
+        <target state="new">Must be less than or equal to the number of suspected cases</target>
+      </trans-unit>
+      <trans-unit id="248396b7c863dddbc5b525115fa71d21602e71ea" resname="Must be less than or equal to the number of suspected cases with CSF and forms">
+        <source>Must be less than or equal to the number of suspected cases with CSF and forms</source>
+        <target state="new">Must be less than or equal to the number of suspected cases with CSF and forms</target>
+      </trans-unit>
+      <trans-unit id="1c370186e651314bb0cb623922a6003c10788817" resname="Must be less than or equal to the number of suspected cases with x-ray and forms">
+        <source>Must be less than or equal to the number of suspected cases with x-ray and forms</source>
+        <target state="new">Must be less than or equal to the number of suspected cases with x-ray and forms</target>
+      </trans-unit>
+      <trans-unit id="153cd50bd41b8903037b80c5ae0e1c2128147648" resname="Must be less than the number of probable cases">
+        <source>Must be less than the number of probable cases</source>
+        <target state="new">Must be less than the number of probable cases</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

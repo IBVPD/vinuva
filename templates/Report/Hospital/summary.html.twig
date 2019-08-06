@@ -6,17 +6,17 @@
     <div class="panel panel-inverse">
         <div class="panel-heading">
             <div class="panel-heading-btn">
-                <a href="#panelFilters" data-toggle="collapse" class="btn btn-sm btn-icon btn-circle btn-warning" title="Filter"><i class="fa fa-search"></i></a>
+                <a href="#panelFilters" data-toggle="collapse" class="btn btn-sm btn-icon btn-circle btn-warning" title="{{'Filters'|trans}}"><i class="fa fa-search"></i></a>
             </div>
-            <h4 class="panel-title">Summary by Hospitals</h4>
+            <h4 class="panel-title">{{'Summary by Hospitals'|trans}}</h4>
         </div>
 
         <div class="panel-body">
             <div class="collapse well filters clearfix" id="panelFilters">
                 {{ form_start(filterForm) }}
                 {{ form_rest(filterForm) }}
-                <button class="btn btn-warning" name="{{ filterForm.vars.name }}[reset]"><i class="fa fa-refresh"></i> Reset</button>
-                <button type="submit" class="pull-right btn btn-success"><i class="fa fa-search"></i> Search</button>
+                <button class="btn btn-warning" name="{{ filterForm.vars.name }}[reset]"><i class="fa fa-refresh"></i> {{'Reset'|trans}}</button>
+                <button type="submit" class="pull-right btn btn-success"><i class="fa fa-search"></i> {{'Search'|trans}}</button>
                 {{ form_end(filterForm) }}
             </div>
 

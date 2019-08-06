@@ -2,7 +2,7 @@
     {% set hLength = 2+collection.meningitisCases|length  %}
 
     <tr class="warning">
-        <th colspan="{{ hLength }}">Meningitis</th>
+        <th colspan="{{ hLength }}">{{'Meningitis'|trans}}</th>
     </tr>
     <tr>
         <td style="width:35%;"></td>
@@ -102,14 +102,14 @@
         <td>{{ collection.total('Meningitis','under12Confirmed.spn') }}</td>
     </tr>
     <tr>
-        <td>Other</td>
+        <td>{{'Other'|trans}}</td>
         {% for case in collection.meningitisCases %}
             <td>{{ case.under12Confirmed.other }}</td>
         {% endfor %}
         <td>{{ collection.total('Meningitis','under12Confirmed.other') }}</td>
     </tr>
     <tr>
-        <td>Contaminated</td>
+        <td>{{'Contaminated'|trans}}</td>
         {% for case in collection.meningitisCases %}
             <td>{{ case.under12Confirmed.contamination }}</td>
         {% endfor %}
@@ -148,14 +148,14 @@
         <td>{{ collection.total('Meningitis','under23Confirmed.spn') }}</td>
     </tr>
     <tr>
-        <td>Other</td>
+        <td>{{'Other'|trans}}</td>
         {% for case in collection.meningitisCases %}
             <td>{{ case.under23Confirmed.other }}</td>
         {% endfor %}
         <td>{{ collection.total('Meningitis','under23Confirmed.other') }}</td>
     </tr>
     <tr>
-        <td>Contaminated</td>
+        <td>{{'Contaminated'|trans}}</td>
         {% for case in collection.meningitisCases %}
             <td>{{ case.under23Confirmed.contamination }}</td>
         {% endfor %}
@@ -194,14 +194,14 @@
         <td>{{ collection.total('Meningitis','under59Confirmed.spn') }}</td>
     </tr>
     <tr>
-        <td>Other</td>
+        <td>{{'Other'|trans}}</td>
         {% for case in collection.meningitisCases %}
             <td>{{ case.under59Confirmed.other }}</td>
         {% endfor %}
         <td>{{ collection.total('Meningitis','under59Confirmed.other') }}</td>
     </tr>
     <tr>
-        <td>Contaminated</td>
+        <td>{{'Contaminated'|trans}}</td>
         {% for case in collection.meningitisCases %}
             <td>{{ case.under59Confirmed.contamination }}</td>
         {% endfor %}
@@ -240,14 +240,14 @@
         <td>{{ collection.total('Meningitis','totalConfirmed.spn') }}</td>
     </tr>
     <tr>
-        <td>Other</td>
+        <td>{{'Other'|trans}}</td>
         {% for case in collection.meningitisCases %}
             <td>{{ case.totalConfirmed.other }}</td>
         {% endfor %}
         <td>{{ collection.total('Meningitis','totalConfirmed.other') }}</td>
     </tr>
     <tr>
-        <td>Contaminated</td>
+        <td>{{'Contaminated'|trans}}</td>
         {% for case in collection.meningitisCases %}
             <td>{{ case.totalConfirmed.contamination }}</td>
         {% endfor %}
@@ -292,7 +292,7 @@
     {% set hLength = 2+collection.pneumoniaCases|length  %}
 
     <tr class="warning">
-        <th colspan="{{ hLength }}">Pneumonia</th>
+        <th colspan="{{ hLength }}">{{'Pneumonia'|trans}}</th>
     </tr>
     <tr>
         <td style="width:35%;"></td>
@@ -389,7 +389,6 @@
         <td>{{ collection.total('Pneumonia','probableWithBlood.total') }}</td>
     </tr>
 
-
     <tr>
         <th colspan="{{ hLength }}">{{ 'No. of probable cases with pleural fluid'|trans }}</th>
     </tr>
@@ -457,14 +456,14 @@
         <td>{{ collection.total('Pneumonia','under12Confirmed.spn') }}</td>
     </tr>
     <tr>
-        <td>Other</td>
+        <td>{{'Other'|trans}}</td>
         {% for case in collection.pneumoniaCases %}
             <td>{{ case.under12Confirmed.other }}</td>
         {% endfor %}
         <td>{{ collection.total('Pneumonia','under12Confirmed.other') }}</td>
     </tr>
     <tr>
-        <td>Contaminated</td>
+        <td>{{'Contaminated'|trans}}</td>
         {% for case in collection.pneumoniaCases %}
             <td>{{ case.under12Confirmed.contamination }}</td>
         {% endfor %}
@@ -503,14 +502,14 @@
         <td>{{ collection.total('Pneumonia','under23Confirmed.spn') }}</td>
     </tr>
     <tr>
-        <td>Other</td>
+        <td>{{'Other'|trans}}</td>
         {% for case in collection.pneumoniaCases %}
             <td>{{ case.under23Confirmed.other }}</td>
         {% endfor %}
         <td>{{ collection.total('Pneumonia','under23Confirmed.other') }}</td>
     </tr>
     <tr>
-        <td>Contaminated</td>
+        <td>{{'Contaminated'|trans}}</td>
         {% for case in collection.pneumoniaCases %}
             <td>{{ case.under23Confirmed.contamination }}</td>
         {% endfor %}
@@ -549,14 +548,14 @@
         <td>{{ collection.total('Pneumonia','under59Confirmed.spn') }}</td>
     </tr>
     <tr>
-        <td>Other</td>
+        <td>{{'Other'|trans}}</td>
         {% for case in collection.pneumoniaCases %}
             <td>{{ case.under59Confirmed.other }}</td>
         {% endfor %}
         <td>{{ collection.total('Pneumonia','under59Confirmed.other') }}</td>
     </tr>
     <tr>
-        <td>Contaminated</td>
+        <td>{{'Contaminated'|trans}}</td>
         {% for case in collection.pneumoniaCases %}
             <td>{{ case.under59Confirmed.contamination }}</td>
         {% endfor %}
@@ -595,14 +594,14 @@
         <td>{{ collection.total('Pneumonia','totalConfirmed.spn') }}</td>
     </tr>
     <tr>
-        <td>Other</td>
+        <td>{{'Other'|trans}}</td>
         {% for case in collection.pneumoniaCases %}
             <td>{{ case.totalConfirmed.other }}</td>
         {% endfor %}
         <td>{{ collection.total('Pneumonia','totalConfirmed.other') }}</td>
     </tr>
     <tr>
-        <td>Contaminated</td>
+        <td>{{'Contaminated'|trans}}</td>
         {% for case in collection.pneumoniaCases %}
             <td>{{ case.totalConfirmed.contamination }}</td>
         {% endfor %}
@@ -645,7 +644,7 @@
 {% macro rotavirus(collection) %}
     {% set hLength = 2+collection.rotavirusCases|length  %}
     <tr class="warning">
-        <th colspan="{{ hLength }}">Rotavirus</th>
+        <th colspan="{{ hLength }}">{{'Rotavirus'|trans}}</th>
     </tr>
 
     <tr>
@@ -740,7 +739,6 @@
         <td>{{ collection.total('Rotavirus','positiveUnder12.noInformation') }}</td>
     </tr>
 
-    
     <tr>
         <th colspan="{{ hLength }}">{{ 'Under 23 months'|trans }}</th>
     </tr>
@@ -918,5 +916,4 @@
         {% endfor %}
         <td>{{ collection.total('Rotavirus','deathsTotal.noInformation') }}</td>
     </tr>
-    
 {% endmacro %}

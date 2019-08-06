@@ -23,7 +23,7 @@
 {% block content %}
     <div class="panel panel-inverse">
         <div class="panel-heading">
-            <h4 class="panel-title">Enter Details</h4>
+            <h4 class="panel-title">{{'Enter Details'|trans}}</h4>
         </div>
 
         <div class="panel-body">
@@ -36,7 +36,7 @@
             {{ form_row(form.withFormAndSample) }}
 
             <div class="row">
-                <label class="col-md-12 col-form-label">No. of stool samples positive for rotavirus with forms</label>
+                <label class="col-md-12 col-form-label">{{'No. of stool samples positive for rotavirus with forms'|trans}}</label>
             </div>
             <div class="row">
                 <div class="col-md-3">
@@ -57,7 +57,7 @@
             </div>
 
             <div class="row">
-                <label class="col-md-12 col-form-label">No. of deaths</label>
+                <label class="col-md-12 col-form-label">{{'No. of deaths'|trans}}</label>
             </div>
             <div class="row">
                 <div class="col-md-3">
@@ -80,7 +80,7 @@
             {{ form_rest(form) }}
             <fieldset>
                 {#<legend class="m-b-15">Legend</legend>#}
-                <button type="submit" class="btn btn-sm btn-primary m-r-5 pull-right">{{ 'Edit'|trans }}</button>
+                <button type="submit" class="btn btn-sm btn-primary m-r-5 pull-right">{{ 'Edit / Save'|trans }}</button>
                 <a href="{{ path('rotavirusIndex') }}" class="btn btn-sm btn-default">{{ 'Cancel'|trans }}Cancel</a>
             </fieldset>
             {{ form_end(form) }}

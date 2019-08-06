@@ -37,33 +37,33 @@
         {% endif %}
 
         <tr>
-            <th colspan="2">Hospitalized</th>
+            <th colspan="2">{{'Hospitalized'|trans}}</th>
             {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
                 <td>{{ case.under5(month) }}</td>
             {% endfor %}
         </tr>
         <tr>
-            <th colspan="2">Suspected</th>
+            <th colspan="2">{{'Suspected'|trans}}</th>
             {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
                 <td>{{ case.suspected(month) }}</td>
             {% endfor %}
         </tr>
         <tr>
-            <th colspan="2">Suspected With</th>
+            <th colspan="2">{{'Suspected With'|trans}}</th>
             {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
                 <td>{{ case.suspectedWith(month) }}</td>
             {% endfor %}
         </tr>
         {% for key in [12,23,59,'total'] %}
             <tr>
-                <th colspan="2">Probable {{ key }}</th>
+                <th colspan="2">{{ 'Probable %category%'|trans({'%category%': key}) }}</th>
                 {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
                     <td>{{ case.probable.get(key, month) }}</td>
                 {% endfor %}
             </tr>
         {% endfor %}
         <tr>
-            <th colspan="19">Confirmed Under 12</th>
+            <th colspan="19">{{'Confirmed Under 12'|trans}}</th>
         </tr>
         {% for key in ['hib','hi','nm','spn','other','contaminant','total'] %}
             <tr>
@@ -76,7 +76,7 @@
         {% endfor %}
 
         <tr>
-            <th colspan="19">Confirmed Under 23</th>
+            <th colspan="19">{{'Confirmed Under 23'|trans}}</th>
         </tr>
         {% for key in ['hib','hi','nm','spn','other','contaminant','total'] %}
             <tr>
@@ -89,7 +89,7 @@
         {% endfor %}
 
         <tr>
-            <th colspan="19">Confirmed 23-59</th>
+            <th colspan="19">{{'Confirmed 23-59'|trans}}</th>
         </tr>
         {% for key in ['hib','hi','nm','spn','other','contaminant','total'] %}
             <tr>
@@ -102,7 +102,7 @@
         {% endfor %}
 
         <tr>
-            <th colspan="19">Total Confirmed</th>
+            <th colspan="19">{{'Total Confirmed'|trans}}</th>
         </tr>
         {% for key in ['hib','hi','nm','spn','other','contaminant','total'] %}
             <tr>
@@ -116,7 +116,7 @@
 
         {% for key in [12,23,59,'total'] %}
             <tr>
-                <th colspan="2">Number of Deaths {{ key }}</th>
+                <th colspan="2">{{'Number of Deaths %category%'|trans({'%category%': key})}}</th>
                 {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
                     <td>{{ case.numberOfDeaths.get(key, month) }}</td>
                 {% endfor %}
@@ -164,26 +164,26 @@
         {% endif %}
 
         <tr>
-            <th colspan="2">Hospitalized</th>
+            <th colspan="2">{{'Hospitalized'|trans}}</th>
             {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
                 <td>{{ case.under5(month) }}</td>
             {% endfor %}
         </tr>
         <tr>
-            <th colspan="2">Suspected</th>
+            <th colspan="2">{{'Suspected'|trans}}</th>
             {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
                 <td>{{ case.suspected(month) }}</td>
             {% endfor %}
         </tr>
         <tr>
-            <th colspan="2">Suspected With</th>
+            <th colspan="2">{{'Suspected With'|trans}}</th>
             {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
                 <td>{{ case.suspectedWith(month) }}</td>
             {% endfor %}
         </tr>
         {% for key in [12,23,59,'total'] %}
             <tr>
-                <th colspan="2">Probable {{ key }}</th>
+                <th colspan="2">{{'Probable %category%'|trans({'%category%': key })}}</th>
                 {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
                     <td>{{ case.probable.get(key, month) }}</td>
                 {% endfor %}
@@ -193,7 +193,7 @@
 
         {% for key in [12,23,59,'total'] %}
             <tr>
-                <th colspan="2">Probable With Blood {{ key }}</th>
+                <th colspan="2">{{'Probable With Blood %category%'|trans('%category%': key)}}</th>
                 {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
                     <td>{{ case.probableWithBlood.get(key, month) }}</td>
                 {% endfor %}
@@ -202,14 +202,14 @@
 
         {% for key in [12,23,59,'total'] %}
             <tr>
-                <th colspan="2">Probable With Pleural {{ key }}</th>
+                <th colspan="2">{{'Probable With Pleural %category%'|trans('%category%': key)}}</th>
                 {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
                     <td>{{ case.probableWithPleural.get(key, month) }}</td>
                 {% endfor %}
             </tr>
         {% endfor %}
         <tr>
-            <th colspan="19">Confirmed Under 12</th>
+            <th colspan="19">{{'Confirmed Under 12'|trans}}</th>
         </tr>
         {% for key in ['hib','hi','nm','spn','other','contaminant','total'] %}
             <tr>
@@ -222,7 +222,7 @@
         {% endfor %}
 
         <tr>
-            <th colspan="19">Confirmed Under 23</th>
+            <th colspan="19">{{'Confirmed Under 23'|trans}}</th>
         </tr>
         {% for key in ['hib','hi','nm','spn','other','contaminant','total'] %}
             <tr>
@@ -235,7 +235,7 @@
         {% endfor %}
 
         <tr>
-            <th colspan="19">Confirmed 23-59</th>
+            <th colspan="19">{{'Confirmed 23-59'|trans}}</th>
         </tr>
         {% for key in ['hib','hi','nm','spn','other','contaminant','total'] %}
             <tr>
@@ -248,7 +248,7 @@
         {% endfor %}
 
         <tr>
-            <th colspan="19">Total Confirmed</th>
+            <th colspan="19">{{'Total Confirmed'|trans}}</th>
         </tr>
         {% for key in ['hib','hi','nm','spn','other','contaminant','total'] %}
             <tr>
@@ -262,7 +262,7 @@
 
         {% for key in [12,23,59,'total'] %}
             <tr>
-                <th colspan="2">Number of Deaths {{ key }}</th>
+                <th colspan="2">{{'Number of Deaths %category%'|trans('%category%': key)}}</th>
                 {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
                     <td>{{ case.numberOfDeaths.get(key, month) }}</td>
                 {% endfor %}
@@ -310,26 +310,26 @@
         {% endif %}
 
         <tr>
-            <th colspan="2">Hospitalized</th>
+            <th colspan="2">{{'Hospitalized'|trans}}</th>
             {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
                 <td>{{ case.under5(month) }}</td>
             {% endfor %}
         </tr>
         <tr>
-            <th colspan="2">Hospitalized</th>
+            <th colspan="2">{{'Hospitalized'|trans}}</th>
             {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
                 <td>{{ case.under5With(month) }}</td>
             {% endfor %}
         </tr>
         <tr>
-            <th colspan="2">Suspected</th>
+            <th colspan="2">{{'Suspected'|trans}}</th>
             {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
                 <td>{{ case.suspected(month) }}</td>
             {% endfor %}
         </tr>
         {% for key in [12,23,59,'total'] %}
             <tr>
-                <th colspan="2">Probable {{ key }}</th>
+                <th colspan="2">{{'Probable %category%'|trans('%category%': key)}}</th>
                 {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
                     <td>{{ case.probable.get(key, month) }}</td>
                 {% endfor %}
@@ -337,7 +337,7 @@
         {% endfor %}
 
         <tr>
-            <th colspan="19">Positive Under 12</th>
+            <th colspan="19">{{'Positive Under 12'|trans}}</th>
         </tr>
         {% for key in ['vaccinated','notVaccinated','noInformation','total'] %}
             <tr>
@@ -349,7 +349,7 @@
             </tr>
         {% endfor %}
         <tr>
-            <th colspan="19">Positive Under 23</th>
+            <th colspan="19">{{'Positive Under 23'|trans}}</th>
         </tr>
         {% for key in ['vaccinated','notVaccinated','noInformation','total'] %}
             <tr>
@@ -361,7 +361,7 @@
             </tr>
         {% endfor %}
         <tr>
-            <th colspan="19">Positive Under 59</th>
+            <th colspan="19">{{'Positive Under 59'|trans}}</th>
         </tr>
         {% for key in ['vaccinated','notVaccinated','noInformation','total'] %}
             <tr>
@@ -373,7 +373,7 @@
             </tr>
         {% endfor %}
         <tr>
-            <th colspan="19">Positive Total</th>
+            <th colspan="19">{{'Positive Total'|trans}}</th>
         </tr>
         {% for key in ['vaccinated','notVaccinated','noInformation','total'] %}
             <tr>
@@ -385,9 +385,8 @@
             </tr>
         {% endfor %}
 
-
         <tr>
-            <th colspan="19">Deaths Under 12</th>
+            <th colspan="19">{{'Deaths Under 12'|trans}}</th>
         </tr>
         {% for key in ['vaccinated','notVaccinated','noInformation','total'] %}
             <tr>
@@ -399,7 +398,7 @@
             </tr>
         {% endfor %}
         <tr>
-            <th colspan="19">Deaths Under 23</th>
+            <th colspan="19">{{'Deaths Under 23'|trans}}</th>
         </tr>
         {% for key in ['vaccinated','notVaccinated','noInformation','total'] %}
             <tr>
@@ -411,7 +410,7 @@
             </tr>
         {% endfor %}
         <tr>
-            <th colspan="19">Deaths Under 59</th>
+            <th colspan="19">{{'Deaths Under 59'|trans}}</th>
         </tr>
         {% for key in ['vaccinated','notVaccinated','noInformation','total'] %}
             <tr>
@@ -423,7 +422,7 @@
             </tr>
         {% endfor %}
         <tr>
-            <th colspan="19">Deaths Total</th>
+            <th colspan="19">{{'Deaths Total'|trans}}</th>
         </tr>
         {% for key in ['vaccinated','notVaccinated','noInformation','total'] %}
             <tr>
@@ -434,6 +433,5 @@
                 {% endfor %}
             </tr>
         {% endfor %}
-
     {% endfor %}
 {% endmacro %}

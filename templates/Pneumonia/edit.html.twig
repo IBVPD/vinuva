@@ -23,7 +23,7 @@
 {% block content %}
     <div class="panel panel-inverse">
         <div class="panel-heading">
-            <h4 class="panel-title">Enter Details</h4>
+            <h4 class="panel-title">{{'Enter Details'|trans}}</h4>
         </div>
 
         <div class="panel-body">
@@ -38,7 +38,7 @@
             {{ form_row(form.probableWithPleural) }}
 
             <div class="row">
-                <label class="col-md-12 col-form-label">No. of confirmed cases of pneumonia</label>
+                <label class="col-md-12 col-form-label">{{'No. of confirmed cases of pneumonia'|trans}}</label>
             </div>
             <div class="row">
                 <div class="col-md-3">
@@ -61,7 +61,7 @@
             {{ form_rest(form) }}
             <fieldset>
                 {#<legend class="m-b-15">Legend</legend>#}
-                <button type="submit" class="btn btn-sm btn-primary m-r-5 pull-right">{{ 'Edit'|trans }}</button>
+                <button type="submit" class="btn btn-sm btn-primary m-r-5 pull-right">{{ 'Edit / Save'|trans }}</button>
                 <a href="{{ path('pneumoniaIndex') }}" class="btn btn-sm btn-default pull-right">{{ 'Cancel'|trans }}</a>
             </fieldset>
             {{ form_end(form) }}

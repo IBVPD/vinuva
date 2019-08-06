@@ -4,10 +4,10 @@
     <div class="panel panel-inverse">
         <div class="panel-heading">
             <div class="panel-heading-btn">
-                <a data-toggle="collapse" href="#filters" class="btn btn-sm btn-icon btn-circle btn-warning" title="Filters"><i class="fa fa-search"></i></a>
-                <a data-toggle="modal" href="#addCountryModal" class="btn btn-sm btn-icon btn-circle btn-primary" title="Add Country"><i class="fa fa-plus"></i></a>
+                <a data-toggle="collapse" href="#filters" class="btn btn-sm btn-icon btn-circle btn-warning" title="{{ 'Filters'|trans }}"><i class="fa fa-search"></i></a>
+                <a data-toggle="modal" href="#addCountryModal" class="btn btn-sm btn-icon btn-circle btn-primary" title="{{ 'Add Case'|trans }}"><i class="fa fa-plus"></i></a>
             </div>
-            <h4 class="panel-title">Add Meningitis</h4>
+            <h4 class="panel-title">{{ 'Add Meningitis'|trans }}</h4>
         </div>
 
         <div class="panel-body">
@@ -15,8 +15,8 @@
                 <div class="collapse well filters clearfix" id="filters">
                     {{ form_start(filterForm) }}
                     {{ form_rest(filterForm) }}
-                    <button type="submit" class="pull-right btn btn-success"><i class="fa fa-search"></i> Search</button>
-                    <button type="submit" class="pull-left btn btn-warning" name="{{ filterForm.vars.name }}[reset]"><i class="fa fa-refresh"></i> Reset</button>
+                    <button type="submit" class="pull-right btn btn-success"><i class="fa fa-search"></i> {{ 'Search'|trans }}</button>
+                    <button type="submit" class="pull-left btn btn-warning" name="{{ filterForm.vars.name }}[reset]"><i class="fa fa-refresh"></i> {{ 'Reset'|trans }}</button>
                     {{ form_end(filterForm) }}
                 </div>
             {% endif %}
@@ -24,8 +24,8 @@
             {{ form_start(form) }}
             {{ form_rest(form) }}
             <fieldset>
-                <button type="submit" class="btn btn-sm btn-primary m-r-5 pull-right">Create</button>
-                <button type="submit" class="btn btn-sm btn-default pull-right">Cancel</button>
+                <button type="submit" class="btn btn-sm btn-primary m-r-5 pull-right">{{ 'Create'|trans }}</button>
+                <button type="submit" class="btn btn-sm btn-default pull-right">{{ 'Cancel'|trans }}</button>
             </fieldset>
             {{ form_end(form) }}
         </div>

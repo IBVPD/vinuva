@@ -2,7 +2,7 @@
     {% set hLength = 2+cases|length %}
 
     <tr class="info">
-        <th colspan="{{ hLength }}">Meningitis</th>
+        <th colspan="{{ hLength }}">{{ 'Meningitis'|trans }}</th>
     </tr>
     <tr>
         <td style="width:35%;"></td>
@@ -62,7 +62,6 @@
             {% set total = total + case.probable.23 %}
             <td>{{ case.probable.23 }}</td>
         {% endfor %}
-        {#        <td>{{ cases.total('Meningitis','probable.23') }}</td>#}
     </tr>
     <tr>
         <td>{{ '24 - 59 months'|trans }}</td>
@@ -126,7 +125,7 @@
         <td>{{ total }}</td>
     </tr>
     <tr>
-        <td>Other</td>
+        <td>{{'Other'|trans}}</td>
         {% set total = 0 %}
         {% for case in cases %}
             {% set total = total + case.under12Confirmed.other %}
@@ -135,7 +134,7 @@
         <td>{{ total }}</td>
     </tr>
     <tr>
-        <td>Contaminated</td>
+        <td>{{'Contaminated'|trans}}</td>
         {% set total = 0 %}
         {% for case in cases %}
             {% set total = total + case.under12Confirmed.contamination %}
@@ -184,7 +183,7 @@
         <td>{{ total }}</td>
     </tr>
     <tr>
-        <td>Other</td>
+        <td>{{'Other'|trans}}</td>
         {% set total = 0 %}
         {% for case in cases %}
             {% set total = total + case.under23Confirmed.other %}
@@ -193,7 +192,7 @@
         <td>{{ total }}</td>
     </tr>
     <tr>
-        <td>Contaminated</td>
+        <td>{{'Contaminated'|trans}}</td>
         {% set total = 0 %}
         {% for case in cases %}
             {% set total = total + case.under23Confirmed.contamination %}
@@ -242,7 +241,7 @@
         <td>{{ total }}</td>
     </tr>
     <tr>
-        <td>Other</td>
+        <td>{{'Other'|trans}}</td>
         {% set total = 0 %}
         {% for case in cases %}
             {% set total = total + case.under59Confirmed.other %}
@@ -251,7 +250,7 @@
         <td>{{ total }}</td>
     </tr>
     <tr>
-        <td>Contaminated</td>
+        <td>{{'Contaminated'|trans}}</td>
         {% set total = 0 %}
         {% for case in cases %}
             {% set total = total + case.under59Confirmed.contamination %}
@@ -300,7 +299,7 @@
         <td>{{ total }}</td>
     </tr>
     <tr>
-        <td>Other</td>
+        <td>{{'Other'|trans}}</td>
         {% set total = 0 %}
         {% for case in cases %}
             {% set total = total + case.totalConfirmed.other %}
@@ -309,7 +308,7 @@
         <td>{{ total }}</td>
     </tr>
     <tr>
-        <td>Contaminated</td>
+        <td>{{'Contaminated'|trans}}</td>
         {% set total = 0 %}
         {% for case in cases %}
             {% set total = total + case.totalConfirmed.contamination %}
@@ -363,7 +362,7 @@
     {% set hLength = 2+cases|length %}
 
     <tr class="info">
-        <th colspan="{{ hLength }}">Pneumonia</th>
+        <th colspan="{{ hLength }}">{{'Pneumonia'|trans}}</th>
     </tr>
     <tr>
         <td style="width:35%;"></td>
@@ -566,7 +565,7 @@
         <td>{{ total }}</td>
     </tr>
     <tr>
-        <td>Other</td>
+        <td>{{'Other'|trans}}</td>
         {% set total = 0 %}
         {% for case in cases %}
             {% set total = total + case.under12Confirmed.other %}
@@ -575,7 +574,7 @@
         <td>{{ total }}</td>
     </tr>
     <tr>
-        <td>Contaminated</td>
+        <td>{{'Contaminated'|trans}}</td>
         {% set total = 0 %}
         {% for case in cases %}
             {% set total = total + case.under12Confirmed.contamination %}
@@ -624,7 +623,7 @@
         <td>{{ total }}</td>
     </tr>
     <tr>
-        <td>Other</td>
+        <td>{{'Other'|trans}}</td>
         {% set total = 0 %}
         {% for case in cases %}
             {% set total = total + case.under23Confirmed.other %}
@@ -633,7 +632,7 @@
         <td>{{ total }}</td>
     </tr>
     <tr>
-        <td>Contaminated</td>
+        <td>{{'Contaminated'|trans}}</td>
         {% set total = 0 %}
         {% for case in cases %}
             {% set total = total + case.under23Confirmed.contamination %}
@@ -682,7 +681,7 @@
         <td>{{ total }}</td>
     </tr>
     <tr>
-        <td>Other</td>
+        <td>{{'Other'|trans}}</td>
         {% set total = 0 %}
         {% for case in cases %}
             {% set total = total + case.under59Confirmed.other %}
@@ -691,7 +690,7 @@
         <td>{{ total }}</td>
     </tr>
     <tr>
-        <td>Contaminated</td>
+        <td>{{'Contaminated'|trans}}</td>
         {% set total = 0 %}
         {% for case in cases %}
             {% set total = total + case.under59Confirmed.contamination %}
@@ -740,7 +739,7 @@
         <td>{{ total }}</td>
     </tr>
     <tr>
-        <td>Other</td>
+        <td>{{'Other'|trans}}</td>
         {% set total = 0 %}
         {% for case in cases %}
             {% set total = total + case.totalConfirmed.other %}
@@ -749,7 +748,7 @@
         <td>{{ total }}</td>
     </tr>
     <tr>
-        <td>Contaminated</td>
+        <td>{{'Contaminated'|trans}}</td>
         {% set total = 0 %}
         {% for case in cases %}
             {% set total = total + case.totalConfirmed.contamination %}
@@ -802,7 +801,7 @@
 {% macro rotavirus(cases) %}
     {% set hLength = 2+cases|length %}
     <tr class="info">
-        <th colspan="{{ hLength }}">Rotavirus</th>
+        <th colspan="{{ hLength }}">{{'Rotavirus'|trans}}</th>
     </tr>
 
     <tr>

@@ -34,6 +34,7 @@ class MenuBuilder
             $admin->addChild('Country', ['route' => 'adminCountryIndex']);
             $admin->addChild('Hospital', ['route' => 'adminHospitalIndex']);
             $admin->addChild('Users', ['route' => 'adminUserIndex']);
+            $admin->addChild('Translations', ['route' => 'jms_translation_index']);
         }
 
         if ($this->authChecker->isGranted('ROLE_COLLECTOR')) {
