@@ -88,11 +88,11 @@ abstract class AbstractRepository
     {
         return $this->entityManager
             ->createQueryBuilder()
-            ->from($this->class, 'c')
-            ->select('c')
-            ->innerJoin('c.country','ctr')
-            ->groupBy('ctr.id,c.year,c.month')
-            ->orderBy('c.country,c.year,c.month');
+            ->from($this->class, 'd')
+            ->select('d')
+            ->innerJoin('d.country','ctr')
+            ->groupBy('ctr.id,d.year,d.month')
+            ->orderBy('d.country,d.year,d.month');
     }
 
     public function getCollectionQuery(): QueryBuilder
@@ -102,36 +102,36 @@ abstract class AbstractRepository
 
         return $this->entityManager
             ->createQueryBuilder()
-            ->select('NEW Paho\Vinuva\Report\CaseVerification(ctr.name,h.name,\''.$this->class.'\',c.year,GROUP_CONCAT(IF(c.verified = 1,CONCAT(c.month,\'=V\'),CONCAT(c.month,\'=N\'))))')
-            ->from($this->class, 'c')
-            ->innerJoin('c.country','ctr')
-            ->innerJoin('c.hospital','h')
-            ->groupBy('ctr,h,c.year')
-            ->orderBy('c.country,c.hospital,c.year,c.month');
+            ->select('NEW Paho\Vinuva\Report\CaseVerification(ctr.name,h.name,\''.$this->class.'\',d.year,GROUP_CONCAT(IF(d.verified = 1,CONCAT(d.month,\'=V\'),CONCAT(d.month,\'=N\'))))')
+            ->from($this->class, 'd')
+            ->innerJoin('d.country','ctr')
+            ->innerJoin('d.hospital','h')
+            ->groupBy('ctr,h,d.year')
+            ->orderBy('d.country,d.hospital,d.year,d.month');
     }
 
     public function getByHospitalFilterQuery(): QueryBuilder
     {
         return $this->entityManager
             ->createQueryBuilder()
-            ->select('c,h,ctr')
-            ->from($this->class, 'c')
-            ->innerJoin('c.country','ctr')
-            ->innerJoin('c.hospital','h')
+            ->select('d,h,ctr')
+            ->from($this->class, 'd')
+            ->innerJoin('d.country','ctr')
+            ->innerJoin('d.hospital','h')
             ->orderBy('ctr.name,h.name')
-            ->groupBy('h.id,c.year');
+            ->groupBy('h.id,d.year');
     }
 
     public function getByCountryFilterQuery(): QueryBuilder
     {
         return $this->entityManager
             ->createQueryBuilder()
-            ->select('c,h,ctr')
-            ->from($this->class, 'c')
-            ->innerJoin('c.country','ctr')
-            ->innerJoin('c.hospital','h')
+            ->select('d,h,ctr')
+            ->from($this->class, 'd')
+            ->innerJoin('d.country','ctr')
+            ->innerJoin('d.hospital','h')
             ->orderBy('ctr.name,h.name')
-            ->groupBy('ctr.id,c.year');
+            ->groupBy('ctr.id,d.year');
     }
 
     abstract public function getSummaryQuery(QueryBuilder $queryBuilder): array;

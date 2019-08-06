@@ -36,5 +36,4 @@ class BaseDiseaseFilterType extends AbstractType
                 },
             ]);
     }
-
 }

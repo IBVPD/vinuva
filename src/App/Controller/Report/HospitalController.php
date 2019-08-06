@@ -8,9 +8,7 @@ use App\Controller\Traits\TwigRenderingTrait;
 use App\Form\Report\Hospital\FilterType;
 use App\Form\Report\Monthly\FilterType as GeneralFilterType;
 use Doctrine\ORM\EntityRepository;
-use Doctrine\ORM\QueryBuilder;
 use Lexik\Bundle\FormFilterBundle\Filter\FilterBuilderUpdaterInterface;
-use Paho\Vinuva\Models\Hospital;
 use Paho\Vinuva\Models\Meningitis;
 use Paho\Vinuva\Models\Pneumonia;
 use Paho\Vinuva\Models\Region;
@@ -123,5 +121,4 @@ class HospitalController
             'filterForm' => $filterForm->createView(),
         ]);
     }
-
 }

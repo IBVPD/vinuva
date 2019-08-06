@@ -75,7 +75,6 @@ class CountryController
                     break;
             }
 
-
             foreach ($diseases as $diseaseClass => $repository) {
                 $query = $repository->getByCountryFilterQuery();
 
