@@ -32,7 +32,7 @@ class EditType extends AbstractType
             ->add('suspected', IntegerType::class, ['label' => 'No. suspected pneumonia'])
             ->add('suspectedWith', IntegerType::class, ['label' => 'Number of suspected pneumonia cases with x-ray and forms'])
             ->add('probable', ProbableType::class, ['label' => 'No. of probable cases of pneumonia'])
-            ->add('probableWithBlood', ProbableType::class, ['label' => 'No. of probable cases with blood specimen'])
+            ->add('probableWithBlood', ProbableType::class, ['label' => 'No. of cases with blood specimen'])
             ->add('probableWithPleural', ProbableType::class, ['label' => 'No. of probable cases with pleural fluid'])
             ->add('under12Confirmed', ConfirmedType::class, ['label' => 'Under 12 months'])
             ->add('under23Confirmed', ConfirmedType::class, ['label' => '12 - 23 months'])

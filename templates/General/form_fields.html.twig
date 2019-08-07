@@ -69,21 +69,21 @@
     {{ form_label(form) }}
 
     <div class="row form-group m-b-0">
-        {{ form_label(form.hib) }}
-        {{ form_widget(form.hib) }}
-        {% if form.hibOverride is defined %}
-            <div class="col-5">
-                {{ form_row(form.hibOverride) }}
-            </div>
-        {% endif %}
-    </div>
-
-    <div class="row form-group m-b-0">
         {{ form_label(form.hi) }}
         {{ form_widget(form.hi) }}
         {% if form.hiOverride is defined %}
             <div class="col-5">
                 {{ form_row(form.hiOverride) }}
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="row form-group m-b-0">
+        {{ form_label(form.hib) }}
+        {{ form_widget(form.hib) }}
+        {% if form.hibOverride is defined %}
+            <div class="col-5">
+                {{ form_row(form.hibOverride) }}
             </div>
         {% endif %}
     </div>
@@ -135,30 +135,15 @@
     <div class="row form-group m-b-0">
         {{ form_label(form.vaccinated) }}
         {{ form_widget(form.vaccinated) }}
-        {% if form.vaccinatedOverride is defined %}
-            <div class="col-5">
-                {{ form_row(form.vaccinatedOverride) }}
-            </div>
-        {% endif %}
     </div>
 
     <div class="row form-group m-b-0">
         {{ form_label(form.notVaccinated) }}
         {{ form_widget(form.notVaccinated) }}
-        {% if form.notVaccinatedOverride is defined %}
-            <div class="col-5">
-                {{ form_row(form.notVaccinatedOverride) }}
-            </div>
-        {% endif %}
     </div>
 
     <div class="row form-group m-b-0">
         {{ form_label(form.noInformation) }}
         {{ form_widget(form.noInformation) }}
-        {% if form.noInformationOverride is defined %}
-            <div class="col-5">
-                {{ form_row(form.noInformationOverride) }}
-            </div>
-        {% endif %}
     </div>
 {% endblock %}
