@@ -50,8 +50,6 @@ class MenuBuilder
         $report->addChild('Hospital Summary', ['route' => 'reportHospitalSummary']);
         $report->addChild('Monthly Summary', ['route' => 'reportMonthlySummary']);
         $report->addChild('Hospitals', ['route' => 'reportHospitalIndex']);
-        $report->addChild('Users by Organization', ['route' => 'reportUserOrganization']);
-        $report->addChild('Users by Role', ['route' => 'reportUserRoles']);
 
         return $menu;
     }
