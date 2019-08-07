@@ -1938,16 +1938,16 @@
         },
         {
             "name": "ns/color-admin-bundle",
-            "version": "2.0.26",
+            "version": "2.0.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/NobletSolutions/ColorAdminBundle.git",
-                "reference": "c6131d3f10c65a6d516d8312fdce85a75d1a64ef"
+                "reference": "b16266c964cfe76752403f75676532251d80b4a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NobletSolutions/ColorAdminBundle/zipball/c6131d3f10c65a6d516d8312fdce85a75d1a64ef",
-                "reference": "c6131d3f10c65a6d516d8312fdce85a75d1a64ef",
+                "url": "https://api.github.com/repos/NobletSolutions/ColorAdminBundle/zipball/b16266c964cfe76752403f75676532251d80b4a9",
+                "reference": "b16266c964cfe76752403f75676532251d80b4a9",
                 "shasum": ""
             },
             "require": {
@@ -1975,12 +1975,12 @@
             "notification-url": "https://packagist.org/downloads/",
             "authors": [
                 {
-                    "name": "Nathanael David Noblet",
-                    "email": "nathanael@noblet.ca"
-                },
-                {
                     "name": "Mark Woynarski",
                     "email": "mark.woynarski@nobletdesign.com"
+                },
+                {
+                    "name": "Nathanael David Noblet",
+                    "email": "nathanael@noblet.ca"
                 }
             ],
             "description": "Template bundle for Color Admin",
@@ -1988,7 +1988,7 @@
             "keywords": [
                 "template"
             ],
-            "time": "2019-05-24T17:45:50+00:00"
+            "time": "2019-08-07T17:05:44+00:00"
         },
         {
             "name": "ns/filtered-pagination-bundle",
@@ -6949,16 +6949,16 @@
         },
         {
             "name": "nette/di",
-            "version": "v3.0.0",
+            "version": "v3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/di.git",
-                "reference": "19d83539245aaacb59470828919182411061841f"
+                "reference": "4aff517a1c6bb5c36fa09733d4cea089f529de6d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/di/zipball/19d83539245aaacb59470828919182411061841f",
-                "reference": "19d83539245aaacb59470828919182411061841f",
+                "url": "https://api.github.com/repos/nette/di/zipball/4aff517a1c6bb5c36fa09733d4cea089f529de6d",
+                "reference": "4aff517a1c6bb5c36fa09733d4cea089f529de6d",
                 "shasum": ""
             },
             "require": {
@@ -7018,7 +7018,7 @@
                 "nette",
                 "static"
             ],
-            "time": "2019-04-03T19:35:46+00:00"
+            "time": "2019-08-07T12:11:33+00:00"
         },
         {
             "name": "nette/finder",

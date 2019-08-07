@@ -371,7 +371,7 @@
       </trans-unit>
       <trans-unit id="Io5IQOn" resname="Monthly Summary">
         <source>Monthly Summary</source>
-        <target>__Monthly Summary</target>
+        <target>Monthly Summary</target>
       </trans-unit>
       <trans-unit id="dm3h91A" resname="Monthly Collection">
         <source>Monthly Collection</source>
@@ -528,6 +528,50 @@
       <trans-unit id="wcEAnT8" resname="Update">
         <source>Update</source>
         <target>__Update</target>
+      </trans-unit>
+      <trans-unit id="uhGL9.y" resname="English">
+        <source>English</source>
+        <target>__English</target>
+      </trans-unit>
+      <trans-unit id="NBEFnLj" resname="Spanish">
+        <source>Spanish</source>
+        <target>__Spanish</target>
+      </trans-unit>
+      <trans-unit id="mLAbiQa" resname="Portuguese">
+        <source>Portuguese</source>
+        <target>__Portuguese</target>
+      </trans-unit>
+      <trans-unit id="dFgZn_l" resname="French">
+        <source>French</source>
+        <target>__French</target>
+      </trans-unit>
+      <trans-unit id="2cDAYEh" resname="Country Summary">
+        <source>Country Summary</source>
+        <target>Country Summary</target>
+      </trans-unit>
+      <trans-unit id="aJTDbNg" resname="Hospital Summary">
+        <source>Hospital Summary</source>
+        <target>Hospital Summary</target>
+      </trans-unit>
+      <trans-unit id="U62ThWU" resname="Users by Organization">
+        <source>Users by Organization</source>
+        <target>Users by Organization</target>
+      </trans-unit>
+      <trans-unit id="O99u9wK" resname="Users by Role">
+        <source>Users by Role</source>
+        <target>Users by Role</target>
+      </trans-unit>
+      <trans-unit id="JmpBuQ1" resname="Translations">
+        <source>Translations</source>
+        <target>Translations</target>
+      </trans-unit>
+      <trans-unit id="S0LGaQ6" resname="Administration">
+        <source>Administration</source>
+        <target>Administration</target>
+      </trans-unit>
+      <trans-unit id="PgIstwL" resname="Surveillance">
+        <source>Surveillance</source>
+        <target>Surveillance</target>
       </trans-unit>
     </body>
   </file>

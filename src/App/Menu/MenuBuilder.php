@@ -29,7 +29,7 @@ class MenuBuilder
     {
         $menu = $this->factory->createItem('root');
         if ($this->authChecker->isGranted('ROLE_ADMIN')) {
-            $admin = $menu->addChild('Administration')->setAttribute('icon','user-shield');
+            $admin = $menu->addChild('Administration')->setAttribute('icon', 'user-shield');
             $admin->addChild('Region', ['route' => 'adminRegionIndex']);
             $admin->addChild('Country', ['route' => 'adminCountryIndex']);
             $admin->addChild('Hospital', ['route' => 'adminHospitalIndex']);
@@ -38,7 +38,7 @@ class MenuBuilder
         }
 
         if ($this->authChecker->isGranted('ROLE_COLLECTOR')) {
-            $surveillance = $menu->addChild('Surveillance')->setAttribute('icon','project-diagram');
+            $surveillance = $menu->addChild('Surveillance')->setAttribute('icon', 'project-diagram');
             $surveillance->addChild('Meningitis', ['route' => 'meningitisIndex']);
             $surveillance->addChild('Pneumonia', ['route' => 'pneumoniaIndex']);
             $surveillance->addChild('Rotavirus', ['route' => 'rotavirusIndex']);
