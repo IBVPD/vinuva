@@ -4,6 +4,7 @@ namespace App\Form;
 
 use Paho\Vinuva\Models\User;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -16,6 +17,16 @@ class UserProfileType extends AbstractType
         $builder
             ->add('name')
             ->add('email')
+            ->add('locale', ChoiceType::class, [
+                'choices' => [
+                    'English' => 'en',
+                    'Spanish' => 'es',
+                    'Portuguese' => 'pt',
+                    'French' => 'fr',
+                ],
+                'required' => false,
+                'placeholder' => 'Select...',
+            ])
             ->add('plainPassword',RepeatedType::class, [
                 'required' => false,
                 'type' => PasswordType::class,

@@ -3,3 +3,16 @@ login_check:
 
 logout:
   path: /logout
+
+JMSTranslationBundle_ui:
+  resource: "@JMSTranslationBundle/Controller/"
+  type:     annotation
+  prefix:   /_trans
+
+login:
+  path: /login
+  controller: App\Controller\SecurityController::loginAction
+
+homepage_no_locale:
+  path: /
+  controller: App\Controller\DefaultController::noLocaleAction

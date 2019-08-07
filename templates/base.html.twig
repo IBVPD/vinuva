@@ -7,8 +7,20 @@
 {% block navbar_logo %}{% endblock %}
 
 {% block header_search %}{% endblock %}
-{% block header_message_menu_button %}{% endblock %}
-{% block header_message_menu_dropdown %}{% endblock %}
+{% block header_message_menu %}
+    <li class="dropdown navbar-language">
+        <a href="#" class="dropdown-toggle pr-1 pl-1 pr-sm-3 pl-sm-3" data-toggle="dropdown" aria-expanded="false">
+            <span class="flag-icon flag-icon-{{app.request.locale}}" title="{{app.request.locale}}"></span>
+            <span class="name d-none d-sm-inline">{{app.request.locale|upper}}</span> <b class="caret"></b>
+        </a>
+        <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 50px, 0px);">
+            <a href="{{ path('homepage',{'_locale': 'en'}) }}" class="dropdown-item"><span class="flag-icon flag-icon-us" title="en"></span> {{'English'|trans}}</a>
+            <a href="{{ path('homepage',{'_locale': 'es'}) }}" class="dropdown-item"><span class="flag-icon flag-icon-es" title="es"></span> {{'Spanish'|trans}}</a>
+            <a href="{{ path('homepage',{'_locale': 'pt'}) }}" class="dropdown-item"><span class="flag-icon flag-icon-pt" title="pt"></span> {{'Portuguese'|trans}}</a>
+            <a href="{{ path('homepage',{'_locale': 'fr'}) }}" class="dropdown-item"><span class="flag-icon flag-icon-fr" title="fr"></span> {{'French'|trans}}</a>
+        </div>
+    </li>
+{% endblock %}
 
 {% block header_user_menu_button %}
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -64,6 +76,14 @@
             });
         </script>
     {% endif %}
+{% endblock %}
+{% block page_styles %}
+    <link href="{{ asset('bundles/coloradmin/plugins/flag-icon/css/flag-icon.min.css') }}" rel="stylesheet">
+    <style type="text/css">
+        .flag-icon-en {
+            background-image: url({{ asset('bundles/coloradmin/plugins/flag-icon/flags/4x3/us.svg') }});
+        }
+    </style>
 {% endblock %}
 
 {% block content %}{% endblock %}

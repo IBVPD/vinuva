@@ -83,6 +83,12 @@ class User implements UserInterface
     private $active;
 
     /**
+     * @var string|null
+     * @ORM\Column(name="locale", type="string", length=12)
+     */
+    private $locale;
+
+    /**
      * @var Country|null
      * @ORM\ManyToOne(targetEntity="Country")
      */
@@ -281,6 +287,16 @@ class User implements UserInterface
     public function setActive(bool $active): void
     {
         $this->active = $active;
+    }
+
+    public function getLocale(): ?string
+    {
+        return $this->locale;
+    }
+
+    public function setLocale(?string $locale): void
+    {
+        $this->locale = $locale;
     }
 
     public function getCountry(): ?Country
