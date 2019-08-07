@@ -6,16 +6,15 @@
     <script type="text/javascript" src="{{ asset('js/case.js') }}"></script>
     <script type="text/javascript">
         $(document).ready(function () {
-            sumInputs(['#{{ form.withFormAndSample.under12.vars.id }}', '#{{ form.withFormAndSample.under23.vars.id }}', '#{{ form.withFormAndSample.under59.vars.id }}'], '#{{ form.withFormAndSample.total.vars.id }}', '#{{ form.withFormAndSample.totalOverride.vars.id }}');
+            sumInputs(['#{{ form.withFormAndSample.under12.vars.id }}', '#{{ form.withFormAndSample.under23.vars.id }}', '#{{ form.withFormAndSample.under59.vars.id }}'], '#{{ form.withFormAndSample.total.vars.id }}');
 
-            sumInputs(['#{{ form.positiveUnder12.vaccinated.vars.id }}', '#{{ form.positiveUnder23.vaccinated.vars.id }}', '#{{ form.positiveUnder59.vaccinated.vars.id }}'], '#{{ form.positiveTotal.vaccinated.vars.id }}', '#{{ form.positiveTotal.vaccinatedOverride.vars.id }}');
-            sumInputs(['#{{ form.positiveUnder12.notVaccinated.vars.id }}', '#{{ form.positiveUnder23.notVaccinated.vars.id }}', '#{{ form.positiveUnder59.notVaccinated.vars.id }}'], '#{{ form.positiveTotal.notVaccinated.vars.id }}', '#{{ form.positiveTotal.notVaccinatedOverride.vars.id }}');
-            sumInputs(['#{{ form.positiveUnder12.noInformation.vars.id }}', '#{{ form.positiveUnder23.noInformation.vars.id }}', '#{{ form.positiveUnder59.noInformation.vars.id }}'], '#{{ form.positiveTotal.noInformation.vars.id }}', '#{{ form.positiveTotal.noInformationOverride.vars.id }}');
+            sumInputs(['#{{ form.positiveUnder12.vaccinated.vars.id }}', '#{{ form.positiveUnder23.vaccinated.vars.id }}', '#{{ form.positiveUnder59.vaccinated.vars.id }}'], '#{{ form.positiveTotal.vaccinated.vars.id }}');
+            sumInputs(['#{{ form.positiveUnder12.notVaccinated.vars.id }}', '#{{ form.positiveUnder23.notVaccinated.vars.id }}', '#{{ form.positiveUnder59.notVaccinated.vars.id }}'], '#{{ form.positiveTotal.notVaccinated.vars.id }}');
+            sumInputs(['#{{ form.positiveUnder12.noInformation.vars.id }}', '#{{ form.positiveUnder23.noInformation.vars.id }}', '#{{ form.positiveUnder59.noInformation.vars.id }}'], '#{{ form.positiveTotal.noInformation.vars.id }}');
 
-            sumInputs(['#{{ form.deathsUnder12.vaccinated.vars.id }}', '#{{ form.deathsUnder23.vaccinated.vars.id }}', '#{{ form.deathsUnder59.vaccinated.vars.id }}'], '#{{ form.deathsTotal.vaccinated.vars.id }}', '#{{ form.deathsTotal.vaccinatedOverride.vars.id }}');
-            sumInputs(['#{{ form.deathsUnder12.notVaccinated.vars.id }}', '#{{ form.deathsUnder23.notVaccinated.vars.id }}', '#{{ form.deathsUnder59.notVaccinated.vars.id }}'], '#{{ form.deathsTotal.notVaccinated.vars.id }}', '#{{ form.deathsTotal.notVaccinatedOverride.vars.id }}');
-            sumInputs(['#{{ form.deathsUnder12.noInformation.vars.id }}', '#{{ form.deathsUnder23.noInformation.vars.id }}', '#{{ form.deathsUnder59.noInformation.vars.id }}'], '#{{ form.deathsTotal.noInformation.vars.id }}', '#{{ form.deathsTotal.noInformationOverride.vars.id }}');
-
+            sumInputs(['#{{ form.deathsUnder12.vaccinated.vars.id }}', '#{{ form.deathsUnder23.vaccinated.vars.id }}', '#{{ form.deathsUnder59.vaccinated.vars.id }}'], '#{{ form.deathsTotal.vaccinated.vars.id }}');
+            sumInputs(['#{{ form.deathsUnder12.notVaccinated.vars.id }}', '#{{ form.deathsUnder23.notVaccinated.vars.id }}', '#{{ form.deathsUnder59.notVaccinated.vars.id }}'], '#{{ form.deathsTotal.notVaccinated.vars.id }}');
+            sumInputs(['#{{ form.deathsUnder12.noInformation.vars.id }}', '#{{ form.deathsUnder23.noInformation.vars.id }}', '#{{ form.deathsUnder59.noInformation.vars.id }}'], '#{{ form.deathsTotal.noInformation.vars.id }}');
         });
     </script>
 {% endblock %}
