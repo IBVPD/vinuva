@@ -32,13 +32,22 @@ class VaccinationType extends AbstractType implements DataMapperInterface
             ->add('notVaccinated', IntegerType::class, $defaultOptions)
             ->add('noInformation', IntegerType::class, $defaultOptions);
 
-//        if ($options['include_override']) {
-//            $defaultOptions = ['required' => false, 'label' => 'Override', 'label_attr' => ['class' => 'col-md-4 col-form-label'],'wrapper_class'=>'col-md-8'];
-//            $builder
-//                ->add('vaccinatedOverride', CheckboxType::class, $defaultOptions)
-//                ->add('notVaccinatedOverride', CheckboxType::class, $defaultOptions)
-//                ->add('noInformationOverride', CheckboxType::class, $defaultOptions);
-//        }
+        if ($options['include_override']) {
+            $defaultOptions = [
+                'required' => false,
+                'mapped' => false,
+                'label' => 'Override',
+                'label_attr' => ['class' => 'col-md-4 col-form-label'],
+                'wrapper_class' => 'col-md-8',
+            ];
+
+            $builder
+                ->add('vaccinatedOverride', CheckboxType::class, $defaultOptions)
+                ->add('notVaccinatedOverride', CheckboxType::class, $defaultOptions)
+                ->add('noInformationOverride', CheckboxType::class, $defaultOptions);
+        }
+
+        $builder->setDataMapper($this);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

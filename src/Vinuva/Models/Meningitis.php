@@ -32,7 +32,7 @@ class Meningitis extends BaseDisease
     /**
      * @var Probable|null
      * @ORM\Embedded(class="Paho\Vinuva\Models\Common\Probable", columnPrefix="probable")
-     * @LocalAssert\LessThanOrEqualProbable(propertyPath="suspectedWith", message="Must be less than or equal to the number of suspected cases with CSF and forms")
+     * @LocalAssert\LessThanOrEqualProbable(propertyPath="suspected", message="Must be less than or equal to the number of suspected cases")
      */
     protected $probable;
 
@@ -57,6 +57,7 @@ class Meningitis extends BaseDisease
     /**
      * @var Confirmed|null
      * @ORM\Embedded(class="Paho\Vinuva\Models\Common\Confirmed", columnPrefix="total_confirmed_")
+     * @LocalAssert\LessThanOrEqualConfirmed(propertyPath="suspected", message="The sum of all confirmed cases must be less than or equal to the number of suspected cases")
      */
     protected $totalConfirmed;
 

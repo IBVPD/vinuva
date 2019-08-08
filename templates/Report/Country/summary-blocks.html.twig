@@ -528,21 +528,22 @@
     <tr>
         <td>{{ 'Under 12 months'|trans }}</td>
     </tr>
-    <tr>
-        <td>Hib</td>
-        {% set total = 0 %}
-        {% for case in cases %}
-            {% set total = total + case.under12Confirmed.hib %}
-            <td>{{ case.under12Confirmed.hib }}</td>
-        {% endfor %}
-        <td>{{ total }}</td>
-    </tr>
+
     <tr>
         <td>Hi</td>
         {% set total = 0 %}
         {% for case in cases %}
             {% set total = total + case.under12Confirmed.hi %}
             <td>{{ case.under12Confirmed.hi }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>Hib</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.under12Confirmed.hib %}
+            <td>{{ case.under12Confirmed.hib }}</td>
         {% endfor %}
         <td>{{ total }}</td>
     </tr>
@@ -585,15 +586,6 @@
 
     <tr>
         <th>{{ '12-23 months'|trans }}</th>
-    </tr>
-    <tr>
-        <td>Hib</td>
-        {% set total = 0 %}
-        {% for case in cases %}
-            {% set total = total + case.under23Confirmed.hib %}
-            <td>{{ case.under23Confirmed.hib }}</td>
-        {% endfor %}
-        <td>{{ total }}</td>
     </tr>
     <tr>
         <td>Hi</td>
@@ -645,20 +637,20 @@
         <th>{{ '24-59 months'|trans }}</th>
     </tr>
     <tr>
-        <td>Hib</td>
-        {% set total = 0 %}
-        {% for case in cases %}
-            {% set total = total + case.under59Confirmed.hib %}
-            <td>{{ case.under59Confirmed.hib }}</td>
-        {% endfor %}
-        <td>{{ total }}</td>
-    </tr>
-    <tr>
         <td>Hi</td>
         {% set total = 0 %}
         {% for case in cases %}
             {% set total = total + case.under59Confirmed.hi %}
             <td>{{ case.under59Confirmed.hi }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>Hib</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.under59Confirmed.hib %}
+            <td>{{ case.under59Confirmed.hib }}</td>
         {% endfor %}
         <td>{{ total }}</td>
     </tr>
@@ -703,20 +695,20 @@
         <td>{{ 'Total < 5'|trans }}</td>
     </tr>
     <tr>
-        <td>Hib</td>
-        {% set total = 0 %}
-        {% for case in cases %}
-            {% set total = total + case.totalConfirmed.hib %}
-            <td>{{ case.totalConfirmed.hib }}</td>
-        {% endfor %}
-        <td>{{ total }}</td>
-    </tr>
-    <tr>
         <td>Hi</td>
         {% set total = 0 %}
         {% for case in cases %}
             {% set total = total + case.totalConfirmed.hi %}
             <td>{{ case.totalConfirmed.hi }}</td>
+        {% endfor %}
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <td>Hib</td>
+        {% set total = 0 %}
+        {% for case in cases %}
+            {% set total = total + case.totalConfirmed.hib %}
+            <td>{{ case.totalConfirmed.hib }}</td>
         {% endfor %}
         <td>{{ total }}</td>
     </tr>
@@ -1137,5 +1129,4 @@
         {% endfor %}
         <td>{{ total }}</td>
     </tr>
-
 {% endmacro %}

@@ -85,4 +85,9 @@ class Confirmed
     {
         return $this->contamination;
     }
+
+    public function getTotal(): ?int
+    {
+        return $this->hib + $this->hi + $this->nm + $this->spn + $this->other + $this->contamination;
+    }
 }

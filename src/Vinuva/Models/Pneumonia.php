@@ -33,21 +33,21 @@ class Pneumonia extends BaseDisease
     /**
      * @var Probable|null
      * @ORM\Embedded(class="Paho\Vinuva\Models\Common\Probable", columnPrefix="probable")
-     * @LocalAssert\LessThanOrEqualProbable(propertyPath="suspectedWith", message="Must be less than or equal to the number of suspected cases with x-ray and forms")
+     * @LocalAssert\LessThanOrEqualProbable(propertyPath="suspected", message="Must be less than or equal to the number of suspected cases")
      */
     protected $probable;
 
     /**
      * @var Probable|null
      * @ORM\Embedded(class="Paho\Vinuva\Models\Common\Probable", columnPrefix="probable_with_blood")
-     * @LocalAssert\LessThanOrEqualProbable(propertyPath="probable", message="Must be less than the number of probable cases")
+     * @LocalAssert\LessThanOrEqualProbable(propertyPath="suspected", message="Must be less than or equal to the number of suspected cases")
      */
     protected $probableWithBlood;
 
     /**
      * @var Probable|null
      * @ORM\Embedded(class="Paho\Vinuva\Models\Common\Probable", columnPrefix="probable_with_pleural")
-     * @LocalAssert\LessThanOrEqualProbable(propertyPath="probable", message="Must be less than the number of probable cases")
+     * @LocalAssert\LessThanOrEqualProbable(propertyPath="suspected", message="Must be less than or equal to the number of suspected cases")
      */
     protected $probableWithPleural;
 
@@ -72,6 +72,7 @@ class Pneumonia extends BaseDisease
     /**
      * @var Confirmed|null
      * @ORM\Embedded(class="Paho\Vinuva\Models\Common\Confirmed", columnPrefix="total_confirmed_")
+     * @LocalAssert\LessThanOrEqualConfirmed(propertyPath="suspected", message="The sum of all confirmed cases must be less than or equal to the number of suspected cases")
      */
     protected $totalConfirmed;
 

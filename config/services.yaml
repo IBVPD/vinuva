@@ -28,6 +28,7 @@ services:
             $class: Paho\Vinuva\Models\Rotavirus
 
     Paho\Vinuva\Validator\ProbableValidator: ~
+    Paho\Vinuva\Validator\ConfirmedValidator: ~
 
     JMS\TranslationBundle\Controller\TranslateController:
         public: true
