@@ -421,6 +421,10 @@
         <source>Must be less than the number of probable cases</source>
         <target>Must be less than the number of probable cases</target>
       </trans-unit>
+      <trans-unit id="9Et4R7T" resname="The sum of all confirmed cases must be less than or equal to the number of suspected cases">
+        <source>The sum of all confirmed cases must be less than or equal to the number of suspected cases</source>
+        <target>The sum of all confirmed cases must be less than or equal to the number of suspected cases</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

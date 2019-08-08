@@ -1,578 +1,435 @@
-<?xml version="1.0" encoding="utf-8"?>
-<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
-  <file source-language="en" target-language="pt" datatype="plaintext" original="file.ext">
-    <header>
-      <tool tool-id="symfony" tool-name="Symfony"/>
-    </header>
-    <body>
-      <trans-unit id=".fyNXNF" resname="12 - 23 months">
-        <source>12 - 23 months</source>
-        <target>12 - 23 months</target>
-      </trans-unit>
-      <trans-unit id="LQoxwMZ" resname="24 - 59 months">
-        <source>24 - 59 months</source>
-        <target>24 - 59 months</target>
-      </trans-unit>
-      <trans-unit id="wcIksDz" resname="Admin">
-        <source>Admin</source>
-        <target>Admin</target>
-      </trans-unit>
-      <trans-unit id="pSrOQg8" resname="All">
-        <source>All</source>
-        <target>All</target>
-      </trans-unit>
-      <trans-unit id="nQCBpPP" resname="Collector">
-        <source>Collector</source>
-        <target>Collector</target>
-      </trans-unit>
-      <trans-unit id="lpzL089" resname="Email">
-        <source>Email</source>
-        <target>Email</target>
-      </trans-unit>
-      <trans-unit id="zJwtNni" resname="Meningitis">
-        <source>Meningitis</source>
-        <target>Meningitis</target>
-      </trans-unit>
-      <trans-unit id="MQylA_8" resname="Month">
-        <source>Month</source>
-        <target>Month</target>
-      </trans-unit>
-      <trans-unit id="R7K2LLx" resname="No. hospitalizations in children under 5 years">
-        <source>No. hospitalizations in children under 5 years</source>
-        <target>No. hospitalizations in children under 5 years</target>
-      </trans-unit>
-      <trans-unit id="RJfXZ0Y" resname="No. of child hospitalizations under 5 years">
-        <source>No. of child hospitalizations under 5 years</source>
-        <target>No. of child hospitalizations under 5 years</target>
-      </trans-unit>
-      <trans-unit id="XFdgJom" resname="No. of children under 5 years who meet the criteria of suspect case">
-        <source>No. of children under 5 years who meet the criteria of suspect case</source>
-        <target>No. of children under 5 years who meet the criteria of suspect case</target>
-      </trans-unit>
-      <trans-unit id=".Jrzhbj" resname="No. of children with forms and stool samples collected">
-        <source>No. of children with forms and stool samples collected</source>
-        <target>No. of children with forms and stool samples collected</target>
-      </trans-unit>
-      <trans-unit id="uQ4w30S" resname="No. of hospitalizations with diarrhea in children under 5 years">
-        <source>No. of hospitalizations with diarrhea in children under 5 years</source>
-        <target>No. of hospitalizations with diarrhea in children under 5 years</target>
-      </trans-unit>
-      <trans-unit id="0BAQSKq" resname="No. of probable cases of meningitis">
-        <source>No. of probable cases of meningitis</source>
-        <target>No. of probable cases of meningitis</target>
-      </trans-unit>
-      <trans-unit id="UHatQ52" resname="No. of probable cases of pneumonia">
-        <source>No. of probable cases of pneumonia</source>
-        <target>No. of probable cases of pneumonia</target>
-      </trans-unit>
-      <trans-unit id="fiYRb8c" resname="No. of probable cases with blood specimen">
-        <source>No. of probable cases with blood specimen</source>
-        <target>No. of probable cases with blood specimen</target>
-      </trans-unit>
-      <trans-unit id="ij9oPAA" resname="No. of probable cases with pleural fluid">
-        <source>No. of probable cases with pleural fluid</source>
-        <target>No. of probable cases with pleural fluid</target>
-      </trans-unit>
-      <trans-unit id="K7hqiiF" resname="No. of suspected cases of meningitis">
-        <source>No. of suspected cases of meningitis</source>
-        <target>No. of suspected cases of meningitis</target>
-      </trans-unit>
-      <trans-unit id="OVMTtWk" resname="No. suspected meningitis with CSF and forms">
-        <source>No. suspected meningitis with CSF and forms</source>
-        <target>No. suspected meningitis with CSF and forms</target>
-      </trans-unit>
-      <trans-unit id="Kw3.6rZ" resname="No. suspected pneumonia">
-        <source>No. suspected pneumonia</source>
-        <target>No. suspected pneumonia</target>
-      </trans-unit>
-      <trans-unit id="XxJVLmU" resname="Number of suspected pneumonia cases with x-ray and forms">
-        <source>Number of suspected pneumonia cases with x-ray and forms</source>
-        <target>Number of suspected pneumonia cases with x-ray and forms</target>
-      </trans-unit>
-      <trans-unit id="Q7wPX8A" resname="Override">
-        <source>Override</source>
-        <target>Override</target>
-      </trans-unit>
-      <trans-unit id="HNx1k8o" resname="Override Total">
-        <source>Override Total</source>
-        <target>Override Total</target>
-      </trans-unit>
-      <trans-unit id="588_9PF" resname="Password">
-        <source>Password</source>
-        <target>Password</target>
-      </trans-unit>
-      <trans-unit id="I6WxJdu" resname="Pneumonia">
-        <source>Pneumonia</source>
-        <target>Pneumonia</target>
-      </trans-unit>
-      <trans-unit id="BSHwwmi" resname="Re-enter Password">
-        <source>Re-enter Password</source>
-        <target>Re-enter Password</target>
-      </trans-unit>
-      <trans-unit id="2FVCU.V" resname="Reader">
-        <source>Reader</source>
-        <target>Reader</target>
-      </trans-unit>
-      <trans-unit id="2syjy6P" resname="Reports">
-        <source>Reports</source>
-        <target>Reports</target>
-      </trans-unit>
-      <trans-unit id="0cmcS2Y" resname="Rotavirus">
-        <source>Rotavirus</source>
-        <target>Rotavirus</target>
-      </trans-unit>
-      <trans-unit id="Ezm93Cs" resname="Select...">
-        <source>Select...</source>
-        <target>Select...</target>
-      </trans-unit>
-      <trans-unit id="jxrTU2N" resname="Total &lt; 5">
-        <source>Total &lt; 5</source>
-        <target><![CDATA[Total < 5]]></target>
-      </trans-unit>
-      <trans-unit id="QZflYY." resname="Under 12 months">
-        <source>Under 12 months</source>
-        <target>Under 12 months</target>
-      </trans-unit>
-      <trans-unit id="yNnfpvJ" resname="Verifier">
-        <source>Verifier</source>
-        <target>Verifier</target>
-      </trans-unit>
-      <trans-unit id="ifaDJWD" resname="Year">
-        <source>Year</source>
-        <target>Year</target>
-      </trans-unit>
-      <trans-unit id="VG67jrm" resname="Filters">
-        <source>Filters</source>
-        <target>__Filters</target>
-      </trans-unit>
-      <trans-unit id="KKK8pD1" resname="Add Region">
-        <source>Add Region</source>
-        <target>__Add Region</target>
-      </trans-unit>
-      <trans-unit id="YQxl2EU" resname="Regions">
-        <source>Regions</source>
-        <target>__Regions</target>
-      </trans-unit>
-      <trans-unit id="ScJmuqq" resname="Search">
-        <source>Search</source>
-        <target>__Search</target>
-      </trans-unit>
-      <trans-unit id="2u52BrM" resname="Reset">
-        <source>Reset</source>
-        <target>__Reset</target>
-      </trans-unit>
-      <trans-unit id=".4BZ3Gd" resname="Actions">
-        <source>Actions</source>
-        <target>__Actions</target>
-      </trans-unit>
-      <trans-unit id="WV7.Jhr" resname="Create Region">
-        <source>Create Region</source>
-        <target>__Create Region</target>
-      </trans-unit>
-      <trans-unit id="GXZu1sy" resname="Cancel">
-        <source>Cancel</source>
-        <target>__Cancel</target>
-      </trans-unit>
-      <trans-unit id="R1lJisK" resname="Create">
-        <source>Create</source>
-        <target>__Create</target>
-      </trans-unit>
-      <trans-unit id="6X1LSL5" resname="Edit %target_name%">
-        <source>Edit %target_name%</source>
-        <target>__Edit %target_name%</target>
-      </trans-unit>
-      <trans-unit id="WoQqikO" resname="Edit / Save">
-        <source>Edit / Save</source>
-        <target>__Edit / Save</target>
-      </trans-unit>
-      <trans-unit id="2EqRBas" resname="Add Hospital">
-        <source>Add Hospital</source>
-        <target>__Add Hospital</target>
-      </trans-unit>
-      <trans-unit id="wmgjLAo" resname="Hospitals">
-        <source>Hospitals</source>
-        <target>__Hospitals</target>
-      </trans-unit>
-      <trans-unit id="nLsIplt" resname="Short / Local">
-        <source>Short / Local</source>
-        <target>__Short / Local</target>
-      </trans-unit>
-      <trans-unit id="RkxP.QG" resname="Edit">
-        <source>Edit</source>
-        <target>__Edit</target>
-      </trans-unit>
-      <trans-unit id="qSnU_5z" resname="Create Hospital">
-        <source>Create Hospital</source>
-        <target>__Create Hospital</target>
-      </trans-unit>
-      <trans-unit id="9OM13Vc" resname="Add Country">
-        <source>Add Country</source>
-        <target>__Add Country</target>
-      </trans-unit>
-      <trans-unit id="j69_x6s" resname="Countries">
-        <source>Countries</source>
-        <target>__Countries</target>
-      </trans-unit>
-      <trans-unit id="06AI7xM" resname="Region">
-        <source>Region</source>
-        <target>__Region</target>
-      </trans-unit>
-      <trans-unit id="v_6KxfA" resname="ISO2/FIPS">
-        <source>ISO2/FIPS</source>
-        <target>__ISO2/FIPS</target>
-      </trans-unit>
-      <trans-unit id="WLf4Uw3" resname="Create Country">
-        <source>Create Country</source>
-        <target>__Create Country</target>
-      </trans-unit>
-      <trans-unit id="EVomtRz" resname="Add User">
-        <source>Add User</source>
-        <target>__Add User</target>
-      </trans-unit>
-      <trans-unit id="awzJBNC" resname="Users">
-        <source>Users</source>
-        <target>__Users</target>
-      </trans-unit>
-      <trans-unit id="TJ.AIdd" resname="Active?">
-        <source>Active?</source>
-        <target>__Active?</target>
-      </trans-unit>
-      <trans-unit id="FHNqLrn" resname="Role">
-        <source>Role</source>
-        <target>__Role</target>
-      </trans-unit>
-      <trans-unit id="gFMuwLY" resname="Create User">
-        <source>Create User</source>
-        <target>__Create User</target>
-      </trans-unit>
-      <trans-unit id="7lCCdjR" resname="Add Data">
-        <source>Add Data</source>
-        <target>__Add Data</target>
-      </trans-unit>
-      <trans-unit id="cB0CHQj" resname="Country">
-        <source>Country</source>
-        <target>__Country</target>
-      </trans-unit>
-      <trans-unit id="l_liNmH" resname="Hospital">
-        <source>Hospital</source>
-        <target>__Hospital</target>
-      </trans-unit>
-      <trans-unit id="mcQKtAW" resname="Date">
-        <source>Date</source>
-        <target>__Date</target>
-      </trans-unit>
-      <trans-unit id="U8vx5Qg" resname="Verified?">
-        <source>Verified?</source>
-        <target>__Verified?</target>
-      </trans-unit>
-      <trans-unit id="IDdXgY3" resname="Enter Details">
-        <source>Enter Details</source>
-        <target>__Enter Details</target>
-      </trans-unit>
-      <trans-unit id="pnZB_PV" resname="No. of confirmed cases of pneumonia">
-        <source>No. of confirmed cases of pneumonia</source>
-        <target>__No. of confirmed cases of pneumonia</target>
-      </trans-unit>
-      <trans-unit id="RQvLDZE" resname="Add Pneumonia">
-        <source>Add Pneumonia</source>
-        <target>__Add Pneumonia</target>
-      </trans-unit>
-      <trans-unit id="mVBo1oL" resname="No. of confirmed cases of meningitis">
-        <source>No. of confirmed cases of meningitis</source>
-        <target>__No. of confirmed cases of meningitis</target>
-      </trans-unit>
-      <trans-unit id="7hnPFJt" resname="Add Case">
-        <source>Add Case</source>
-        <target>__Add Case</target>
-      </trans-unit>
-      <trans-unit id="qu7pN7w" resname="Add Meningitis">
-        <source>Add Meningitis</source>
-        <target>__Add Meningitis</target>
-      </trans-unit>
-      <trans-unit id="KH.aaUT" resname="Sign me in">
-        <source>Sign me in</source>
-        <target>__Sign me in</target>
-      </trans-unit>
-      <trans-unit id="svSFRDj" resname="Summary by Hospitals">
-        <source>Summary by Hospitals</source>
-        <target>__Summary by Hospitals</target>
-      </trans-unit>
-      <trans-unit id="FPiIfu8" resname="%hospital_count% Hospitals">
-        <source>%hospital_count% Hospitals</source>
-        <target>__%hospital_count% Hospitals</target>
-      </trans-unit>
-      <trans-unit id="ybPDgkf" resname="Total">
-        <source>Total</source>
-        <target>__Total</target>
-      </trans-unit>
-      <trans-unit id="UxcFQnq" resname="No. suspected meningitis with CSF2 and forms">
-        <source>No. suspected meningitis with CSF2 and forms</source>
-        <target>__No. suspected meningitis with CSF2 and forms</target>
-      </trans-unit>
-      <trans-unit id=".gC2e23" resname="Confirmed">
-        <source>Confirmed</source>
-        <target>__Confirmed</target>
-      </trans-unit>
-      <trans-unit id="_X6doOO" resname="Other">
-        <source>Other</source>
-        <target>__Other</target>
-      </trans-unit>
-      <trans-unit id="nnCxVhi" resname="Contaminated">
-        <source>Contaminated</source>
-        <target>__Contaminated</target>
-      </trans-unit>
-      <trans-unit id="UtJEwqX" resname="12-23 months">
-        <source>12-23 months</source>
-        <target>__12-23 months</target>
-      </trans-unit>
-      <trans-unit id="g.PIBGK" resname="24-59 months">
-        <source>24-59 months</source>
-        <target>__24-59 months</target>
-      </trans-unit>
-      <trans-unit id="d5QPb0B" resname="No. of deaths">
-        <source>No. of deaths</source>
-        <target>__No. of deaths</target>
-      </trans-unit>
-      <trans-unit id="CE4709u" resname="No. of suspected cases of pneumonia">
-        <source>No. of suspected cases of pneumonia</source>
-        <target>__No. of suspected cases of pneumonia</target>
-      </trans-unit>
-      <trans-unit id="VSnyr4T" resname="No. of probable cases with pleural blood specimen">
-        <source>No. of probable cases with pleural blood specimen</source>
-        <target>__No. of probable cases with pleural blood specimen</target>
-      </trans-unit>
-      <trans-unit id="HKdewWu" resname="No. of stool samples positive for rotavirus with forms">
-        <source>No. of stool samples positive for rotavirus with forms</source>
-        <target>__No. of stool samples positive for rotavirus with forms</target>
-      </trans-unit>
-      <trans-unit id="URLCSN4" resname="Vaccinated">
-        <source>Vaccinated</source>
-        <target>__Vaccinated</target>
-      </trans-unit>
-      <trans-unit id="q8mm.ZY" resname="Not Vaccinated">
-        <source>Not Vaccinated</source>
-        <target>__Not Vaccinated</target>
-      </trans-unit>
-      <trans-unit id="JHpFw0F" resname="No Information">
-        <source>No Information</source>
-        <target>__No Information</target>
-      </trans-unit>
-      <trans-unit id="b1AOD3G" resname="Under 23 months">
-        <source>Under 23 months</source>
-        <target>__Under 23 months</target>
-      </trans-unit>
-      <trans-unit id="AiOMNEC" resname="Under 59 months">
-        <source>Under 59 months</source>
-        <target>__Under 59 months</target>
-      </trans-unit>
-      <trans-unit id="kQ_a_9O" resname="Summary by Country">
-        <source>Summary by Country</source>
-        <target>__Summary by Country</target>
-      </trans-unit>
-      <trans-unit id="Io5IQOn" resname="Monthly Summary">
-        <source>Monthly Summary</source>
-        <target>Monthly Summary</target>
-      </trans-unit>
-      <trans-unit id="dm3h91A" resname="Monthly Collection">
-        <source>Monthly Collection</source>
-        <target>__Monthly Collection</target>
-      </trans-unit>
-      <trans-unit id="XF2xIMs" resname="Jan">
-        <source>Jan</source>
-        <target>__Jan</target>
-      </trans-unit>
-      <trans-unit id="yvcbP1g" resname="Feb">
-        <source>Feb</source>
-        <target>__Feb</target>
-      </trans-unit>
-      <trans-unit id="tLfTgY2" resname="Mar">
-        <source>Mar</source>
-        <target>__Mar</target>
-      </trans-unit>
-      <trans-unit id="YXUxtP7" resname="Apr">
-        <source>Apr</source>
-        <target>__Apr</target>
-      </trans-unit>
-      <trans-unit id="jHj_W5k" resname="May">
-        <source>May</source>
-        <target>__May</target>
-      </trans-unit>
-      <trans-unit id="sn.UbtG" resname="Jun">
-        <source>Jun</source>
-        <target>__Jun</target>
-      </trans-unit>
-      <trans-unit id="xD9WuYB" resname="Jul">
-        <source>Jul</source>
-        <target>__Jul</target>
-      </trans-unit>
-      <trans-unit id="QeHYKqm" resname="Aug">
-        <source>Aug</source>
-        <target>__Aug</target>
-      </trans-unit>
-      <trans-unit id="RR4rcZB" resname="Sep">
-        <source>Sep</source>
-        <target>__Sep</target>
-      </trans-unit>
-      <trans-unit id="aHfoSUw" resname="Oct">
-        <source>Oct</source>
-        <target>__Oct</target>
-      </trans-unit>
-      <trans-unit id="PmMNKWS" resname="Nov">
-        <source>Nov</source>
-        <target>__Nov</target>
-      </trans-unit>
-      <trans-unit id="8qDPvPG" resname="Dec">
-        <source>Dec</source>
-        <target>__Dec</target>
-      </trans-unit>
-      <trans-unit id="OLdGVXY" resname="Hospitalized">
-        <source>Hospitalized</source>
-        <target>__Hospitalized</target>
-      </trans-unit>
-      <trans-unit id="fQick27" resname="Suspected">
-        <source>Suspected</source>
-        <target>__Suspected</target>
-      </trans-unit>
-      <trans-unit id="AAe3kvj" resname="Suspected With">
-        <source>Suspected With</source>
-        <target>__Suspected With</target>
-      </trans-unit>
-      <trans-unit id="enX9nq8" resname="Probable %category%">
-        <source>Probable %category%</source>
-        <target>__Probable %category%</target>
-      </trans-unit>
-      <trans-unit id="nVzCM0i" resname="Confirmed Under 12">
-        <source>Confirmed Under 12</source>
-        <target>__Confirmed Under 12</target>
-      </trans-unit>
-      <trans-unit id="mmGrlrQ" resname="Confirmed Under 23">
-        <source>Confirmed Under 23</source>
-        <target>__Confirmed Under 23</target>
-      </trans-unit>
-      <trans-unit id="a9PR_S3" resname="Confirmed 23-59">
-        <source>Confirmed 23-59</source>
-        <target>__Confirmed 23-59</target>
-      </trans-unit>
-      <trans-unit id="lKwcfx_" resname="Total Confirmed">
-        <source>Total Confirmed</source>
-        <target>__Total Confirmed</target>
-      </trans-unit>
-      <trans-unit id="mhTAlDA" resname="Number of Deaths %category%">
-        <source>Number of Deaths %category%</source>
-        <target>__Number of Deaths %category%</target>
-      </trans-unit>
-      <trans-unit id="ad0fmk2" resname="Probable With Blood %category%">
-        <source>Probable With Blood %category%</source>
-        <target>__Probable With Blood %category%</target>
-      </trans-unit>
-      <trans-unit id="1h_2pwy" resname="Probable With Pleural %category%">
-        <source>Probable With Pleural %category%</source>
-        <target>__Probable With Pleural %category%</target>
-      </trans-unit>
-      <trans-unit id="tNma_NB" resname="Positive Under 12">
-        <source>Positive Under 12</source>
-        <target>__Positive Under 12</target>
-      </trans-unit>
-      <trans-unit id="P4DOBzV" resname="Positive Under 23">
-        <source>Positive Under 23</source>
-        <target>__Positive Under 23</target>
-      </trans-unit>
-      <trans-unit id="vQvk8ha" resname="Positive Under 59">
-        <source>Positive Under 59</source>
-        <target>__Positive Under 59</target>
-      </trans-unit>
-      <trans-unit id="aMMTQkR" resname="Positive Total">
-        <source>Positive Total</source>
-        <target>__Positive Total</target>
-      </trans-unit>
-      <trans-unit id="B07bUSa" resname="Deaths Under 12">
-        <source>Deaths Under 12</source>
-        <target>__Deaths Under 12</target>
-      </trans-unit>
-      <trans-unit id="L3JYpdi" resname="Deaths Under 23">
-        <source>Deaths Under 23</source>
-        <target>__Deaths Under 23</target>
-      </trans-unit>
-      <trans-unit id="ijsn.qI" resname="Deaths Under 59">
-        <source>Deaths Under 59</source>
-        <target>__Deaths Under 59</target>
-      </trans-unit>
-      <trans-unit id="ODzUkye" resname="Deaths Total">
-        <source>Deaths Total</source>
-        <target>__Deaths Total</target>
-      </trans-unit>
-      <trans-unit id="HYKj3AF" resname="Add Rotavirus">
-        <source>Add Rotavirus</source>
-        <target>__Add Rotavirus</target>
-      </trans-unit>
-      <trans-unit id="dLF9_Df" resname="CENTINELA">
-        <source>CENTINELA</source>
-        <target>__CENTINELA</target>
-      </trans-unit>
-      <trans-unit id="rhtvJ3c" resname="New Vaccines Surveillance System - VINUVA">
-        <source>New Vaccines Surveillance System - VINUVA</source>
-        <target>__New Vaccines Surveillance System - VINUVA</target>
-      </trans-unit>
-      <trans-unit id=".sKsD0z" resname="Edit Profile">
-        <source>Edit Profile</source>
-        <target>__Edit Profile</target>
-      </trans-unit>
-      <trans-unit id="1X1ItxA" resname="Log Out">
-        <source>Log Out</source>
-        <target>__Log Out</target>
-      </trans-unit>
-      <trans-unit id="ki2mlsl" resname="Verified?:">
-        <source>Verified?:</source>
-        <target>__Verified?:</target>
-      </trans-unit>
-      <trans-unit id="wcEAnT8" resname="Update">
-        <source>Update</source>
-        <target>__Update</target>
-      </trans-unit>
-      <trans-unit id="uhGL9.y" resname="English">
-        <source>English</source>
-        <target>__English</target>
-      </trans-unit>
-      <trans-unit id="NBEFnLj" resname="Spanish">
-        <source>Spanish</source>
-        <target>__Spanish</target>
-      </trans-unit>
-      <trans-unit id="mLAbiQa" resname="Portuguese">
-        <source>Portuguese</source>
-        <target>__Portuguese</target>
-      </trans-unit>
-      <trans-unit id="dFgZn_l" resname="French">
-        <source>French</source>
-        <target>__French</target>
-      </trans-unit>
-      <trans-unit id="2cDAYEh" resname="Country Summary">
-        <source>Country Summary</source>
-        <target>Country Summary</target>
-      </trans-unit>
-      <trans-unit id="aJTDbNg" resname="Hospital Summary">
-        <source>Hospital Summary</source>
-        <target>Hospital Summary</target>
-      </trans-unit>
-      <trans-unit id="U62ThWU" resname="Users by Organization">
-        <source>Users by Organization</source>
-        <target>Users by Organization</target>
-      </trans-unit>
-      <trans-unit id="O99u9wK" resname="Users by Role">
-        <source>Users by Role</source>
-        <target>Users by Role</target>
-      </trans-unit>
-      <trans-unit id="JmpBuQ1" resname="Translations">
-        <source>Translations</source>
-        <target>Translations</target>
-      </trans-unit>
-      <trans-unit id="S0LGaQ6" resname="Administration">
-        <source>Administration</source>
-        <target>Administration</target>
-      </trans-unit>
-      <trans-unit id="PgIstwL" resname="Surveillance">
-        <source>Surveillance</source>
-        <target>Surveillance</target>
-      </trans-unit>
-    </body>
-  </file>
+<?xml version='1.0' encoding='utf-8'?><xliff version='1.2' xmlns='urn:oasis:names:tc:xliff:document:1.2'>
+    <file original='file.ext' datatype='plaintext' tool='manual' source-language='en' target-language='pt'>
+      <header>
+        <tool tool-name='Symfony' tool-id='symfony'/>
+      </header>
+      <body>
+        <trans-unit id='.fyNXNF' resname='12 - 23 months'>
+          <source>12 - 23 months</source><target>12 - 23 meses</target>
+        </trans-unit>
+        <trans-unit id='LQoxwMZ' resname='24 - 59 months'>
+          <source>24 - 59 months</source><target>24 a 59 meses</target>
+        </trans-unit>
+        <trans-unit id='wcIksDz' resname='Admin'>
+          <source>Admin</source><target>Admin</target>
+        </trans-unit>
+        <trans-unit id='pSrOQg8' resname='All'>
+          <source>All</source><target>Todos</target>
+        </trans-unit>
+        <trans-unit id='nQCBpPP' resname='Collector'>
+          <source>Collector</source><target>Colecionador</target>
+        </trans-unit>
+        <trans-unit id='lpzL089' resname='Email'>
+          <source>Email</source><target>O email</target>
+        </trans-unit>
+        <trans-unit id='zJwtNni' resname='Meningitis'>
+          <source>Meningitis</source><target>Meningite</target>
+        </trans-unit>
+        <trans-unit id='MQylA_8' resname='Month'>
+          <source>Month</source><target>Mês</target>
+        </trans-unit>
+        <trans-unit id='R7K2LLx' resname='No. hospitalizations in children under 5 years'>
+          <source>No. hospitalizations in children under 5 years</source><target>Nº hospitalizações em crianças menores de 5 anos</target>
+        </trans-unit>
+        <trans-unit id='RJfXZ0Y' resname='No. of child hospitalizations under 5 years'>
+          <source>No. of child hospitalizations under 5 years</source><target>Nº de internações infantis menores de 5 anos</target>
+        </trans-unit>
+        <trans-unit id='XFdgJom' resname='No. of children under 5 years who meet the criteria of suspect case'>
+          <source>No. of children under 5 years who meet the criteria of suspect case</source><target>Nº de crianças menores de 5 anos que preenchem os critérios de caso suspeito</target>
+        </trans-unit>
+        <trans-unit id='.Jrzhbj' resname='No. of children with forms and stool samples collected'>
+          <source>No. of children with forms and stool samples collected</source><target>Nº de crianças com formulários e amostras de fezes coletadas</target>
+        </trans-unit>
+        <trans-unit id='uQ4w30S' resname='No. of hospitalizations with diarrhea in children under 5 years'>
+          <source>No. of hospitalizations with diarrhea in children under 5 years</source><target>Nº de hospitalizações com diarréia em crianças menores de 5 anos</target>
+        </trans-unit>
+        <trans-unit id='0BAQSKq' resname='No. of probable cases of meningitis'>
+          <source>No. of probable cases of meningitis</source><target>Nº de casos prováveis de meningite</target>
+        </trans-unit>
+        <trans-unit id='UHatQ52' resname='No. of probable cases of pneumonia'>
+          <source>No. of probable cases of pneumonia</source><target>Nº de casos prováveis de pneumonia</target>
+        </trans-unit>
+        <trans-unit id='fiYRb8c' resname='No. of probable cases with blood specimen'>
+          <source>No. of probable cases with blood specimen</source><target>Nº de casos prováveis com amostra de sangue</target>
+        </trans-unit>
+        <trans-unit id='ij9oPAA' resname='No. of probable cases with pleural fluid'>
+          <source>No. of probable cases with pleural fluid</source><target>Nº de casos prováveis com líquido pleural</target>
+        </trans-unit>
+        <trans-unit id='K7hqiiF' resname='No. of suspected cases of meningitis'>
+          <source>No. of suspected cases of meningitis</source><target>Nº de casos suspeitos de meningite</target>
+        </trans-unit>
+        <trans-unit id='OVMTtWk' resname='No. suspected meningitis with CSF and forms'>
+          <source>No. suspected meningitis with CSF and forms</source><target>Nº suspeita de meningite com LCR e formas</target>
+        </trans-unit>
+        <trans-unit id='Kw3.6rZ' resname='No. suspected pneumonia'>
+          <source>No. suspected pneumonia</source><target>Nº suspeita de pneumonia</target>
+        </trans-unit>
+        <trans-unit id='XxJVLmU' resname='Number of suspected pneumonia cases with x-ray and forms'>
+          <source>Number of suspected pneumonia cases with x-ray and forms</source><target>Número de casos suspeitos de pneumonia com radiografia e formas</target>
+        </trans-unit>
+        <trans-unit id='Q7wPX8A' resname='Override'>
+          <source>Override</source><target>Sobrepor</target>
+        </trans-unit>
+        <trans-unit id='HNx1k8o' resname='Override Total'>
+          <source>Override Total</source><target>Override Total</target>
+        </trans-unit>
+        <trans-unit id='588_9PF' resname='Password'>
+          <source>Password</source><target>Senha</target>
+        </trans-unit>
+        <trans-unit id='I6WxJdu' resname='Pneumonia'>
+          <source>Pneumonia</source><target>Pneumonia</target>
+        </trans-unit>
+        <trans-unit id='BSHwwmi' resname='Re-enter Password'>
+          <source>Re-enter Password</source><target>Digite novamente a senha</target>
+        </trans-unit>
+        <trans-unit id='2FVCU.V' resname='Reader'>
+          <source>Reader</source><target>Leitor</target>
+        </trans-unit>
+        <trans-unit id='2syjy6P' resname='Reports'>
+          <source>Reports</source><target>Relatórios</target>
+        </trans-unit>
+        <trans-unit id='0cmcS2Y' resname='Rotavirus'>
+          <source>Rotavirus</source><target>Rotavírus</target>
+        </trans-unit>
+        <trans-unit id='Ezm93Cs' resname='Select...'>
+          <source>Select...</source><target>Selecione ...</target>
+        </trans-unit>
+        <trans-unit id='jxrTU2N' resname='Total &lt; 5'>
+          <source>Total &lt; 5</source><target>Total &lt;5</target>
+        </trans-unit>
+        <trans-unit id='QZflYY.' resname='Under 12 months'>
+          <source>Under 12 months</source><target>Menos de 12 meses</target>
+        </trans-unit>
+        <trans-unit id='yNnfpvJ' resname='Verifier'>
+          <source>Verifier</source><target>Verificador</target>
+        </trans-unit>
+        <trans-unit id='ifaDJWD' resname='Year'>
+          <source>Year</source><target>Ano</target>
+        </trans-unit>
+        <trans-unit id='VG67jrm' resname='Filters'>
+          <source>Filters</source><target>Filtros</target>
+        </trans-unit>
+        <trans-unit id='KKK8pD1' resname='Add Region'>
+          <source>Add Region</source><target>Adicionar região</target>
+        </trans-unit>
+        <trans-unit id='YQxl2EU' resname='Regions'>
+          <source>Regions</source><target>Regiões</target>
+        </trans-unit>
+        <trans-unit id='ScJmuqq' resname='Search'>
+          <source>Search</source><target>Procurar</target>
+        </trans-unit>
+        <trans-unit id='2u52BrM' resname='Reset'>
+          <source>Reset</source><target>Restabelecer</target>
+        </trans-unit>
+        <trans-unit id='.4BZ3Gd' resname='Actions'>
+          <source>Actions</source><target>Ações</target>
+        </trans-unit>
+        <trans-unit id='WV7.Jhr' resname='Create Region'>
+          <source>Create Region</source><target>Criar região</target>
+        </trans-unit>
+        <trans-unit id='GXZu1sy' resname='Cancel'>
+          <source>Cancel</source><target>Cancelar</target>
+        </trans-unit>
+        <trans-unit id='R1lJisK' resname='Create'>
+          <source>Create</source><target>Crio</target>
+        </trans-unit>
+        <trans-unit id='6X1LSL5' resname='Edit %target_name%'>
+          <source>Edit %target_name%</source><target>Editar %target_name%</target>
+        </trans-unit>
+        <trans-unit id='WoQqikO' resname='Edit / Save'>
+          <source>Edit / Save</source><target>Editar / Salvar</target>
+        </trans-unit>
+        <trans-unit id='2EqRBas' resname='Add Hospital'>
+          <source>Add Hospital</source><target>Adicionar Hospital</target>
+        </trans-unit>
+        <trans-unit id='wmgjLAo' resname='Hospitals'>
+          <source>Hospitals</source><target>Hospitais</target>
+        </trans-unit>
+        <trans-unit id='nLsIplt' resname='Short / Local'>
+          <source>Short / Local</source><target>Curto / Local</target>
+        </trans-unit>
+        <trans-unit id='RkxP.QG' resname='Edit'>
+          <source>Edit</source><target>Editar</target>
+        </trans-unit>
+        <trans-unit id='qSnU_5z' resname='Create Hospital'>
+          <source>Create Hospital</source><target>Criar hospital</target>
+        </trans-unit>
+        <trans-unit id='9OM13Vc' resname='Add Country'>
+          <source>Add Country</source><target>Adicionar país</target>
+        </trans-unit>
+        <trans-unit id='j69_x6s' resname='Countries'>
+          <source>Countries</source><target>Países</target>
+        </trans-unit>
+        <trans-unit id='06AI7xM' resname='Region'>
+          <source>Region</source><target>Região</target>
+        </trans-unit>
+        <trans-unit id='v_6KxfA' resname='ISO2/FIPS'>
+          <source>ISO2/FIPS</source><target>ISO2 / FIPS</target>
+        </trans-unit>
+        <trans-unit id='WLf4Uw3' resname='Create Country'>
+          <source>Create Country</source><target>Crie o país</target>
+        </trans-unit>
+        <trans-unit id='EVomtRz' resname='Add User'>
+          <source>Add User</source><target>Adicionar usuário</target>
+        </trans-unit>
+        <trans-unit id='awzJBNC' resname='Users'>
+          <source>Users</source><target>Comercial</target>
+        </trans-unit>
+        <trans-unit id='TJ.AIdd' resname='Active?'>
+          <source>Active?</source><target>Ativo?</target>
+        </trans-unit>
+        <trans-unit id='FHNqLrn' resname='Role'>
+          <source>Role</source><target>Função</target>
+        </trans-unit>
+        <trans-unit id='gFMuwLY' resname='Create User'>
+          <source>Create User</source><target>Criar usuário</target>
+        </trans-unit>
+        <trans-unit id='7lCCdjR' resname='Add Data'>
+          <source>Add Data</source><target>Adicionar dados</target>
+        </trans-unit>
+        <trans-unit id='cB0CHQj' resname='Country'>
+          <source>Country</source><target>País</target>
+        </trans-unit>
+        <trans-unit id='l_liNmH' resname='Hospital'>
+          <source>Hospital</source><target>Hospital</target>
+        </trans-unit>
+        <trans-unit id='mcQKtAW' resname='Date'>
+          <source>Date</source><target>Data</target>
+        </trans-unit>
+        <trans-unit id='U8vx5Qg' resname='Verified?'>
+          <source>Verified?</source><target>Verificado?</target>
+        </trans-unit>
+        <trans-unit id='IDdXgY3' resname='Enter Details'>
+          <source>Enter Details</source><target>Insira os detalhes</target>
+        </trans-unit>
+        <trans-unit id='pnZB_PV' resname='No. of confirmed cases of pneumonia'>
+          <source>No. of confirmed cases of pneumonia</source><target>Nº de casos confirmados de pneumonia</target>
+        </trans-unit>
+        <trans-unit id='RQvLDZE' resname='Add Pneumonia'>
+          <source>Add Pneumonia</source><target>Adicionar Pneumonia</target>
+        </trans-unit>
+        <trans-unit id='mVBo1oL' resname='No. of confirmed cases of meningitis'>
+          <source>No. of confirmed cases of meningitis</source><target>Nº de casos confirmados de meningite</target>
+        </trans-unit>
+        <trans-unit id='7hnPFJt' resname='Add Case'>
+          <source>Add Case</source><target>Adicionar caso</target>
+        </trans-unit>
+        <trans-unit id='qu7pN7w' resname='Add Meningitis'>
+          <source>Add Meningitis</source><target>Adicionar meningite</target>
+        </trans-unit>
+        <trans-unit id='KH.aaUT' resname='Sign me in'>
+          <source>Sign me in</source><target>Inscrever-me</target>
+        </trans-unit>
+        <trans-unit id='svSFRDj' resname='Summary by Hospitals'>
+          <source>Summary by Hospitals</source><target>Resumo por Hospitais</target>
+        </trans-unit>
+        <trans-unit id='FPiIfu8' resname='%hospital_count% Hospitals'>
+          <source>%hospital_count% Hospitals</source><target>%hospital_count% hospitais</target>
+        </trans-unit>
+        <trans-unit id='ybPDgkf' resname='Total'>
+          <source>Total</source><target>Total</target>
+        </trans-unit>
+        <trans-unit id='UxcFQnq' resname='No. suspected meningitis with CSF2 and forms'>
+          <source>No. suspected meningitis with CSF2 and forms</source><target>Nº suspeita de meningite com CSF2 e formas</target>
+        </trans-unit>
+        <trans-unit id='.gC2e23' resname='Confirmed'>
+          <source>Confirmed</source><target>Confirmado</target>
+        </trans-unit>
+        <trans-unit id='_X6doOO' resname='Other'>
+          <source>Other</source><target>De outros</target>
+        </trans-unit>
+        <trans-unit id='nnCxVhi' resname='Contaminated'>
+          <source>Contaminated</source><target>Contaminado</target>
+        </trans-unit>
+        <trans-unit id='UtJEwqX' resname='12-23 months'>
+          <source>12-23 months</source><target>12 a 23 meses</target>
+        </trans-unit>
+        <trans-unit id='g.PIBGK' resname='24-59 months'>
+          <source>24-59 months</source><target>24 a 59 meses</target>
+        </trans-unit>
+        <trans-unit id='d5QPb0B' resname='No. of deaths'>
+          <source>No. of deaths</source><target>Nº de mortes</target>
+        </trans-unit>
+        <trans-unit id='CE4709u' resname='No. of suspected cases of pneumonia'>
+          <source>No. of suspected cases of pneumonia</source><target>Nº de casos suspeitos de pneumonia</target>
+        </trans-unit>
+        <trans-unit id='VSnyr4T' resname='No. of probable cases with pleural blood specimen'>
+          <source>No. of probable cases with pleural blood specimen</source><target>Nº de casos prováveis com amostra de sangue pleural</target>
+        </trans-unit>
+        <trans-unit id='HKdewWu' resname='No. of stool samples positive for rotavirus with forms'>
+          <source>No. of stool samples positive for rotavirus with forms</source><target>Nº de amostras de fezes positivas para rotavírus com formas</target>
+        </trans-unit>
+        <trans-unit id='URLCSN4' resname='Vaccinated'>
+          <source>Vaccinated</source><target>Vacinado</target>
+        </trans-unit>
+        <trans-unit id='q8mm.ZY' resname='Not Vaccinated'>
+          <source>Not Vaccinated</source><target>Não Vacinado</target>
+        </trans-unit>
+        <trans-unit id='JHpFw0F' resname='No Information'>
+          <source>No Information</source><target>Nenhuma informação</target>
+        </trans-unit>
+        <trans-unit id='b1AOD3G' resname='Under 23 months'>
+          <source>Under 23 months</source><target>Menos de 23 meses</target>
+        </trans-unit>
+        <trans-unit id='AiOMNEC' resname='Under 59 months'>
+          <source>Under 59 months</source><target>Menos de 59 meses</target>
+        </trans-unit>
+        <trans-unit id='kQ_a_9O' resname='Summary by Country'>
+          <source>Summary by Country</source><target>Resumo por país</target>
+        </trans-unit>
+        <trans-unit id='Io5IQOn' resname='Monthly Summary'>
+          <source>Monthly Summary</source><target>Resumo mensal</target>
+        </trans-unit>
+        <trans-unit id='dm3h91A' resname='Monthly Collection'>
+          <source>Monthly Collection</source><target>Colecção Mensal</target>
+        </trans-unit>
+        <trans-unit id='XF2xIMs' resname='Jan'>
+          <source>Jan</source><target>Jan</target>
+        </trans-unit>
+        <trans-unit id='yvcbP1g' resname='Feb'>
+          <source>Feb</source><target>Fev</target>
+        </trans-unit>
+        <trans-unit id='tLfTgY2' resname='Mar'>
+          <source>Mar</source><target>Mar</target>
+        </trans-unit>
+        <trans-unit id='YXUxtP7' resname='Apr'>
+          <source>Apr</source><target>Abr</target>
+        </trans-unit>
+        <trans-unit id='jHj_W5k' resname='May'>
+          <source>May</source><target>Mai</target>
+        </trans-unit>
+        <trans-unit id='sn.UbtG' resname='Jun'>
+          <source>Jun</source><target>Jun</target>
+        </trans-unit>
+        <trans-unit id='xD9WuYB' resname='Jul'>
+          <source>Jul</source><target>Jul</target>
+        </trans-unit>
+        <trans-unit id='QeHYKqm' resname='Aug'>
+          <source>Aug</source><target>Ago</target>
+        </trans-unit>
+        <trans-unit id='RR4rcZB' resname='Sep'>
+          <source>Sep</source><target>Set</target>
+        </trans-unit>
+        <trans-unit id='aHfoSUw' resname='Oct'>
+          <source>Oct</source><target>Out</target>
+        </trans-unit>
+        <trans-unit id='PmMNKWS' resname='Nov'>
+          <source>Nov</source><target>Nov</target>
+        </trans-unit>
+        <trans-unit id='8qDPvPG' resname='Dec'>
+          <source>Dec</source><target>Dez</target>
+        </trans-unit>
+        <trans-unit id='OLdGVXY' resname='Hospitalized'>
+          <source>Hospitalized</source><target>Hospitalizado</target>
+        </trans-unit>
+        <trans-unit id='fQick27' resname='Suspected'>
+          <source>Suspected</source><target>Suspeito</target>
+        </trans-unit>
+        <trans-unit id='AAe3kvj' resname='Suspected With'>
+          <source>Suspected With</source><target>Suspeito com</target>
+        </trans-unit>
+        <trans-unit id='enX9nq8' resname='Probable %category%'>
+          <source>Probable %category%</source><target>%category% provável</target>
+        </trans-unit>
+        <trans-unit id='nVzCM0i' resname='Confirmed Under 12'>
+          <source>Confirmed Under 12</source><target>Confirmado sob 12</target>
+        </trans-unit>
+        <trans-unit id='mmGrlrQ' resname='Confirmed Under 23'>
+          <source>Confirmed Under 23</source><target>Confirmado sob 23</target>
+        </trans-unit>
+        <trans-unit id='a9PR_S3' resname='Confirmed 23-59'>
+          <source>Confirmed 23-59</source><target>Confirmado 23-59</target>
+        </trans-unit>
+        <trans-unit id='lKwcfx_' resname='Total Confirmed'>
+          <source>Total Confirmed</source><target>Total confirmado</target>
+        </trans-unit>
+        <trans-unit id='mhTAlDA' resname='Number of Deaths %category%'>
+          <source>Number of Deaths %category%</source><target>Número de mortes %category%</target>
+        </trans-unit>
+        <trans-unit id='ad0fmk2' resname='Probable With Blood %category%'>
+          <source>Probable With Blood %category%</source><target>Provável com de sangue %category%</target>
+        </trans-unit>
+        <trans-unit id='1h_2pwy' resname='Probable With Pleural %category%'>
+          <source>Probable With Pleural %category%</source><target>Provável com pleural %category%</target>
+        </trans-unit>
+        <trans-unit id='tNma_NB' resname='Positive Under 12'>
+          <source>Positive Under 12</source><target>Positivo abaixo de 12</target>
+        </trans-unit>
+        <trans-unit id='P4DOBzV' resname='Positive Under 23'>
+          <source>Positive Under 23</source><target>Positivo sob 23</target>
+        </trans-unit>
+        <trans-unit id='vQvk8ha' resname='Positive Under 59'>
+          <source>Positive Under 59</source><target>Positivo sob 59</target>
+        </trans-unit>
+        <trans-unit id='aMMTQkR' resname='Positive Total'>
+          <source>Positive Total</source><target>Total Positivo</target>
+        </trans-unit>
+        <trans-unit id='B07bUSa' resname='Deaths Under 12'>
+          <source>Deaths Under 12</source><target>Mortes menores de 12 anos</target>
+        </trans-unit>
+        <trans-unit id='L3JYpdi' resname='Deaths Under 23'>
+          <source>Deaths Under 23</source><target>Mortes menores de 23 anos</target>
+        </trans-unit>
+        <trans-unit id='ijsn.qI' resname='Deaths Under 59'>
+          <source>Deaths Under 59</source><target>Mortes com menos de 59 anos</target>
+        </trans-unit>
+        <trans-unit id='ODzUkye' resname='Deaths Total'>
+          <source>Deaths Total</source><target>Total de Mortes</target>
+        </trans-unit>
+        <trans-unit id='HYKj3AF' resname='Add Rotavirus'>
+          <source>Add Rotavirus</source><target>Adicionar Rotavírus</target>
+        </trans-unit>
+        <trans-unit id='dLF9_Df' resname='CENTINELA'>
+          <source>CENTINELA</source><target>CENTINELA</target>
+        </trans-unit>
+        <trans-unit id='rhtvJ3c' resname='New Vaccines Surveillance System - VINUVA'>
+          <source>New Vaccines Surveillance System - VINUVA</source><target>Novo Sistema de Vigilância de Vacinas - VINUVA</target>
+        </trans-unit>
+        <trans-unit id='.sKsD0z' resname='Edit Profile'>
+          <source>Edit Profile</source><target>Editar Perfil</target>
+        </trans-unit>
+        <trans-unit id='1X1ItxA' resname='Log Out'>
+          <source>Log Out</source><target>Sair</target>
+        </trans-unit>
+        <trans-unit id='ki2mlsl' resname='Verified?:'>
+          <source>Verified?:</source><target>Verificado?</target>
+        </trans-unit>
+        <trans-unit id='wcEAnT8' resname='Update'>
+          <source>Update</source><target>Atualizar</target>
+        </trans-unit>
+        <trans-unit id='uhGL9.y' resname='English'>
+          <source>English</source><target>Inglês</target>
+        </trans-unit>
+        <trans-unit id='NBEFnLj' resname='Spanish'>
+          <source>Spanish</source><target>espanhol</target>
+        </trans-unit>
+        <trans-unit id='mLAbiQa' resname='Portuguese'>
+          <source>Portuguese</source><target>Português</target>
+        </trans-unit>
+        <trans-unit id='dFgZn_l' resname='French'>
+          <source>French</source><target>francês</target>
+        </trans-unit>
+        <trans-unit id='2cDAYEh' resname='Country Summary'>
+          <source>Country Summary</source><target>Resumo do país</target>
+        </trans-unit>
+        <trans-unit id='aJTDbNg' resname='Hospital Summary'>
+          <source>Hospital Summary</source><target>Resumo do Hospital</target>
+        </trans-unit>
+        <trans-unit id='U62ThWU' resname='Users by Organization'>
+          <source>Users by Organization</source><target>Users by Organization</target>
+        </trans-unit>
+        <trans-unit id='O99u9wK' resname='Users by Role'>
+          <source>Users by Role</source><target>Users by Role</target>
+        </trans-unit>
+        <trans-unit id='JmpBuQ1' resname='Translations'>
+          <source>Translations</source><target>Traduções</target>
+        </trans-unit>
+        <trans-unit id='S0LGaQ6' resname='Administration'>
+          <source>Administration</source><target>Administração</target>
+        </trans-unit>
+        <trans-unit id='PgIstwL' resname='Surveillance'>
+          <source>Surveillance</source><target>Vigilância</target>
+        </trans-unit>
+      </body>
+    </file>
 </xliff>

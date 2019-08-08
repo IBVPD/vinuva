@@ -39,7 +39,7 @@ class HospitalFilterType extends AbstractType
             'query_builder' => static function (EntityRepository $repository) use ($user, $hospitals) {
                 if ($user instanceof User) {
                     if (count($hospitals) === 1) {
-                        return $repository->createQueryBuilder('h')->where('h.id = :hId')->setParameter('hId', $user->getHospitals()->first()->getId());
+                        return $repository->createQueryBuilder('h')->where('h.id = :hId')->setParameter('hId', $hospitals->first()->getId());
                     }
 
                     if (count($hospitals) > 1) {
@@ -61,7 +61,7 @@ class HospitalFilterType extends AbstractType
             'apply_filter' => static function (ORMQuery $filterQuery, $field, $values) {
                 if (!empty($values['value'])) {
                     $qb = $filterQuery->getQueryBuilder();
-                    $qb->andWhere($values['alias'] . '.hospital = :filterHospital')->setParameter('filterHospital', $values['value']);
+                    $qb->andWhere($values['alias'] . '.hospital = :filterHospital')->setParameter('filterHospital', $values['value']->getId());
                 }
             },
 

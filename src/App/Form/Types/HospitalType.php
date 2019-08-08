@@ -52,6 +52,7 @@ class HospitalType extends AbstractType
                         return $repository->createQueryBuilder('h')->where('h.country = :country')->setParameter('country', $user->getCountry())->orderBy('h.name');
                     }
                 }
+
                 return $repository->createQueryBuilder('h')->orderBy('h.name');
             },
             'choice_attr' => static function ($choiceValue) {
