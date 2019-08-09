@@ -58,6 +58,7 @@ class Confirmed
             case 'other':
                 return $this->other[$month];
             case 'contaminant':
+            case 'contaminated':
                 return $this->contamination[$month];
             case 'total':
                 return $this->total[$month];

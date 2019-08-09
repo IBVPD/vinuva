@@ -20,9 +20,6 @@ class FilterType extends AbstractType
                         $qb->andWhere('c.id = :filterCountry')->setParameter('filterCountry', $values['value']->getId());
                     }
                 },
-            ])
-            ->add('date', YearMonthRangeFilterType::class, [
-                'error_bubbling' => false,
             ]);
     }
 }

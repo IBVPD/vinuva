@@ -5,6 +5,7 @@ namespace App\Controller\Report;
 use App\Controller\Traits\FormFactoryControllerTrait;
 use App\Controller\Traits\GeneralControllerTrait;
 use App\Controller\Traits\TwigRenderingTrait;
+use App\Export\HtmlReader;
 use App\Form\Report\Monthly\FilterType;
 use Lexik\Bundle\FormFilterBundle\Filter\FilterBuilderUpdaterInterface;
 use Paho\Vinuva\Models\Meningitis;
@@ -13,8 +14,10 @@ use Paho\Vinuva\Models\Rotavirus;
 use Paho\Vinuva\Repositories\MeningitisRepository;
 use Paho\Vinuva\Repositories\PneumoniaRepository;
 use Paho\Vinuva\Repositories\RotavirusRepository;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -52,7 +55,7 @@ class MonthlyController
      */
     public function summaryAction(FilterBuilderUpdaterInterface $filterBuilder, Request $request): Response
     {
-        $results    = [];
+        $data       = $results = [];
         $filterForm = $this->createForm(FilterType::class);
         $filterForm->handleRequest($request);
         if ($filterForm->isSubmitted() && $filterForm->isValid()) {
@@ -78,11 +81,30 @@ class MonthlyController
                 $filterBuilder->addFilterConditions($filterForm, $query);
                 $results[substr(strrchr($diseaseClass, '\\'), 1)] = $repository->getSummaryQuery($query);
             }
+
+            $filterData = $request->request->get('filter');
+            if (isset($filterData['export'])) {
+                $streamedResponse = new StreamedResponse();
+                $html             = $this->twig->render('@App/Report/Monthly/summary-table.html.twig', ['results' => $results, 'data' => $data]);
+                $streamedResponse->setCallback(static function () use ($html) {
+                    $reader      = new HtmlReader();
+                    $spreadsheet = $reader->loadFromString($html);
+                    $writer      = new Xlsx($spreadsheet);
+                    $writer->save('php://output');
+                });
+
+                $streamedResponse->setStatusCode(Response::HTTP_OK);
+                $streamedResponse->headers->set('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+                $streamedResponse->headers->set('Content-Disposition', 'attachment; filename="monthly-summary.xlsx"');
+
+                return $streamedResponse->send();
+            }
         }
 
         return $this->render('@App/Report/Monthly/summary.html.twig', [
             'filterForm' => $filterForm->createView(),
             'results' => $results,
+            'data' => $data,
         ]);
     }
 
@@ -96,7 +118,7 @@ class MonthlyController
      */
     public function collectionAction(FilterBuilderUpdaterInterface $filterBuilder, Request $request): Response
     {
-        $results    = [];
+        $results    = $data =[];
         $filterForm = $this->createForm(FilterType::class);
         $filterForm->handleRequest($request);
         if ($filterForm->isSubmitted() && $filterForm->isValid()) {
@@ -117,18 +139,36 @@ class MonthlyController
                     break;
             }
 
-
             foreach ($diseases as $diseaseClass => $repository) {
                 $query = $repository->getCollectionQuery('c');
 
                 $filterBuilder->addFilterConditions($filterForm, $query);
-                $results[$diseaseClass] = $query->getQuery()->getResult();
+                $results[substr(strrchr($diseaseClass, '\\'), 1)] = $query->getQuery()->getResult();
+            }
+
+            $filterData = $request->request->get('filter');
+            if (isset($filterData['export'])) {
+                $streamedResponse = new StreamedResponse();
+                $html             = $this->twig->render('@App/Report/Monthly/collection-table.html.twig', ['results' => $results, 'data' => $data]);
+                $streamedResponse->setCallback(static function () use ($html) {
+                    $reader      = new HtmlReader();
+                    $spreadsheet = $reader->loadFromString($html);
+                    $writer      = new Xlsx($spreadsheet);
+                    $writer->save('php://output');
+                });
+
+                $streamedResponse->setStatusCode(Response::HTTP_OK);
+                $streamedResponse->headers->set('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+                $streamedResponse->headers->set('Content-Disposition', 'attachment; filename="monthly-collection.xlsx"');
+
+                return $streamedResponse->send();
             }
         }
 
         return $this->render('@App/Report/Monthly/collection.html.twig', [
             'filterForm' => $filterForm->createView(),
             'results' => $results,
+            'data' => $data,
         ]);
     }
 }

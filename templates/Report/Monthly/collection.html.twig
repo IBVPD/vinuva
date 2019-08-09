@@ -15,47 +15,13 @@
             <div class="collapse well filters clearfix" id="panelFilters">
                 {{ form_start(filterForm) }}
                 {{ form_rest(filterForm) }}
-                <button class="btn btn-warning" name="{{ filterForm.vars.name }}[reset]"><i class="fa fa-refresh"></i> {{'Reset'|trans}}</button>
-                <button type="submit" class="pull-right btn btn-success"><i class="fa fa-search"></i> {{'Search'|trans}}</button>
+                <button name="{{ filterForm.vars.name }}[reset]" class="btn btn-warning"><i class="fa fa-refresh"></i> {{'Reset'|trans}}</button>
+                <button name="{{ filterForm.vars.name }}[search]" type="submit" class="pull-right btn btn-success"><i class="fa fa-search"></i> {{'Search'|trans}}</button>
+                <button name="{{ filterForm.vars.name }}[export]" type="submit" class="pull-right btn btn-primary m-r-5"><i class="fa fa-file-excel"></i> {{'Export'|trans}}</button>
                 {{ form_end(filterForm) }}
             </div>
             <fieldset>
-                <table class="table m-b-0">
-                    {% for class,cases in results %}
-                        <tr class="info">
-                            <th colspan="2">{{ class }}</th>
-                            <th>{{'Year'|trans}}</th>
-                            <th>{{ 'Jan'|trans }}</th>
-                            <th>{{ 'Feb'|trans }}</th>
-                            <th>{{ 'Mar'|trans }}</th>
-                            <th>{{ 'Apr'|trans }}</th>
-                            <th>{{ 'May'|trans }}</th>
-                            <th>{{ 'Jun'|trans }}</th>
-                            <th>{{ 'Jul'|trans }}</th>
-                            <th>{{ 'Aug'|trans }}</th>
-                            <th>{{ 'Sep'|trans }}</th>
-                            <th>{{ 'Oct'|trans }}</th>
-                            <th>{{ 'Nov'|trans }}</th>
-                            <th>{{ 'Dec'|trans }}</th>
-                        </tr>
-                        {% set lastCountry = null %}
-                        {% for case in cases %}
-                            {% if lastCountry != case.country %}
-                                {% set lastCountry = case.country %}
-                                <tr><th colspan="15">{{ case.country }}</th></tr>
-                            {% endif %}
-
-                            <tr>
-                                <th></th>
-                                <th>{{ case.hospital }}</th>
-                                <th>{{ case.year }}</th>
-                                {% for month in [1,2,3,4,5,6,7,8,9,10,11,12] %}
-                                    <td>{{ case.verified(month) }}</td>
-                                {% endfor %}
-                            </tr>
-                        {% endfor %}
-                    {% endfor %}
-                </table>
+                {% include '@App/Report/Monthly/collection-table.html.twig' %}
             </fieldset>
         </div>
         <div class="panel-footer"></div>

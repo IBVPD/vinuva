@@ -65,10 +65,10 @@
         <tr>
             <th colspan="19">{{'Confirmed Under 12'|trans}}</th>
         </tr>
-        {% for key in ['hib','hi','nm','spn','other','contaminant','total'] %}
+        {% for key in ['hib','hi','nm','spn','other','contaminated','total'] %}
             <tr>
                 <th></th>
-                <th>{{ key }}</th>
+                <th>{{ key|capitalize|trans }}</th>
                 {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
                     <td>{{ case.under12Confirmed.get(key, month) }}</td>
                 {% endfor %}
@@ -78,10 +78,10 @@
         <tr>
             <th colspan="19">{{'Confirmed Under 23'|trans}}</th>
         </tr>
-        {% for key in ['hib','hi','nm','spn','other','contaminant','total'] %}
+        {% for key in ['hib','hi','nm','spn','other','contaminated','total'] %}
             <tr>
                 <th></th>
-                <th>{{ key }}</th>
+                <th>{{ key|capitalize|trans }}</th>
                 {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
                     <td>{{ case.under23Confirmed.get(key, month) }}</td>
                 {% endfor %}
@@ -91,10 +91,10 @@
         <tr>
             <th colspan="19">{{'Confirmed 23-59'|trans}}</th>
         </tr>
-        {% for key in ['hib','hi','nm','spn','other','contaminant','total'] %}
+        {% for key in ['hib','hi','nm','spn','other','contaminated','total'] %}
             <tr>
                 <th></th>
-                <th>{{ key }}</th>
+                <th>{{ key|capitalize|trans }}</th>
                 {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
                     <td>{{ case.under59Confirmed.get(key, month) }}</td>
                 {% endfor %}
@@ -104,10 +104,10 @@
         <tr>
             <th colspan="19">{{'Total Confirmed'|trans}}</th>
         </tr>
-        {% for key in ['hib','hi','nm','spn','other','contaminant','total'] %}
+        {% for key in ['hib','hi','nm','spn','other','contaminated','total'] %}
             <tr>
                 <th></th>
-                <th>{{ key }}</th>
+                <th>{{ key|capitalize|trans }}</th>
                 {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
                     <td>{{ case.totalConfirmed.get(key, month) }}</td>
                 {% endfor %}
@@ -211,10 +211,10 @@
         <tr>
             <th colspan="19">{{'Confirmed Under 12'|trans}}</th>
         </tr>
-        {% for key in ['hib','hi','nm','spn','other','contaminant','total'] %}
+        {% for key in ['hib','hi','nm','spn','other','contaminated','total'] %}
             <tr>
                 <th></th>
-                <th>{{ key }}</th>
+                <th>{{ key|capitalize|trans }}</th>
                 {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
                     <td>{{ case.under12Confirmed.get(key, month) }}</td>
                 {% endfor %}
@@ -224,10 +224,10 @@
         <tr>
             <th colspan="19">{{'Confirmed Under 23'|trans}}</th>
         </tr>
-        {% for key in ['hib','hi','nm','spn','other','contaminant','total'] %}
+        {% for key in ['hib','hi','nm','spn','other','contaminated','total'] %}
             <tr>
                 <th></th>
-                <th>{{ key }}</th>
+                <th>{{ key|capitalize|trans }}</th>
                 {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
                     <td>{{ case.under23Confirmed.get(key, month) }}</td>
                 {% endfor %}
@@ -237,10 +237,10 @@
         <tr>
             <th colspan="19">{{'Confirmed 23-59'|trans}}</th>
         </tr>
-        {% for key in ['hib','hi','nm','spn','other','contaminant','total'] %}
+        {% for key in ['hib','hi','nm','spn','other','contaminated','total'] %}
             <tr>
                 <th></th>
-                <th>{{ key }}</th>
+                <th>{{ key|capitalize|trans }}</th>
                 {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
                     <td>{{ case.under59Confirmed.get(key, month) }}</td>
                 {% endfor %}
@@ -250,10 +250,10 @@
         <tr>
             <th colspan="19">{{'Total Confirmed'|trans}}</th>
         </tr>
-        {% for key in ['hib','hi','nm','spn','other','contaminant','total'] %}
+        {% for key in ['hib','hi','nm','spn','other','contaminated','total'] %}
             <tr>
                 <th></th>
-                <th>{{ key }}</th>
+                <th>{{ key|capitalize|trans }}</th>
                 {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
                     <td>{{ case.totalConfirmed.get(key, month) }}</td>
                 {% endfor %}
@@ -342,7 +342,7 @@
         {% for key in ['vaccinated','notVaccinated','noInformation','total'] %}
             <tr>
                 <th></th>
-                <th>{{ key }}</th>
+                <th>{{ key|trans }}</th>
                 {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
                     <td>{{ case.positiveUnder12.get(key, month) }}</td>
                 {% endfor %}
@@ -354,7 +354,7 @@
         {% for key in ['vaccinated','notVaccinated','noInformation','total'] %}
             <tr>
                 <th></th>
-                <th>{{ key }}</th>
+                <th>{{ key|trans }}</th>
                 {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
                     <td>{{ case.positiveUnder23.get(key, month) }}</td>
                 {% endfor %}
@@ -366,7 +366,7 @@
         {% for key in ['vaccinated','notVaccinated','noInformation','total'] %}
             <tr>
                 <th></th>
-                <th>{{ key }}</th>
+                <th>{{ key|trans }}</th>
                 {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
                     <td>{{ case.positiveUnder59.get(key, month) }}</td>
                 {% endfor %}
@@ -378,7 +378,7 @@
         {% for key in ['vaccinated','notVaccinated','noInformation','total'] %}
             <tr>
                 <th></th>
-                <th>{{ key }}</th>
+                <th>{{ key|trans }}</th>
                 {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
                     <td>{{ case.positiveTotal.get(key, month) }}</td>
                 {% endfor %}
@@ -391,7 +391,7 @@
         {% for key in ['vaccinated','notVaccinated','noInformation','total'] %}
             <tr>
                 <th></th>
-                <th>{{ key }}</th>
+                <th>{{ key|trans }}</th>
                 {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
                     <td>{{ case.deathsUnder12.get(key, month) }}</td>
                 {% endfor %}
@@ -403,7 +403,7 @@
         {% for key in ['vaccinated','notVaccinated','noInformation','total'] %}
             <tr>
                 <th></th>
-                <th>{{ key }}</th>
+                <th>{{ key|trans }}</th>
                 {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
                     <td>{{ case.deathsUnder23.get(key, month) }}</td>
                 {% endfor %}
@@ -415,7 +415,7 @@
         {% for key in ['vaccinated','notVaccinated','noInformation','total'] %}
             <tr>
                 <th></th>
-                <th>{{ key }}</th>
+                <th>{{ key|trans }}</th>
                 {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
                     <td>{{ case.deathsUnder59.get(key, month) }}</td>
                 {% endfor %}
@@ -427,7 +427,7 @@
         {% for key in ['vaccinated','notVaccinated','noInformation','total'] %}
             <tr>
                 <th></th>
-                <th>{{ key }}</th>
+                <th>{{ key|trans }}</th>
                 {% for month in [1,2,3,4,5,6,7,8,9,10,11,12,'total'] %}
                     <td>{{ case.deathsTotal.get(key, month) }}</td>
                 {% endfor %}

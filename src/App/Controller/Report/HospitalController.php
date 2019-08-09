@@ -5,6 +5,7 @@ namespace App\Controller\Report;
 use App\Controller\Traits\FormFactoryControllerTrait;
 use App\Controller\Traits\GeneralControllerTrait;
 use App\Controller\Traits\TwigRenderingTrait;
+use App\Export\HtmlReader;
 use App\Form\Report\Hospital\FilterType;
 use App\Form\Report\Monthly\FilterType as GeneralFilterType;
 use Doctrine\ORM\EntityRepository;
@@ -16,8 +17,10 @@ use Paho\Vinuva\Models\Rotavirus;
 use Paho\Vinuva\Repositories\MeningitisRepository;
 use Paho\Vinuva\Repositories\PneumoniaRepository;
 use Paho\Vinuva\Repositories\RotavirusRepository;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -86,7 +89,7 @@ class HospitalController
      */
     public function summaryAction(FilterBuilderUpdaterInterface $filterBuilder, Request $request): Response
     {
-        $results    = [];
+        $results    = $data = [];
         $filterForm = $this->createForm(GeneralFilterType::class);
         $filterForm->handleRequest($request);
         if ($filterForm->isSubmitted() && $filterForm->isValid()) {
@@ -114,11 +117,30 @@ class HospitalController
                 $filterBuilder->addFilterConditions($filterForm, $query);
                 $results = $repository->getByHospitalSummary($query, $results);
             }
+
+            $filterData = $request->request->get('filter');
+            if (isset($filterData['export'])) {
+                $streamedResponse = new StreamedResponse();
+                $html             = $this->twig->render('@App/Report/Hospital/summary-table.html.twig', ['results' => $results, 'data' => $data]);
+                $streamedResponse->setCallback(static function () use ($html) {
+                    $reader      = new HtmlReader();
+                    $spreadsheet = $reader->loadFromString($html);
+                    $writer      = new Xlsx($spreadsheet);
+                    $writer->save('php://output');
+                });
+
+                $streamedResponse->setStatusCode(Response::HTTP_OK);
+                $streamedResponse->headers->set('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+                $streamedResponse->headers->set('Content-Disposition', 'attachment; filename="hospital-summary.xlsx"');
+
+                return $streamedResponse->send();
+            }
         }
 
         return $this->render('@App/Report/Hospital/summary.html.twig', [
             'results' => $results,
             'filterForm' => $filterForm->createView(),
+            'data' => $data,
         ]);
     }
 }

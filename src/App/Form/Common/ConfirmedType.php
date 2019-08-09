@@ -35,7 +35,7 @@ class ConfirmedType extends AbstractType implements DataMapperInterface
             ->add('nm', IntegerType::class, $defaultOptions)
             ->add('spn', IntegerType::class, $defaultOptions)
             ->add('other', IntegerType::class, $defaultOptions)
-            ->add('contamination', IntegerType::class, $options['include_override'] ? ['required' => false, 'label_attr' => ['class' => 'col-md-4 col-form-label'], 'attr' => ['class' => 'form-control m-b-5 col-3']] : ['required' => false, 'wrapper_class' => 'col-md-6', 'label_attr' => ['class' => 'col-md-6 col-form-label'], 'attr' => ['class' => 'form-control m-b-5 col-12']]);
+            ->add('contamination', IntegerType::class, $options['include_override'] ? ['required' => false, 'label' => 'Contaminated', 'label_attr' => ['class' => 'col-md-4 col-form-label'], 'attr' => ['class' => 'form-control m-b-5 col-3']] : ['required' => false, 'label' => 'Contaminated', 'wrapper_class' => 'col-md-6', 'label_attr' => ['class' => 'col-md-6 col-form-label'], 'attr' => ['class' => 'form-control m-b-5 col-12']]);
 
         if ($options['include_override']) {
             $defaultOptions = [

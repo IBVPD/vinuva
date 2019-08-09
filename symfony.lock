@@ -130,6 +130,12 @@
     "lexik/form-filter-bundle": {
         "version": "v5.0.10"
     },
+    "markbaker/complex": {
+        "version": "1.4.7"
+    },
+    "markbaker/matrix": {
+        "version": "1.1.4"
+    },
     "monolog/monolog": {
         "version": "1.24.0"
     },
@@ -197,6 +203,9 @@
     "phpdocumentor/type-resolver": {
         "version": "0.4.0"
     },
+    "phpoffice/phpspreadsheet": {
+        "version": "1.8.2"
+    },
     "phpstan/phpdoc-parser": {
         "version": "0.3.1"
     },
@@ -220,6 +229,9 @@
     },
     "psr/log": {
         "version": "1.1.0"
+    },
+    "psr/simple-cache": {
+        "version": "1.0.1"
     },
     "sebastian/comparator": {
         "version": "3.0.2"

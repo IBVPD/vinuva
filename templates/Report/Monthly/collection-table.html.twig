@@ -1,0 +1,46 @@
+<table class="table m-b-0">
+    {% if data.date is defined %}
+        <thead>
+        {% if data.date.from.month and data.date.from.year %}
+            <tr><th>{{'From'|trans}}</th><td>{{ data.date.from.year }}</td><td>{{ data.date.from.month }}</td></tr>
+        {% endif %}
+        {% if data.date.to.month and data.date.to.year %}
+            <tr><th>{{'To'|trans}}</th><td>{{ data.date.to.year }}</td><td>{{ data.date.to.month }}</td></tr>
+        {% endif %}
+        </thead>
+    {% endif %}
+    {% for class,cases in results %}
+        <tr class="info">
+            <th colspan="2">{{ class }}</th>
+            <th>{{ 'Year'|trans }}</th>
+            <th>{{ 'Jan'|trans }}</th>
+            <th>{{ 'Feb'|trans }}</th>
+            <th>{{ 'Mar'|trans }}</th>
+            <th>{{ 'Apr'|trans }}</th>
+            <th>{{ 'May'|trans }}</th>
+            <th>{{ 'Jun'|trans }}</th>
+            <th>{{ 'Jul'|trans }}</th>
+            <th>{{ 'Aug'|trans }}</th>
+            <th>{{ 'Sep'|trans }}</th>
+            <th>{{ 'Oct'|trans }}</th>
+            <th>{{ 'Nov'|trans }}</th>
+            <th>{{ 'Dec'|trans }}</th>
+        </tr>
+        {% set lastCountry = null %}
+        {% for case in cases %}
+            {% if lastCountry != case.country %}
+                {% set lastCountry = case.country %}
+                <tr><th colspan="15">{{ case.country }}</th></tr>
+            {% endif %}
+
+            <tr>
+                <th></th>
+                <th>{{ case.hospital }}</th>
+                <th>{{ case.year }}</th>
+                {% for month in [1,2,3,4,5,6,7,8,9,10,11,12] %}
+                    <td>{{ case.verified(month) }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    {% endfor %}
+</table>

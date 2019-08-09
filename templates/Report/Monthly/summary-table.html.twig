@@ -1,0 +1,25 @@
+{% import '@App/Report/Monthly/summary-blocks.html.twig' as globals %}
+
+<table class="table m-b-0">
+    {% if data.date is defined %}
+        <thead>
+        {% if data.date.from.month and data.date.from.year %}
+            <tr><th>{{'From'|trans}}</th><td>{{ data.date.from.year }}</td><td>{{ data.date.from.month }}</td></tr>
+        {% endif %}
+        {% if data.date.to.month and data.date.to.year %}
+            <tr><th>{{'To'|trans}}</th><td>{{ data.date.to.year }}</td><td>{{ data.date.to.month }}</td></tr>
+        {% endif %}
+        </thead>
+    {% endif %}
+    {% for diseaseName,cases in results %}
+        {% if diseaseName is same as('Meningitis') %}
+            {{ globals.meningitis_summary(diseaseName, cases) }}
+        {% endif %}
+        {% if diseaseName is same as('Pneumonia') %}
+            {{ globals.pneumonia_summary(diseaseName, cases) }}
+        {% endif %}
+        {% if diseaseName is same as('Rotavirus') %}
+            {{ globals.rotavirus_summary(diseaseName, cases) }}
+        {% endif %}
+    {% endfor %}
+</table>

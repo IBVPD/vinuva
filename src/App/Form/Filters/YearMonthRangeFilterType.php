@@ -14,15 +14,15 @@ class YearMonthRangeFilterType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('from', YearMonthFilterType::class, ['required' => false])
-            ->add('to', YearMonthFilterType::class, ['required' => false]);
+            ->add('from', YearMonthFilterType::class, ['required' => false, 'label' => 'From'])
+            ->add('to', YearMonthFilterType::class, ['required' => false, 'label' => 'To']);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
             'required' => false,
-            'constraints' => [new Callback(['callback' => [$this,'validate']])],
+            'constraints' => [new Callback(['callback' => [$this, 'validate']])],
             'apply_filter' => static function (ORMQuery $filterQuery, $field, array $values) {
                 $from = $values['value']['from'];
                 $to   = $values['value']['to'];

@@ -430,6 +430,18 @@
         <trans-unit id='PgIstwL' resname='Surveillance'>
           <source>Surveillance</source><target>Vigilância</target>
         </trans-unit>
+        <trans-unit id='report.vaccinated' resname='vaccinated'>
+          <source>vaccinated</source><target>Vacinado</target>
+        </trans-unit>
+        <trans-unit id='report.notVaccinated' resname='notVaccinated'>
+          <source>notVaccinated</source><target>Não Vacinado</target>
+        </trans-unit>
+        <trans-unit id='report.noInformation' resname='noInformation'>
+          <source>noInformation</source><target>Nenhuma informação</target>
+        </trans-unit>
+        <trans-unit id='report.total' resname='total'>
+          <source>total</source><target>Total</target>
+        </trans-unit>
       </body>
     </file>
 </xliff>

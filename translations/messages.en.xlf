@@ -581,6 +581,18 @@
         <source>Year</source>
         <target>Year</target>
       </trans-unit>
+      <trans-unit id='report.vaccinated' resname='vaccinated'>
+        <source>vaccinated</source><target>Vaccinated</target>
+      </trans-unit>
+      <trans-unit id='report.notVaccinated' resname='notVaccinated'>
+        <source>notVaccinated</source><target>Not Vaccinated</target>
+      </trans-unit>
+      <trans-unit id='report.noInformation' resname='noInformation'>
+        <source>noInformation</source><target>No Information</target>
+      </trans-unit>
+      <trans-unit id='report.total' resname='total'>
+        <source>total</source><target>Total</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
