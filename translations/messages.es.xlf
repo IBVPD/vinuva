@@ -388,8 +388,8 @@
         <trans-unit id='U8vx5Qg' resname='Verified?'>
           <source>Verified?</source><target>Verificado?</target>
         </trans-unit>
-        <trans-unit id='ki2mlsl' resname='Verified?:'>
-          <source>Verified?:</source><target>Verificado?</target>
+        <trans-unit id='ki2mlsl' resname='Verified'>
+          <source>Verified</source><target>Verificado</target>
         </trans-unit>
         <trans-unit id='yNnfpvJ' resname='Verifier'>
           <source>Verifier</source><target>Verificador</target>
@@ -436,6 +436,12 @@
         <trans-unit id='report.total' resname='total'>
           <source>total</source><target>Total</target>
         </trans-unit>
+      <trans-unit id='from' resname='From'>
+        <source>From</source><target>Desde</target>
+      </trans-unit>
+      <trans-unit id='to' resname='To'>
+        <source>To</source><target>A</target>
+      </trans-unit>
       </body>
     </file>
 </xliff>

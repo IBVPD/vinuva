@@ -18,6 +18,8 @@ class BaseDiseaseFilterType extends AbstractType
             ->add('hospital', HospitalFilterType::class)
             ->add('date', YearMonthRangeFilterType::class)
             ->add('verified', BooleanFilterType::class, [
+                'label' => 'Verified',
+                'translation_domain' => 'messages',
                 'apply_filter' => static function (ORMQuery $filterQuery, string $field, array $values) {
                     if (!empty($values['value'])) {
                         /** @var Expr $expresion */

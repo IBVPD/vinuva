@@ -569,9 +569,9 @@
         <source>Verified?</source>
         <target>Verified?</target>
       </trans-unit>
-      <trans-unit id="ki2mlsl" resname="Verified?:">
-        <source>Verified?:</source>
-        <target>Verified?:</target>
+      <trans-unit id="ki2mlsl" resname="Verified">
+        <source>Verified</source>
+        <target>Verified</target>
       </trans-unit>
       <trans-unit id="yNnfpvJ" resname="Verifier">
         <source>Verifier</source>
@@ -592,6 +592,12 @@
       </trans-unit>
       <trans-unit id='report.total' resname='total'>
         <source>total</source><target>Total</target>
+      </trans-unit>
+      <trans-unit id='from' resname='From'>
+        <source>From</source><target>From</target>
+      </trans-unit>
+      <trans-unit id='to' resname='To'>
+        <source>To</source><target>To</target>
       </trans-unit>
     </body>
   </file>

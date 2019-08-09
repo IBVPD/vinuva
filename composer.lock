@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5ce2cc389ea9bbd2e4f832a8eff179e8",
+    "content-hash": "e3b443d65cb13ef9c9bc8d17d822e74b",
     "packages": [
         {
             "name": "beberlei/doctrineextensions",
@@ -62,16 +62,16 @@
         },
         {
             "name": "doctrine/annotations",
-            "version": "v1.6.1",
+            "version": "v1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/annotations.git",
-                "reference": "53120e0eb10355388d6ccbe462f1fea34ddadb24"
+                "reference": "fa4c4e861e809d6a1103bd620cce63ed91aedfeb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/annotations/zipball/53120e0eb10355388d6ccbe462f1fea34ddadb24",
-                "reference": "53120e0eb10355388d6ccbe462f1fea34ddadb24",
+                "url": "https://api.github.com/repos/doctrine/annotations/zipball/fa4c4e861e809d6a1103bd620cce63ed91aedfeb",
+                "reference": "fa4c4e861e809d6a1103bd620cce63ed91aedfeb",
                 "shasum": ""
             },
             "require": {
@@ -80,12 +80,12 @@
             },
             "require-dev": {
                 "doctrine/cache": "1.*",
-                "phpunit/phpunit": "^6.4"
+                "phpunit/phpunit": "^7.5@dev"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.6.x-dev"
+                    "dev-master": "1.7.x-dev"
                 }
             },
             "autoload": {
@@ -99,16 +99,16 @@
             ],
             "authors": [
                 {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@gmail.com"
+                },
+                {
                     "name": "Roman Borschel",
                     "email": "roman@code-factory.org"
                 },
                 {
                     "name": "Benjamin Eberlei",
                     "email": "kontakt@beberlei.de"
-                },
-                {
-                    "name": "Guilherme Blanco",
-                    "email": "guilhermeblanco@gmail.com"
                 },
                 {
                     "name": "Jonathan Wage",
@@ -126,7 +126,7 @@
                 "docblock",
                 "parser"
             ],
-            "time": "2019-03-25T19:12:02+00:00"
+            "time": "2019-08-08T18:11:40+00:00"
         },
         {
             "name": "doctrine/cache",
@@ -2103,16 +2103,16 @@
         },
         {
             "name": "ns/color-admin-bundle",
-            "version": "2.0.28",
+            "version": "2.0.29",
             "source": {
                 "type": "git",
                 "url": "https://github.com/NobletSolutions/ColorAdminBundle.git",
-                "reference": "51b89ea3c5b2c75fafe7e9a1476109a6fdb92f36"
+                "reference": "5e202aa37264b621519e885d650e4bbecd380dd3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NobletSolutions/ColorAdminBundle/zipball/51b89ea3c5b2c75fafe7e9a1476109a6fdb92f36",
-                "reference": "51b89ea3c5b2c75fafe7e9a1476109a6fdb92f36",
+                "url": "https://api.github.com/repos/NobletSolutions/ColorAdminBundle/zipball/5e202aa37264b621519e885d650e4bbecd380dd3",
+                "reference": "5e202aa37264b621519e885d650e4bbecd380dd3",
                 "shasum": ""
             },
             "require": {
@@ -2153,7 +2153,7 @@
             "keywords": [
                 "template"
             ],
-            "time": "2019-08-08T16:22:33+00:00"
+            "time": "2019-08-09T18:49:51+00:00"
         },
         {
             "name": "ns/filtered-pagination-bundle",
@@ -8880,7 +8880,8 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "ext-intl": "*",
-        "ext-sodium": "*"
+        "ext-sodium": "*",
+        "ext-dom": "*"
     },
     "platform-dev": []
 }
