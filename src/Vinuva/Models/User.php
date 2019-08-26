@@ -84,7 +84,7 @@ class User implements UserInterface
 
     /**
      * @var string|null
-     * @ORM\Column(name="locale", type="string", length=12)
+     * @ORM\Column(name="locale", type="string", length=12, nullable=true)
      */
     private $locale;
 
