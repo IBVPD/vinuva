@@ -203,7 +203,7 @@
       </trans-unit>
       <trans-unit id="uhGL9.y" resname="English">
         <source>English</source>
-        <target>__English</target>
+        <target>English</target>
       </trans-unit>
       <trans-unit id="IDdXgY3" resname="Enter Details">
         <source>Enter Details</source>
@@ -219,7 +219,7 @@
       </trans-unit>
       <trans-unit id="dFgZn_l" resname="French">
         <source>French</source>
-        <target>__French</target>
+        <target>French</target>
       </trans-unit>
       <trans-unit id="l_liNmH" resname="Hospital">
         <source>Hospital</source>
@@ -411,7 +411,7 @@
       </trans-unit>
       <trans-unit id="mLAbiQa" resname="Portuguese">
         <source>Portuguese</source>
-        <target>__Portuguese</target>
+        <target>Portuguese</target>
       </trans-unit>
       <trans-unit id="aMMTQkR" resname="Positive Total">
         <source>Positive Total</source>

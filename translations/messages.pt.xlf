@@ -25,6 +25,9 @@
         <trans-unit id='zJwtNni' resname='Meningitis'>
           <source>Meningitis</source><target>Meningite</target>
         </trans-unit>
+        <trans-unit id="I6WxJdu" resname="Pneumonia">
+          <source>Pneumonia</source><target>Pneumonia</target>
+        </trans-unit>
         <trans-unit id='MQylA_8' resname='Month'>
           <source>Month</source><target>Mês</target>
         </trans-unit>
