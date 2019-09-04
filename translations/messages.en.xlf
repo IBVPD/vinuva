@@ -499,15 +499,15 @@
       </trans-unit>
       <trans-unit id="kQ_a_9O" resname="Summary by Country">
         <source>Summary by Country</source>
-        <target>Resumen por pais</target>
+        <target>Summary by Country</target>
       </trans-unit>
       <trans-unit id="svSFRDj" resname="Summary by Hospitals">
         <source>Summary by Hospitals</source>
-        <target>Resumen por hospitales</target>
+        <target>Summary by Hospitals</target>
       </trans-unit>
       <trans-unit id="PgIstwL" resname="Surveillance">
         <source>Surveillance</source>
-        <target>Vigilancia</target>
+        <target>Surveillance</target>
       </trans-unit>
       <trans-unit id="fQick27" resname="Suspected">
         <source>Suspected</source>
@@ -598,6 +598,30 @@
       </trans-unit>
       <trans-unit id='to' resname='To'>
         <source>To</source><target>To</target>
+      </trans-unit>
+      <trans-unit id='Reset password' resname='Reset password'>
+        <source>Reset password</source>
+        <target>Reset password</target>
+      </trans-unit>
+      <trans-unit id='HelloName' resname='HelloName'>
+        <source>Hello %name%</source>
+        <target>Hello %name%</target>
+      </trans-unit>
+      <trans-unit id='email-password-reset-content' resname='email-password-reset-content'>
+        <source>email-password-reset-content</source>
+        <target>We've received a request to have your password reset. If you initiated the request click on link below. Otherwise you can't ignore this email. However if you receive many of these please notify us.</target>
+      </trans-unit>
+     <trans-unit id='Password Reset Request' resname='PasswordResetRequest'>
+        <source>Password Reset Request</source>
+        <target>Password Reset Request</target>
+      </trans-unit>
+      <trans-unit id='ForgotPassword' resname='ForgotPassword'>
+        <source>Forgot Password</source>
+        <target>Forgot Password</target>
+      </trans-unit>
+      <trans-unit id='PasswordReset' resname='PasswordReset'>
+        <source>Password Reset</source>
+        <target>Password Reset</target>
       </trans-unit>
     </body>
   </file>

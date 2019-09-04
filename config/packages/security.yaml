@@ -26,6 +26,8 @@ security:
 
     access_control:
         - { path: ^/login$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/forgot-password$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/reset-password, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/meningitis, roles: ROLE_COLLECTOR }
         - { path: ^/pneumonia, roles: ROLE_COLLECTOR }
         - { path: ^/rotavirus, roles: ROLE_COLLECTOR }

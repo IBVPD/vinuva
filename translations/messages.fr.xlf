@@ -448,5 +448,30 @@
           <trans-unit id='to' resname='To'>
             <source>To</source><target>À</target>
           </trans-unit>
+      <trans-unit id='Reset password' resname='Reset password'>
+        <source>Reset password</source>
+        <target>Réinitialiser le mot de passe</target>
+      </trans-unit>
+      <trans-unit id='HelloName' resname='HelloName'>
+        <source>Hello %name%</source>
+        <target>Bonjour %name%</target>
+      </trans-unit>
+      <trans-unit id='email-password-reset-content' resname='email-password-reset-content'>
+        <source>email-password-reset-content</source>
+        <target>Nous avons reçu une demande de réinitialisation de votre mot de passe. Si vous avez lancé la demande, cliquez sur le lien ci-dessous. Sinon, vous ne pouvez pas ignorer cet email. Toutefois, si vous en recevez beaucoup, veuillez nous en informer.</target>
+      </trans-unit>
+     <trans-unit id='Password Reset Request' resname='PasswordResetRequest'>
+        <source>Password Reset Request</source>
+        <target>Demande de réinitialisation de mot de passe</target>
+      </trans-unit>
+      <trans-unit id='ForgotPassword' resname='ForgotPassword'>
+        <source>Forgot Password</source>
+        <target>Mot de passe oublié</target>
+      </trans-unit>
+      <trans-unit id='PasswordReset' resname='PasswordReset'>
+        <source>Password Reset</source>
+        <target>Réinitialiser le mot de passe</target>
+      </trans-unit>
       </body>
-    </file>&#10;</xliff>
+    </file>
+</xliff>

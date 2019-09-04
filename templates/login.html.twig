@@ -2,12 +2,10 @@
 {% block pagetitle %}CENTINELA{% endblock %}
 {% block page_header %}{% endblock %}
 
-
 {% block login_header %}
     <div class="login-header">
         <div class="brand">
             <strong>VINUVA</strong> Aggregado
-{#            {% block subtitle %}<small>responsive bootstrap 4 admin template</small>{% endblock %}#}
         </div>
         <div class="icon">
             <i class="fa fa-lock"></i>
@@ -27,4 +25,7 @@
         <button type="submit" class="btn btn-success btn-block btn-lg">{{'Sign me in'|trans}}</button>
     </div>
     {{ form_end(form) }}
+    <div class="m-t-20">
+        {{ 'Forgot your password?'|trans }} {{ 'Click %link_start%here%link_end%'|trans({'%link_start%':'<a href="'~path('forgotPassword')~'">','%link_end%':'</a>'})|raw }}.
+    </div>
 {% endblock %}

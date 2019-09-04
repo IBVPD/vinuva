@@ -127,6 +127,12 @@
     "knplabs/knp-paginator-bundle": {
         "version": "v2.8.0"
     },
+    "lcobucci/jwt": {
+        "version": "3.3.1"
+    },
+    "league/html-to-markdown": {
+        "version": "4.8.2"
+    },
     "lexik/form-filter-bundle": {
         "version": "v5.0.10"
     },
@@ -190,6 +196,9 @@
     },
     "ns/flash-bundle": {
         "version": "1.0.10"
+    },
+    "ns/token-bundle": {
+        "version": "1.0.8"
     },
     "ocramius/proxy-manager": {
         "version": "2.1.1"
@@ -358,6 +367,27 @@
     },
     "symfony/intl": {
         "version": "v4.2.0"
+    },
+    "symfony/mailer": {
+        "version": "4.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "4.3",
+            "ref": "6e5921f710bec05533f664e0b9a3d838545edd82"
+        },
+        "files": [
+            "config/packages/mailer.yaml"
+        ]
+    },
+    "symfony/mailgun-mailer": {
+        "version": "4.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "4.3",
+            "ref": "a2bc739b34862b926b8a58263fd3901297eec3b5"
+        }
     },
     "symfony/mime": {
         "version": "v4.3.0"

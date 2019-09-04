@@ -451,6 +451,31 @@
           <trans-unit id='to' resname='To'>
             <source>To</source><target>Para</target>
           </trans-unit>
+      <trans-unit id='Reset password' resname='Reset password'>
+        <source>Reset password</source>
+        <target>Redefina a senha</target>
+      </trans-unit>
+      <trans-unit id='HelloName' resname='HelloName'>
+        <source>Hello %name%</source>
+        <target>Olá %name%</target>
+      </trans-unit>
+      <trans-unit id='email-password-reset-content' resname='email-password-reset-content'>
+        <source>email-password-reset-content</source>
+        <target>Recebemos uma solicitação para redefinir sua senha. Se você iniciou a solicitação, clique no link abaixo. Caso contrário, você não poderá ignorar este e-mail. No entanto, se você receber muitos deles, notifique-nos.</target>
+      </trans-unit>
+     <trans-unit id='Password Reset Request' resname='PasswordResetRequest'>
+        <source>Password Reset Request</source>
+        <target>Solicitação de redefinição de senha</target>
+      </trans-unit>
+      <trans-unit id='ForgotPassword' resname='ForgotPassword'>
+        <source>Forgot Password</source>
+        <target>Resetar a senha</target>
+      </trans-unit>
+      <trans-unit id='PasswordReset' resname='PasswordReset'>
+        <source>Password Reset</source>
+        <target>Esqueci a redefinição</target>
+      </trans-unit>
+
       </body>
     </file>
 </xliff>

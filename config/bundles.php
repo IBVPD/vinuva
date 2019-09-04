@@ -23,4 +23,5 @@ return [
     Knp\Bundle\PaginatorBundle\KnpPaginatorBundle::class => ['all' => true],
     NS\FilteredPaginationBundle\NSFilteredPaginationBundle::class => ['all' => true],
     JMS\TranslationBundle\JMSTranslationBundle::class => ['all' => true],
+    NS\TokenBundle\NSTokenBundle::class => ['all' => true],
 ];

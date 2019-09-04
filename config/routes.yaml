@@ -13,6 +13,14 @@ login:
   path: /login
   controller: App\Controller\SecurityController::loginAction
 
+forgotPassword:
+  path: /forgot-password
+  controller: App\Controller\SecurityController::forgotAction
+
+resetPassword:
+  path: /reset-password/{token}
+  controller: App\Controller\SecurityController::resetPasswordAction
+
 homepage_no_locale:
   path: /
   controller: App\Controller\DefaultController::noLocaleAction
