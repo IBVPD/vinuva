@@ -4,10 +4,13 @@ declare(strict_types=1);
 namespace App\Form\Admin\User;
 
 use App\Form\Types\CountryType;
+use App\Form\Types\HospitalType;
 use App\Form\Types\RoleType;
 use Paho\Vinuva\Models\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -22,8 +25,15 @@ class CreateType extends AbstractType
         $builder
             ->add('name', TextType::class)
             ->add('email', EmailType::class)
-            ->add('role', RoleType::class, ['constraints' => [new NotBlank()]])
-            ->add('country', CountryType::class, ['required' => false])
+            ->add('role', RoleType::class, ['required' => true])
+            ->add('country', CountryType::class)
+            ->add('hospitals', HospitalType::class, ['multiple' => true, 'expanded' => true])
+            ->add('plainPassword', RepeatedType::class, [
+                'required' => false,
+                'type' => PasswordType::class,
+                'first_options' => ['label' => 'Password'],
+                'second_options' => ['label' => 'Re-enter Password'],
+            ])
             ->add('phone', TextType::class, ['required' => false])
             ->add('address', TextType::class, ['required' => false]);
     }

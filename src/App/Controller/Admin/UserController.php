@@ -57,7 +57,7 @@ class UserController
     }
 
     /**
-     * @Route("/create", name="adminUserCreate", methods={"POST"})
+     * @Route("/create", name="adminUserCreate", methods={"POST","GET"})
      * @param Request $request
      *
      * @return Response
@@ -97,7 +97,9 @@ class UserController
             $this->flash->addError('Error', 'Unable to create user');
         }
 
-        return new RedirectResponse($this->router->generate('adminUserIndex'));
+        return $this->render('@App/Admin/User/edit.html.twig', [
+            'form' => $form->createView(),
+        ]);
     }
 
     /**
