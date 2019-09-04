@@ -5,7 +5,6 @@ namespace App\Controller\Report;
 use App\Controller\Traits\FormFactoryControllerTrait;
 use App\Controller\Traits\GeneralControllerTrait;
 use App\Controller\Traits\TwigRenderingTrait;
-use App\Export\HtmlReader;
 use App\Form\Report\Monthly\FilterType;
 use Lexik\Bundle\FormFilterBundle\Filter\FilterBuilderUpdaterInterface;
 use Paho\Vinuva\Models\Meningitis;
@@ -14,6 +13,7 @@ use Paho\Vinuva\Models\Rotavirus;
 use Paho\Vinuva\Repositories\MeningitisRepository;
 use Paho\Vinuva\Repositories\PneumoniaRepository;
 use Paho\Vinuva\Repositories\RotavirusRepository;
+use PhpOffice\PhpSpreadsheet\Reader\Html;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -87,7 +87,7 @@ class MonthlyController
                 $streamedResponse = new StreamedResponse();
                 $html             = $this->twig->render('@App/Report/Monthly/summary-table.html.twig', ['results' => $results, 'data' => $data]);
                 $streamedResponse->setCallback(static function () use ($html) {
-                    $reader      = new HtmlReader();
+                    $reader      = new Html();
                     $spreadsheet = $reader->loadFromString($html);
                     $writer      = new Xlsx($spreadsheet);
                     $writer->save('php://output');
@@ -151,7 +151,7 @@ class MonthlyController
                 $streamedResponse = new StreamedResponse();
                 $html             = $this->twig->render('@App/Report/Monthly/collection-table.html.twig', ['results' => $results, 'data' => $data]);
                 $streamedResponse->setCallback(static function () use ($html) {
-                    $reader      = new HtmlReader();
+                    $reader      = new Html();
                     $spreadsheet = $reader->loadFromString($html);
                     $writer      = new Xlsx($spreadsheet);
                     $writer->save('php://output');

@@ -10,7 +10,7 @@
         "beberlei/doctrineextensions": "^1.0",
         "jms/translation-bundle": "^1.4",
         "knplabs/knp-menu-bundle": "^2.2",
-        "ns/color-admin-bundle": "^2.0",
+        "ns/color-admin-bundle": "2.0.*",
         "ns/filtered-pagination-bundle": "^3.0",
         "ns/flash-bundle": "^1.0",
         "phpoffice/phpspreadsheet": "^1.8",
