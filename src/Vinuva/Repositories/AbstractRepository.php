@@ -59,7 +59,9 @@ abstract class AbstractRepository
             ->select("$alias,h,c")
             ->from($this->class, $alias)
             ->innerJoin("$alias.hospital", 'h')
-            ->innerJoin("$alias.country", 'c');
+            ->innerJoin("$alias.country", 'c')
+            ->orderBy("$alias.year",'DESC')
+            ->addOrderBy("$alias.month", 'DESC');
 
         if (!$user->getCountry()) {
             return $queryBuilder;
