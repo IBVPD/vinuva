@@ -45,16 +45,18 @@ class Hospital
 
     public static function createDTO(int $id, string $name): Hospital
     {
-        $obj     = new self($name, new Country('N/A', 'N/A', new Region('N/A')));
+        $obj     = new self($name, new Country('N/A', 'N/A', new Region('N/A')), 'short', 'local');
         $obj->id = $id;
 
         return $obj;
     }
 
-    public function __construct(string $name, Country $country)
+    public function __construct(string $name, Country $country, string $short, string $local)
     {
         $this->name    = $name;
         $this->country = $country;
+        $this->short   = $short;
+        $this->local   = $local;
     }
 
     public function __toString(): string

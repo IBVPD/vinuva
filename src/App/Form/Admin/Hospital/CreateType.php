@@ -19,9 +19,9 @@ class CreateType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name', TextType::class, ['constraints' => [new NotBlank()]])
-            ->add('short', TextType::class, ['required' => false])
-            ->add('local', TextType::class, ['required' => false])
+            ->add('name', TextType::class, ['required' => true, 'constraints' => [new NotBlank()]])
+            ->add('short', TextType::class, ['required' => true, 'constraints' => [new NotBlank()]])
+            ->add('local', TextType::class, ['required' => true, 'constraints' => [new NotBlank()]])
             ->add('country', CountryType::class, ['required' => true]);
     }
 
@@ -31,13 +31,15 @@ class CreateType extends AbstractType
             'data_class' => Region::class,
             'invalid_message' => 'Missing required fields',
             'empty_data' => static function (FormInterface $form) {
-                $name = $form['name']->getData();
+                $name    = $form['name']->getData();
                 $country = $form['country']->getData();
-                if (!$name || !$country) {
+                $short   = $form['short']->getData();
+                $local   = $form['local']->getData();
+                if (!$name || !$country || !$short || !$local) {
                     throw new TransformationFailedException('Missing required fields');
                 }
 
-                return new Hospital($name, $country);
+                return new Hospital($name, $country, $short, $local);
             },
         ]);
     }

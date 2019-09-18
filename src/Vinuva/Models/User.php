@@ -153,7 +153,7 @@ class User implements UserInterface
         return $obj;
     }
 
-    public static function createCollector(string $name, string $email, Country $country, ?array $hospitals): self
+    public static function createCollector(string $name, string $email, Country $country, ?iterable $hospitals): self
     {
         if ($hospitals) {
             foreach ($hospitals as $hospital) {
@@ -169,7 +169,7 @@ class User implements UserInterface
 
         $obj            = new self($name, $email, self::ROLE_COLLECTOR);
         $obj->country   = $country;
-        $obj->hospitals = new ArrayCollection($hospitals ?? []);
+        $obj->hospitals = new ArrayCollection($hospitals ? iterator_to_array($hospitals): []);
 
         return $obj;
     }
