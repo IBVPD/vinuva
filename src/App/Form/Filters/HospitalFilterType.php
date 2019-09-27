@@ -64,7 +64,6 @@ class HospitalFilterType extends AbstractType
                     $qb->andWhere($values['alias'] . '.hospital = :filterHospital')->setParameter('filterHospital', $values['value']->getId());
                 }
             },
-
         ]);
 
         if ($hospitals) {
