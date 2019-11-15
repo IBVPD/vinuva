@@ -324,6 +324,11 @@ class User implements UserInterface
         return [self::$roles[$this->role]];
     }
 
+    public function isAdmin(): bool
+    {
+        return $this->role === self::ROLE_ADMIN;
+    }
+
     public function getPassword(): ?string
     {
         return $this->password;

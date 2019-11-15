@@ -43,7 +43,7 @@ class CountryType extends AbstractType
 
         if ($country) {
             $resolver->setDefault('data', $country);
-            $resolver->setDefault('placeholder', false);
+            $resolver->setDefault('placeholder', $user && $user->isAdmin() ? ' ': false);
         }
     }
 
