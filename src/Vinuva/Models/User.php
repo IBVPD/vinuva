@@ -304,7 +304,7 @@ class User implements UserInterface
         return $this->country;
     }
 
-    public function setCountry(Country $country): void
+    public function setCountry(?Country $country): void
     {
         $this->country = $country;
     }

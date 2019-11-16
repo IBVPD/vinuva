@@ -32,6 +32,8 @@ class CountryType extends AbstractType
 
         $resolver->setDefaults([
             'class' => Country::class,
+            'placeholder' => ' ',
+            'required' => false,
             'query_builder' => static function (EntityRepository $repository) use ($country) {
                 if ($country) {
                     return $repository->createQueryBuilder('c')->where('c.id = :cId')->setParameter('cId', $country)->orderBy('c.name');
