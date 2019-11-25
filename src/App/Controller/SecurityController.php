@@ -17,8 +17,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Mailer\MailerInterface;
-use Symfony\Component\Mime\Email;
-use Symfony\Component\Mime\NamedAddress;
+use Symfony\Component\Mime\Address;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Security\Core\Encoder\EncoderFactoryInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
@@ -49,13 +48,13 @@ class SecurityController
         if ($loginForm->isSubmitted() && $loginForm->isValid()) {
             $this->flash->addSuccess('Success', 'If an account with this email address exists you\'ll receive a link to reset the password');
 
-            $user = $repository->findByEmail($loginForm['_username']->getData());
+            $user = $repository->findByLogin($loginForm['_username']->getData());
             if ($user) {
                 $generator->setExpiration(86400);
                 $token = $generator->getToken($user->getId(), $user->getEmail());
                 $route = $this->router->generate('resetPassword', ['token' => $token], UrlGeneratorInterface::ABSOLUTE_URL);
                 $email = (new TemplatedEmail())
-                    ->from(new NamedAddress('noreply@vinuvacasos.org', 'Vinuva Aggregado'))
+                    ->from(new Address('noreply@vinuvacasos.org', 'Vinuva Aggregado'))
                     ->to($user->getEmail())
                     ->subject($translator->trans('Password Reset Request'))
                     ->htmlTemplate('Mail/forgot-password.html.twig')

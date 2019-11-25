@@ -11,12 +11,15 @@ use App\Form\Admin\User\FilterType;
 use App\Repository\UserRepository;
 use NS\FilteredPaginationBundle\FilteredPagination;
 use Paho\Vinuva\Models\User;
+use Symfony\Component\Form\FormError;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\EncoderFactoryInterface;
+use Symfony\Component\Validator\ConstraintViolationInterface;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 /**
  * @Route("/admin/users")
@@ -58,11 +61,13 @@ class UserController
 
     /**
      * @Route("/create", name="adminUserCreate", methods={"POST","GET"})
-     * @param Request $request
+     * @param Request            $request
+     *
+     * @param ValidatorInterface $validator
      *
      * @return Response
      */
-    public function createAction(Request $request): Response
+    public function createAction(Request $request, ValidatorInterface $validator): Response
     {
         $form = $this->createForm(CreateType::class);
         $form->handleRequest($request);
@@ -72,26 +77,34 @@ class UserController
 
                 switch ($data['role']) {
                     case User::ROLE_ADMIN:
-                        $user = User::createAdmin($data['name'], $data['email']);
+                        $user = User::createAdmin($data['name'], $data['login'], $data['email']);
                         break;
                     case User::ROLE_VERIFIER:
-                        $user = User::createVerifier($data['name'], $data['email'], $data['country'], $data['hospitals']);
+                        $user = User::createVerifier($data['name'], $data['login'], $data['email'], $data['country'], $data['hospitals']);
                         break;
                     case User::ROLE_COLLECTOR:
-                        $user = User::createCollector($data['name'], $data['email'], $data['country'], $data['hospitals']);
+                        $user = User::createCollector($data['name'], $data['login'], $data['email'], $data['country'], $data['hospitals']);
                         break;
                     case User::ROLE_READER:
-                        $user = User::createReader($data['name'], $data['email'], $data['country'], $data['hospitals']);
+                        $user = User::createReader($data['name'], $data['login'], $data['email'], $data['country'], $data['hospitals']);
                         break;
                     default:
                         $this->flash->addError('Error', 'Unable to create user');
                         return new RedirectResponse($this->router->generate('adminUserIndex'));
                 }
 
-                $this->entityManager->persist($user);
-                $this->entityManager->flush();
-                $this->flash->addSuccess('Success', 'User created successfully');
-                return new RedirectResponse($this->router->generate('adminUserIndex'));
+                $violations = $validator->validate($user);
+                if (count($violations) === 0) {
+                    $this->entityManager->persist($user);
+                    $this->entityManager->flush();
+                    $this->flash->addSuccess('Success', 'User created successfully');
+                    return new RedirectResponse($this->router->generate('adminUserIndex'));
+                }
+
+                /** @var ConstraintViolationInterface $violation */
+                foreach($violations as $violation) {
+                    $form[$violation->getPropertyPath()]->addError(new FormError($violation->getMessage()));
+                }
             }
 
             $this->flash->addError('Error', 'Unable to create user');
@@ -139,8 +152,8 @@ class UserController
         }
 
         return $this->render('@App/Admin/User/edit.html.twig', [
-           'form' => $form->createView(),
-           'user' => $user
+            'form' => $form->createView(),
+            'user' => $user,
         ]);
     }
 }

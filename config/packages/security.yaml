@@ -7,7 +7,7 @@ security:
 
     providers:
         users:
-            entity: { class: 'Paho\Vinuva\Models\User', property: 'email' }
+            entity: { class: 'Paho\Vinuva\Models\User', property: 'login' }
     encoders:
         Paho\Vinuva\Models\User:
             algorithm: argon2i

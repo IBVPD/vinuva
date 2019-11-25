@@ -1,14 +1,14 @@
 Paho\Vinuva\Models\User:
   gnat:
-    __factory: { 'Paho\Vinuva\Models\User::createAdmin': ['Nathanael Noblet','nathanael@noblet.ca'] }
+    __factory: { 'Paho\Vinuva\Models\User::createAdmin': ['Nathanael Noblet', 'gnat', 'nathanael@noblet.ca'] }
     plainPassword: '12345678'
   verifier{0..3}:
-    __factory: { 'Paho\Vinuva\Models\User::createVerifier': ['<name()>', '<email()>', '@countries*', null] }
+    __factory: { 'Paho\Vinuva\Models\User::createVerifier': ['<name()>', '<username()>', '<email()>', '@countries*', null] }
     plainPassword: '12345678'
   collector{0..3}:
-    __factory: { 'Paho\Vinuva\Models\User::createCollector': ['<name()>', '<email()>', '@countries*', null] }
+    __factory: { 'Paho\Vinuva\Models\User::createCollector': ['<name()>', '<username()>', '<email()>', '@countries*', null] }
     plainPassword: '12345678'
   reader{0..3}:
-    __factory: { 'Paho\Vinuva\Models\User::createReader': ['<name()>', '<email()>', '@countries*', null ] }
+    __factory: { 'Paho\Vinuva\Models\User::createReader': ['<name()>', '<username()>', '<email()>', '@countries*', null ] }
     plainPassword: '12345678'
 

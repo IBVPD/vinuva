@@ -7,11 +7,13 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use InvalidArgumentException;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity()
- * @ORM\Table(name="users")
+ * @ORM\Table(name="users", uniqueConstraints={@ORM\UniqueConstraint(name="u_login_idx",columns={"login"})})
+ * @UniqueEntity(fields={"login"})
  */
 class User implements UserInterface
 {
@@ -54,6 +56,12 @@ class User implements UserInterface
      * @ORM\Column(name="role",type="integer")
      */
     private $role;
+
+    /**
+     * @var string
+     * @ORM\Column(name="login", type="string", length=190)
+     */
+    private $login;
 
     /**
      * @var string
@@ -113,7 +121,7 @@ class User implements UserInterface
      */
     private $address;
 
-    private function __construct(string $name, string $email, int $role)
+    private function __construct(string $name, string $login, string $email, int $role)
     {
         if (!array_key_exists($role, self::$roles)) {
             throw new InvalidArgumentException(sprintf('Invalid Role %s not in %s', $role, implode(', ', self::$roles)));
@@ -122,77 +130,67 @@ class User implements UserInterface
         $this->hospitals = new ArrayCollection();
         $this->active    = true;
         $this->name      = $name;
+        $this->login     = $login;
         $this->email     = $email;
         $this->role      = $role;
         $this->salt      = hash('sha256', sprintf('{%s}(%s)-%s', $name, $email, uniqid('vinuva-user', true)));
     }
 
-    public static function createAdmin(string $name, string $email): self
+    public static function createAdmin(string $name, string $login, string $email): self
     {
-        return new self($name, $email, self::ROLE_ADMIN);
+        return new self($name, $login, $email, self::ROLE_ADMIN);
     }
 
-    public static function createVerifier(string $name, string $email, Country $country, ?array $hospitals): self
+    public static function createVerifier(string $name, string $login, string $email, Country $country, ?array $hospitals): self
     {
         if ($hospitals) {
-            foreach ($hospitals as $hospital) {
-                if (!$hospital instanceof Hospital) {
-                    throw new InvalidArgumentException('Invalid object');
-                }
-
-                if ($hospital->getCountry() !== $country) {
-                    throw new InvalidArgumentException('Hospitals must be from the same country');
-                }
-            }
+            static::verifyHospitals($hospitals);
         }
 
-        $obj            = new self($name, $email, self::ROLE_VERIFIER);
+        $obj            = new self($name, $login, $email, self::ROLE_VERIFIER);
         $obj->country   = $country;
         $obj->hospitals = new ArrayCollection($hospitals ?? []);
 
         return $obj;
     }
 
-    public static function createCollector(string $name, string $email, Country $country, ?iterable $hospitals): self
+    public static function createCollector(string $name, string $login, string $email, Country $country, ?array $hospitals): self
     {
         if ($hospitals) {
-            foreach ($hospitals as $hospital) {
-                if (!$hospital instanceof Hospital) {
-                    throw new InvalidArgumentException('Invalid object');
-                }
-
-                if ($hospital->getCountry() !== $country) {
-                    throw new InvalidArgumentException('Hospitals must be from the same country');
-                }
-            }
+            static::verifyHospitals($hospitals);
         }
 
-        $obj            = new self($name, $email, self::ROLE_COLLECTOR);
+        $obj            = new self($name, $login, $email, self::ROLE_COLLECTOR);
         $obj->country   = $country;
         $obj->hospitals = new ArrayCollection($hospitals ? iterator_to_array($hospitals): []);
 
         return $obj;
     }
 
-    public static function createReader(string $name, string $email, Country $country, ?array $hospitals): self
+    public static function createReader(string $name, string $login, string $email, Country $country, ?array $hospitals): self
     {
         if ($hospitals) {
-            foreach ($hospitals as $hospital) {
-                if (!$hospital instanceof Hospital) {
-                    throw new InvalidArgumentException('Invalid object');
-                }
-
-                if ($hospital->getCountry() !== $country) {
-                    throw new InvalidArgumentException('Hospitals must be from the same country');
-                }
-            }
+            static::verifyHospitals($hospitals);
         }
 
-        $obj            = new self($name, $email, self::ROLE_READER);
+        $obj            = new self($name, $login, $email, self::ROLE_READER);
         $obj->country   = $country;
         $obj->hospitals = new ArrayCollection($hospitals ?? []);
 
         return $obj;
+    }
+
+    protected static function verifyHospitals(array $hospitals): void
+    {
+        foreach ($hospitals as $hospital) {
+            if (!$hospital instanceof Hospital) {
+                throw new InvalidArgumentException('Invalid object');
+            }
+
+            if ($hospital->getCountry() !== $country) {
+                throw new InvalidArgumentException('Hospitals must be from the same country');
+            }
+        }
     }
 
     public function __toString(): string
@@ -213,6 +211,16 @@ class User implements UserInterface
     public function setName(string $name): void
     {
         $this->name = $name;
+    }
+
+    public function getLogin(): string
+    {
+        return $this->login;
+    }
+
+    public function setLogin(string $login): void
+    {
+        $this->login = $login;
     }
 
     public function getEmail(): string

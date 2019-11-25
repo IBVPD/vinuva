@@ -25,7 +25,8 @@ class EditType extends AbstractType
         $builder
             ->add('active', CheckboxType::class, ['required' => false])
             ->add('name', TextType::class)
-            ->add('email', EmailType::class)
+            ->add('login', TextType::class, ['required' => true])
+            ->add('email', EmailType::class, ['required' => true])
             ->add('phone', TextType::class, ['required' => false])
             ->add('address', TextType::class, ['required' => false])
             ->add('role', RoleType::class, ['required' => true])

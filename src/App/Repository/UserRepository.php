@@ -26,18 +26,14 @@ class UserRepository
             ->orderBy('u.name');
     }
 
-    public function findByEmail(string $email): ?User
+    public function findByLogin(string $login): ?User
     {
-        try {
-            return $this->entityManager->createQueryBuilder()
-                ->select('u')
-                ->from(User::class, 'u')
-                ->where('u.email = :email')
-                ->setParameter('email', $email)
-                ->getQuery()
-                ->getSingleResult();
-        } catch (UnexpectedResultException $exception) {
-            return null;
-        }
+        return $this->entityManager->createQueryBuilder()
+            ->select('u')
+            ->from(User::class, 'u')
+            ->where('u.login = :login')
+            ->setParameter('login', $login)
+            ->getQuery()
+            ->getOneOrNullResult();
     }
 }

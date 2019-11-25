@@ -30,8 +30,9 @@
                     </tr>
                     {% for user in users %}
                         <tr>
-                            <td>{{ user.name }}
-                                <br/>{{ user.email }}
+                            <td>{{ user.name }}<br/>
+                                {{ user.login }}<br/>
+                                {{ user.email }}
                                 {% if user.phone %}<br/>tel: <a href="tel:{{ user.phone }}">{{ user.phone }}</a>{% endif %}
                                 {% if user.address %}<br/>{{ user.address}}{% endif %}
                             </td>
