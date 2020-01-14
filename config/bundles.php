@@ -23,4 +23,5 @@ return [
     NS\FilteredPaginationBundle\NSFilteredPaginationBundle::class => ['all' => true],
     JMS\TranslationBundle\JMSTranslationBundle::class => ['all' => true],
     NS\TokenBundle\NSTokenBundle::class => ['all' => true],
+    Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle::class => ['all' => true],
 ];
