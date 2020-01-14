@@ -80,13 +80,13 @@ class UserController
                         $user = User::createAdmin($data['name'], $data['login'], $data['email']);
                         break;
                     case User::ROLE_VERIFIER:
-                        $user = User::createVerifier($data['name'], $data['login'], $data['email'], $data['country'], $data['hospitals']);
+                        $user = User::createVerifier($data['name'], $data['login'], $data['email'], $data['country'], $data['hospitals'] ? $data['hospitals']->toArray(): null);
                         break;
                     case User::ROLE_COLLECTOR:
-                        $user = User::createCollector($data['name'], $data['login'], $data['email'], $data['country'], $data['hospitals']);
+                        $user = User::createCollector($data['name'], $data['login'], $data['email'], $data['country'], $data['hospitals'] ? $data['hospitals']->toArray(): null);
                         break;
                     case User::ROLE_READER:
-                        $user = User::createReader($data['name'], $data['login'], $data['email'], $data['country'], $data['hospitals']);
+                        $user = User::createReader($data['name'], $data['login'], $data['email'], $data['country'], $data['hospitals'] ? $data['hospitals']->toArray(): null);
                         break;
                     default:
                         $this->flash->addError('Error', 'Unable to create user');
