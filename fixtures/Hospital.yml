@@ -1,5 +1,3 @@
 Paho\Vinuva\Models\Hospital:
   hospitals{0..125}:
-    __construct: ['<name()>', '@countries*']
-    short: '<lexify("???")>'
-    local: '<lexify("?????")>'
+    __construct: ['<name()>', '@countries*', '<lexify("???")>', '<lexify("?????")>']
