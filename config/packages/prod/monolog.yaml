@@ -17,7 +17,7 @@ monolog:
             # or list of recipients
             # to_email:   ['dev1@example.com', 'dev2@example.com', ...]
             subject:    'ERROR: Vinuva Aggregate %%message%%'
-            level:      debug
+            level:      error
             formatter:  monolog.formatter.html
             content_type: text/html
         grouped:
