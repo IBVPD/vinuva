@@ -30,8 +30,14 @@ class EditType extends AbstractType
             ->add('phone', TextType::class, ['required' => false])
             ->add('address', TextType::class, ['required' => false])
             ->add('role', RoleType::class, ['required' => true])
-            ->add('country', CountryType::class)
-            ->add('hospitals', HospitalType::class, ['multiple' => true, 'expanded' => true])
+            ->add('country', CountryType::class, [
+                'error_bubbling' => false
+            ])
+            ->add('hospitals', HospitalType::class, [
+                'required' => false,
+                'multiple' => true,
+                'expanded' => true
+            ])
             ->add('plainPassword', RepeatedType::class, [
                 'required' => false,
                 'type' => PasswordType::class,
@@ -52,7 +58,7 @@ class EditType extends AbstractType
     public function validate($data, ExecutionContext $context): void
     {
         if ($data instanceof User && $data->getRole() !== User::ROLE_ADMIN && !$data->getCountry()) {
-            $context->buildViolation('This field is required for non-administrators')->atPath('country')->addViolation();
+            $context->buildViolation('This field is required for non-administrators')->atPath('[country]')->addViolation();
         }
     }
 }

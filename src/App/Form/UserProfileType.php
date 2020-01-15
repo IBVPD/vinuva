@@ -16,7 +16,10 @@ class UserProfileType extends AbstractType
     {
         $builder
             ->add('name')
+            ->add('login')
             ->add('email')
+            ->add('phone', null, ['required' => false])
+            ->add('address', null, ['required' => false])
             ->add('locale', ChoiceType::class, [
                 'choices' => [
                     'English' => 'en',

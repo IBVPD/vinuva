@@ -28,7 +28,11 @@ class CreateType extends AbstractType
             ->add('email', EmailType::class, ['required' => true])
             ->add('role', RoleType::class, ['required' => true])
             ->add('country', CountryType::class)
-            ->add('hospitals', HospitalType::class, ['multiple' => true, 'expanded' => true])
+            ->add('hospitals', HospitalType::class, [
+                'required' => false,
+                'multiple' => true,
+                'expanded' => true
+            ])
             ->add('plainPassword', RepeatedType::class, [
                 'required' => false,
                 'type' => PasswordType::class,
@@ -49,7 +53,7 @@ class CreateType extends AbstractType
     public function validate($data, ExecutionContext $context): void
     {
         if ($data['role'] !== User::ROLE_ADMIN && empty($data['country'])) {
-            $context->buildViolation('This field is required for non-administrators')->atPath('country')->addViolation();
+            $context->buildViolation('This field is required for non-administrators')->atPath('[country]')->addViolation();
         }
     }
 }

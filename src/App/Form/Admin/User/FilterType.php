@@ -20,6 +20,8 @@ class FilterType extends AbstractType
     {
         $builder
             ->add('name', TextFilterType::class, ['condition_pattern' => FilterOperands::STRING_CONTAINS])
+            ->add('login', TextFilterType::class, ['condition_pattern' => FilterOperands::STRING_CONTAINS])
+            ->add('email', TextFilterType::class, ['condition_pattern' => FilterOperands::STRING_CONTAINS])
             ->add('active', BooleanFilterType::class)
             ->add('role', ChoiceFilterType::class, [
                 'placeholder' => 'Select...',
