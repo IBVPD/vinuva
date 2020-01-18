@@ -109,7 +109,7 @@ abstract class AbstractRepository
             ->innerJoin('d.country','ctr')
             ->innerJoin('d.hospital','h')
             ->groupBy('ctr,h,d.year')
-            ->orderBy('d.country,d.hospital,d.year,d.month');
+            ->orderBy('d.country,d.hospital,d.year DESC,d.month');
     }
 
     public function getByHospitalFilterQuery(): QueryBuilder
