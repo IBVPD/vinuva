@@ -268,6 +268,9 @@
         <trans-unit id='mhTAlDA' resname='Number of Deaths %category%'>
           <source>Number of Deaths %category%</source><target>Número de muertes %category%</target>
         </trans-unit>
+        <trans-unit id='mhTAlDAU' resname='Number of Deaths Under %category%'>
+          <source>Number of Deaths Under %category%</source><target>Número de muertes %category%</target>
+        </trans-unit>
         <trans-unit id='XxJVLmU' resname='Number of suspected neumonía cases with x-ray and forms'>
           <source>Number of suspected neumonía cases with x-ray and forms</source><target>No. casos sospechosos de neumonía con rayos X y formas</target>
         </trans-unit>
@@ -309,6 +312,15 @@
         </trans-unit>
         <trans-unit id='1h_2pwy' resname='Probable With Pleural %category%'>
           <source>Probable With Pleural %category%</source><target>Probable con Pleural %category%</target>
+        </trans-unit>
+        <trans-unit id='enX9nq8U' resname='Probable Under %category%'>
+          <source>Probable Under %category%</source><target>Probable Under %category%</target>
+        </trans-unit>
+        <trans-unit id='ad0fmk2U' resname='Probable With Blood Under %category%'>
+          <source>Probable With Blood Under %category%</source><target>Probable con sangre %category%</target>
+        </trans-unit>
+        <trans-unit id='1h_2pwyU' resname='Probable With Pleural Under %category%'>
+          <source>Probable With Pleural Under %category%</source><target>Probable con Pleural %category%</target>
         </trans-unit>
         <trans-unit id='BSHwwmi' resname='Re-enter Password'>
           <source>Re-enter Password</source><target>Escriba la contraseña otra vez</target>

@@ -381,6 +381,10 @@
         <source>Number of Deaths %category%</source>
         <target>Number of Deaths %category%</target>
       </trans-unit>
+      <trans-unit id="mhTAlDAU" resname="Number of Deaths Under %category%">
+        <source>Number of Deaths Under %category%</source>
+        <target>Number of Deaths Under %category%</target>
+      </trans-unit>
       <trans-unit id="XxJVLmU" resname="Number of suspected pneumonia cases with x-ray and forms">
         <source>Number of suspected pneumonia cases with x-ray and forms</source>
         <target>Number of suspected pneumonia cases with x-ray and forms</target>
@@ -428,6 +432,18 @@
       <trans-unit id="vQvk8ha" resname="Positive Under 59">
         <source>Positive Under 59</source>
         <target>Positive Under 59</target>
+      </trans-unit>
+      <trans-unit id="enX9nq8U" resname="Probable Under %category%">
+        <source>Probable Under %category%</source>
+        <target>Probable Under %category%</target>
+      </trans-unit>
+      <trans-unit id="ad0fmk2U" resname="Probable With Blood Under %category%">
+        <source>Probable With Blood Under %category%</source>
+        <target>Probable With Blood Under %category%</target>
+      </trans-unit>
+      <trans-unit id="1h_2pwyU" resname="Probable With Pleural Under %category%">
+        <source>Probable With Pleural Under %category%</source>
+        <target>Probable With Pleural Under %category%</target>
       </trans-unit>
       <trans-unit id="enX9nq8" resname="Probable %category%">
         <source>Probable %category%</source>

@@ -334,6 +334,9 @@
         <trans-unit id='enX9nq8' resname='Probable %category%'>
           <source>Probable %category%</source><target>%category% provável</target>
         </trans-unit>
+        <trans-unit id='enX9nq8U' resname='Probable Under %category%'>
+          <source>Probable Under %category%</source><target>%category% provável</target>
+        </trans-unit>
         <trans-unit id='nVzCM0i' resname='Confirmed Under 12'>
           <source>Confirmed Under 12</source><target>Confirmado sob 12</target>
         </trans-unit>
@@ -354,6 +357,15 @@
         </trans-unit>
         <trans-unit id='1h_2pwy' resname='Probable With Pleural %category%'>
           <source>Probable With Pleural %category%</source><target>Provável com pleural %category%</target>
+        </trans-unit>
+        <trans-unit id='mhTAlDAU' resname='Number of Deaths Under %category%'>
+          <source>Number of Deaths Under %category%</source><target>Número de mortes %category%</target>
+        </trans-unit>
+        <trans-unit id='ad0fmk2U' resname='Probable With Blood Under %category%'>
+          <source>Probable With Blood Under %category%</source><target>Provável com de sangue %category%</target>
+        </trans-unit>
+        <trans-unit id='1h_2pwyU' resname='Probable With Pleural Under %category%'>
+          <source>Probable With Pleural Under %category%</source><target>Provável com pleural %category%</target>
         </trans-unit>
         <trans-unit id='tNma_NB' resname='Positive Under 12'>
           <source>Positive Under 12</source><target>Positivo abaixo de 12</target>
