@@ -75,35 +75,39 @@ class UserController
             if ($form->isValid()) {
                 $data = $form->getData();
 
-                switch ($data['role']) {
-                    case User::ROLE_ADMIN:
-                        $user = User::createAdmin($data['name'], $data['login'], $data['email']);
-                        break;
-                    case User::ROLE_VERIFIER:
-                        $user = User::createVerifier($data['name'], $data['login'], $data['email'], $data['country'], $data['hospitals'] ? $data['hospitals']->toArray(): null);
-                        break;
-                    case User::ROLE_COLLECTOR:
-                        $user = User::createCollector($data['name'], $data['login'], $data['email'], $data['country'], $data['hospitals'] ? $data['hospitals']->toArray(): null);
-                        break;
-                    case User::ROLE_READER:
-                        $user = User::createReader($data['name'], $data['login'], $data['email'], $data['country'], $data['hospitals'] ? $data['hospitals']->toArray(): null);
-                        break;
-                    default:
-                        $this->flash->addError('Error', 'Unable to create user');
+                try {
+                    switch ($data['role']) {
+                        case User::ROLE_ADMIN:
+                            $user = User::createAdmin($data['name'], $data['login'], $data['email']);
+                            break;
+                        case User::ROLE_VERIFIER:
+                            $user = User::createVerifier($data['name'], $data['login'], $data['email'], $data['country'], $data['hospitals'] ? $data['hospitals']->toArray(): null);
+                            break;
+                        case User::ROLE_COLLECTOR:
+                            $user = User::createCollector($data['name'], $data['login'], $data['email'], $data['country'], $data['hospitals'] ? $data['hospitals']->toArray(): null);
+                            break;
+                        case User::ROLE_READER:
+                            $user = User::createReader($data['name'], $data['login'], $data['email'], $data['country'], $data['hospitals'] ? $data['hospitals']->toArray(): null);
+                            break;
+                        default:
+                            $this->flash->addError('Error', 'Unable to create user');
+                            return new RedirectResponse($this->router->generate('adminUserIndex'));
+                    }
+
+                    $violations = $validator->validate($user);
+                    if (count($violations) === 0) {
+                        $this->entityManager->persist($user);
+                        $this->entityManager->flush();
+                        $this->flash->addSuccess('Success', 'User created successfully');
                         return new RedirectResponse($this->router->generate('adminUserIndex'));
-                }
+                    }
 
-                $violations = $validator->validate($user);
-                if (count($violations) === 0) {
-                    $this->entityManager->persist($user);
-                    $this->entityManager->flush();
-                    $this->flash->addSuccess('Success', 'User created successfully');
-                    return new RedirectResponse($this->router->generate('adminUserIndex'));
-                }
-
-                /** @var ConstraintViolationInterface $violation */
-                foreach($violations as $violation) {
-                    $form[$violation->getPropertyPath()]->addError(new FormError($violation->getMessage()));
+                    /** @var ConstraintViolationInterface $violation */
+                    foreach($violations as $violation) {
+                        $form[$violation->getPropertyPath()]->addError(new FormError($violation->getMessage()));
+                    }
+                } catch (\InvalidArgumentException $exception) {
+                    $form->addError(new FormError(sprintf('Unable to create user: "%s"', $exception->getMessage())));
                 }
             }
 

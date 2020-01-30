@@ -128,12 +128,12 @@ class User implements UserInterface
         }
 
         $this->hospitals = new ArrayCollection();
-        $this->active    = true;
-        $this->name      = $name;
-        $this->login     = $login;
-        $this->email     = $email;
-        $this->role      = $role;
-        $this->salt      = hash('sha256', sprintf('{%s}(%s)-%s', $name, $email, uniqid('vinuva-user', true)));
+        $this->active = true;
+        $this->name = $name;
+        $this->login = $login;
+        $this->email = $email;
+        $this->role = $role;
+        $this->salt = hash('sha256', sprintf('{%s}(%s)-%s', $name, $email, uniqid('vinuva-user', true)));
     }
 
     public static function createAdmin(string $name, string $login, string $email): self
@@ -147,8 +147,8 @@ class User implements UserInterface
             static::verifyHospitals($hospitals);
         }
 
-        $obj            = new self($name, $login, $email, self::ROLE_VERIFIER);
-        $obj->country   = $country;
+        $obj = new self($name, $login, $email, self::ROLE_VERIFIER);
+        $obj->country = $country;
         $obj->hospitals = new ArrayCollection($hospitals ?? []);
 
         return $obj;
@@ -160,9 +160,9 @@ class User implements UserInterface
             static::verifyHospitals($hospitals);
         }
 
-        $obj            = new self($name, $login, $email, self::ROLE_COLLECTOR);
-        $obj->country   = $country;
-        $obj->hospitals = new ArrayCollection($hospitals ? iterator_to_array($hospitals): []);
+        $obj = new self($name, $login, $email, self::ROLE_COLLECTOR);
+        $obj->country = $country;
+        $obj->hospitals = new ArrayCollection($hospitals ? iterator_to_array($hospitals) : []);
 
         return $obj;
     }
@@ -173,8 +173,8 @@ class User implements UserInterface
             static::verifyHospitals($hospitals);
         }
 
-        $obj            = new self($name, $login, $email, self::ROLE_READER);
-        $obj->country   = $country;
+        $obj = new self($name, $login, $email, self::ROLE_READER);
+        $obj->country = $country;
         $obj->hospitals = new ArrayCollection($hospitals ?? []);
 
         return $obj;
@@ -182,12 +182,16 @@ class User implements UserInterface
 
     protected static function verifyHospitals(array $hospitals): void
     {
+        $countryId = null;
         foreach ($hospitals as $hospital) {
             if (!$hospital instanceof Hospital) {
                 throw new InvalidArgumentException('Invalid object');
             }
 
-            if ($hospital->getCountry() !== $country) {
+            if ($countryId === null) {
+                $countryId = $hospital->getCountry()->getId();
+            }
+            if ($hospital->getCountry()->getId() !== $countryId) {
                 throw new InvalidArgumentException('Hospitals must be from the same country');
             }
         }
