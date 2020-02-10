@@ -269,7 +269,7 @@ class User implements UserInterface
 
     public function setRole(int $role): void
     {
-        if (!in_array($role, static::$roles, true)) {
+        if (!isset(static::$roles[$role])) {
             throw new InvalidArgumentException('Invalid Role');
         }
 
