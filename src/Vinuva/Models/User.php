@@ -7,6 +7,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use InvalidArgumentException;
+use JMS\TranslationBundle\Model\Message;
+use JMS\TranslationBundle\Translation\TranslationContainerInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -15,7 +17,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
  * @ORM\Table(name="users", uniqueConstraints={@ORM\UniqueConstraint(name="u_login_idx",columns={"login"})})
  * @UniqueEntity(fields={"login"})
  */
-class User implements UserInterface
+class User implements UserInterface, TranslationContainerInterface
 {
     public const
         ROLE_ADMIN = 1,
@@ -359,5 +361,15 @@ class User implements UserInterface
     public function eraseCredentials(): void
     {
 
+    }
+
+    public static function getTranslationMessages(): array
+    {
+        $results = [];
+        foreach(static::$roleLabels as $index => $label) {
+            $results[] = new Message($label, 'messages');
+        }
+
+        return $results;
     }
 }

@@ -45,7 +45,6 @@ class CountryController
         $this->rvRepository = $rvRepository;
     }
 
-
     /**
      * @Route("/summary", name="reportCountrySummary")
      * @param FilterBuilderUpdaterInterface $filterBuilder

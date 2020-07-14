@@ -15,11 +15,26 @@ class EditType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('code', TextType::class, ['required' => true])
-            ->add('name', TextType::class, ['required' => true])
-            ->add('iso2', TextType::class, ['required' => false])
-            ->add('fips', TextType::class, ['required' => false])
-            ->add('region', RegionType::class, ['required' => true]);
+            ->add('code', TextType::class, [
+                'required' => true,
+                'label' => 'Code'
+            ])
+            ->add('name', TextType::class, [
+                'required' => true,
+                'label' => 'Name'
+            ])
+            ->add('iso2', TextType::class, [
+                'required' => false,
+                'label' => 'ISO'
+            ])
+            ->add('fips', TextType::class, [
+                'required' => false,
+                'label' => 'FIPS',
+            ])
+            ->add('region', RegionType::class, [
+                'required' => true,
+                'label' => 'Region',
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

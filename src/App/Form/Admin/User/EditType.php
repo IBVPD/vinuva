@@ -23,26 +23,49 @@ class EditType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('active', CheckboxType::class, ['required' => false])
-            ->add('name', TextType::class)
-            ->add('login', TextType::class, ['required' => true])
-            ->add('email', EmailType::class, ['required' => true])
-            ->add('phone', TextType::class, ['required' => false])
-            ->add('address', TextType::class, ['required' => false])
-            ->add('role', RoleType::class, ['required' => true])
+            ->add('active', CheckboxType::class, [
+                'required' => false,
+                'label' => 'Active Account?'
+            ])
+            ->add('name', TextType::class, [
+                'required' => true,
+                'label' => 'Name',
+            ])
+            ->add('login', TextType::class, [
+                'required' => true,
+                'label' => 'Login',
+            ])
+            ->add('email', EmailType::class, [
+                'required' => true,
+                'label' => 'Email',
+            ])
+            ->add('role', RoleType::class, [
+                'required' => true,
+                'label' => 'Role',
+            ])
             ->add('country', CountryType::class, [
-                'error_bubbling' => false
+                'label' => 'Country',
+                'error_bubbling' => false,
             ])
             ->add('hospitals', HospitalType::class, [
+                'label' => 'Hospitals',
                 'required' => false,
                 'multiple' => true,
-                'expanded' => true
+                'expanded' => true,
             ])
             ->add('plainPassword', RepeatedType::class, [
                 'required' => false,
                 'type' => PasswordType::class,
                 'first_options' => ['label' => 'Password'],
                 'second_options' => ['label' => 'Re-enter Password'],
+            ])
+            ->add('phone', TextType::class, [
+                'required' => false,
+                'label' => 'Phone',
+            ])
+            ->add('address', TextType::class, [
+                'required' => false,
+                'label' => 'Address',
             ]);
     }
 

@@ -28,7 +28,7 @@ class EditType extends AbstractType
         $builder
             ->add('under5', IntegerType::class, ['label' => 'No. hospitalizations in children under 5 years'])
             ->add('under5With', IntegerType::class, ['label' => 'No. of hospitalizations with diarrhea in children under 5 years'])
-            ->add('suspected', IntegerType::class,['label'=> 'No. of children under 5 years who meet the criteria of suspect case'])
+            ->add('suspected', IntegerType::class, ['label' => 'No. of children under 5 years who meet the criteria of suspect case'])
             ->add('withFormAndSample', ProbableType::class, ['label' => 'No. of children with forms and stool samples collected'])
             ->add('positiveUnder12', VaccinationType::class, ['label' => 'Under 12 months'])
             ->add('positiveUnder23', VaccinationType::class, ['label' => '12 - 23 months'])
@@ -42,16 +42,16 @@ class EditType extends AbstractType
 
         if ($this->authChecker->isGranted('ROLE_VERIFIER')) {
             $builder
-                ->add('verified', CheckboxType::class, ['required' => false])
-                ->add('verifierComments', TextareaType::class, ['required' => false])
-                ->add('verificationDate', DatepickerType::class, ['required' => false]);
+                ->add('verified', CheckboxType::class, ['required' => false, 'label' => 'Verified?'])
+                ->add('verifierComments', TextareaType::class, ['required' => false, 'label' => 'Verifier Comments'])
+                ->add('verificationDate', DatepickerType::class, ['required' => false, 'label' => 'Verification Date']);
         }
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Rotavirus::class
+            'data_class' => Rotavirus::class,
         ]);
     }
 }

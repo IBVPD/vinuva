@@ -21,8 +21,8 @@ class FilterType extends AbstractType
                 'placeholder' => 'All',
                 'choices' => ['Meningitis' => 'meningitis', 'Pneumonia' => 'pneumonia', 'Rotavirus' => 'rotavirus'],
                 'apply_filter' => static function(ORMQuery $filterQuery, string $field, array $values) {
-
-                }
+                },
+                'label' => 'Disease'
             ])
             ->add('country', CountryFilterType::class)
             ->add('hospital', HospitalFilterType::class)

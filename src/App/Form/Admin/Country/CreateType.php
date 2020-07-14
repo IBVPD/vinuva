@@ -19,9 +19,20 @@ class CreateType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('code', TextType::class, ['required' => true,'constraints' => [new Regex('/^[a-z0-9]+$/i')]])
-            ->add('name', TextType::class, ['required' => true, 'constraints' => [new NotBlank()]])
-            ->add('region', RegionType::class, ['required' => true]);
+            ->add('code', TextType::class, [
+                'required' => true,
+                'label' => 'Code',
+                'constraints' => [new Regex('/^[a-z0-9]+$/i')]
+            ])
+            ->add('name', TextType::class, [
+                'required' => true,
+                'label' => 'Name',
+                'constraints' => [new NotBlank()]
+            ])
+            ->add('region', RegionType::class, [
+                'required' => true,
+                'label' => 'Region'
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

@@ -101,8 +101,8 @@ class PneumoniaRepository extends AbstractRepository
 
         $sqlSelect = 'SELECT h2_.id as hId, h2_.name as hName, c1_.id cId, c1_.name as cName, SUM(p0_.under5) u5, SUM(p0_.suspected) susp, SUM(p0_.suspectedWith) suspWith, 
         SUM(p0_.probable_12) p12 ,SUM(p0_.probable_23) p23,SUM(p0_.probable_59) p59, SUM(p0_.probable_total) ptotal, 
-        SUM(p0_.probable_12) p12blood ,SUM(p0_.probable_23) p23,SUM(p0_.probable_59) p59, SUM(p0_.probable_total) pBloodTotal, 
-        SUM(p0_.probable_12) p12pleural ,SUM(p0_.probable_23) p23,SUM(p0_.probable_59) p59, SUM(p0_.probable_total) pPleuralTotal, 
+        SUM(p0_.probable_with_blood_12) p12blood ,SUM(p0_.probable_with_blood_23) p23,SUM(p0_.probable_with_blood_59) p59, SUM(p0_.probable_with_blood_total) pBloodTotal, 
+        SUM(p0_.probable_with_pleural_12) p12pleural ,SUM(p0_.probable_with_pleural_23) p23,SUM(p0_.probable_with_pleural_59) p59, SUM(p0_.probable_with_pleural_total) pPleuralTotal, 
         SUM(p0_.u12_confirmed_hib) confirmed12Hib, SUM(p0_.u12_confirmed_hi) confirmed12Hi, SUM(p0_.u12_confirmed_nm) confirmed12Nm, SUM(p0_.u12_confirmed_spn) confirmed12Spn, SUM(p0_.u12_confirmed_other) confirmed12Other, SUM(p0_.u12_confirmed_contamination) confirmed12Cont,
         SUM(p0_.u23_confirmed_hib) confirmed23Hib, SUM(p0_.u23_confirmed_hi) confirmed23Hi, SUM(p0_.u23_confirmed_nm) confirmed23Nm, SUM(p0_.u23_confirmed_spn) confirmed23Spn, SUM(p0_.u23_confirmed_other) confirmed23Other, SUM(p0_.u23_confirmed_contamination) confirmed23Cont,
         SUM(p0_.u59_confirmed_hib) confirmed59Hib, SUM(p0_.u59_confirmed_hi) confirmed59Hi, SUM(p0_.u59_confirmed_nm) confirmed59Nm, SUM(p0_.u59_confirmed_spn) confirmed59Spn, SUM(p0_.u59_confirmed_other) confirmed59Other, SUM(p0_.u59_confirmed_contamination) confirmed59Cont,
@@ -155,8 +155,8 @@ class PneumoniaRepository extends AbstractRepository
 
         $sqlSelect = 'SELECT c1_.id cId, c1_.name as cName, SUM(p0_.under5) u5, SUM(p0_.suspected) susp, SUM(p0_.suspectedWith) suspWith, 
         SUM(p0_.probable_12) p12 ,SUM(p0_.probable_23) p23,SUM(p0_.probable_59) p59, SUM(p0_.probable_total) ptotal, 
-        SUM(p0_.probable_12) p12blood ,SUM(p0_.probable_23) p23,SUM(p0_.probable_59) p59, SUM(p0_.probable_total) pBloodTotal, 
-        SUM(p0_.probable_12) p12pleural ,SUM(p0_.probable_23) p23,SUM(p0_.probable_59) p59, SUM(p0_.probable_total) pPleuralTotal, 
+        SUM(p0_.probable_with_blood_12) p12blood ,SUM(p0_.probable_with_blood_23) p23,SUM(p0_.probable_with_blood_59) p59, SUM(p0_.probable_with_blood_total) pBloodTotal, 
+        SUM(p0_.probable_with_pleural_12) p12pleural ,SUM(p0_.probable_with_pleural_23) p23,SUM(p0_.probable_with_pleural_59) p59, SUM(p0_.probable_with_pleural_total) pPleuralTotal, 
         SUM(p0_.u12_confirmed_hib) confirmed12Hib, SUM(p0_.u12_confirmed_hi) confirmed12Hi, SUM(p0_.u12_confirmed_nm) confirmed12Nm, SUM(p0_.u12_confirmed_spn) confirmed12Spn, SUM(p0_.u12_confirmed_other) confirmed12Other, SUM(p0_.u12_confirmed_contamination) confirmed12Cont,
         SUM(p0_.u23_confirmed_hib) confirmed23Hib, SUM(p0_.u23_confirmed_hi) confirmed23Hi, SUM(p0_.u23_confirmed_nm) confirmed23Nm, SUM(p0_.u23_confirmed_spn) confirmed23Spn, SUM(p0_.u23_confirmed_other) confirmed23Other, SUM(p0_.u23_confirmed_contamination) confirmed23Cont,
         SUM(p0_.u59_confirmed_hib) confirmed59Hib, SUM(p0_.u59_confirmed_hi) confirmed59Hi, SUM(p0_.u59_confirmed_nm) confirmed59Nm, SUM(p0_.u59_confirmed_spn) confirmed59Spn, SUM(p0_.u59_confirmed_other) confirmed59Other, SUM(p0_.u59_confirmed_contamination) confirmed59Cont,

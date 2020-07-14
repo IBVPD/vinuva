@@ -18,7 +18,7 @@ class RegionType extends AbstractType
 
                 return $repository->createQueryBuilder('r')->orderBy('r.name');
             },
-            'placeholder' => '  ',
+            'placeholder' => ' ',
         ]);
     }
 

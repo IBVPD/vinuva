@@ -38,14 +38,14 @@ class EditType extends AbstractType
             ->add('under23Confirmed', ConfirmedType::class, ['label' => '12 - 23 months'])
             ->add('under59Confirmed', ConfirmedType::class, ['label' => '24 - 59 months'])
             ->add('totalConfirmed', ConfirmedType::class, ['label' => 'Total < 5', 'include_override' => true])
-            ->add('numberOfDeaths', DeathCountType::class)
-            ->add('notifierComments', TextareaType::class, ['required' => false]);
+            ->add('numberOfDeaths', DeathCountType::class, ['label' => 'Number of deaths'])
+            ->add('notifierComments', TextareaType::class, ['required' => false, 'label' => 'Notifier Comments']);
 
         if ($this->authChecker->isGranted('ROLE_VERIFIER')) {
             $builder
-                ->add('verified', CheckboxType::class, ['required' => false])
-                ->add('verifierComments', TextareaType::class, ['required' => false])
-                ->add('verificationDate', DatepickerType::class, ['required' => false]);
+                ->add('verified', CheckboxType::class, ['required' => false, 'label' => 'Verified?'])
+                ->add('verifierComments', TextareaType::class, ['required' => false, 'label' => 'Verifier Comments'])
+                ->add('verificationDate', DatepickerType::class, ['required' => false, 'label' => 'Verification Date']);
         }
     }
 

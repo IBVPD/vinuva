@@ -21,14 +21,14 @@
             <div class="table-responsive">
                 <table class="table m-b-0">
                     <tr>
-                        <th>{{ knp_pagination_sortable(regions, 'Name', 'r.name') }}</th>
+                        <th>{{ knp_pagination_sortable(regions, 'Name'|trans, 'r.name') }}</th>
                         <th>{{ 'Actions'|trans }}</th>
                     </tr>
                     {% for region in regions %}
                         <tr>
                             <td>{{ region.name }}</td>
                             <td>
-                                <a class="btn btn-sm btn-primary" href="{{ path('adminRegionEdit', { regionId: region.id }) }}">Edit</a>
+                                <a class="btn btn-sm btn-primary" href="{{ path('adminRegionEdit', { regionId: region.id }) }}">{{ 'Edit'|trans }}</a>
                             </td>
                         </tr>
                     {% endfor %}

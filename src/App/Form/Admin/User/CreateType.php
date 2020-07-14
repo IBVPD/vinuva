@@ -23,15 +23,28 @@ class CreateType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name', TextType::class, ['required' => true])
-            ->add('login', TextType::class, ['required' => true])
-            ->add('email', EmailType::class, ['required' => true])
-            ->add('role', RoleType::class, ['required' => true])
-            ->add('country', CountryType::class)
+            ->add('name', TextType::class, [
+                'required' => true,
+                'label' => 'Name',
+            ])
+            ->add('login', TextType::class, [
+                'required' => true,
+                'label' => 'Login',
+            ])
+            ->add('email', EmailType::class, [
+                'required' => true,
+                'label' => 'Email',
+            ])
+            ->add('role', RoleType::class, [
+                'required' => true,
+                'label' => 'Role',
+            ])
+            ->add('country', CountryType::class, ['label' => 'Country'])
             ->add('hospitals', HospitalType::class, [
+                'label' => 'Hospitals',
                 'required' => false,
                 'multiple' => true,
-                'expanded' => true
+                'expanded' => true,
             ])
             ->add('plainPassword', RepeatedType::class, [
                 'required' => false,
@@ -39,8 +52,14 @@ class CreateType extends AbstractType
                 'first_options' => ['label' => 'Password'],
                 'second_options' => ['label' => 'Re-enter Password'],
             ])
-            ->add('phone', TextType::class, ['required' => false])
-            ->add('address', TextType::class, ['required' => false]);
+            ->add('phone', TextType::class, [
+                'required' => false,
+                'label' => 'Phone',
+            ])
+            ->add('address', TextType::class, [
+                'required' => false,
+                'label' => 'Address',
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

@@ -21,9 +21,9 @@
             <div class="table-responsive">
                 <table class="table m-b-0">
                     <tr>
-                        <th>{{ knp_pagination_sortable(hospitals, 'Name', 'r.name') }}</th>
+                        <th>{{ knp_pagination_sortable(hospitals, 'Name'|trans, 'r.name') }}</th>
                         <th>{{ 'Short / Local'|trans }}</th>
-                        <th>{{ knp_pagination_sortable(hospitals, 'Country', 'c.name') }}</th>
+                        <th>{{ knp_pagination_sortable(hospitals, 'Country'|trans, 'c.name') }}</th>
                         <th>{{ 'Actions'|trans }}</th>
                     </tr>
                     {% for hospital in hospitals %}

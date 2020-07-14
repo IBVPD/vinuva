@@ -21,10 +21,10 @@
             <div class="table-responsive">
                 <table class="table m-b-0">
                     <tr>
-                        <th>{{ knp_pagination_sortable(users, 'Name', 'u.name') }}</th>
+                        <th>{{ knp_pagination_sortable(users, 'Name'|trans, 'u.name') }}</th>
                         <th>{{ 'Active?'|trans }}</th>
                         <th>{{ 'Role'|trans }}</th>
-                        <th>{{ knp_pagination_sortable(users, 'Country', 'c.name') }}</th>
+                        <th>{{ knp_pagination_sortable(users, 'Country'|trans, 'c.name') }}</th>
                         <th>{{ 'Hospitals'|trans }}</th>
                         <th>{{ 'Actions'|trans }}</th>
                     </tr>
@@ -42,7 +42,7 @@
                                     <i class="text-warning fa fa-times"></i>
                                 {% endif %}
                             </td>
-                            <td>{{ user.roleLabel }}</td>
+                            <td>{{ user.roleLabel|trans }}</td>
                             <td>{{ user.country }}</td>
                             <td>
                                 <ul style="list-style: none;">
