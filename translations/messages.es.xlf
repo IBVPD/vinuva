@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2020-07-14T16:09:48Z" source-language="en" target-language="es" datatype="plaintext" original="not.available">
+  <file date="2020-08-11T19:36:56Z" source-language="en" target-language="es" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
@@ -20,7 +20,7 @@
       </trans-unit>
       <trans-unit id="04de76cb1dd05c0db36ae5fa67b27221de626c85" resname="12-23 months">
         <source>12-23 months</source>
-        <target>12-23 meses</target>
+        <target>12 -  23 meses</target>
       </trans-unit>
       <trans-unit id="5ad701cf3ba043dac3fff8a88c0d6a9dba8396ac" resname="24 - 59 months">
         <source>24 - 59 months</source>
@@ -132,7 +132,7 @@
       </trans-unit>
       <trans-unit id="5b458575321a9cf107423a2407a4e45f2610fc3b" resname="Confirmed 23-59">
         <source>Confirmed 23-59</source>
-        <target>Confirmados 23-59</target>
+        <target>Confirmados 24 - 59</target>
       </trans-unit>
       <trans-unit id="6dd4d9ac49cb3f2ad1a7e87d4848c2cf098cda38" resname="Confirmed Under 12">
         <source>Confirmed Under 12</source>
@@ -140,11 +140,11 @@
       </trans-unit>
       <trans-unit id="37216f97037163e01339f1c190c89ea1b52a4596" resname="Confirmed Under 23">
         <source>Confirmed Under 23</source>
-        <target>Confirmados entre 12 a 23 meses</target>
+        <target>Confirmados entre 12 -  23 meses</target>
       </trans-unit>
       <trans-unit id="65ffe3ed6b148c5c8bd05ce6114e6f659130bb25" resname="Confirmed Under 23-59">
         <source>Confirmed Under 23-59</source>
-        <target>Confirmados entre 23 a 59 meses</target>
+        <target>Confirmados entre 24 - 59 meses</target>
       </trans-unit>
       <trans-unit id="a16b752f52ce0fa84bf9c62046ba4d87fe9791b0" resname="Contaminated">
         <source>Contaminated</source>
@@ -196,11 +196,11 @@
       </trans-unit>
       <trans-unit id="d7da313852b7fcd54f058d868e53ca2bc0b23106" resname="Deaths Under 23">
         <source>Deaths Under 23</source>
-        <target>Muertes entre 12 a 23 meses</target>
+        <target>Muertes entre 12 - 23 meses</target>
       </trans-unit>
       <trans-unit id="a665e8fdc7533ea30fa8324f1ba2232d590f03f7" resname="Deaths Under 59">
         <source>Deaths Under 59</source>
-        <target>Muertes entre 24 a 59 meses</target>
+        <target>Muertes entre 24 - 59 meses</target>
       </trans-unit>
       <trans-unit id="997f59bc99b2a57280179c3ce09ba8ab57cbdf44" resname="Dec">
         <source>Dec</source>
@@ -328,7 +328,7 @@
       </trans-unit>
       <trans-unit id="4e5a2893bdcc7d239c1db72e4c4ffbe4bea73174" resname="Login">
         <source>Login</source>
-        <target>Login</target>
+        <target>Iniciar sesión</target>
       </trans-unit>
       <trans-unit id="c4ba0822462e0c373aadd5360a69f205c2a7d036" resname="Mar">
         <source>Mar</source>
@@ -348,7 +348,7 @@
       </trans-unit>
       <trans-unit id="3f81cc1a668ca2a7d097e66dbc7cfe8270c8fc81" resname="Monthly Collection">
         <source>Monthly Collection</source>
-        <target>Colección mensual</target>
+        <target>Recolección mensual</target>
       </trans-unit>
       <trans-unit id="e96ac2bf45fcc10cb454bcecfd91766f857a6772" resname="Monthly Summary">
         <source>Monthly Summary</source>
@@ -368,7 +368,7 @@
       </trans-unit>
       <trans-unit id="c0c5aa0690f40ef8945c3b9a97254871110bc1cf" resname="New Vaccines Surveillance System - VINUVA">
         <source>New Vaccines Surveillance System - VINUVA</source>
-        <target>Nuevo sistema de vigilancia de vacunas - VINUVA</target>
+        <target>Sistema de Vigilancia de Nuevas Vacunas - Casos agreagados</target>
       </trans-unit>
       <trans-unit id="c9a783d838688750e5013a69e8736b5823a14284" resname="No Information">
         <source>No Information</source>
@@ -380,7 +380,7 @@
       </trans-unit>
       <trans-unit id="5c7c13c0f51dc086ca224412d2b083c0a7afac0a" resname="No. of cases with blood specimen">
         <source>No. of cases with blood specimen</source>
-        <target>No. of cases with blood specimen</target>
+        <target>No.  Casos con muestra de sangre</target>
       </trans-unit>
       <trans-unit id="c3b862f176deb5ce7ae6c12cc04fa2fa5ec7c1c2" resname="No. of child hospitalizations under 5 years">
         <source>No. of child hospitalizations under 5 years</source>
@@ -552,11 +552,11 @@
       </trans-unit>
       <trans-unit id="40561d8b4351dbc5ce85709aa2b537de88add83a" resname="Positive Under 23">
         <source>Positive Under 23</source>
-        <target>Positivos entre 12 a  23 meses</target>
+        <target>Positivos entre 12 -  23 meses</target>
       </trans-unit>
       <trans-unit id="44f923224b0daa4e0e75f9428cd4013087fa946a" resname="Positive Under 59">
         <source>Positive Under 59</source>
-        <target>Positivos entre 24 a 59  meses</target>
+        <target>Positivos entre 24 - 59  meses</target>
       </trans-unit>
       <trans-unit id="965e2df7d9d0c7ac6011a4a36daf698a819e2a5f" resname="Probable %category%">
         <source>Probable %category%</source>
@@ -636,11 +636,11 @@
       </trans-unit>
       <trans-unit id="da4db97e68770a1b649d6d2c7f0611f76e0adaaf" resname="Short Name">
         <source>Short Name</source>
-        <target>Short Name</target>
+        <target>Nombre Corto</target>
       </trans-unit>
       <trans-unit id="8f4483a6b57f3b7a01b7ee5be1640751a7c6d237" resname="Sign me in">
         <source>Sign me in</source>
-        <target>Apuntame dentro</target>
+        <target>Iniciar sesión</target>
       </trans-unit>
       <trans-unit id="8df7f1b361b2af42d36011e00d22c0f9891ec0b0" resname="Spanish">
         <source>Spanish</source>
@@ -692,11 +692,11 @@
       </trans-unit>
       <trans-unit id="fd2ddc9e1540b55a292ce629fbac53fe111b1918" resname="Under 23 months">
         <source>Under 23 months</source>
-        <target>Entre  12 a 23 meses</target>
+        <target>Entre  12 - 23 meses</target>
       </trans-unit>
       <trans-unit id="84159766794b1d6910c52c0adc648fe1676657f1" resname="Under 59 months">
         <source>Under 59 months</source>
-        <target>Entre  24 a 59 meses</target>
+        <target>Entre  24 - 59 meses</target>
       </trans-unit>
       <trans-unit id="fb91e24fa52d8d2b32937bf04d843f730319a902" resname="Update">
         <source>Update</source>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2020-07-14T16:09:02Z" source-language="en" target-language="en" datatype="plaintext" original="not.available">
+  <file date="2020-08-11T19:09:08Z" source-language="en" target-language="en" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
@@ -40,7 +40,7 @@
       </trans-unit>
       <trans-unit id="e0c7064c660e4788b61211a76ccc21b7161555a1" resname="Active Account?">
         <source>Active Account?</source>
-        <target state="new">Active Account?</target>
+        <target>Active Account?</target>
       </trans-unit>
       <trans-unit id="c6b2b26e21b9615365e63788354660b6bdc98179" resname="Active?">
         <source>Active?</source>
@@ -84,7 +84,7 @@
       </trans-unit>
       <trans-unit id="d70f93df5e8f9b55be44fbeee9d203972e3383d4" resname="Address">
         <source>Address</source>
-        <target state="new">Address</target>
+        <target>Address</target>
       </trans-unit>
       <trans-unit id="4e7afebcfbae000b22c7c85e5560f89a2a0280b4" resname="Admin">
         <source>Admin</source>
@@ -124,7 +124,7 @@
       </trans-unit>
       <trans-unit id="adac69379a626c2436948a4ef1792c7d719ef929" resname="Code">
         <source>Code</source>
-        <target state="new">Code</target>
+        <target>Code</target>
       </trans-unit>
       <trans-unit id="e3199d24849eb82131394ea88ac9c22db0dbf732" resname="Collector">
         <source>Collector</source>
@@ -212,7 +212,7 @@
       </trans-unit>
       <trans-unit id="1bf5fe17046dc1630e5f39e4f7d1d7e964a0346e" resname="Disease">
         <source>Disease</source>
-        <target state="new">Disease</target>
+        <target>Disease</target>
       </trans-unit>
       <trans-unit id="5301648dcf6b53cefc9ed52999aaa92d4603cae0" resname="Edit">
         <source>Edit</source>
@@ -248,7 +248,7 @@
       </trans-unit>
       <trans-unit id="59842ed36eeaf314814df3760097dcda492bc1a1" resname="FIPS">
         <source>FIPS</source>
-        <target state="new">FIPS</target>
+        <target>FIPS</target>
       </trans-unit>
       <trans-unit id="dc8415ccfe52505f1d0a74025c76b3c26c88c59d" resname="Feb">
         <source>Feb</source>
@@ -304,7 +304,7 @@
       </trans-unit>
       <trans-unit id="4f325d995b6d028ccc75771b1679537b623521c4" resname="ISO">
         <source>ISO</source>
-        <target state="new">ISO</target>
+        <target>ISO</target>
       </trans-unit>
       <trans-unit id="4558b2fc7bab57edf53e2566b9e69963dbfb39a5" resname="ISO2/FIPS">
         <source>ISO2/FIPS</source>
@@ -324,7 +324,7 @@
       </trans-unit>
       <trans-unit id="67a20347ede9bb94cfa78248599f8a882b5bc1bc" resname="Local Name">
         <source>Local Name</source>
-        <target state="new">Local Name</target>
+        <target>Local Name</target>
       </trans-unit>
       <trans-unit id="4e8131ca3794e49a64203c902c483c04dcebb392" resname="Log Out">
         <source>Log Out</source>
@@ -332,7 +332,7 @@
       </trans-unit>
       <trans-unit id="4e5a2893bdcc7d239c1db72e4c4ffbe4bea73174" resname="Login">
         <source>Login</source>
-        <target state="new">Login</target>
+        <target>Login</target>
       </trans-unit>
       <trans-unit id="c4ba0822462e0c373aadd5360a69f205c2a7d036" resname="Mar">
         <source>Mar</source>
@@ -368,7 +368,7 @@
       </trans-unit>
       <trans-unit id="c0c5aa0690f40ef8945c3b9a97254871110bc1cf" resname="New Vaccines Surveillance System - VINUVA">
         <source>New Vaccines Surveillance System - VINUVA</source>
-        <target>New Vaccines Surveillance System - VINUVA</target>
+        <target>New Vaccines Surveillance System - VINUVA Aggregated</target>
       </trans-unit>
       <trans-unit id="c9a783d838688750e5013a69e8736b5823a14284" resname="No Information">
         <source>No Information</source>
@@ -456,7 +456,7 @@
       </trans-unit>
       <trans-unit id="09ad18733f7cc10964956560a22250fa403c64ac" resname="Notifier Comments">
         <source>Notifier Comments</source>
-        <target state="new">Notifier Comments</target>
+        <target>Notifier Comments</target>
       </trans-unit>
       <trans-unit id="bb9bfefd5391f52be54267e2a938a126661b0ff7" resname="Nov">
         <source>Nov</source>
@@ -472,7 +472,7 @@
       </trans-unit>
       <trans-unit id="6f89b33e44dca8d7583343ae31cc47a6e4b9b33f" resname="Number of deaths">
         <source>Number of deaths</source>
-        <target state="new">Number of deaths</target>
+        <target>Number of deaths</target>
       </trans-unit>
       <trans-unit id="7dfb158b00780bb919dc7de83bda624f80d2db52" resname="Number of suspected pneumonia cases with x-ray and forms">
         <source>Number of suspected pneumonia cases with x-ray and forms</source>
@@ -516,7 +516,7 @@
       </trans-unit>
       <trans-unit id="77064d5265236e0ac252f3fc4a5ba7b274b6a583" resname="Phone">
         <source>Phone</source>
-        <target state="new">Phone</target>
+        <target>Phone</target>
       </trans-unit>
       <trans-unit id="619e0e20aa9fcc629b91c73b82c6da3829ec93ed" resname="Pneumonia">
         <source>Pneumonia</source>
@@ -620,7 +620,7 @@
       </trans-unit>
       <trans-unit id="da4db97e68770a1b649d6d2c7f0611f76e0adaaf" resname="Short Name">
         <source>Short Name</source>
-        <target state="new">Short Name</target>
+        <target>Short Name</target>
       </trans-unit>
       <trans-unit id="8f4483a6b57f3b7a01b7ee5be1640751a7c6d237" resname="Sign me in">
         <source>Sign me in</source>
@@ -676,11 +676,11 @@
       </trans-unit>
       <trans-unit id="fd2ddc9e1540b55a292ce629fbac53fe111b1918" resname="Under 23 months">
         <source>Under 23 months</source>
-        <target>Under 23 months</target>
+        <target>Between 12 - 23 months</target>
       </trans-unit>
       <trans-unit id="84159766794b1d6910c52c0adc648fe1676657f1" resname="Under 59 months">
         <source>Under 59 months</source>
-        <target>Under 59 months</target>
+        <target>Between 24 - 59 months</target>
       </trans-unit>
       <trans-unit id="fb91e24fa52d8d2b32937bf04d843f730319a902" resname="Update">
         <source>Update</source>
@@ -708,7 +708,7 @@
       </trans-unit>
       <trans-unit id="d49b7f1d7ab61da23ca0d74e328924f97f6b506c" resname="Verification Date">
         <source>Verification Date</source>
-        <target state="new">Verification Date</target>
+        <target>Verification Date</target>
       </trans-unit>
       <trans-unit id="aed3b8c6a7c0fbbdbffa59a082415b138a87a6a6" resname="Verified">
         <source>Verified</source>
@@ -724,7 +724,7 @@
       </trans-unit>
       <trans-unit id="e6dca4e82ad3b5aa40354d94f6cf9849135a54fb" resname="Verifier Comments">
         <source>Verifier Comments</source>
-        <target state="new">Verifier Comments</target>
+        <target>Verifier Comments</target>
       </trans-unit>
       <trans-unit id="879e32326c5217968ac8e3a14e4a8a5214957264" resname="Year">
         <source>Year</source>
