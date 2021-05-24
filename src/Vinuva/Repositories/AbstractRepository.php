@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace Paho\Vinuva\Repositories;
 
+use Doctrine\Common\Collections\Collection;
+use Doctrine\DBAL\Statement;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\ORM\UnexpectedResultException;
@@ -136,6 +138,21 @@ abstract class AbstractRepository
             ->groupBy('ctr.id,d.year');
     }
 
+    protected function adjustParameters(QueryBuilder $queryBuilder, Statement $statement) {
+        foreach ($queryBuilder->getParameters() as $position => $parameter) {
+            $value = $parameter->getValue();
+            if ($value instanceof Collection) {
+                $ids = [];
+                foreach($value->getValues() as $entry) {
+                    $ids[] = $entry->getId();
+                }
+
+                $value = implode(',', $ids);
+            }
+
+            $statement->bindValue($position + 1, $value);
+        }
+    }
     abstract public function getSummaryQuery(QueryBuilder $queryBuilder): array;
     abstract public function getByHospitalSummary(QueryBuilder $queryBuilder, array $results): array;
     abstract public function getByCountrySummary(QueryBuilder $queryBuilder, array $results): array;

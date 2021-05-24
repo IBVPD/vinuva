@@ -2,6 +2,7 @@
 
 namespace Paho\Vinuva\Repositories;
 
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\FetchMode;
 use Doctrine\ORM\Query\Parameter;
 use Doctrine\ORM\QueryBuilder;
@@ -49,10 +50,7 @@ class PneumoniaRepository extends AbstractRepository
         [$unusedSelect, $filteredTerms] = explode('FROM', $queryBuilder->getQuery()->getSQL());
         $sql       = "$groupSql FROM ($subStrSelect FROM $filteredTerms)y GROUP BY y.country_id, y.year";
         $statement = $this->entityManager->getConnection()->prepare($sql);
-        /** @var  $parameter Parameter */
-        foreach ($queryBuilder->getParameters() as $position => $parameter) {
-            $statement->bindValue($position + 1, $parameter->getValue());
-        }
+        $this->adjustParameters($queryBuilder, $statement);
 
         if ($statement->execute()) {
             $results = [];
@@ -111,12 +109,9 @@ class PneumoniaRepository extends AbstractRepository
 
         $sql       = "$sqlSelect FROM $filteredTerms";
         $statement = $this->entityManager->getConnection()->prepare($sql);
-        /** @var  $parameter Parameter */
-        foreach ($queryBuilder->getParameters() as $position => $parameter) {
-            $statement->bindValue($position + 1, $parameter->getValue());
-        }
+        $this->adjustParameters($queryBuilder, $statement);
 
-        if ($statement->execute()) {
+        if ($statement->executeStatement()) {
             while ($row = $statement->fetch(FetchMode::ASSOCIATIVE)) {
                 if (!isset($results[$row['cId']])) {
                     $results[$row['cId']] = new CountryCollector(new Country((int)$row['cId'], $row['cName']));
@@ -165,12 +160,9 @@ class PneumoniaRepository extends AbstractRepository
 
         $sql       = "$sqlSelect FROM $filteredTerms";
         $statement = $this->entityManager->getConnection()->prepare($sql);
-        /** @var  $parameter Parameter */
-        foreach ($queryBuilder->getParameters() as $position => $parameter) {
-            $statement->bindValue($position + 1, $parameter->getValue());
-        }
+        $this->adjustParameters($queryBuilder, $statement);
 
-        if ($statement->execute()) {
+        if ($statement->executeStatement()) {
             $class = substr(strrchr($this->class, '\\'), 1);
             while ($row = $statement->fetch(FetchMode::ASSOCIATIVE)) {
                 $probable            = new Probable($row['p12'] ? (int)$row['p12'] : null, $row['p23'] ? (int)$row['p23'] : null, $row['p59'] ? (int)$row['p59'] : null, $row['ptotal'] ? (int)$row['ptotal'] : null);

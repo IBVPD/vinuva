@@ -32,14 +32,19 @@ class HospitalFilterType extends AbstractType
         $hospitals = $user instanceof User ? $user->getHospitals() : [];
 
         $resolver->setDefaults([
-            'class' => Hospital::class,
-            'choice_attr' => static function ($choiceValue) {
+            'class'         => Hospital::class,
+            'attr'          => ['size' => 15],
+            'choice_attr'   => static function ($choiceValue) {
                 return ['data-country' => $choiceValue->getCountry()->getId()];
             },
             'query_builder' => static function (EntityRepository $repository) use ($user, $hospitals) {
                 if ($user instanceof User) {
                     if (count($hospitals) === 1) {
-                        return $repository->createQueryBuilder('h')->where('h.id = :hId')->setParameter('hId', $hospitals->first()->getId());
+                        return $repository->createQueryBuilder('h')
+                            ->addSelect('c')
+                            ->innerJoin('h.country', 'c')
+                            ->where('h.id = :hId')
+                            ->setParameter('hId', $hospitals->first()->getId());
                     }
 
                     if (count($hospitals) > 1) {
@@ -48,20 +53,39 @@ class HospitalFilterType extends AbstractType
                             $ids[] = $hospital->getId();
                         }
 
-                        return $repository->createQueryBuilder('h')->where('h.id IN (:ids)')->setParameter('ids', $ids)->orderBy('h.name');
+                        return $repository->createQueryBuilder('h')
+                            ->addSelect('c')
+                            ->innerJoin('h.country', 'c')
+                            ->where('h.id IN (:ids)')
+                            ->setParameter('ids', $ids)
+                            ->orderBy('c.name,h.name');
                     }
 
                     if ($user->getCountry()) {
-                        return $repository->createQueryBuilder('h')->where('h.country = :country')->setParameter('country', $user->getCountry())->orderBy('h.name');
+                        return $repository->createQueryBuilder('h')
+                            ->addSelect('c')
+                            ->innerJoin('h.country', 'c')
+                            ->where('h.country = :country')
+                            ->setParameter('country', $user->getCountry())
+                            ->orderBy('c.name,h.name');
                     }
                 }
 
-                return $repository->createQueryBuilder('h')->orderBy('h.name');
+                return $repository->createQueryBuilder('h')
+                    ->addSelect('c')
+                    ->innerJoin('h.country', 'c')
+                    ->orderBy('c.name,h.name');
             },
-            'apply_filter' => static function (ORMQuery $filterQuery, $field, $values) {
+            'group_by'      => static function (?Hospital $choice, $key, $value) {
+                if ($choice) {
+                    return $choice->getCountry()->getName();
+                }
+            },
+            'multiple'      => true,
+            'apply_filter'  => static function (ORMQuery $filterQuery, $field, $values) {
                 if (!empty($values['value'])) {
                     $qb = $filterQuery->getQueryBuilder();
-                    $qb->andWhere($values['alias'] . '.hospital = :filterHospital')->setParameter('filterHospital', $values['value']->getId());
+                    $qb->andWhere($values['alias'] . '.hospital IN (:filterHospital)')->setParameter('filterHospital', $values['value']);
                 }
             },
         ]);

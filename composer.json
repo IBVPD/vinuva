@@ -12,7 +12,7 @@
         "jms/translation-bundle": "^1.4",
         "knplabs/knp-menu-bundle": "^2.2",
         "league/html-to-markdown": "^4.8",
-        "ns/color-admin-bundle": "2.0.*",
+        "ns/color-admin-bundle": "^2.0",
         "ns/filtered-pagination-bundle": "^3.0",
         "ns/flash-bundle": "^1.0",
         "ns/token-bundle": "^1.0",
@@ -50,6 +50,9 @@
         "symfony/web-server-bundle": "^4.2"
     },
     "config": {
+        "platform": {
+            "php": "7.3.37"
+        },
         "preferred-install": {
             "*": "dist"
         },
@@ -77,7 +80,7 @@
     "scripts": {
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
-            "assets:install %PUBLIC_DIR%": "symfony-cmd"
+            "assets:install --symlink %PUBLIC_DIR%": "symfony-cmd"
         },
         "post-install-cmd": [
             "@auto-scripts"

@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace Paho\Vinuva\Repositories;
 
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\FetchMode;
 use Doctrine\ORM\Query\Parameter;
 use Doctrine\ORM\QueryBuilder;
@@ -52,12 +53,9 @@ class RotavirusRepository extends AbstractRepository
         [$unusedSelect, $filteredTerms] = explode('FROM', $queryBuilder->getQuery()->getSQL());
         $sql       = "$groupSql FROM ($subStrSelect FROM $filteredTerms)y GROUP BY y.country_id, y.year";
         $statement = $this->entityManager->getConnection()->prepare($sql);
-        /** @var  $parameter Parameter */
-        foreach ($queryBuilder->getParameters() as $position => $parameter) {
-            $statement->bindValue($position + 1, $parameter->getValue());
-        }
+        $this->adjustParameters($queryBuilder, $statement);
 
-        if ($statement->execute()) {
+        if ($statement->executeStatement()) {
             $results = [];
             while ($row = $statement->fetch(FetchMode::ASSOCIATIVE)) {
                 $probable = new SummaryProbable($row['p12'], $row['p23'], $row['p59'], $row['ptotal']);
@@ -118,12 +116,9 @@ class RotavirusRepository extends AbstractRepository
 
         $sql       = "$sqlSelect FROM $filteredTerms";
         $statement = $this->entityManager->getConnection()->prepare($sql);
-        /** @var  $parameter Parameter */
-        foreach ($queryBuilder->getParameters() as $position => $parameter) {
-            $statement->bindValue($position + 1, $parameter->getValue());
-        }
+        $this->adjustParameters($queryBuilder, $statement);
 
-        if ($statement->execute()) {
+        if ($statement->executeStatement()) {
             while ($row = $statement->fetch(FetchMode::ASSOCIATIVE)) {
                 if (!isset($results[$row['cId']])) {
                     $results[$row['cId']] = new CountryCollector(new Country((int)$row['cId'], $row['cName']));
@@ -203,12 +198,9 @@ class RotavirusRepository extends AbstractRepository
 
         $sql       = "$sqlSelect FROM $filteredTerms";
         $statement = $this->entityManager->getConnection()->prepare($sql);
-        /** @var  $parameter Parameter */
-        foreach ($queryBuilder->getParameters() as $position => $parameter) {
-            $statement->bindValue($position + 1, $parameter->getValue());
-        }
+        $this->adjustParameters($queryBuilder, $statement);
 
-        if ($statement->execute()) {
+        if ($statement->executeStatement()) {
             $class = substr(strrchr($this->class, '\\'), 1);
             while ($row = $statement->fetch(FetchMode::ASSOCIATIVE)) {
                 $withForm = new Probable($row['wfs12'] ? (int)$row['wfs12'] : null, $row['wfs23'] ? (int)$row['wfs23'] : null, $row['wfs59'] ? (int)$row['wfs59'] : null, $row['wfstotal'] ? (int)$row['wfstotal'] : null);
