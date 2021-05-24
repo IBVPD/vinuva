@@ -8,10 +8,11 @@
 {% block sidebar_title %}{{ 'Navigation'|trans }}{% endblock %}
 {% block header_search %}{% endblock %}
 {% block header_message_menu %}
+    {% set locale = app.request.locale %}
     <li class="dropdown navbar-language">
         <a href="#" class="dropdown-toggle pr-1 pl-1 pr-sm-3 pl-sm-3" data-toggle="dropdown" aria-expanded="false">
-            <span class="flag-icon flag-icon-{{app.request.locale}}" title="{{app.request.locale}}"></span>
-            <span class="name d-none d-sm-inline">{{app.request.locale|upper}}</span> <b class="caret"></b>
+            <span class="flag-icon flag-icon-{{ locale == 'pt' ? 'br':locale}}" title="{{ locale }}"></span>
+            <span class="name d-none d-sm-inline">{{ locale|upper }}</span> <b class="caret"></b>
         </a>
         <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 50px, 0px);">
             <a href="{{ path('homepage',{'_locale': 'en'}) }}" class="dropdown-item"><span class="flag-icon flag-icon-us" title="en"></span> {{'English'|trans}}</a>
