@@ -14,7 +14,7 @@
     symfony_project_console_command: bin/console
     symfony_project_config_dir: config
     symfony_project_console_opts: '--no-debug'
-    symfony_project_keep_releases: 15
+    symfony_project_keep_releases: 5
 
     symfony_project_branch: master
     symfony_project_php_path: /usr/bin/php73
