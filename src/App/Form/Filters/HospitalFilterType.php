@@ -83,7 +83,7 @@ class HospitalFilterType extends AbstractType
             },
             'multiple'      => true,
             'apply_filter'  => static function (ORMQuery $filterQuery, $field, $values) {
-                if (!empty($values['value'])) {
+                if (!empty($values['value']) && count($values['value']) > 0) {
                     $qb = $filterQuery->getQueryBuilder();
                     $qb->andWhere($values['alias'] . '.hospital IN (:filterHospital)')->setParameter('filterHospital', $values['value']);
                 }

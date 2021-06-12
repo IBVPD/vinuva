@@ -43,6 +43,12 @@ class Hospital
      */
     private $country;
 
+    /**
+     * @var bool
+     * @ORM\Column(name="active", type="boolean")
+     */
+    private $active = true;
+
     public static function createDTO(int $id, string $name): Hospital
     {
         $obj     = new self($name, new Country('N/A', 'N/A', new Region('N/A')), 'short', 'local');
@@ -115,5 +121,15 @@ class Hospital
     public function setCountry(Country $country): void
     {
         $this->country = $country;
+    }
+
+    public function isActive(): bool
+    {
+        return $this->active;
+    }
+
+    public function setActive(bool $active): void
+    {
+        $this->active = $active;
     }
 }

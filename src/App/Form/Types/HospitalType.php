@@ -36,7 +36,7 @@ class HospitalType extends AbstractType
             'query_builder' => static function (EntityRepository $repository) use ($user, $hospitals) {
                 if ($user instanceof User) {
                     if (count($hospitals) === 1) {
-                        return $repository->createQueryBuilder('h')->where('h.id = :hId')->setParameter('hId', $hospitals->first()->getId());
+                        return $repository->createQueryBuilder('h')->where('h.id = :hId AND h.active = true')->setParameter('hId', $hospitals->first()->getId());
                     }
 
                     if (count($hospitals) > 1) {
@@ -45,11 +45,11 @@ class HospitalType extends AbstractType
                             $ids[] = $hospital->getId();
                         }
 
-                        return $repository->createQueryBuilder('h')->where('h.id IN (:ids)')->setParameter('ids', $ids)->orderBy('h.name');
+                        return $repository->createQueryBuilder('h')->where('h.id IN (:ids) AND h.active = true')->setParameter('ids', $ids)->orderBy('h.name');
                     }
 
                     if ($user->getCountry()) {
-                        return $repository->createQueryBuilder('h')->where('h.country = :country')->setParameter('country', $user->getCountry())->orderBy('h.name');
+                        return $repository->createQueryBuilder('h')->where('h.country = :country AND h.active = true')->setParameter('country', $user->getCountry())->orderBy('h.name');
                     }
                 }
 

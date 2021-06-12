@@ -5,6 +5,7 @@ namespace App\Form\Admin\Hospital;
 
 use Doctrine\ORM\EntityRepository;
 use Lexik\Bundle\FormFilterBundle\Filter\FilterOperands;
+use Lexik\Bundle\FormFilterBundle\Filter\Form\Type\BooleanFilterType;
 use Lexik\Bundle\FormFilterBundle\Filter\Form\Type\EntityFilterType;
 use Lexik\Bundle\FormFilterBundle\Filter\Form\Type\TextFilterType;
 use Paho\Vinuva\Models\Country;
@@ -19,6 +20,7 @@ class FilterType extends AbstractType
             ->add('name', TextFilterType::class, ['condition_pattern' => FilterOperands::STRING_CONTAINS])
             ->add('short', TextFilterType::class, ['condition_pattern' => FilterOperands::STRING_CONTAINS])
             ->add('local', TextFilterType::class, ['condition_pattern' => FilterOperands::STRING_CONTAINS])
+            ->add('active', BooleanFilterType::class)
             ->add('country', EntityFilterType::class, [
                 'placeholder' => 'Select...',
                 'class' => Country::class,

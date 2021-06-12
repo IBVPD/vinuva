@@ -6,6 +6,7 @@ namespace App\Form\Admin\Hospital;
 use App\Form\Types\CountryType;
 use Paho\Vinuva\Models\Hospital;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -30,6 +31,10 @@ class EditType extends AbstractType
                 'required' => true,
                 'label' => 'Local Name',
                 'constraints' => [new NotBlank()]
+            ])
+            ->add('active', CheckboxType::class, [
+                'required' => false,
+                'label' => 'Active',
             ])
             ->add('country', CountryType::class, ['required' => true]);
     }

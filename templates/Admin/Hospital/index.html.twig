@@ -24,6 +24,7 @@
                         <th>{{ knp_pagination_sortable(hospitals, 'Name'|trans, 'r.name') }}</th>
                         <th>{{ 'Short / Local'|trans }}</th>
                         <th>{{ knp_pagination_sortable(hospitals, 'Country'|trans, 'c.name') }}</th>
+                        <th>Active</th>
                         <th>{{ 'Actions'|trans }}</th>
                     </tr>
                     {% for hospital in hospitals %}
@@ -31,6 +32,11 @@
                             <td>{{ hospital.name }}</td>
                             <td>{{ hospital.short }} / {{ hospital.local }}</td>
                             <td>{{ hospital.country }}</td>
+                            <td>{% if hospital.active %}
+                                    <span class="green"><i class="fa fa-check"></i></span>
+                                {% else %}
+                                    <span class="grey"><i class="fa fa-times"></i></span>
+                                {% endif %}</td>
                             <td>
                                 <a class="btn btn-sm btn-primary" href="{{ path('adminHospitalEdit', { hospitalId: hospital.id }) }}">{{ 'Edit'|trans }}</a>
                             </td>
