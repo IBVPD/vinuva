@@ -32,9 +32,9 @@ class HospitalFilterType extends AbstractType
         $hospitals = $user instanceof User ? $user->getHospitals() : [];
 
         $resolver->setDefaults([
-            'class'         => Hospital::class,
-            'attr'          => ['size' => 15],
-            'choice_attr'   => static function ($choiceValue) {
+            'class'       => Hospital::class,
+            'attr'        => ['size' => 15],
+            'choice_attr' => static function ($choiceValue) {
                 return ['data-country' => $choiceValue->getCountry()->getId()];
             },
             'query_builder' => static function (EntityRepository $repository) use ($user, $hospitals) {
@@ -76,13 +76,15 @@ class HospitalFilterType extends AbstractType
                     ->innerJoin('h.country', 'c')
                     ->orderBy('c.name,h.name');
             },
-            'group_by'      => static function (?Hospital $choice, $key, $value) {
+            'group_by' => static function (?Hospital $choice, $key, $value) {
                 if ($choice) {
                     return $choice->getCountry()->getName();
                 }
+
+                return null;
             },
-            'multiple'      => true,
-            'apply_filter'  => static function (ORMQuery $filterQuery, $field, $values) {
+            'multiple'     => true,
+            'apply_filter' => static function (ORMQuery $filterQuery, $field, $values) {
                 if (!empty($values['value']) && count($values['value']) > 0) {
                     $qb = $filterQuery->getQueryBuilder();
                     $qb->andWhere($values['alias'] . '.hospital IN (:filterHospital)')->setParameter('filterHospital', $values['value']);

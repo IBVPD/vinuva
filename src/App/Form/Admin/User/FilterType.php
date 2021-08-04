@@ -29,14 +29,14 @@ class FilterType extends AbstractType
                 'choices' => ['Admin' => User::ROLE_ADMIN, 'Verifier' => User::ROLE_VERIFIER, 'Collector' => User::ROLE_COLLECTOR, 'Reader' => User::ROLE_READER],
             ])
             ->add('country', CountryFilterType::class, ['label' => 'Country'])
-            ->add('hospital', HospitalFilterType::class, [
+            ->add('hospitals', HospitalFilterType::class, [
                 'label' => 'Hospital',
                 'apply_filter' => static function (ORMQuery $filterQuery, $field, $values) {
                     if (!empty($values['value'])) {
                         $qb = $filterQuery->getQueryBuilder();
                         $qb
                             ->innerJoin($values['alias'].'.hospitals','hsp')
-                            ->andWhere('hsp.id = :filterHospitalId')->setParameter('filterHospitalId', $values['value']->getId());
+                            ->andWhere('hsp.id IN (:filterHospital)')->setParameter('filterHospital', $values['value']);
                     }
                 },
             ]);
