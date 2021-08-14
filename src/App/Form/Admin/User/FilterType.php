@@ -32,7 +32,7 @@ class FilterType extends AbstractType
             ->add('hospitals', HospitalFilterType::class, [
                 'label' => 'Hospital',
                 'apply_filter' => static function (ORMQuery $filterQuery, $field, $values) {
-                    if (!empty($values['value'])) {
+                    if (!empty($values['value']) && count($values['value']) > 0) {
                         $qb = $filterQuery->getQueryBuilder();
                         $qb
                             ->innerJoin($values['alias'].'.hospitals','hsp')

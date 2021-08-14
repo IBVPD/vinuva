@@ -26,17 +26,17 @@ class User implements UserInterface, TranslationContainerInterface
         ROLE_READER = 4;
 
     public static $roleLabels = [
-        self::ROLE_ADMIN => 'Administrator',
-        self::ROLE_VERIFIER => 'Verifier',
+        self::ROLE_ADMIN     => 'Administrator',
+        self::ROLE_VERIFIER  => 'Verifier',
         self::ROLE_COLLECTOR => 'Collector',
-        self::ROLE_READER => 'Reader',
+        self::ROLE_READER    => 'Reader',
     ];
 
     public static $roles = [
-        self::ROLE_ADMIN => 'ROLE_ADMIN',
-        self::ROLE_VERIFIER => 'ROLE_VERIFIER',
+        self::ROLE_ADMIN     => 'ROLE_ADMIN',
+        self::ROLE_VERIFIER  => 'ROLE_VERIFIER',
         self::ROLE_COLLECTOR => 'ROLE_COLLECTOR',
-        self::ROLE_READER => 'ROLE_READER',
+        self::ROLE_READER    => 'ROLE_READER',
     ];
 
     /**
@@ -130,12 +130,12 @@ class User implements UserInterface, TranslationContainerInterface
         }
 
         $this->hospitals = new ArrayCollection();
-        $this->active = true;
-        $this->name = $name;
-        $this->login = $login;
-        $this->email = $email;
-        $this->role = $role;
-        $this->salt = hash('sha256', sprintf('{%s}(%s)-%s', $name, $email, uniqid('vinuva-user', true)));
+        $this->active    = true;
+        $this->name      = $name;
+        $this->login     = $login;
+        $this->email     = $email;
+        $this->role      = $role;
+        $this->salt      = hash('sha256', sprintf('{%s}(%s)-%s', $name, $email, uniqid('vinuva-user', true)));
     }
 
     public static function createAdmin(string $name, string $login, string $email): self
@@ -149,8 +149,8 @@ class User implements UserInterface, TranslationContainerInterface
             static::verifyHospitals($hospitals);
         }
 
-        $obj = new self($name, $login, $email, self::ROLE_VERIFIER);
-        $obj->country = $country;
+        $obj            = new self($name, $login, $email, self::ROLE_VERIFIER);
+        $obj->country   = $country;
         $obj->hospitals = new ArrayCollection($hospitals ?? []);
 
         return $obj;
@@ -162,9 +162,13 @@ class User implements UserInterface, TranslationContainerInterface
             static::verifyHospitals($hospitals);
         }
 
-        $obj = new self($name, $login, $email, self::ROLE_COLLECTOR);
+        $obj          = new self($name, $login, $email, self::ROLE_COLLECTOR);
         $obj->country = $country;
-        $obj->hospitals = new ArrayCollection($hospitals ? iterator_to_array($hospitals) : []);
+        if ($hospitals instanceof \Iterator) {
+            $hospitals = iterator_to_array($hospitals);
+        }
+
+        $obj->hospitals = new ArrayCollection($hospitals);
 
         return $obj;
     }
@@ -175,8 +179,8 @@ class User implements UserInterface, TranslationContainerInterface
             static::verifyHospitals($hospitals);
         }
 
-        $obj = new self($name, $login, $email, self::ROLE_READER);
-        $obj->country = $country;
+        $obj            = new self($name, $login, $email, self::ROLE_READER);
+        $obj->country   = $country;
         $obj->hospitals = new ArrayCollection($hospitals ?? []);
 
         return $obj;
@@ -366,7 +370,7 @@ class User implements UserInterface, TranslationContainerInterface
     public static function getTranslationMessages(): array
     {
         $results = [];
-        foreach(static::$roleLabels as $index => $label) {
+        foreach (static::$roleLabels as $index => $label) {
             $results[] = new Message($label, 'messages');
         }
 
